@@ -21,7 +21,7 @@ Description: "Profil für zahnärztliche Behandlungen in deutschen Praxen. Leist
 
 // Subject, performer
 * subject 1..1 MS
-* subject only Reference(Patient)
+* subject only Reference(KBV_PR_FOR_Patient)
 * performer MS
 
 // Timing
