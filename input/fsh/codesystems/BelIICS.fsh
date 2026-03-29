@@ -132,3 +132,68 @@ Description: "Leistungsbeschreibung für zahntechnische Leistungen bei GKV-Versi
 * #207 "Gesichtsbogen-Übertragung"
 * #208 "Bisssplint"
 * #209 "Okklusionsanalyse"
+
+// Erweiterte Kronen (K021-K030)
+* #K021 "Metallkeramikkrone (Vollverblendung)"
+* #K022 "Zirkonkrone (vollständig)"
+* #K023 "Presskeramikkrone (Lithiumdisilikat)"
+* #K024 "Krone mit Stiftverankerung"
+* #K025 "Krone auf Implantat-Abutment"
+* #K026 "Teleskopkrone (Primärkrone)"
+* #K027 "Teleskopkrone (Sekundärkrone)"
+* #K028 "Galvanokrone"
+* #K029 "Krone mit Mesostruktur"
+* #K030 "Zirkon-Krone mit Verblendung"
+
+// Erweiterte Brücken (B021-B027)
+* #B021 "Brückengerüst (Vollguß)"
+* #B022 "Brückengerüst (Metallkeramik)"
+* #B023 "Brückengerüst (Zirkon)"
+* #B024 "Brückenglied mit Verblendung (Keramik)"
+* #B025 "Brückenglied (Vollkeramik)"
+* #B026 "Klebebrücke (Maryland)"
+* #B027 "Anhänger (Pontic)"
+
+// Erweiterte Inlays (I021-I027)
+* #I021 "Inlay (Goldguß, 3-flächig)"
+* #I022 "Inlay (Goldguß, > 3-flächig)"
+* #I023 "Onlay (Goldguß)"
+* #I024 "Overlay (Goldguß)"
+* #I025 "Inlay (Vollkeramik, Presskeramik)"
+* #I026 "Inlay (Vollkeramik, CAD/CAM)"
+* #I027 "Onlay (Vollkeramik)"
+
+// Erweiterte Prothesen (P021-P030)
+* #P021 "Oberkiefertotalprothese"
+* #P022 "Unterkiefertotalprothese"
+* #P023 "Modellgussprothese OK"
+* #P024 "Modellgussprothese UK"
+* #P025 "Prothese mit Klammern (Komb)"
+* #P026 "Prothese mit Teleskopen"
+* #P027 "Prothese mit Stegen"
+* #P028 "Totalprothese auf Implantaten"
+* #P029 "Teilprothese ohne Metallbasis"
+* #P030 "Kunststoffbasisprothese"
+
+// Erweiterte Implantatprothetik (IK021-IK026)
+* #IK021 "Implantatkrone (vollkeramisch)"
+* #IK022 "Implantatkrone (metallkeramisch)"
+* #IK023 "Implantat-Abutment (individuell)"
+* #IK024 "Implantat-Abutment (CAD/CAM)"
+* #IK025 "Implantatbrücke (3-gliedrig)"
+* #IK026 "Implantatprothetik Steg"
+
+// Erweiterte Schienentherapie (S021-S026)
+* #S021 "Okklusionsschiene (hart)"
+* #S022 "Knirscherschiene (weich)"
+* #S023 "Repositionierungsschiene"
+* #S024 "Distraktionsschiene"
+* #S025 "Sportschutzschiene"
+* #S026 "Aufbissschiene (Nacht)"
+
+// Erweiterte Reparaturen (R021-R025)
+* #R021 "Reparatur Prothesenbase"
+* #R022 "Prothesenzahn einarbeiten"
+* #R023 "Klammer reparieren"
+* #R024 "Bruchreparatur Krone"
+* #R025 "Abformung Reparatur"

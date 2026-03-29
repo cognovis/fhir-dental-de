@@ -10,7 +10,7 @@ Description: "Kassenzahnärztliche Vereinigungen (KZV) in Deutschland nach Bunde
 * ^publisher = "cognovis GmbH (Vorschlag)"
 
 * #01 "KZV Baden-Württemberg"
-* #02 "KZBV Bayern"
+* #02 "KZV Bayern"
 * #03 "KZV Berlin"
 * #04 "KZV Brandenburg"
 * #05 "KZV Bremen"
