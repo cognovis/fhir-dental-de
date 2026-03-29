@@ -9,8 +9,8 @@ Description: "Befundklassen für den BEMA-Zahnbefund (Zahnschema)."
 * ^content = #complete
 * ^publisher = "cognovis GmbH"
 
-* #c "Konservierend (erhaltungswürdig)"
-* #k "Krankenversicherungsrechtlich"
+* #c "Erhaltungswürdig (konservierende Behandlung)"
+* #k "Krone (überkront)"
 * #f "Fehlend/nicht vorhanden"
-* #e "Extrahiert/entfernt"
+* #e "Zu extrahieren (extraktionswürdig)"
 * #b "Brückenglied"
