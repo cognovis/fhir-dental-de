@@ -1,0 +1,45 @@
+id: de.cognovis.fhir.dental
+canonical: https://fhir.cognovis.de/dental
+name: GermanDentalProfiles
+title: German Dental FHIR Profiles (R4)
+description: >-
+  FHIR R4 profiles for German dental practice — procedures (BEMA/GOZ),
+  conditions (ICD-10-GM), findings (Zahnschema/FDI), and communication.
+  Built on German base profiles (de.basisprofil.r4, KBV).
+status: draft
+version: 0.1.0
+fhirVersion: 4.0.1
+copyrightYear: 2026+
+releaseLabel: ci-build
+license: CC-BY-4.0
+publisher:
+  name: cognovis GmbH
+  url: https://www.cognovis.de
+  email: info@cognovis.de
+jurisdiction: urn:iso:std:iso:3166#DE "Germany"
+
+dependencies:
+  de.basisprofil.r4: 1.5.0
+  # kbv.ita.for: 1.3.1              # KBV Patient/Practitioner (ZANR) — uncomment when profiles reference KBV types
+  # de.gematik.fhir.atf: 1.4.1      # ATF MessageHeader for KIM/TIM transport — uncomment when needed
+
+pages:
+  index.md:
+    title: Home
+  profiles.md:
+    title: Profiles
+  codesystems.md:
+    title: Code Systems
+  valuesets.md:
+    title: Value Sets
+  usecases.md:
+    title: Use Cases
+
+menu:
+  Home: index.html
+  Profiles: profiles.html
+  Terminology:
+    Code Systems: codesystems.html
+    Value Sets: valuesets.html
+  Use Cases: usecases.html
+  Artifacts: artifacts.html
