@@ -1,22 +1,26 @@
+// Note: Ideally Parent would be KBV_PR_Base_Condition_Diagnosis, but kbv.basis#1.7.0
+// has null min/max values in its snapshot (known issue) that break the IG Publisher's
+// snapshot generation. Using Condition as parent with KBV-compatible constraints instead.
+// Re-evaluate when kbv.basis publishes a fixed snapshot.
 Profile: DentalConditionDE
-Parent: KBV_PR_Base_Condition_Diagnosis
+Parent: Condition
 Id: de-mira-dental-condition
 Title: "Zahnärztliche Diagnose (DE)"
-Description: "Profil für zahnärztliche Diagnosen und Befunde. Nutzt ICD-10-GM und FDI-Zahnschema. Orientiert sich am HL7 Dental Data Exchange IG DentalCondition."
+Description: "Profil für zahnärztliche Diagnosen und Befunde. Nutzt ICD-10-GM und FDI-Zahnschema. Orientiert sich am HL7 Dental Data Exchange IG DentalCondition. Kompatibel mit KBV_PR_Base_Condition_Diagnosis."
 * ^status = #draft
 * ^publisher = "cognovis GmbH"
 
 // Category: dental (zusätzlich zu encounter-diagnosis etc.)
+* category 1..* MS
 * category ^slicing.discriminator.type = #pattern
 * category ^slicing.discriminator.path = "$this"
 * category ^slicing.rules = #open
 * category contains dental 1..1 MS
 * category[dental] = DentalCategoryCS#dental "Dental"
 
-// Code: ICD-10-GM wird über den geerbten KBV-Slice bereitgestellt (KBV_PR_Base_Condition_Diagnosis
-// definiert bereits Slices für ICD-10-GM, Alpha-ID, SNOMED CT und Orphanet auf code.coding).
-// Ein top-level binding auf code würde mit dem KBV-Slicing-Modell kollidieren.
+// Code: ICD-10-GM binding (extensible to allow SNOMED CT etc.)
 * code 1..1 MS
+* code from http://fhir.de/ValueSet/bfarm/icd-10-gm (extensible)
 
 // Subject
 * subject 1..1 MS

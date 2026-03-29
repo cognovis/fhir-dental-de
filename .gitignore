@@ -2,8 +2,11 @@ node_modules/
 output/
 fsh-generated/
 temp/
+template/
 *.tgz
 .DS_Store
+input-cache/
+txCache/
 
 # Beads / Dolt files (added by bd init)
 .dolt/
