@@ -1,8 +1,6 @@
 // Example: OPG-Aufnahme (Panoramaschichtaufnahme)
 // SWS 2.0 Satzart 12 — Röntgendiagnostik
 
-Alias: $fdi    = http://terminology.hl7.org/CodeSystem/ex-tooth
-Alias: $sct    = http://snomed.info/sct
 Alias: $dicom  = http://dicom.nema.org/resources/ontology/DCM
 
 Instance: ExampleDentalImagingStudy

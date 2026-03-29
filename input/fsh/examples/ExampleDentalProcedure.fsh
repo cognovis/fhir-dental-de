@@ -2,7 +2,6 @@
 // SWS 2.0 Satzart 5 — Zahnärztliche Behandlung
 
 Alias: $fdi   = http://terminology.hl7.org/CodeSystem/ex-tooth
-Alias: $sct   = http://snomed.info/sct
 
 Instance: ExampleDentalProcedure
 InstanceOf: DentalProcedureDE
