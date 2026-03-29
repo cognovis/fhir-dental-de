@@ -16,7 +16,7 @@ Description: "Profil für zahnärztliche Kommunikation: Anweisungen, Aufklärung
 
 // Subject
 * subject MS
-* subject only Reference(Patient)
+* subject only Reference(KBV_PR_FOR_Patient)
 
 // Sender/Recipient
 * sender MS
