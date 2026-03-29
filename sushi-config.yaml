@@ -37,6 +37,8 @@ pages:
     title: Use Cases
   sws-mapping.md:
     title: SWS 2.0 Mapping
+  international-interoperability.md:
+    title: International Interoperability
 
 menu:
   Home: index.html
@@ -46,4 +48,5 @@ menu:
     Value Sets: valuesets.html
   Use Cases: usecases.html
   SWS 2.0 Mapping: sws-mapping.html
+  International Interoperability: international-interoperability.html
   Artifacts: artifacts.html
