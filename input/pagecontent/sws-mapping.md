@@ -591,7 +591,8 @@ All custom extensions for this IG use the canonical namespace `https://fhir.cogn
 
 | Extension (suffix) | ValueType | Purpose | Extends |
 |--------------------|-----------|---------|---------|
-| `par-stadium` | `code` (A\|B\|C) | PAR stage per BSP classification 2018 | `Condition` |
+| `par-stadium` | `code` (I\|II\|III\|IV) | PAR stage per BSP classification 2018 | `Condition` |
+| `par-grad` | `code` (A\|B\|C) | PAR grade per BSP classification 2018 | `Condition` |
 | `par-upt-intervall` | `integer` | UPT recall interval in months | `CarePlan` |
 
 ### Lab Extensions (P2)
