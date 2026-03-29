@@ -132,3 +132,68 @@ Description: "Leistungsbeschreibung für zahntechnische Leistungen bei GKV-Versi
 * #207 ""
 * #208 ""
 * #209 ""
+
+// Erweiterte Kronen (K021-K030)
+* #K021 ""
+* #K022 ""
+* #K023 ""
+* #K024 ""
+* #K025 ""
+* #K026 ""
+* #K027 ""
+* #K028 ""
+* #K029 ""
+* #K030 ""
+
+// Erweiterte Brücken (B021-B027)
+* #B021 ""
+* #B022 ""
+* #B023 ""
+* #B024 ""
+* #B025 ""
+* #B026 ""
+* #B027 ""
+
+// Erweiterte Inlays (I021-I027)
+* #I021 ""
+* #I022 ""
+* #I023 ""
+* #I024 ""
+* #I025 ""
+* #I026 ""
+* #I027 ""
+
+// Erweiterte Prothesen (P021-P030)
+* #P021 ""
+* #P022 ""
+* #P023 ""
+* #P024 ""
+* #P025 ""
+* #P026 ""
+* #P027 ""
+* #P028 ""
+* #P029 ""
+* #P030 ""
+
+// Erweiterte Implantatprothetik (IK021-IK026)
+* #IK021 ""
+* #IK022 ""
+* #IK023 ""
+* #IK024 ""
+* #IK025 ""
+* #IK026 ""
+
+// Erweiterte Schienentherapie (S021-S026)
+* #S021 ""
+* #S022 ""
+* #S023 ""
+* #S024 ""
+* #S025 ""
+* #S026 ""
+
+// Erweiterte Reparaturen (R021-R025)
+* #R021 ""
+* #R022 ""
+* #R023 ""
+* #R024 ""
+* #R025 ""

@@ -105,3 +105,30 @@ Description: "Auswahl der für Zahnärzte relevanten GOÄ-Positionen, insbesonde
 * #270 "Infusion intravenös bis 30 Min"
 * #271 "Infusion intravenös über 30 Min"
 * #272 "Infusion intravenös über 1 Stunde"
+
+// Neurektomie / Gelenkpunktionen
+* #435 "Neurektomie"
+* #436 "Spülung Gelenk"
+* #439 "Injektion Gelenk"
+* #440 "Punktion Gelenk"
+* #441 "Aspiration Gelenk"
+* #442 "Punktion mit Injektion"
+
+// Anästhesiebegleitende Leistungen
+* #445 "Einleitung Anästhesie per Maske"
+* #446 "Anästhesieüberwachung je 30 Min"
+* #447 "Zubereitung Anästhetikum"
+* #448 "Aufwachraum Überwachung"
+* #449 "Anästhesieprotokoll"
+* #460 "Spinalanästhesie"
+* #461 "Epiduralanästhesie"
+* #475 "Plexusblockade"
+
+// Mikrobiologie Ergänzung
+* #718 "Mikrobiologische Untersuchung"
+
+// Klinische Chemie Ergänzung
+* #3560 "Nüchternblutzucker"
+* #3561 "HbA1c"
+* #3562 "CRP quantitativ"
+* #3563 "Vollständiges Blutbild mit Differenzierung"
