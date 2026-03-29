@@ -52,6 +52,11 @@ Description: "Profil für kassenzahnärztliche Leistungen nach BEMA (Bewertungsm
 * bodysite from ToothIdentificationFDI_VS (preferred)
 * bodysite ^short = "Bezugszahn nach FDI-Zahnschema"
 
+// --- Abrechnungsreferenz (Sammelabrechnung/Account) ---
+* account MS
+* account only Reference(Account)
+* account ^short = "Sammelabrechnung (SWS: Abrechnung-Ref)"
+
 // --- Extensions: FDI-Zahnnummer, Zahnflächen, Befundklasse ---
 * extension contains
     FdiToothNumberExt named fdiToothNumber 0..1 MS and

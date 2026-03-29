@@ -1,8 +1,6 @@
 // Extensions used in this profile (already defined in input/fsh/extensions/)
-// fdi-tooth-number   → https://fhir.cognovis.de/dental/StructureDefinition/fdi-tooth-number
-// tooth-surfaces     → https://fhir.cognovis.de/dental/StructureDefinition/tooth-surfaces
-//
-// P2-Extensions (not yet created — referenced by URL only, not structurally required):
+// fdi-tooth-number                → https://fhir.cognovis.de/dental/StructureDefinition/fdi-tooth-number
+// tooth-surfaces                  → https://fhir.cognovis.de/dental/StructureDefinition/tooth-surfaces
 // privatgebuehr-steigerungsfaktor → https://fhir.cognovis.de/dental/StructureDefinition/privatgebuehr-steigerungsfaktor
 // privatgebuehr-analog-reference  → https://fhir.cognovis.de/dental/StructureDefinition/privatgebuehr-analog-reference
 
@@ -43,7 +41,7 @@ Description: "Profil für privatzahnärztliche Leistungen nach GOZ 2012 (Gebühr
 
 // --- Steigerungsfaktor (GOZ-Faktor 1,0–3,5) ---
 // FHIR-native factorOverride für den Dezimalfaktor.
-// Begründungstext und Schwellenwert-Metadaten folgen via P2-Extension privatgebuehr-steigerungsfaktor.
+// Strukturierte Begründung (Schwellenwert, Begründungstext) via Extension privatgebuehr-steigerungsfaktor.
 * factorOverride MS
 * factorOverride ^short = "Steigerungsfaktor (SWS: Faktor 1,0–3,5; Regelfall 2,3)"
 
@@ -57,13 +55,19 @@ Description: "Profil für privatzahnärztliche Leistungen nach GOZ 2012 (Gebühr
 * bodysite from ToothIdentificationFDI_VS (preferred)
 * bodysite ^short = "Bezugszahn nach FDI-Zahnschema"
 
-// --- Extensions: FDI-Zahnnummer, Zahnflächen ---
-// Note: privatgebuehr-steigerungsfaktor and privatgebuehr-analog-reference are P2-Extensions.
-// They are not yet defined in this IG. They will be added in bead fhir-dental-de-p2 (P2-Extensions).
-// References to their canonical URLs are documented above for forward-compatibility.
+// --- Abrechnungsreferenz (Rechnung/Account) ---
+* account MS
+* account only Reference(Account)
+* account ^short = "Zugehörige Privatrechnung (SWS: Rechnung-Ref)"
+
+// --- Extensions: FDI-Zahnnummer, Zahnflächen, Steigerungsfaktor, Analogleistung ---
 * extension contains
     FdiToothNumberExt named fdiToothNumber 0..1 MS and
-    ToothSurfacesExt named toothSurfaces 0..* MS
+    ToothSurfacesExt named toothSurfaces 0..* MS and
+    PrivatgebuehrSteigerungsfaktorExt named steigerungsfaktor 0..1 MS and
+    PrivatgebuehrAnalogReferenceExt named analogReference 0..1 MS
 
 * extension[fdiToothNumber] ^short = "FDI-Zahnnummer (SWS: Zahnnummer)"
 * extension[toothSurfaces] ^short = "Betroffene Zahnflächen (SWS: Flächen)"
+* extension[steigerungsfaktor] ^short = "Steigerungsfaktor-Begründung §5 GOZ (SWS: Begründung >2,3)"
+* extension[analogReference] ^short = "Analogleistung §6 GOZ (SWS: Analogleistung)"
