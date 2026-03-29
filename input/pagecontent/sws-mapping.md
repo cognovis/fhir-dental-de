@@ -226,8 +226,8 @@ Periodontal treatment plans per PAR guideline (in effect since July 2021). Conta
 | SWS Field | SWS Name (DE) | FHIR Resource | FHIR Path | Notes |
 |-----------|---------------|---------------|-----------|-------|
 | PAR-Plan-ID | Internal PAR plan ID | `CarePlan` | `CarePlan.identifier` | |
-| PAR-Grad | Severity (I/II/III/IV) | `Condition` | `Condition.severity` | SNOMED CT: Periodontitis grades |
-| PAR-Stadium | Stage (A/B/C) | `Condition` | Extension `par-stadium` | BSP classification 2018 |
+| PAR-Grad | Grade (A/B/C) | `Condition` | `Condition.severity` | SNOMED CT: Periodontitis grades |
+| PAR-Stadium | Stage (I/II/III/IV) | `Condition` | Extension `par-stadium` | BSP classification 2018 |
 | Taschentiefe | Pocket depth per tooth (mm) | `Observation` | `Observation.component` | Measurement sequence (32 chars) |
 | Blutung (BOP) | Bleeding on probing (%) | `Observation` | `Observation.valueQuantity` | |
 | UPT-Intervall | Recall interval (months) | `CarePlan` | `CarePlan.activity.detail.scheduledTiming` | |
@@ -243,7 +243,7 @@ Orthodontic treatment plans and applications. Contains bite classification (Angl
 |-----------|---------------|---------------|-----------|-------|
 | KFO-Plan-ID | Internal KFO plan ID | `CarePlan` | `CarePlan.identifier` | |
 | Angle-Klasse | Angle class I/II/III | `Condition` | Extension `kfo-angle-klasse` | No SNOMED CT code available |
-| KIG-Punkte | Orthodontic indication grade | `Condition` | Extension `kfo-kig-punkte` | KIG 1–5 per BEMA §28 Abs. 2 SGB V |
+| KIG-Punkte | Orthodontic indication grade | `Condition` | Extension `kfo-kig-punkte` | KIG 1–5 per BEMA §29 SGB V |
 | Behandlungsphase | Active / retention / completion | `CarePlan` | Extension `kfo-behandlungsphase` | |
 | Apparaturtyp | Fixed / removable | `CarePlan` | Extension `kfo-apparatus-type` | |
 | Behandlungszeitraum | Treatment period | `CarePlan` | `CarePlan.period` | |
@@ -411,7 +411,7 @@ Dual-coding strategy: FDI as primary coding, SNOMED CT tooth code as additional 
 
 ### Gap 4 — Multi-Surface Findings
 
-**Problem:** Dental findings and services frequently apply to multiple tooth surfaces simultaneously (e.g. "mesio-occlusal" for a 2-surface filling). FHIR R4 `bodySite` is a **single element** (0..1) — there is no native support for multiple surfaces.
+**Problem:** Dental findings and services frequently apply to multiple tooth surfaces simultaneously (e.g. "mesio-occlusal" for a 2-surface filling). FHIR R4 `Observation.bodySite` is a **single element** (0..1) — there is no native support for multiple surfaces.
 
 Tooth surface nomenclature: mesial (M), distal (D), occlusal/incisal (O/I), buccal/vestibular (B/V), oral/lingual/palatal (O/L/P).
 
@@ -436,7 +436,7 @@ Dual-coding: dental CodeSystem as primary, SNOMED CT surface codes as additional
 
 **Problem:** Orthodontic diagnostics uses classification systems without FHIR equivalents:
 - **Angle class** (I/II/III): Sagittal bite classification
-- **KIG points** (1–5): Kieferorthopädischer Indikationsgrad per §28 Abs. 2 SGB V — determines GKV reimbursability
+- **KIG points** (1–5): Kieferorthopädischer Indikationsgrad per §29 SGB V — determines GKV reimbursability
 - **Treatment phase** (active/retention/aftercare): Therapy stage
 
 SNOMED CT has partial concepts for malocclusions but not for the specific German KIG system.
