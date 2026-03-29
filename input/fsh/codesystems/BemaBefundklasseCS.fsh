@@ -1,7 +1,7 @@
 CodeSystem: BemaBefundklasseCS
 Id: bema-befundklasse
 Title: "BEMA Befundklasse"
-Description: "Befundklassen für den BEMA-Zahnbefund (Zahnschema)."
+Description: "Befundklassen für die BEMA-Abrechnung im Zahnersatzbereich (Festzuschüsse)."
 * ^url = "https://fhir.cognovis.de/dental/CodeSystem/bema-befundklasse"
 * ^status = #draft
 * ^experimental = true
@@ -9,8 +9,8 @@ Description: "Befundklassen für den BEMA-Zahnbefund (Zahnschema)."
 * ^content = #complete
 * ^publisher = "cognovis GmbH"
 
-* #c "Konservierend (erhaltungswürdig)"
-* #k "Krankenversicherungsrechtlich"
-* #f "Fehlend/nicht vorhanden"
-* #e "Extrahiert/entfernt"
+* #c "Karies"
+* #k "Krone"
+* #f "Fehlend"
+* #e "Ersatz (Zahnersatz vorhanden)"
 * #b "Brückenglied"
