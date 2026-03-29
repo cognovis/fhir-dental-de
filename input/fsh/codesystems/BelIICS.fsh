@@ -197,3 +197,53 @@ Description: "Leistungsbeschreibung für zahntechnische Leistungen bei GKV-Versi
 * #R023 "Klammer reparieren"
 * #R024 "Bruchreparatur Krone"
 * #R025 "Abformung Reparatur"
+
+// Modell und Prothetik-Aufbau
+* #M001 "Arbeitsstumpf aus Modell"
+* #M002 "Modell nach Abformung trimmen"
+* #M003 "Sägemodell herstellen"
+* #M004 "Dubliermasse auftragen"
+* #M005 "Spezialgips-Modell"
+* #M006 "Okklusal-Registrat auswerten"
+* #M007 "Gelenk-Simulation am Artikulator"
+
+// Gerüstaufbau
+* #G001 "Zirkon-Gerüst fräsen (1-Glied)"
+* #G002 "Zirkon-Gerüst fräsen (Brücke 3-Gl)"
+* #G003 "Titangerüst fräsen"
+* #G004 "PMMA-Gerüst fräsen"
+* #G005 "Wachsmodellation Krone"
+* #G006 "Wachsmodellation Brücke"
+
+// Aufbrennkeramik
+* #AK001 "Opaker auftragen"
+* #AK002 "Dentinkern aufbauen"
+* #AK003 "Schmelzmasse auftragen"
+* #AK004 "Glanzbrand durchführen"
+* #AK005 "Charakterisierungen"
+* #AK006 "Korrekturbrand"
+
+// Zahnersatz-Prüfung
+* #QP001 "Qualitätskontrolle Krone"
+* #QP002 "Qualitätskontrolle Brücke"
+* #QP003 "Qualitätskontrolle Prothese"
+* #QP004 "Dokumentationsfoto"
+
+// Spezialreparaturen
+* #SR001 "Zahnkranz reparieren"
+* #SR002 "Implantataufbau reparieren"
+* #SR003 "Prothesensteg reparieren"
+* #SR004 "Geschiebe reparieren"
+* #SR005 "Magnethalter austauschen"
+
+// Ergänzende Prothetik
+* #EP001 "Galvano-Primärstruktur"
+* #EP002 "Sekundärstruktur (Teleskop)"
+* #EP003 "Verbindungselement (Riegel)"
+* #EP004 "Geschiebe einarbeiten"
+* #EP005 "Druckknopf-Attachment"
+* #EP006 "Locator-Attachment einarbeiten"
+* #EP007 "Kugelkopf-Retainer einarbeiten"
+* #EP008 "Bar-Clip-System (Implantat)"
+* #EP009 "Teleskop-Brücke"
+* #EP010 "Kombinierter Zahnersatz (Komb.)"
