@@ -197,3 +197,53 @@ Description: "Leistungsbeschreibung für zahntechnische Leistungen bei GKV-Versi
 * #R023 ""
 * #R024 ""
 * #R025 ""
+
+// Modell und Prothetik-Aufbau
+* #M001 ""
+* #M002 ""
+* #M003 ""
+* #M004 ""
+* #M005 ""
+* #M006 ""
+* #M007 ""
+
+// Gerüstaufbau
+* #G001 ""
+* #G002 ""
+* #G003 ""
+* #G004 ""
+* #G005 ""
+* #G006 ""
+
+// Aufbrennkeramik
+* #AK001 ""
+* #AK002 ""
+* #AK003 ""
+* #AK004 ""
+* #AK005 ""
+* #AK006 ""
+
+// Zahnersatz-Prüfung
+* #QP001 ""
+* #QP002 ""
+* #QP003 ""
+* #QP004 ""
+
+// Spezialreparaturen
+* #SR001 ""
+* #SR002 ""
+* #SR003 ""
+* #SR004 ""
+* #SR005 ""
+
+// Ergänzende Prothetik
+* #EP001 ""
+* #EP002 ""
+* #EP003 ""
+* #EP004 ""
+* #EP005 ""
+* #EP006 ""
+* #EP007 ""
+* #EP008 ""
+* #EP009 ""
+* #EP010 ""
