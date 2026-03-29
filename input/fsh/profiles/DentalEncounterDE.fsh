@@ -18,8 +18,9 @@ Description: "Profil für den zahnärztlichen Abrechnungsfall (Behandlungsfall) 
 * class from http://terminology.hl7.org/ValueSet/v3-ActEncounterCode (extensible)
 * class ^short = "Behandlungsart: AMB (kassenzahnärztlich) oder EMER (Notfallschein)"
 
-// --- Scheintyp ---
+// --- Scheintyp (SWS: Scheintyp) ---
 * type MS
+* type from ScheintypVS (extensible)
 * type ^short = "Scheintyp (Kassenschein, Überweisungsschein, Notfallschein, Privatschein)"
 
 // --- Patient (Pflichtfeld) ---
@@ -50,8 +51,6 @@ Description: "Profil für den zahnärztlichen Abrechnungsfall (Behandlungsfall) 
 
 // --- Extensions ---
 * extension contains
-    AbrechnungsquartalExt named abrechnungsquartal 0..1 MS and
-    ScheintypExt named scheintyp 0..1 MS
+    AbrechnungsquartalExt named abrechnungsquartal 0..1 MS
 
 * extension[abrechnungsquartal] ^short = "GKV-Abrechnungsquartal im Format JJJJQ (z.B. 2026Q1)"
-* extension[scheintyp] ^short = "Scheintyp (kassenschein|ueberweisungsschein|notfallschein|privatschein)"
