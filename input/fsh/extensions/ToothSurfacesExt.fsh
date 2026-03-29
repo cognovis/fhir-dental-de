@@ -6,6 +6,11 @@ Description: "Betroffene Zahnflächen (Mesial, Distal, Okklusal, etc.)."
 * ^status = #draft
 * ^experimental = true
 * ^publisher = "cognovis GmbH"
+// Contexts: ChargeItem (Leistungsabrechnung) and Observation (Zahnbefund) are the primary
+// carriers of surface-level detail in the dental workflow.
+// Condition and Procedure are intentionally excluded: they use bodySite for anatomical
+// location, and surface granularity on those resources is rare; when needed it is
+// represented via bodySite.extension rather than a top-level extension.
 * ^context[+].type = #element
 * ^context[=].expression = "ChargeItem"
 * ^context[+].type = #element
