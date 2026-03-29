@@ -22,7 +22,7 @@ dependencies:
   de.basisprofil.r4: 1.5.0
   kbv.basis: 1.7.0                  # KBV Basisprofile — Condition/Diagnosis, Patient base
   kbv.ita.for: 1.3.1                # KBV Formular-Anforderungen — KBV_PR_FOR_Patient for dental
-  # de.gematik.fhir.atf: 1.4.1      # ATF MessageHeader for KIM/TIM transport — uncomment when needed
+  de.gematik.fhir.atf: 1.4.1        # ATF MessageHeader for KIM/TIM transport
 
 pages:
   index.md:
