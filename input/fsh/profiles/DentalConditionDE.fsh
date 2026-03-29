@@ -1,5 +1,5 @@
 Profile: DentalConditionDE
-Parent: Condition
+Parent: KBV_PR_Base_Condition_Diagnosis
 Id: de-mira-dental-condition
 Title: "Zahnärztliche Diagnose (DE)"
 Description: "Profil für zahnärztliche Diagnosen und Befunde. Nutzt ICD-10-GM und FDI-Zahnschema. Orientiert sich am HL7 Dental Data Exchange IG DentalCondition."
@@ -19,7 +19,7 @@ Description: "Profil für zahnärztliche Diagnosen und Befunde. Nutzt ICD-10-GM 
 
 // Subject
 * subject 1..1 MS
-* subject only Reference(Patient)
+* subject only Reference(KBV_PR_FOR_Patient)
 
 // Tooth identification
 * bodySite MS
