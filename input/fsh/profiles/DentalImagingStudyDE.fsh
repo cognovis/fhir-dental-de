@@ -47,18 +47,12 @@ Description: "Profil für zahnärztliche Röntgenaufnahmen (EZA, OPG, DVT, FRS, 
 // Series: modality (Aufnahmetyp nach DICOM)
 * series.modality MS
 * series.modality ^short = "Aufnahmetyp (DICOM: DX=EZA, IO=Intraoral, PX=OPG, CT=DVT/FRS)"
-* series.modality ^binding.strength = #extensible
-* series.modality ^binding.valueSet = "http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_29.html"
+// Note: R4 base already binds series.modality extensibly to DICOM CID 29 — no re-binding needed.
 
 // Series: bodySite (FDI-Zahnbezug bei EZA)
 * series.bodySite MS
 * series.bodySite from ToothIdentificationFDI_VS (preferred)
 * series.bodySite ^short = "Bezugszahn nach FDI-Zahnschema (SWS: Zahnnummer, bei EZA)"
 
-// --- Extension: FDI-Zahnnummer ---
-// Applied at series level (not a standard FHIR element here; the extension captures
-// the structured FDI code alongside the human-readable bodySite Coding).
-* extension contains
-    FdiToothNumberExt named fdiToothNumber 0..1 MS
-
-* extension[fdiToothNumber] ^short = "FDI-Zahnnummer der Aufnahme (strukturiert, SWS: Zahnnummer)"
+// --- FDI-Zahnnummer is captured via series.bodySite binding to ToothIdentificationFDI_VS above.
+// No additional extension needed at root level — bodySite already carries the FDI code.

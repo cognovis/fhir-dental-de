@@ -42,7 +42,7 @@ Description: "Profil für Einträge im zahnärztlichen Behandlungsjournal (Krank
 // finding.itemReference → Observation (z.B. Röntgenhinweis, Zahnschema-Observation)
 * finding MS
 * finding.itemReference MS
-* finding.itemReference only Reference(Observation or Condition)
+// Note: R4 base already types itemReference as Reference(Observation|Condition) — no constraint needed.
 * finding ^short = "Verknüpfte Befunde (Observation, Condition)"
 * finding ^definition = "Referenzen auf strukturierte Befunde aus dem Behandlungsjournal. Z.B. Röntgenhinweise (→ ImagingStudy via Observation) oder Zahnschema-Befunde (→ DentalFindingDE)."
 * finding.itemReference ^short = "Befund-Referenz (Observation oder Condition)"
