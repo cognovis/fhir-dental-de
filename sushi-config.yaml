@@ -35,6 +35,8 @@ pages:
     title: Value Sets
   usecases.md:
     title: Use Cases
+  sws-mapping.md:
+    title: SWS 2.0 Mapping
 
 menu:
   Home: index.html
@@ -43,4 +45,5 @@ menu:
     Code Systems: codesystems.html
     Value Sets: valuesets.html
   Use Cases: usecases.html
+  SWS 2.0 Mapping: sws-mapping.html
   Artifacts: artifacts.html
