@@ -2,7 +2,6 @@
 // SWS 2.0 Satzart 6 — BEMA-Leistungsabrechnung
 
 Alias: $fdi     = http://terminology.hl7.org/CodeSystem/ex-tooth
-Alias: $surface = http://terminology.hl7.org/CodeSystem/FDI-surface
 
 Instance: ExampleBemaChargeItem
 InstanceOf: BemaChargeItemDE

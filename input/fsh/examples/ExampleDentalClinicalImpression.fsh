@@ -17,7 +17,7 @@ Description: "Journaleintrag zur Behandlungssitzung am 2026-01-15: Anamnese, Bef
 
 * assessor = Reference(ExamplePractitioner)
 
-* note[0].text = "Anamnese: Kein Einnahme von Antikoagulanzien. Keine Allergien bekannt. Patient beschwerdefrei, Routine-Kontrolltermin + Behandlung."
+* note[0].text = "Anamnese: Keine Einnahme von Antikoagulanzien. Keine Allergien bekannt. Patient beschwerdefrei, Routine-Kontrolltermin + Behandlung."
 * note[0].time = "2026-01-15T09:00:00+01:00"
 
 * note[1].text = "Befund: Zahn 36 — Dentinkaries K02.1 MOD (mesial-okklusal-distal), Sondierungstiefe 4 mm bukkal. Vitalität positiv. Zahn 46 — Dentinkaries K02.1 fortgeschritten, Planung HKP Krone."
