@@ -1,10 +1,5 @@
 // ATF-Transport-Profil für zahnärztliche Befundübermittlung über KIM/TIM
-//
-// Note: Ideally Parent would be BundleAppTransportFramework (de.gematik.fhir.atf#1.4.1),
-// but atf-message-bundle has no snapshot (known package issue) and SUSHI cannot import it.
-// Using Bundle directly with manually re-applied ATF constraints.
-// The meta.profile assertion declares conformance to the ATF profile.
-// Re-evaluate when gematik publishes a fixed snapshot.
+// Parent: Bundle (not BundleAppTransportFramework) due to missing snapshot in atf#1.4.1
 
 Alias: $atf-bundle    = https://gematik.de/fhir/atf/StructureDefinition/atf-message-bundle
 Alias: $atf-header    = https://gematik.de/fhir/atf/StructureDefinition/atf-message-header
@@ -14,7 +9,7 @@ Profile: DentalAtfBundleDE
 Parent: Bundle
 Id: de-mira-dental-atf-bundle
 Title: "Zahnärztliches ATF-MessageBundle (DE)"
-Description: "Profil für den Transport zahnärztlicher Befunde (DentalFinding, DentalCondition) über das gematik Application Transport Framework (ATF) via KIM oder TIM. Repliziert die ATF-Bundle-Constraints manuell (atf-message-bundle hat keinen Snapshot). Konform zu BundleAppTransportFramework."
+Description: "Profil für den Transport zahnärztlicher Befunde (DentalFinding, DentalCondition) über das gematik Application Transport Framework (ATF) via KIM oder TIM."
 * ^status = #draft
 * ^publisher = "cognovis GmbH"
 

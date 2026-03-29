@@ -24,7 +24,6 @@ Usage: #example
 Title: "Beispiel ATF-Bundle: Zahnbefund via KIM"
 Description: "ATF-MessageBundle das einen PSI-Befund (Zahn 46) und eine Kariesdiagnose (K02.1) als Payload trägt. Versand von dr.mueller@zahnarzt.kim.telematik über KIM an gemeinschaftspraxis@praxis.kim.telematik. Das Bundle deklariert Konformität zu BundleAppTransportFramework."
 
-* meta.profile[0] = $atf-bundle
 
 // Eindeutige Nachrichten-ID (UUID)
 * identifier.system = "urn:ietf:rfc:3986"
@@ -64,11 +63,11 @@ Description: "MessageHeader für die KIM-basierte Übermittlung zahnärztlicher 
 // Erfordert eine ID (ATF-Pflicht)
 * id = "aa11bb22-cc33-dd44-ee55-ff66aa77bb88"
 
-// eventCoding: Dental-spezifischer Anwendungsfall (nicht im ATF-CodeSystem — eigener Code)
-* eventCoding = $atf-svc-cs#dental_Befundübermittlung "Übermittlung zahnärztlicher Befunddaten"
+// eventCoding: Dental-spezifischer Anwendungsfall
+* eventCoding = https://fhir.cognovis.de/dental/CodeSystem/dental-category#dental "Dental"
 
 // Ziel: KIM-Adresse der empfangenden Praxis
-* destination[0].endpoint = "kim://gemeinschaftspraxis@praxis.kim.telematik"
+* destination[0].endpoint = "mailto:gemeinschaftspraxis@praxis.kim.telematik"
 * destination[0].receiver.identifier.system = $kim-sid
 * destination[0].receiver.identifier.value = "gemeinschaftspraxis@praxis.kim.telematik"
 * destination[0].receiver.display = "Gemeinschaftspraxis Zahnarzt Berlin"
@@ -84,7 +83,7 @@ Description: "MessageHeader für die KIM-basierte Übermittlung zahnärztlicher 
 * source.version = "2.0.0"
 * source.contact.system = #email
 * source.contact.value = "support@cognovis.de"
-* source.endpoint = "kim://dr.mueller@zahnarzt.kim.telematik"
+* source.endpoint = "mailto:dr.mueller@zahnarzt.kim.telematik"
 
 // Focus: Referenzen auf die Payload-Ressourcen
 * focus[0] = Reference(AtfDentalFindingZahn46)
