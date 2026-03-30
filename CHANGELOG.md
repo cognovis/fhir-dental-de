@@ -6,6 +6,16 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
+- Import AbrechnungsquartalExt + ScheintypExt from praxis-de, remove local duplicates
+
+### Miscellaneous
+
+- Use praxis-de current version for local dev dependency
+
+## [0.2.0] - 2026-03-30
+
+### Features
+
 - Add build-package.sh for FHIR npm package generation
 - CI/CD auto-release — tag v* triggers SUSHI + npm pack + GitHub Release with tgz
 - Add PeriodontalObservationDE and ProphylaxisObservationDE profiles
@@ -14,6 +24,11 @@ All notable changes to this project will be documented in this file.
 
 - Bump version to 2026.03.4
 - Switch to SemVer, VERSION file as single source of truth
+- Update changelog
+
+### Merge
+
+- Feat/fhir-dental-de-axv/observation-profiles-and-semver
 
 ## [2026.03.4] - 2026-03-29
 
