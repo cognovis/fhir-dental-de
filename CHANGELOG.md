@@ -4,6 +4,22 @@ All notable changes to this project will be documented in this file.
 
 ## [unreleased]
 
+### Bug Fixes
+
+- Sync sushi-config.yaml version to 0.3.0 (matches VERSION file)
+
+### CI/CD
+
+- Resolve praxis dependency from GitHub Release + auto-release on push
+- Use IG Publisher output for release package (includes snapshots)
+- Fix multi-asset download — use last (newest) asset from release
+
+## [0.3.0] - 2026-03-30
+
+### Bug Fixes
+
+- Correct version to SemVer 0.3.0 (not CalVer)
+
 ### Features
 
 - Import AbrechnungsquartalExt + ScheintypExt from praxis-de, remove local duplicates
@@ -11,6 +27,12 @@ All notable changes to this project will be documented in this file.
 ### Miscellaneous
 
 - Use praxis-de current version for local dev dependency
+- Update changelog
+- Bump version to 2026.03.5
+
+### Merge
+
+- Feat/fhir-dental-de-nfg/cross-repo-cleanup
 
 ## [0.2.0] - 2026-03-30
 
