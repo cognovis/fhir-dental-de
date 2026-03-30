@@ -46,9 +46,9 @@ jobs:
 
       - name: Install fhir-praxis-de dependency
         run: |
-          # Download latest praxis package from GitHub Releases
+          # Download latest praxis package from GitHub Releases (take last asset = newest version)
           ASSET_URL=$(curl -s https://api.github.com/repos/cognovis/fhir-praxis-de/releases/latest \
-            | jq -r '.assets[] | select(.name | startswith("de.cognovis.fhir.praxis")) | .browser_download_url')
+            | jq -r '[.assets[] | select(.name | startswith("de.cognovis.fhir.praxis"))] | last | .browser_download_url')
           if [ -z "$ASSET_URL" ] || [ "$ASSET_URL" = "null" ]; then
             echo "::error::Could not find fhir-praxis-de release asset"
             exit 1
