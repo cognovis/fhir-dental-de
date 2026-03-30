@@ -51,6 +51,6 @@ Description: "Profil für den zahnärztlichen Abrechnungsfall (Behandlungsfall) 
 
 // --- Extensions ---
 * extension contains
-    AbrechnungsquartalExt named abrechnungsquartal 0..1 MS
+    https://fhir.cognovis.de/praxis/StructureDefinition/abrechnungsquartal named abrechnungsquartal 0..1 MS
 
 * extension[abrechnungsquartal] ^short = "GKV-Abrechnungsquartal im Format JJJJQ (z.B. 2026Q1)"
