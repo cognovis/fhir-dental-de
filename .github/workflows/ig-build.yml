@@ -44,6 +44,20 @@ jobs:
       - name: Install SUSHI
         run: npm install -g fsh-sushi
 
+      - name: Install fhir-praxis-de dependency
+        run: |
+          # Download latest praxis package from GitHub Releases
+          ASSET_URL=$(curl -s https://api.github.com/repos/cognovis/fhir-praxis-de/releases/latest \
+            | jq -r '.assets[] | select(.name | startswith("de.cognovis.fhir.praxis")) | .browser_download_url')
+          if [ -z "$ASSET_URL" ] || [ "$ASSET_URL" = "null" ]; then
+            echo "::error::Could not find fhir-praxis-de release asset"
+            exit 1
+          fi
+          echo "Downloading praxis dependency from: $ASSET_URL"
+          curl -L -o /tmp/praxis.tgz "$ASSET_URL"
+          mkdir -p ~/.fhir/packages/de.cognovis.fhir.praxis#current
+          tar xzf /tmp/praxis.tgz -C ~/.fhir/packages/de.cognovis.fhir.praxis#current/
+
       - name: Run SUSHI
         run: sushi .
 
@@ -94,18 +108,27 @@ jobs:
         uses: actions/deploy-pages@v4
 
   release:
-    if: startsWith(github.ref, 'refs/tags/v')
+    if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/v'))
     needs: build
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
+
+      - name: Read version
+        id: version
+        run: echo "version=$(tr -d '[:space:]' < VERSION)" >> "$GITHUB_OUTPUT"
+
       - name: Download package artifact
         uses: actions/download-artifact@v4
         with:
           name: ig-package
           path: artifacts
 
-      - name: Create GitHub Release
+      - name: Create/Update GitHub Release
         uses: softprops/action-gh-release@v2
         with:
+          tag_name: v${{ steps.version.outputs.version }}
+          name: v${{ steps.version.outputs.version }}
           files: artifacts/dist/*.tgz
           generate_release_notes: true
+          make_latest: true
