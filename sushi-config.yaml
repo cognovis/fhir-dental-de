@@ -23,6 +23,7 @@ dependencies:
   kbv.basis: 1.7.0                  # KBV Basisprofile — Condition/Diagnosis, Patient base
   kbv.ita.for: 1.3.1                # KBV Formular-Anforderungen — KBV_PR_FOR_Patient for dental
   de.gematik.fhir.atf: 1.4.1        # ATF MessageHeader for KIM/TIM transport
+  de.cognovis.fhir.praxis: 0.2.0    # Praxis-DE Foundation — Abrechnungsquartal, Scheintyp etc.
 
 pages:
   index.md:
