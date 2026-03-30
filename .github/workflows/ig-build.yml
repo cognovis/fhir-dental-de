@@ -75,8 +75,16 @@ jobs:
           VERSION=$(tr -d '[:space:]' < VERSION)
           PACKAGE_ID=$(grep '^id:' sushi-config.yaml | awk '{print $2}')
           mkdir -p dist
-          cp output/package.tgz "dist/${PACKAGE_ID}-${VERSION}.tgz"
-          echo "Built dist/${PACKAGE_ID}-${VERSION}.tgz from IG Publisher output"
+          # Strip internal deps (not on public registries) from tgz package.json.
+          # de.cognovis.fhir.praxis is needed at SUSHI build time but consumers
+          # provide it separately via localTgzPackage in their codegen scripts.
+          TMPDIR=$(mktemp -d)
+          tar xzf output/package.tgz -C "$TMPDIR"
+          jq 'del(.dependencies["de.cognovis.fhir.praxis"])' "$TMPDIR/package/package.json" > "$TMPDIR/package/package.json.tmp"
+          mv "$TMPDIR/package/package.json.tmp" "$TMPDIR/package/package.json"
+          tar czf "dist/${PACKAGE_ID}-${VERSION}.tgz" -C "$TMPDIR" package
+          rm -rf "$TMPDIR"
+          echo "Built dist/${PACKAGE_ID}-${VERSION}.tgz (internal deps stripped)"
 
       - name: Upload package artifact
         uses: actions/upload-artifact@v4
