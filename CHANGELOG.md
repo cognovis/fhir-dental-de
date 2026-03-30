@@ -4,6 +4,19 @@ All notable changes to this project will be documented in this file.
 
 ## [unreleased]
 
+### Features
+
+- Add build-package.sh for FHIR npm package generation
+- CI/CD auto-release — tag v* triggers SUSHI + npm pack + GitHub Release with tgz
+- Add PeriodontalObservationDE and ProphylaxisObservationDE profiles
+
+### Miscellaneous
+
+- Bump version to 2026.03.4
+- Switch to SemVer, VERSION file as single source of truth
+
+## [2026.03.4] - 2026-03-29
+
 ### Bug Fixes
 
 - **fhir-dental-de-p1o**: Wire P2 extensions and add account to ChargeItem profiles
@@ -29,6 +42,10 @@ All notable changes to this project will be documented in this file.
 - **fhir-dental-de-tkw**: Add FSH example instances for all 15 profiles
 - Add IG Publisher build infrastructure and page content
 - **fhir-dental-de-5j0**: ATF-Transport-Profil für Dental-Befundübermittlung
+
+### Miscellaneous
+
+- Add CHANGELOG, cliff.toml, and update .gitignore
 
 ## [2026.03.3] - 2026-03-29
 
