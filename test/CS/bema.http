@@ -1,0 +1,15 @@
+### Test BemaCS - valid code 01
+GET http://localhost:8080/Concept?system=http://fhir.de/CodeSystem/kzbv/bema&code=01
+Authorization: Basic YmFzaWM6c2VjcmV0
+
+### Test BemaCS - valid code 01a
+GET http://localhost:8080/Concept?system=http://fhir.de/CodeSystem/kzbv/bema&code=01a
+Authorization: Basic YmFzaWM6c2VjcmV0
+
+### Test BemaCS - valid code 04
+GET http://localhost:8080/Concept?system=http://fhir.de/CodeSystem/kzbv/bema&code=04
+Authorization: Basic YmFzaWM6c2VjcmV0
+
+### Test BemaCS - invalid code
+GET http://localhost:8080/Concept?system=http://fhir.de/CodeSystem/kzbv/bema&code=INVALID_XYZ
+Authorization: Basic YmFzaWM6c2VjcmV0

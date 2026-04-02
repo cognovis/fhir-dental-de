@@ -1,0 +1,15 @@
+### Test ZeBonusProzentCS - valid code 50
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/ze-bonus-prozent&code=50
+Authorization: Basic YmFzaWM6c2VjcmV0
+
+### Test ZeBonusProzentCS - valid code 60
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/ze-bonus-prozent&code=60
+Authorization: Basic YmFzaWM6c2VjcmV0
+
+### Test ZeBonusProzentCS - valid code 70
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/ze-bonus-prozent&code=70
+Authorization: Basic YmFzaWM6c2VjcmV0
+
+### Test ZeBonusProzentCS - invalid code
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/ze-bonus-prozent&code=INVALID_XYZ
+Authorization: Basic YmFzaWM6c2VjcmV0

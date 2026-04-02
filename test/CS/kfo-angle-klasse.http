@@ -1,0 +1,15 @@
+### Test KfoAngleKlasseCS - valid code I
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/kfo-angle-klasse&code=I
+Authorization: Basic YmFzaWM6c2VjcmV0
+
+### Test KfoAngleKlasseCS - valid code II-1
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/kfo-angle-klasse&code=II-1
+Authorization: Basic YmFzaWM6c2VjcmV0
+
+### Test KfoAngleKlasseCS - valid code II-2
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/kfo-angle-klasse&code=II-2
+Authorization: Basic YmFzaWM6c2VjcmV0
+
+### Test KfoAngleKlasseCS - invalid code
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/kfo-angle-klasse&code=INVALID_XYZ
+Authorization: Basic YmFzaWM6c2VjcmV0

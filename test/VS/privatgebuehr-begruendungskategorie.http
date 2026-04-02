@@ -1,0 +1,15 @@
+### Expand privatgebuehr-begruendungskategorie
+GET http://localhost:8080/ValueSet/privatgebuehr-begruendungskategorie/$expand
+Authorization: Basic basic:secret
+
+### Validate valid code erschwernis-anatomisch
+GET http://localhost:8080/ValueSet/privatgebuehr-begruendungskategorie/$validate-code?system=https%3A%2F%2Ffhir.cognovis.de%2Fdental%2FCodeSystem%2Fprivatgebuehr-begruendungskategorie&code=erschwernis-anatomisch
+Authorization: Basic basic:secret
+
+### Validate valid code sonstiges
+GET http://localhost:8080/ValueSet/privatgebuehr-begruendungskategorie/$validate-code?system=https%3A%2F%2Ffhir.cognovis.de%2Fdental%2FCodeSystem%2Fprivatgebuehr-begruendungskategorie&code=sonstiges
+Authorization: Basic basic:secret
+
+### Validate invalid code
+GET http://localhost:8080/ValueSet/privatgebuehr-begruendungskategorie/$validate-code?system=https%3A%2F%2Ffhir.cognovis.de%2Fdental%2FCodeSystem%2Fprivatgebuehr-begruendungskategorie&code=INVALID_XYZ_999
+Authorization: Basic basic:secret

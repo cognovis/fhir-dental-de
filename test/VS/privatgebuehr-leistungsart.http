@@ -1,0 +1,15 @@
+### Expand privatgebuehr-leistungsart
+GET http://localhost:8080/ValueSet/privatgebuehr-leistungsart/$expand
+Authorization: Basic basic:secret
+
+### Validate valid code persoenlich
+GET http://localhost:8080/ValueSet/privatgebuehr-leistungsart/$validate-code?system=https%3A%2F%2Ffhir.cognovis.de%2Fdental%2FCodeSystem%2Fprivatgebuehr-leistungsart&code=persoenlich
+Authorization: Basic basic:secret
+
+### Validate valid code technisch
+GET http://localhost:8080/ValueSet/privatgebuehr-leistungsart/$validate-code?system=https%3A%2F%2Ffhir.cognovis.de%2Fdental%2FCodeSystem%2Fprivatgebuehr-leistungsart&code=technisch
+Authorization: Basic basic:secret
+
+### Validate invalid code
+GET http://localhost:8080/ValueSet/privatgebuehr-leistungsart/$validate-code?system=https%3A%2F%2Ffhir.cognovis.de%2Fdental%2FCodeSystem%2Fprivatgebuehr-leistungsart&code=INVALID_XYZ_999
+Authorization: Basic basic:secret

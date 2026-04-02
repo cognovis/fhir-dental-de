@@ -1,0 +1,15 @@
+### Expand par-stadium
+GET http://localhost:8080/ValueSet/par-stadium/$expand
+Authorization: Basic basic:secret
+
+### Validate valid code A
+GET http://localhost:8080/ValueSet/par-stadium/$validate-code?system=https%3A%2F%2Ffhir.cognovis.de%2Fdental%2FCodeSystem%2Fpar-stadium&code=A
+Authorization: Basic basic:secret
+
+### Validate valid code C
+GET http://localhost:8080/ValueSet/par-stadium/$validate-code?system=https%3A%2F%2Ffhir.cognovis.de%2Fdental%2FCodeSystem%2Fpar-stadium&code=C
+Authorization: Basic basic:secret
+
+### Validate invalid code
+GET http://localhost:8080/ValueSet/par-stadium/$validate-code?system=https%3A%2F%2Ffhir.cognovis.de%2Fdental%2FCodeSystem%2Fpar-stadium&code=INVALID_XYZ_999
+Authorization: Basic basic:secret

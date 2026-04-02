@@ -1,0 +1,111 @@
+### Validate valid de-mira-ze-care-plan
+POST http://localhost:8080/fhir/CarePlan/$validate?profile=https://fhir.cognovis.de/dental/StructureDefinition/de-mira-ze-care-plan
+Authorization: Basic basic:secret
+Content-Type: application/fhir+json
+
+{
+  "resourceType": "CarePlan",
+  "id": "ExampleZeCarePlan",
+  "meta": {
+    "profile": [
+      "https://fhir.cognovis.de/dental/StructureDefinition/de-mira-ze-care-plan"
+    ]
+  },
+  "intent": "plan",
+  "category": [
+    {
+      "coding": [
+        {
+          "code": "dental",
+          "system": "https://fhir.cognovis.de/dental/CodeSystem/dental-category",
+          "display": "Dental"
+        }
+      ]
+    }
+  ],
+  "extension": [
+    {
+      "url": "https://fhir.cognovis.de/dental/StructureDefinition/ze-befundkuerzel",
+      "valueCode": "pw"
+    },
+    {
+      "url": "https://fhir.cognovis.de/dental/StructureDefinition/ze-therapiekuerzel",
+      "valueCode": "K"
+    },
+    {
+      "url": "https://fhir.cognovis.de/dental/StructureDefinition/ze-versorgungsart",
+      "valueCode": "regelversorgung"
+    }
+  ],
+  "identifier": [
+    {
+      "system": "https://mira.cognovis.de/fhir/identifier/ze-id",
+      "value": "ZE-2026-000046"
+    }
+  ],
+  "status": "active",
+  "subject": {
+    "reference": "Patient/ExamplePatient"
+  },
+  "created": "2026-01-15",
+  "period": {
+    "start": "2026-02-15",
+    "end": "2026-05-31"
+  },
+  "title": "ZE-Plan: Kronenversorgung Zahn 46 — Regelversorgung",
+  "description": "Zahnersatz-Behandlungsplan gemäß Festzuschuss-Richtlinie §56 SGB V. Zahn 46 zerstört (Befundklasse pw). Geplante Versorgung: VMK-Krone (Regelversorgung). Festzuschuss: 50% + 20% Bonus (10 Jahre Bonusheft). Eigenanteil nach Kassenberechnung: ca. 180 €."
+}
+
+### Validate invalid de-mira-ze-care-plan
+POST http://localhost:8080/fhir/CarePlan/$validate?profile=https://fhir.cognovis.de/dental/StructureDefinition/de-mira-ze-care-plan
+Authorization: Basic basic:secret
+Content-Type: application/fhir+json
+
+{
+  "resourceType": "CarePlan",
+  "id": "ExampleZeCarePlan",
+  "meta": {
+    "profile": [
+      "https://fhir.cognovis.de/dental/StructureDefinition/de-mira-ze-care-plan"
+    ]
+  },
+  "intent": "plan",
+  "category": [
+    {
+      "coding": [
+        {
+          "code": "dental",
+          "system": "https://fhir.cognovis.de/dental/CodeSystem/dental-category",
+          "display": "Dental"
+        }
+      ]
+    }
+  ],
+  "extension": [
+    {
+      "url": "https://fhir.cognovis.de/dental/StructureDefinition/ze-befundkuerzel",
+      "valueCode": "pw"
+    },
+    {
+      "url": "https://fhir.cognovis.de/dental/StructureDefinition/ze-therapiekuerzel",
+      "valueCode": "K"
+    },
+    {
+      "url": "https://fhir.cognovis.de/dental/StructureDefinition/ze-versorgungsart",
+      "valueCode": "regelversorgung"
+    }
+  ],
+  "identifier": [
+    {
+      "system": "https://mira.cognovis.de/fhir/identifier/ze-id",
+      "value": "ZE-2026-000046"
+    }
+  ],
+  "created": "2026-01-15",
+  "period": {
+    "start": "2026-02-15",
+    "end": "2026-05-31"
+  },
+  "title": "ZE-Plan: Kronenversorgung Zahn 46 — Regelversorgung",
+  "description": "Zahnersatz-Behandlungsplan gemäß Festzuschuss-Richtlinie §56 SGB V. Zahn 46 zerstört (Befundklasse pw). Geplante Versorgung: VMK-Krone (Regelversorgung). Festzuschuss: 50% + 20% Bonus (10 Jahre Bonusheft). Eigenanteil nach Kassenberechnung: ca. 180 €."
+}

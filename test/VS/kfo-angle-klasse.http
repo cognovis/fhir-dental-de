@@ -1,0 +1,15 @@
+### Expand kfo-angle-klasse
+GET http://localhost:8080/ValueSet/kfo-angle-klasse/$expand
+Authorization: Basic basic:secret
+
+### Validate valid code I
+GET http://localhost:8080/ValueSet/kfo-angle-klasse/$validate-code?system=https%3A%2F%2Ffhir.cognovis.de%2Fdental%2FCodeSystem%2Fkfo-angle-klasse&code=I
+Authorization: Basic basic:secret
+
+### Validate valid code III
+GET http://localhost:8080/ValueSet/kfo-angle-klasse/$validate-code?system=https%3A%2F%2Ffhir.cognovis.de%2Fdental%2FCodeSystem%2Fkfo-angle-klasse&code=III
+Authorization: Basic basic:secret
+
+### Validate invalid code
+GET http://localhost:8080/ValueSet/kfo-angle-klasse/$validate-code?system=https%3A%2F%2Ffhir.cognovis.de%2Fdental%2FCodeSystem%2Fkfo-angle-klasse&code=INVALID_XYZ_999
+Authorization: Basic basic:secret

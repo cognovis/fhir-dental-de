@@ -1,0 +1,15 @@
+### Expand goz-codes
+GET http://localhost:8080/ValueSet/goz-codes/$expand
+Authorization: Basic basic:secret
+
+### Validate valid code 0010
+GET http://localhost:8080/ValueSet/goz-codes/$validate-code?system=http%3A%2F%2Ffhir.de%2FCodeSystem%2Fbzaek%2Fgoz&code=0010
+Authorization: Basic basic:secret
+
+### Validate valid code 7115
+GET http://localhost:8080/ValueSet/goz-codes/$validate-code?system=http%3A%2F%2Ffhir.de%2FCodeSystem%2Fbzaek%2Fgoz&code=7115
+Authorization: Basic basic:secret
+
+### Validate invalid code
+GET http://localhost:8080/ValueSet/goz-codes/$validate-code?system=http%3A%2F%2Ffhir.de%2FCodeSystem%2Fbzaek%2Fgoz&code=INVALID_XYZ_999
+Authorization: Basic basic:secret

@@ -1,0 +1,15 @@
+### Expand ze-versorgungsart
+GET http://localhost:8080/ValueSet/ze-versorgungsart/$expand
+Authorization: Basic basic:secret
+
+### Validate valid code regelversorgung
+GET http://localhost:8080/ValueSet/ze-versorgungsart/$validate-code?system=https%3A%2F%2Ffhir.cognovis.de%2Fdental%2FCodeSystem%2Fze-versorgungsart&code=regelversorgung
+Authorization: Basic basic:secret
+
+### Validate valid code andersartig
+GET http://localhost:8080/ValueSet/ze-versorgungsart/$validate-code?system=https%3A%2F%2Ffhir.cognovis.de%2Fdental%2FCodeSystem%2Fze-versorgungsart&code=andersartig
+Authorization: Basic basic:secret
+
+### Validate invalid code
+GET http://localhost:8080/ValueSet/ze-versorgungsart/$validate-code?system=https%3A%2F%2Ffhir.cognovis.de%2Fdental%2FCodeSystem%2Fze-versorgungsart&code=INVALID_XYZ_999
+Authorization: Basic basic:secret

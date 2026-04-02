@@ -1,0 +1,15 @@
+### Expand prophylaxis-finding-codes
+GET http://localhost:8080/ValueSet/prophylaxis-finding-codes/$expand
+Authorization: Basic basic:secret
+
+### Validate valid code 18949003
+GET http://localhost:8080/ValueSet/prophylaxis-finding-codes/$validate-code?system=http%3A%2F%2Fsnomed.info%2Fsct&code=18949003
+Authorization: Basic basic:secret
+
+### Validate valid code 129851006
+GET http://localhost:8080/ValueSet/prophylaxis-finding-codes/$validate-code?system=http%3A%2F%2Fsnomed.info%2Fsct&code=129851006
+Authorization: Basic basic:secret
+
+### Validate invalid code
+GET http://localhost:8080/ValueSet/prophylaxis-finding-codes/$validate-code?system=http%3A%2F%2Fsnomed.info%2Fsct&code=INVALID_XYZ_999
+Authorization: Basic basic:secret

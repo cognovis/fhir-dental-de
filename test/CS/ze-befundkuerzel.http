@@ -1,0 +1,15 @@
+### Test ZeBefundkuerzelCS - valid code x
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/ze-befundkuerzel&code=x
+Authorization: Basic YmFzaWM6c2VjcmV0
+
+### Test ZeBefundkuerzelCS - valid code xb
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/ze-befundkuerzel&code=xb
+Authorization: Basic YmFzaWM6c2VjcmV0
+
+### Test ZeBefundkuerzelCS - valid code xw
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/ze-befundkuerzel&code=xw
+Authorization: Basic YmFzaWM6c2VjcmV0
+
+### Test ZeBefundkuerzelCS - invalid code
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/ze-befundkuerzel&code=INVALID_XYZ
+Authorization: Basic YmFzaWM6c2VjcmV0

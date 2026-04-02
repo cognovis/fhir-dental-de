@@ -1,0 +1,15 @@
+### Expand dental-finding-codes
+GET http://localhost:8080/ValueSet/dental-finding-codes/$expand
+Authorization: Basic basic:secret
+
+### Validate valid code 34552-0
+GET http://localhost:8080/ValueSet/dental-finding-codes/$validate-code?system=http%3A%2F%2Floinc.org&code=34552-0
+Authorization: Basic basic:secret
+
+### Validate valid code 34553-8
+GET http://localhost:8080/ValueSet/dental-finding-codes/$validate-code?system=http%3A%2F%2Floinc.org&code=34553-8
+Authorization: Basic basic:secret
+
+### Validate invalid code
+GET http://localhost:8080/ValueSet/dental-finding-codes/$validate-code?system=http%3A%2F%2Floinc.org&code=INVALID_XYZ_999
+Authorization: Basic basic:secret

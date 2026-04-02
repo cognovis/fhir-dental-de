@@ -1,0 +1,131 @@
+### Validate valid de-mira-dental-imaging-study
+POST http://localhost:8080/fhir/ImagingStudy/$validate?profile=https://fhir.cognovis.de/dental/StructureDefinition/de-mira-dental-imaging-study
+Authorization: Basic basic:secret
+Content-Type: application/fhir+json
+
+{
+  "resourceType": "ImagingStudy",
+  "id": "ExampleDentalImagingStudy",
+  "meta": {
+    "profile": [
+      "https://fhir.cognovis.de/dental/StructureDefinition/de-mira-dental-imaging-study"
+    ]
+  },
+  "identifier": [
+    {
+      "system": "https://mira.cognovis.de/fhir/identifier/roentgen-id",
+      "value": "RTG-2026-000087"
+    }
+  ],
+  "status": "available",
+  "subject": {
+    "reference": "Patient/ExamplePatient"
+  },
+  "started": "2026-01-15T08:45:00+01:00",
+  "numberOfSeries": 1,
+  "numberOfInstances": 1,
+  "reasonCode": [
+    {
+      "coding": [
+        {
+          "code": "80967001",
+          "system": "http://snomed.info/sct",
+          "display": "Dental caries"
+        }
+      ],
+      "text": "Kariesdiagnostik und parodontologische Statuserhebung"
+    }
+  ],
+  "series": [
+    {
+      "uid": "2.16.840.1.114362.1.12345678.20260115084500.999.1",
+      "number": 1,
+      "modality": {
+        "code": "PX",
+        "system": "http://dicom.nema.org/resources/ontology/DCM",
+        "display": "Panoramic X-Ray"
+      },
+      "description": "OPG Gesamtkiefer — Panoramaschichtaufnahme",
+      "numberOfInstances": 1,
+      "instance": [
+        {
+          "uid": "2.16.840.1.114362.1.12345678.20260115084500.999.1.1",
+          "sopClass": {
+            "code": "urn:oid:1.2.840.10008.5.1.4.1.1.1",
+            "system": "urn:ietf:rfc:3986",
+            "display": "Computed Radiography Image Storage"
+          },
+          "number": 1,
+          "title": "OPG 2026-01-15 — Mustermann Max"
+        }
+      ]
+    }
+  ],
+  "encounter": {
+    "reference": "Encounter/ExampleDentalEncounter"
+  }
+}
+
+### Validate invalid de-mira-dental-imaging-study
+POST http://localhost:8080/fhir/ImagingStudy/$validate?profile=https://fhir.cognovis.de/dental/StructureDefinition/de-mira-dental-imaging-study
+Authorization: Basic basic:secret
+Content-Type: application/fhir+json
+
+{
+  "resourceType": "ImagingStudy",
+  "id": "ExampleDentalImagingStudy",
+  "meta": {
+    "profile": [
+      "https://fhir.cognovis.de/dental/StructureDefinition/de-mira-dental-imaging-study"
+    ]
+  },
+  "identifier": [
+    {
+      "system": "https://mira.cognovis.de/fhir/identifier/roentgen-id",
+      "value": "RTG-2026-000087"
+    }
+  ],
+  "started": "2026-01-15T08:45:00+01:00",
+  "numberOfSeries": 1,
+  "numberOfInstances": 1,
+  "reasonCode": [
+    {
+      "coding": [
+        {
+          "code": "80967001",
+          "system": "http://snomed.info/sct",
+          "display": "Dental caries"
+        }
+      ],
+      "text": "Kariesdiagnostik und parodontologische Statuserhebung"
+    }
+  ],
+  "series": [
+    {
+      "uid": "2.16.840.1.114362.1.12345678.20260115084500.999.1",
+      "number": 1,
+      "modality": {
+        "code": "PX",
+        "system": "http://dicom.nema.org/resources/ontology/DCM",
+        "display": "Panoramic X-Ray"
+      },
+      "description": "OPG Gesamtkiefer — Panoramaschichtaufnahme",
+      "numberOfInstances": 1,
+      "instance": [
+        {
+          "uid": "2.16.840.1.114362.1.12345678.20260115084500.999.1.1",
+          "sopClass": {
+            "code": "urn:oid:1.2.840.10008.5.1.4.1.1.1",
+            "system": "urn:ietf:rfc:3986",
+            "display": "Computed Radiography Image Storage"
+          },
+          "number": 1,
+          "title": "OPG 2026-01-15 — Mustermann Max"
+        }
+      ]
+    }
+  ],
+  "encounter": {
+    "reference": "Encounter/ExampleDentalEncounter"
+  }
+}

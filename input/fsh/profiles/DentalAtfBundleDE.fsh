@@ -51,4 +51,4 @@ Description: "Profil für den Transport zahnärztlicher Befunde (DentalFinding, 
 * entry[DentalCondition].resource only DentalConditionDE
 
 * entry[Patient].fullUrl 1..1 MS
-* entry[Patient].resource only KBV_PR_FOR_Patient
+* entry[Patient].resource only Patient

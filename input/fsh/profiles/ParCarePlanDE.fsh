@@ -18,7 +18,7 @@ Description: "Profil für parodontologische Behandlungspläne nach PAR-Richtlini
 
 // --- Subject: Patient (Pflichtfeld) ---
 * subject 1..1 MS
-* subject only Reference(KBV_PR_FOR_Patient)
+* subject only Reference(Patient)
 * subject ^short = "Patient (SWS: Patient-Ref)"
 
 // --- Status ---

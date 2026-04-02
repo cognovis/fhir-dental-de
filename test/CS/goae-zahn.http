@@ -1,0 +1,15 @@
+### Test GoaZahnCS - valid code 1
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/goae-zahn&code=1
+Authorization: Basic YmFzaWM6c2VjcmV0
+
+### Test GoaZahnCS - valid code 2
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/goae-zahn&code=2
+Authorization: Basic YmFzaWM6c2VjcmV0
+
+### Test GoaZahnCS - valid code 3
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/goae-zahn&code=3
+Authorization: Basic YmFzaWM6c2VjcmV0
+
+### Test GoaZahnCS - invalid code
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/goae-zahn&code=INVALID_XYZ
+Authorization: Basic YmFzaWM6c2VjcmV0

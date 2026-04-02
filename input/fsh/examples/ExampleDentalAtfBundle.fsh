@@ -132,7 +132,7 @@ Title: "Kariesbefund K02.1 Zahn 46 (ATF-Payload)"
 * evidence[0].detail = Reference(AtfDentalFindingZahn46)
 
 // ============================================================
-// Patient (inline, konform zu KBV_PR_FOR_Patient)
+// Patient (inline)
 // ============================================================
 
 Instance: AtfPatient
@@ -141,7 +141,6 @@ Usage: #inline
 Title: "Patient Max Mustermann (ATF-Payload)"
 
 * id = "patient-max-mustermann"
-* meta.profile[0] = "https://fhir.kbv.de/StructureDefinition/KBV_PR_FOR_Patient|1.3.1"
 * identifier[0].system = "http://fhir.de/sid/gkv/kvid-10"
 * identifier[0].value = "A123456789"
 * name[0].use = #official

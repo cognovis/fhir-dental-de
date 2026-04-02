@@ -25,7 +25,7 @@ Description: "Profil für den zahnärztlichen Abrechnungsfall (Behandlungsfall) 
 
 // --- Patient (Pflichtfeld) ---
 * subject 1..1 MS
-* subject only Reference(KBV_PR_FOR_Patient)
+* subject only Reference(Patient)
 * subject ^short = "Behandelter Patient"
 
 // --- Behandler (PractitionerRole) ---
