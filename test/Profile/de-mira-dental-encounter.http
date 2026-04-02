@@ -1,0 +1,97 @@
+### Validate valid de-mira-dental-encounter
+POST http://localhost:8080/fhir/Encounter/$validate?profile=https://fhir.cognovis.de/dental/StructureDefinition/de-mira-dental-encounter
+Authorization: Basic basic:secret
+Content-Type: application/fhir+json
+
+{
+  "resourceType": "Encounter",
+  "id": "ExampleDentalEncounter",
+  "meta": {
+    "profile": [
+      "https://fhir.cognovis.de/dental/StructureDefinition/de-mira-dental-encounter"
+    ]
+  },
+  "extension": [
+    {
+      "url": "https://fhir.cognovis.de/praxis/StructureDefinition/abrechnungsquartal",
+      "valueString": "2026Q1"
+    }
+  ],
+  "identifier": [
+    {
+      "system": "https://mira.cognovis.de/fhir/identifier/fall-id",
+      "value": "FALL-2026-000042"
+    }
+  ],
+  "status": "finished",
+  "class": {
+    "code": "AMB",
+    "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+    "display": "ambulatory"
+  },
+  "type": [
+    {
+      "coding": [
+        {
+          "code": "kassenschein",
+          "system": "https://fhir.cognovis.de/dental/CodeSystem/scheintyp",
+          "display": "Kassenschein"
+        }
+      ]
+    }
+  ],
+  "subject": {
+    "reference": "Patient/ExamplePatient"
+  },
+  "period": {
+    "start": "2026-01-15",
+    "end": "2026-01-15"
+  }
+}
+
+### Validate invalid de-mira-dental-encounter
+POST http://localhost:8080/fhir/Encounter/$validate?profile=https://fhir.cognovis.de/dental/StructureDefinition/de-mira-dental-encounter
+Authorization: Basic basic:secret
+Content-Type: application/fhir+json
+
+{
+  "resourceType": "Encounter",
+  "id": "ExampleDentalEncounter",
+  "meta": {
+    "profile": [
+      "https://fhir.cognovis.de/dental/StructureDefinition/de-mira-dental-encounter"
+    ]
+  },
+  "extension": [
+    {
+      "url": "https://fhir.cognovis.de/praxis/StructureDefinition/abrechnungsquartal",
+      "valueString": "2026Q1"
+    }
+  ],
+  "identifier": [
+    {
+      "system": "https://mira.cognovis.de/fhir/identifier/fall-id",
+      "value": "FALL-2026-000042"
+    }
+  ],
+  "class": {
+    "code": "AMB",
+    "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+    "display": "ambulatory"
+  },
+  "type": [
+    {
+      "coding": [
+        {
+          "code": "kassenschein",
+          "system": "https://fhir.cognovis.de/dental/CodeSystem/scheintyp",
+          "display": "Kassenschein"
+        }
+      ]
+    }
+  ],
+  "period": {
+    "start": "2026-01-15",
+    "end": "2026-01-15"
+  }
+}

@@ -1,0 +1,15 @@
+### Expand scheintyp
+GET http://localhost:8080/ValueSet/scheintyp/$expand
+Authorization: Basic basic:secret
+
+### Validate valid code kassenschein
+GET http://localhost:8080/ValueSet/scheintyp/$validate-code?system=https%3A%2F%2Ffhir.cognovis.de%2Fdental%2FCodeSystem%2Fscheintyp&code=kassenschein
+Authorization: Basic basic:secret
+
+### Validate valid code par-schein
+GET http://localhost:8080/ValueSet/scheintyp/$validate-code?system=https%3A%2F%2Ffhir.cognovis.de%2Fdental%2FCodeSystem%2Fscheintyp&code=par-schein
+Authorization: Basic basic:secret
+
+### Validate invalid code
+GET http://localhost:8080/ValueSet/scheintyp/$validate-code?system=https%3A%2F%2Ffhir.cognovis.de%2Fdental%2FCodeSystem%2Fscheintyp&code=INVALID_XYZ_999
+Authorization: Basic basic:secret

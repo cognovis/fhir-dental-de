@@ -20,22 +20,20 @@ Description: "Kassenzahnärztlicher Abrechnungsfall, Quartal 1/2026, Patient Max
 
 * type[0] = https://fhir.cognovis.de/dental/CodeSystem/scheintyp#kassenschein "Kassenschein"
 
-// Inline patient reference — placeholder for KBV_PR_FOR_Patient
+// Inline patient reference
 * subject = Reference(ExamplePatient)
 
 * period.start = "2026-01-15"
 * period.end = "2026-01-15"
 
 // -----------------------------------------------------------------------
-// Inline Patient (KBV_PR_FOR_Patient) — minimal valid instance
+// Inline Patient — minimal valid instance
 // -----------------------------------------------------------------------
 Instance: ExamplePatient
 InstanceOf: Patient
 Usage: #example
 Title: "Beispiel Patient"
-Description: "Testpatient Max Mustermann, GKV (AOK Bayern), geboren 1978-06-21. (Profil: KBV_PR_FOR_Patient)"
-
-* meta.profile[0] = "https://fhir.kbv.de/StructureDefinition/KBV_PR_FOR_Patient|1.3.1"
+Description: "Testpatient Max Mustermann, GKV (AOK Bayern), geboren 1978-06-21."
 
 * identifier[0].system = "http://fhir.de/sid/gkv/kvid-10"
 * identifier[0].value = "A123456789"

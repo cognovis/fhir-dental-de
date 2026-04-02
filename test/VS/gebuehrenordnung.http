@@ -1,0 +1,15 @@
+### Expand gebuehrenordnung
+GET http://localhost:8080/ValueSet/gebuehrenordnung/$expand
+Authorization: Basic basic:secret
+
+### Validate valid code goae
+GET http://localhost:8080/ValueSet/gebuehrenordnung/$validate-code?system=https%3A%2F%2Ffhir.cognovis.de%2Fdental%2FCodeSystem%2Fgebuehrenordnung&code=goae
+Authorization: Basic basic:secret
+
+### Validate valid code goz
+GET http://localhost:8080/ValueSet/gebuehrenordnung/$validate-code?system=https%3A%2F%2Ffhir.cognovis.de%2Fdental%2FCodeSystem%2Fgebuehrenordnung&code=goz
+Authorization: Basic basic:secret
+
+### Validate invalid code
+GET http://localhost:8080/ValueSet/gebuehrenordnung/$validate-code?system=https%3A%2F%2Ffhir.cognovis.de%2Fdental%2FCodeSystem%2Fgebuehrenordnung&code=INVALID_XYZ_999
+Authorization: Basic basic:secret

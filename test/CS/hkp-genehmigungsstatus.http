@@ -1,0 +1,15 @@
+### Test HkpGenehmigungsstatusCS - valid code eingereicht
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/hkp-genehmigungsstatus&code=eingereicht
+Authorization: Basic YmFzaWM6c2VjcmV0
+
+### Test HkpGenehmigungsstatusCS - valid code in-pruefung
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/hkp-genehmigungsstatus&code=in-pruefung
+Authorization: Basic YmFzaWM6c2VjcmV0
+
+### Test HkpGenehmigungsstatusCS - valid code genehmigt
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/hkp-genehmigungsstatus&code=genehmigt
+Authorization: Basic YmFzaWM6c2VjcmV0
+
+### Test HkpGenehmigungsstatusCS - invalid code
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/hkp-genehmigungsstatus&code=INVALID_XYZ
+Authorization: Basic YmFzaWM6c2VjcmV0

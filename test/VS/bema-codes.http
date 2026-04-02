@@ -1,0 +1,15 @@
+### Expand bema-codes
+GET http://localhost:8080/ValueSet/bema-codes/$expand
+Authorization: Basic basic:secret
+
+### Validate valid code 01
+GET http://localhost:8080/ValueSet/bema-codes/$validate-code?system=http%3A%2F%2Ffhir.de%2FCodeSystem%2Fkzbv%2Fbema&code=01
+Authorization: Basic basic:secret
+
+### Validate valid code Ae5004
+GET http://localhost:8080/ValueSet/bema-codes/$validate-code?system=http%3A%2F%2Ffhir.de%2FCodeSystem%2Fkzbv%2Fbema&code=Ae5004
+Authorization: Basic basic:secret
+
+### Validate invalid code
+GET http://localhost:8080/ValueSet/bema-codes/$validate-code?system=http%3A%2F%2Ffhir.de%2FCodeSystem%2Fkzbv%2Fbema&code=INVALID_XYZ_999
+Authorization: Basic basic:secret

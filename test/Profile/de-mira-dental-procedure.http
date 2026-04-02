@@ -1,0 +1,113 @@
+### Validate valid de-mira-dental-procedure
+POST http://localhost:8080/fhir/Procedure/$validate?profile=https://fhir.cognovis.de/dental/StructureDefinition/de-mira-dental-procedure
+Authorization: Basic basic:secret
+Content-Type: application/fhir+json
+
+{
+  "resourceType": "Procedure",
+  "id": "ExampleDentalProcedure",
+  "meta": {
+    "profile": [
+      "https://fhir.cognovis.de/dental/StructureDefinition/de-mira-dental-procedure"
+    ]
+  },
+  "category": {
+    "coding": [
+      {
+        "code": "dental",
+        "system": "https://fhir.cognovis.de/dental/CodeSystem/dental-category",
+        "display": "Dental"
+      }
+    ]
+  },
+  "status": "completed",
+  "code": {
+    "coding": [
+      {
+        "system": "http://fhir.de/CodeSystem/kzbv/bema",
+        "code": "13c",
+        "display": "Kompositfüllung dreiflächig"
+      }
+    ],
+    "text": "Kompositfüllung BEMA 13c — MOD Zahn 36"
+  },
+  "subject": {
+    "reference": "Patient/ExamplePatient"
+  },
+  "performedDateTime": "2026-01-15",
+  "bodySite": [
+    {
+      "coding": [
+        {
+          "code": "36",
+          "system": "http://terminology.hl7.org/CodeSystem/ex-tooth",
+          "display": "36"
+        }
+      ],
+      "text": "Zahn 36, Flächen MOD (mesial-okklusal-distal)"
+    }
+  ],
+  "encounter": {
+    "reference": "Encounter/ExampleDentalEncounter"
+  },
+  "reasonReference": [
+    {
+      "reference": "Condition/ExampleDentalCondition"
+    }
+  ]
+}
+
+### Validate invalid de-mira-dental-procedure
+POST http://localhost:8080/fhir/Procedure/$validate?profile=https://fhir.cognovis.de/dental/StructureDefinition/de-mira-dental-procedure
+Authorization: Basic basic:secret
+Content-Type: application/fhir+json
+
+{
+  "resourceType": "Procedure",
+  "id": "ExampleDentalProcedure",
+  "meta": {
+    "profile": [
+      "https://fhir.cognovis.de/dental/StructureDefinition/de-mira-dental-procedure"
+    ]
+  },
+  "category": {
+    "coding": [
+      {
+        "code": "dental",
+        "system": "https://fhir.cognovis.de/dental/CodeSystem/dental-category",
+        "display": "Dental"
+      }
+    ]
+  },
+  "code": {
+    "coding": [
+      {
+        "system": "http://fhir.de/CodeSystem/kzbv/bema",
+        "code": "13c",
+        "display": "Kompositfüllung dreiflächig"
+      }
+    ],
+    "text": "Kompositfüllung BEMA 13c — MOD Zahn 36"
+  },
+  "performedDateTime": "2026-01-15",
+  "bodySite": [
+    {
+      "coding": [
+        {
+          "code": "36",
+          "system": "http://terminology.hl7.org/CodeSystem/ex-tooth",
+          "display": "36"
+        }
+      ],
+      "text": "Zahn 36, Flächen MOD (mesial-okklusal-distal)"
+    }
+  ],
+  "encounter": {
+    "reference": "Encounter/ExampleDentalEncounter"
+  },
+  "reasonReference": [
+    {
+      "reference": "Condition/ExampleDentalCondition"
+    }
+  ]
+}

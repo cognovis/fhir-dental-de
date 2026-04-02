@@ -1,0 +1,15 @@
+### Expand dental-procedure-codes
+GET http://localhost:8080/ValueSet/dental-procedure-codes/$expand
+Authorization: Basic basic:secret
+
+### Validate valid code 5000
+GET http://localhost:8080/ValueSet/dental-procedure-codes/$validate-code?system=http%3A%2F%2Ffhir.de%2FCodeSystem%2Fbzaek%2Fgoz&code=5000
+Authorization: Basic basic:secret
+
+### Validate valid code 7045
+GET http://localhost:8080/ValueSet/dental-procedure-codes/$validate-code?system=http%3A%2F%2Ffhir.de%2FCodeSystem%2Fbzaek%2Fgoz&code=7045
+Authorization: Basic basic:secret
+
+### Validate invalid code
+GET http://localhost:8080/ValueSet/dental-procedure-codes/$validate-code?system=http%3A%2F%2Ffhir.de%2FCodeSystem%2Fbzaek%2Fgoz&code=INVALID_XYZ_999
+Authorization: Basic basic:secret

@@ -21,27 +21,22 @@ sushi .                    # Compile FSH → FHIR JSON
 
 ## Local Testing with Aidbox
 
-```bash
-docker compose up -d       # Start Aidbox + Postgres
-# Wait for Aidbox to be ready (~30s)
-curl -s http://localhost:8080/health
-```
+Uses the local Aidbox instance on localhost:8080.
+After IG migration: fresh Aidbox with strict validation enabled globally.
+Current state: shared container (`mira-aidbox-1`), use `$validate` with explicit profile parameter.
+**Important:** Always install fhir-praxis-de IG first (dependency).
 
-### Slash Commands
+### IG Testing
 
-| Command | Purpose |
-|---------|---------|
-| `/install-ig` | Load this IG into local Aidbox |
-| `/test-cs <Name>` | Test a CodeSystem via $lookup |
-| `/test-vs <Name>` | Test a ValueSet via $expand + $validate-code |
-| `/test-profile <Name>` | Test a Profile via $validate with valid/invalid examples |
-| `/review-qa` | Parse QA report and create fix plan |
+All IG testing (install, test-cs, test-vs, test-profile, review-qa) is handled by the global `/aidbox` skill (`references/ig-testing.md`).
+Always invoke `/aidbox` before manually curl-debugging — it contains learnings that prevent common errors.
 
 ### Aidbox Access
 
 - **URL:** http://localhost:8080
 - **FHIR Base:** http://localhost:8080/fhir
 - **Auth:** `Basic basic:secret`
+- **Admin Auth:** See `../mira/.env` (`AIDBOX_ADMIN_ID` / `AIDBOX_ADMIN_PASSWORD`)
 - **Validation:** `POST /fhir/{ResourceType}/$validate`
 - **ValueSet Expand:** `GET /fhir/ValueSet/$expand?url=...`
 

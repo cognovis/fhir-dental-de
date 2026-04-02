@@ -22,7 +22,7 @@ Description: "Profil für privatzahnärztliche Leistungen nach GOZ 2012 (Gebühr
 
 // --- Subject: Patient (Pflichtfeld) ---
 * subject 1..1 MS
-* subject only Reference(KBV_PR_FOR_Patient)
+* subject only Reference(Patient)
 
 // --- Encounter-Kontext (Behandlungsfall) ---
 * context MS

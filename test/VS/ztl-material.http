@@ -1,0 +1,15 @@
+### Expand ztl-material
+GET http://localhost:8080/ValueSet/ztl-material/$expand
+Authorization: Basic basic:secret
+
+### Validate valid code nem
+GET http://localhost:8080/ValueSet/ztl-material/$validate-code?system=https%3A%2F%2Ffhir.cognovis.de%2Fdental%2FCodeSystem%2Fztl-material&code=nem
+Authorization: Basic basic:secret
+
+### Validate valid code gold
+GET http://localhost:8080/ValueSet/ztl-material/$validate-code?system=https%3A%2F%2Ffhir.cognovis.de%2Fdental%2FCodeSystem%2Fztl-material&code=gold
+Authorization: Basic basic:secret
+
+### Validate invalid code
+GET http://localhost:8080/ValueSet/ztl-material/$validate-code?system=https%3A%2F%2Ffhir.cognovis.de%2Fdental%2FCodeSystem%2Fztl-material&code=INVALID_XYZ_999
+Authorization: Basic basic:secret

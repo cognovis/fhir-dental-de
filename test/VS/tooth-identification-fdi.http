@@ -1,0 +1,3 @@
+### Expand tooth-identification-fdi
+GET http://localhost:8080/ValueSet/tooth-identification-fdi/$expand
+Authorization: Basic basic:secret

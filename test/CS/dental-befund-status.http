@@ -1,0 +1,15 @@
+### Test DentalBefundStatusCS - valid code f
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/dental-befund-status&code=f
+Authorization: Basic YmFzaWM6c2VjcmV0
+
+### Test DentalBefundStatusCS - valid code z
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/dental-befund-status&code=z
+Authorization: Basic YmFzaWM6c2VjcmV0
+
+### Test DentalBefundStatusCS - valid code c
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/dental-befund-status&code=c
+Authorization: Basic YmFzaWM6c2VjcmV0
+
+### Test DentalBefundStatusCS - invalid code
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/dental-befund-status&code=INVALID_XYZ
+Authorization: Basic YmFzaWM6c2VjcmV0

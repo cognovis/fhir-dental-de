@@ -1,0 +1,15 @@
+### Expand kfo-behandlungsphase
+GET http://localhost:8080/ValueSet/kfo-behandlungsphase/$expand
+Authorization: Basic basic:secret
+
+### Validate valid code aktiv
+GET http://localhost:8080/ValueSet/kfo-behandlungsphase/$validate-code?system=https%3A%2F%2Ffhir.cognovis.de%2Fdental%2FCodeSystem%2Fkfo-behandlungsphase&code=aktiv
+Authorization: Basic basic:secret
+
+### Validate valid code abschluss
+GET http://localhost:8080/ValueSet/kfo-behandlungsphase/$validate-code?system=https%3A%2F%2Ffhir.cognovis.de%2Fdental%2FCodeSystem%2Fkfo-behandlungsphase&code=abschluss
+Authorization: Basic basic:secret
+
+### Validate invalid code
+GET http://localhost:8080/ValueSet/kfo-behandlungsphase/$validate-code?system=https%3A%2F%2Ffhir.cognovis.de%2Fdental%2FCodeSystem%2Fkfo-behandlungsphase&code=INVALID_XYZ_999
+Authorization: Basic basic:secret

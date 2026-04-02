@@ -1,0 +1,15 @@
+### Test ParStadiumCS - valid code A
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/par-stadium&code=A
+Authorization: Basic YmFzaWM6c2VjcmV0
+
+### Test ParStadiumCS - valid code B
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/par-stadium&code=B
+Authorization: Basic YmFzaWM6c2VjcmV0
+
+### Test ParStadiumCS - valid code C
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/par-stadium&code=C
+Authorization: Basic YmFzaWM6c2VjcmV0
+
+### Test ParStadiumCS - invalid code
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/par-stadium&code=INVALID_XYZ
+Authorization: Basic YmFzaWM6c2VjcmV0

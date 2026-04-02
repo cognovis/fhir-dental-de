@@ -1,0 +1,15 @@
+### Expand bema-befundklasse
+GET http://localhost:8080/ValueSet/bema-befundklasse/$expand
+Authorization: Basic basic:secret
+
+### Validate valid code c
+GET http://localhost:8080/ValueSet/bema-befundklasse/$validate-code?system=https%3A%2F%2Ffhir.cognovis.de%2Fdental%2FCodeSystem%2Fbema-befundklasse&code=c
+Authorization: Basic basic:secret
+
+### Validate valid code b
+GET http://localhost:8080/ValueSet/bema-befundklasse/$validate-code?system=https%3A%2F%2Ffhir.cognovis.de%2Fdental%2FCodeSystem%2Fbema-befundklasse&code=b
+Authorization: Basic basic:secret
+
+### Validate invalid code
+GET http://localhost:8080/ValueSet/bema-befundklasse/$validate-code?system=https%3A%2F%2Ffhir.cognovis.de%2Fdental%2FCodeSystem%2Fbema-befundklasse&code=INVALID_XYZ_999
+Authorization: Basic basic:secret

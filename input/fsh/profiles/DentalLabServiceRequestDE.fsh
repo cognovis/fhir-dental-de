@@ -31,7 +31,7 @@ Description: "Profil für zahntechnische Laboraufträge (BEL II / beb'97). Bilde
 
 // --- Subject: Patient ---
 * subject MS
-* subject only Reference(KBV_PR_FOR_Patient)
+* subject only Reference(Patient)
 * subject ^short = "Patient (SWS: Patient-Ref)"
 
 // --- BasedOn: Verweis auf ZE-Behandlungsplan (HKP/CarePlan Satzart 11) ---

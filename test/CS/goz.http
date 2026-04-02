@@ -1,0 +1,15 @@
+### Test GozCS - valid code 0010
+GET http://localhost:8080/Concept?system=http://fhir.de/CodeSystem/bzaek/goz&code=0010
+Authorization: Basic YmFzaWM6c2VjcmV0
+
+### Test GozCS - valid code 0020
+GET http://localhost:8080/Concept?system=http://fhir.de/CodeSystem/bzaek/goz&code=0020
+Authorization: Basic YmFzaWM6c2VjcmV0
+
+### Test GozCS - valid code 0030
+GET http://localhost:8080/Concept?system=http://fhir.de/CodeSystem/bzaek/goz&code=0030
+Authorization: Basic YmFzaWM6c2VjcmV0
+
+### Test GozCS - invalid code
+GET http://localhost:8080/Concept?system=http://fhir.de/CodeSystem/bzaek/goz&code=INVALID_XYZ
+Authorization: Basic YmFzaWM6c2VjcmV0

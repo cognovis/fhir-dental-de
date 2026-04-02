@@ -24,7 +24,7 @@ Description: "Profil für zahnärztliche Diagnosen und Befunde. Nutzt ICD-10-GM 
 
 // Subject
 * subject 1..1 MS
-* subject only Reference(KBV_PR_FOR_Patient)
+* subject only Reference(Patient)
 
 // Tooth identification
 * bodySite MS

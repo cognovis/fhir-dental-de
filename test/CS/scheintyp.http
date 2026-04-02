@@ -1,0 +1,15 @@
+### Test ScheintypCS - valid code kassenschein
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/scheintyp&code=kassenschein
+Authorization: Basic YmFzaWM6c2VjcmV0
+
+### Test ScheintypCS - valid code ueberweisungsschein
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/scheintyp&code=ueberweisungsschein
+Authorization: Basic YmFzaWM6c2VjcmV0
+
+### Test ScheintypCS - valid code notfallschein
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/scheintyp&code=notfallschein
+Authorization: Basic YmFzaWM6c2VjcmV0
+
+### Test ScheintypCS - invalid code
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/scheintyp&code=INVALID_XYZ
+Authorization: Basic YmFzaWM6c2VjcmV0

@@ -1,0 +1,11 @@
+### Test KfoApparatusTypeCS - valid code festsitzend
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/kfo-apparatus-type&code=festsitzend
+Authorization: Basic YmFzaWM6c2VjcmV0
+
+### Test KfoApparatusTypeCS - valid code herausnehmbar
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/kfo-apparatus-type&code=herausnehmbar
+Authorization: Basic YmFzaWM6c2VjcmV0
+
+### Test KfoApparatusTypeCS - invalid code
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/kfo-apparatus-type&code=INVALID_XYZ
+Authorization: Basic YmFzaWM6c2VjcmV0

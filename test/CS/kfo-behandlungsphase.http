@@ -1,0 +1,15 @@
+### Test KfoBehandlungsphaseCS - valid code aktiv
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/kfo-behandlungsphase&code=aktiv
+Authorization: Basic YmFzaWM6c2VjcmV0
+
+### Test KfoBehandlungsphaseCS - valid code retention
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/kfo-behandlungsphase&code=retention
+Authorization: Basic YmFzaWM6c2VjcmV0
+
+### Test KfoBehandlungsphaseCS - valid code abschluss
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/kfo-behandlungsphase&code=abschluss
+Authorization: Basic YmFzaWM6c2VjcmV0
+
+### Test KfoBehandlungsphaseCS - invalid code
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/kfo-behandlungsphase&code=INVALID_XYZ
+Authorization: Basic YmFzaWM6c2VjcmV0

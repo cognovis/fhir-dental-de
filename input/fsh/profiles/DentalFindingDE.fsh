@@ -19,7 +19,7 @@ Description: "Profil für zahnärztliche Einzelbefunde: Zahnschema-Einträge, Pa
 
 // Subject
 * subject 1..1 MS
-* subject only Reference(KBV_PR_FOR_Patient)
+* subject only Reference(Patient)
 
 // Timing
 * effective[x] 1..1 MS

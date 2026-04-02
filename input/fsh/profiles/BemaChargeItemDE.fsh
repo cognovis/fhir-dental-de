@@ -21,7 +21,7 @@ Description: "Profil für kassenzahnärztliche Leistungen nach BEMA (Bewertungsm
 
 // --- Subject: Patient (Pflichtfeld) ---
 * subject 1..1 MS
-* subject only Reference(KBV_PR_FOR_Patient)
+* subject only Reference(Patient)
 
 // --- Encounter-Kontext (Behandlungsfall) ---
 * context MS

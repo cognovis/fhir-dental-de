@@ -1,0 +1,15 @@
+### Test BelIICS - valid code 001
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/bel-ii&code=001
+Authorization: Basic YmFzaWM6c2VjcmV0
+
+### Test BelIICS - valid code 002
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/bel-ii&code=002
+Authorization: Basic YmFzaWM6c2VjcmV0
+
+### Test BelIICS - valid code 003
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/bel-ii&code=003
+Authorization: Basic YmFzaWM6c2VjcmV0
+
+### Test BelIICS - invalid code
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/bel-ii&code=INVALID_XYZ
+Authorization: Basic YmFzaWM6c2VjcmV0
