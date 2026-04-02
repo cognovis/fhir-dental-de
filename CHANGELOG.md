@@ -6,6 +6,20 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
+- Strip internal praxis dependency from release tgz
+
+### Miscellaneous
+
+- Bump version to 0.3.1
+
+### Test
+
+- Add Aidbox test suite (66 httpyac files) + decouple profiles from KBV
+
+## [0.3.1] - 2026-03-30
+
+### Bug Fixes
+
 - Sync sushi-config.yaml version to 0.3.0 (matches VERSION file)
 
 ### CI/CD
@@ -13,6 +27,10 @@ All notable changes to this project will be documented in this file.
 - Resolve praxis dependency from GitHub Release + auto-release on push
 - Use IG Publisher output for release package (includes snapshots)
 - Fix multi-asset download — use last (newest) asset from release
+
+### Miscellaneous
+
+- Update changelog
 
 ## [0.3.0] - 2026-03-30
 
