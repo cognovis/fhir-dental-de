@@ -1,22 +1,22 @@
-// Example: Kompositfüllung BEMA 13c, Zahn 46, MO (mesial-okklusal)
+// Example: Kompositfüllung BEMA 13b, Zahn 46, MO (mesial-okklusal)
 // SWS 2.0 Satzart 5 — Zahnärztliche Behandlung
 
 Alias: $fdiCS   = https://fhir.cognovis.de/dental/CodeSystem/tooth-identification-fdi
-Alias: $bemaCS  = https://fhir.cognovis.de/dental/CodeSystem/bema-codes
+Alias: $bemaCS  = http://fhir.de/CodeSystem/kzbv/bema
 
 Instance: ExampleDentalProcedure
 InstanceOf: DentalProcedureDE
 Usage: #example
-Title: "Beispiel Kompositfüllung BEMA 13c Zahn 46"
-Description: "Zweiflächige Kompositfüllung (MO) nach BEMA 13c an Zahn 46. Durchgeführt am 2026-01-10 im Rahmen des GKV-Abrechnungsfalls. Patient Klaus Bergmann (AOK Bayern)."
+Title: "Beispiel Kompositfüllung BEMA 13b Zahn 46"
+Description: "Zweiflächige Kompositfüllung (MO) nach BEMA 13b an Zahn 46. Durchgeführt am 2026-01-10 im Rahmen des GKV-Abrechnungsfalls. Patient Klaus Bergmann (AOK Bayern)."
 
 * status = #completed
 
 * category = https://fhir.cognovis.de/dental/CodeSystem/dental-category#dental "Dental"
 
-// BEMA 13c — Kompositfüllung zweiflächig
-* code.coding[0] = $bemaCS#13c "Kompositfüllung zweiflächig"
-* code.text = "Kompositfüllung BEMA 13c — MO Zahn 46"
+// BEMA 13b — Kompositfüllung zweiflächig
+* code.coding[0] = $bemaCS#13b "Kompositfüllung zweiflächig"
+* code.text = "Kompositfüllung BEMA 13b — Zahn 46"
 
 * subject = Reference(Patient/pat-gkv-01)
 
