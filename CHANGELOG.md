@@ -6,10 +6,36 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
+- **fdde-as8**: Address review findings iteration 1
+- **fdde-as8**: Correct Communication sender to role-uselmann-plaerrer per MIRA seed
+
+### Features
+
+- **fdde-as8**: Align all 20 examples with MIRA seed data patterns
+
+### Miscellaneous
+
+- Bump version to 0.5.1
+- Switch beads to embedded Dolt mode for worktree compatibility
+- Revert to shared-server Dolt mode (worktrees need shared DB access)
+- Use shared-server Dolt mode (required for worktree bead access)
+
+## [0.5.1] - 2026-04-03
+
+### Bug Fixes
+
 - **fdde-9e6**: Fix all 37 IG Publisher validation errors
 - **fdde-9e6**: Address review findings iteration 1
 - **fdde-9e6**: Address review findings iteration 2
 - **fdde-9e6**: Use $icd10gm alias in ExampleParCarePlan (consistency)
+
+### Miscellaneous
+
+- Update changelog
+
+### Merge
+
+- Worktree-bead-fdde-9e6
 
 ## [0.5.0] - 2026-04-03
 

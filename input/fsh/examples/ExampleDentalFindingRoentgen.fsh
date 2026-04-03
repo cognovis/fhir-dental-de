@@ -3,13 +3,13 @@
 
 Alias: $loinc = http://loinc.org
 Alias: $sct   = http://snomed.info/sct
-Alias: $fdi   = http://terminology.hl7.org/CodeSystem/ex-tooth
+Alias: $fdiCS = https://fhir.cognovis.de/dental/CodeSystem/tooth-identification-fdi
 
 Instance: ExampleDentalFindingRoentgen46
 InstanceOf: DentalFindingDE
 Usage: #example
 Title: "Beispiel Röntgenbefund — Apikale Aufhellung Zahn 46"
-Description: "Radiologischer Befund: apikale Aufhellung an Zahn 46 (erster unterer rechter Molar), vereinbar mit periapikaler Parodontitis."
+Description: "Radiologischer Befund: apikale Aufhellung an Zahn 46 (erster unterer rechter Molar), vereinbar mit periapikaler Parodontitis. Patient Friedrich Hartmann (Beihilfe)."
 
 * extension[0].url = "https://fhir.cognovis.de/dental/StructureDefinition/fdi-tooth-number"
 * extension[0].valueCode = #46
@@ -20,17 +20,18 @@ Description: "Radiologischer Befund: apikale Aufhellung an Zahn 46 (erster unter
 
 * code = $loinc#34552-0 "Dental findings"
 
-* subject = Reference(ExamplePatient)
+* subject = Reference(Patient/pat-beihilfe-01)
 
-* effectiveDateTime = "2026-03-15T10:15:00+01:00"
+* effectiveDateTime = "2026-02-05T22:20:00+01:00"
 
 * valueCodeableConcept = $sct#27867005 "Periapical abscess"
 * valueCodeableConcept.text = "Apikale Aufhellung — V.a. periapikale Parodontitis"
 
-* bodySite = $fdi#46 "46"
+// Tooth: FDI 46 — cognovis CodeSystem
+* bodySite = $fdiCS#46 "46"
 * bodySite.text = "Zahn 46 — erster unterer rechter Molar"
 
 // Befundquelle
 * component[0].code = $sct#168537006 "Plain radiograph"
 * component[0].code.text = "Befundquelle"
-* component[0].valueString = "OPG vom 2026-03-15"
+* component[0].valueString = "OPG vom 2026-02-05"

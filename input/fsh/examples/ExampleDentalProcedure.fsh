@@ -1,34 +1,33 @@
-// Example: Kompositfüllung BEMA 13c, Zahn 36, MOD (mesial-okklusal-distal)
+// Example: Kompositfüllung BEMA 13c, Zahn 46, MO (mesial-okklusal)
 // SWS 2.0 Satzart 5 — Zahnärztliche Behandlung
 
-Alias: $fdi   = http://terminology.hl7.org/CodeSystem/ex-tooth
+Alias: $fdiCS   = https://fhir.cognovis.de/dental/CodeSystem/tooth-identification-fdi
+Alias: $bemaCS  = https://fhir.cognovis.de/dental/CodeSystem/bema-codes
 
 Instance: ExampleDentalProcedure
 InstanceOf: DentalProcedureDE
 Usage: #example
-Title: "Beispiel Kompositfüllung BEMA 13c Zahn 36"
-Description: "Dreiflächige Kompositfüllung (MOD) nach BEMA 13c an Zahn 36. Durchgeführt am 2026-01-15 im Rahmen des GKV-Abrechnungsfalls."
+Title: "Beispiel Kompositfüllung BEMA 13c Zahn 46"
+Description: "Zweiflächige Kompositfüllung (MO) nach BEMA 13c an Zahn 46. Durchgeführt am 2026-01-10 im Rahmen des GKV-Abrechnungsfalls. Patient Klaus Bergmann (AOK Bayern)."
 
 * status = #completed
 
 * category = https://fhir.cognovis.de/dental/CodeSystem/dental-category#dental "Dental"
 
-// BEMA 13c — Kompositfüllung dreiflächig
-* code.coding[0].system = "http://fhir.de/CodeSystem/kzbv/bema"
-* code.coding[0].code = #13c
-* code.coding[0].display = "Kompositfüllung dreiflächig"
-* code.text = "Kompositfüllung BEMA 13c — MOD Zahn 36"
+// BEMA 13c — Kompositfüllung zweiflächig
+* code.coding[0] = $bemaCS#13c "Kompositfüllung zweiflächig"
+* code.text = "Kompositfüllung BEMA 13c — MO Zahn 46"
 
-* subject = Reference(ExamplePatient)
+* subject = Reference(Patient/pat-gkv-01)
 
-* performedDateTime = "2026-01-15"
+* performedDateTime = "2026-01-10"
 
-// Tooth: FDI 36 (lower-left first molar)
-* bodySite[0] = $fdi#36 "36"
-* bodySite[0].text = "Zahn 36, Flächen MOD (mesial-okklusal-distal)"
+// Tooth: FDI 46 (lower-right first molar)
+* bodySite[0] = $fdiCS#46 "46"
+* bodySite[0].text = "Zahn 46, Flächen MO (mesial-okklusal)"
 
 // Link to encounter
-* encounter = Reference(ExampleDentalEncounter)
+* encounter = Reference(Encounter/enc-dental-01-kassenschein)
 
 // Reason: Kariesbefund K02.1
 * reasonReference[0] = Reference(ExampleDentalCondition)

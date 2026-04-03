@@ -6,14 +6,14 @@
 // The meta.profile assertion declares conformance to DentalConditionDE.
 
 Alias: $icd10gm = http://fhir.de/CodeSystem/bfarm/icd-10-gm
-Alias: $fdi     = http://terminology.hl7.org/CodeSystem/ex-tooth
+Alias: $fdiCS   = https://fhir.cognovis.de/dental/CodeSystem/tooth-identification-fdi
 Alias: $sct     = http://snomed.info/sct
 
 Instance: ExampleDentalCondition
 InstanceOf: Condition
 Usage: #example
 Title: "Beispiel Kariesbefund Zahn 46"
-Description: "Kariesdiagnose K02.1 (Karies des Dentins) an Zahn 46 (erster unterer rechter Molar), Befundstatus kariös (c). Konform zu DentalConditionDE."
+Description: "Kariesdiagnose K02.1 (Karies des Dentins) an Zahn 46 (erster unterer rechter Molar), Befundstatus kariös (c). Patient Klaus Bergmann (AOK Bayern). Konform zu DentalConditionDE."
 
 * meta.profile[0] = "https://fhir.cognovis.de/dental/StructureDefinition/de-mira-dental-condition"
 
@@ -29,13 +29,13 @@ Description: "Kariesdiagnose K02.1 (Karies des Dentins) an Zahn 46 (erster unter
 * code = $icd10gm#K02.1 "Karies des Dentins"
 * code.text = "Dentinkaries, Zahn 46"
 
-* subject = Reference(ExamplePatient)
+* subject = Reference(Patient/pat-gkv-01)
 
-* onsetDateTime = "2026-01-15"
-* recordedDate = "2026-01-15"
+* onsetDateTime = "2026-01-10"
+* recordedDate = "2026-01-10"
 
-// Tooth: FDI 46 (lower-right first molar)
-* bodySite[0] = $fdi#46 "46"
+// Tooth: FDI 46 (lower-right first molar) — cognovis CodeSystem
+* bodySite[0] = $fdiCS#46 "46"
 
 // Befundstatus "c" = kariös
 * stage[0].summary = https://fhir.cognovis.de/dental/CodeSystem/dental-befund-status#c "kariös"

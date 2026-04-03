@@ -11,7 +11,8 @@ Alias: $atf-svc-cs    = https://gematik.de/fhir/atf/CodeSystem/service-identifie
 Alias: $kim-sid       = http://gematik.de/fhir/sid/KIM-Adresse
 Alias: $loinc         = http://loinc.org
 Alias: $sct           = http://snomed.info/sct
-Alias: $fdi           = http://terminology.hl7.org/CodeSystem/ex-tooth
+Alias: $icd10gm       = http://fhir.de/CodeSystem/bfarm/icd-10-gm
+Alias: $fdiCS         = https://fhir.cognovis.de/dental/CodeSystem/tooth-identification-fdi
 
 // ============================================================
 // Bundle — Äußere ATF-Nachricht
@@ -21,7 +22,7 @@ Instance: ExampleDentalAtfBundle
 InstanceOf: DentalAtfBundleDE
 Usage: #example
 Title: "Beispiel ATF-Bundle: Zahnbefund via KIM"
-Description: "ATF-MessageBundle das einen PSI-Befund (Zahn 46) und eine Kariesdiagnose (K02.1) als Payload trägt. Versand von dr.mueller@zahnarzt.kim.telematik über KIM an gemeinschaftspraxis@praxis.kim.telematik. Das Bundle deklariert Konformität zu BundleAppTransportFramework."
+Description: "ATF-MessageBundle das einen PSI-Befund (Zahn 46) und eine Kariesdiagnose (K02.1) als Payload trägt. Versand von dr.schoell@zahnarzt.kim.telematik über KIM an gemeinschaftspraxis@praxis.kim.telematik. Patient Klaus Bergmann (AOK Bayern)."
 
 
 // Eindeutige Nachrichten-ID (UUID)
@@ -29,7 +30,7 @@ Description: "ATF-MessageBundle das einen PSI-Befund (Zahn 46) und eine Kariesdi
 * identifier.value = "urn:uuid:4d3f8a5c-1e2b-4a9d-b7c3-0f6e2d1a8b90"
 
 * type = #message
-* timestamp = "2026-01-15T09:35:00+01:00"
+* timestamp = "2026-01-10T09:35:00+01:00"
 
 // --- Eintrag 0: MessageHeader ---
 * entry[MessageHeader][0].fullUrl = "urn:uuid:aa11bb22-cc33-dd44-ee55-ff66aa77bb88"
@@ -44,7 +45,7 @@ Description: "ATF-MessageBundle das einen PSI-Befund (Zahn 46) und eine Kariesdi
 * entry[DentalCondition][0].resource = AtfDentalConditionKaries46
 
 // --- Eintrag 3: Patient ---
-* entry[Patient][0].fullUrl = "urn:uuid:patient-max-mustermann"
+* entry[Patient][0].fullUrl = "urn:uuid:patient-bergmann-gkv"
 * entry[Patient][0].resource = AtfPatient
 
 // ============================================================
@@ -69,12 +70,12 @@ Description: "MessageHeader für die KIM-basierte Übermittlung zahnärztlicher 
 * destination[0].endpoint = "mailto:gemeinschaftspraxis@praxis.kim.telematik"
 * destination[0].receiver.identifier.system = $kim-sid
 * destination[0].receiver.identifier.value = "gemeinschaftspraxis@praxis.kim.telematik"
-* destination[0].receiver.display = "Gemeinschaftspraxis Zahnarzt Berlin"
+* destination[0].receiver.display = "Gemeinschaftspraxis Zahnarzt Nürnberg"
 
-// Absender: Behandlungsorganisation (Zahnarztpraxis) — Identifier-basierte Referenz
+// Absender: Behandlungsorganisation (Zahnarztpraxis)
 * sender.identifier.system = "https://fhir.kbv.de/NamingSystem/KBV_NS_Base_BSNR"
 * sender.identifier.value = "721234500"
-* sender.display = "Zahnarztpraxis Dr. Müller"
+* sender.display = "MIRA Demo-Praxis Mitte (Dr. Schöll)"
 
 // Quellsystem: Praxisverwaltungssoftware
 * source.name = "Mira Dental"
@@ -82,7 +83,7 @@ Description: "MessageHeader für die KIM-basierte Übermittlung zahnärztlicher 
 * source.version = "2.0.0"
 * source.contact.system = #email
 * source.contact.value = "support@cognovis.de"
-* source.endpoint = "mailto:dr.mueller@zahnarzt.kim.telematik"
+* source.endpoint = "mailto:dr.schoell@zahnarzt.kim.telematik"
 
 // Focus: Referenzen auf die Payload-Ressourcen
 * focus[0] = Reference(AtfDentalFindingZahn46)
@@ -102,10 +103,11 @@ Title: "PSI-Befund Zahn 46 (ATF-Payload)"
 * category[dental] = https://fhir.cognovis.de/dental/CodeSystem/dental-category#dental "Dental"
 * code = $loinc#32884-9 "Periodontal attachment level"
 * subject = Reference(AtfPatient)
-* effectiveDateTime = "2026-01-15T09:30:00+01:00"
+* effectiveDateTime = "2026-01-10T09:30:00+01:00"
 * valueCodeableConcept = $icd10gm#K05.3 "Chronische Parodontitis"
 * valueCodeableConcept.text = "PSI-Code 2: Sondierungstiefe 4 mm, Tasche vorhanden"
-* bodySite = $fdi#46 "46"
+// Tooth: FDI 46 — cognovis CodeSystem
+* bodySite = $fdiCS#46 "46"
 * bodySite.text = "Zahn 46 — erster unterer rechter Molar"
 
 // ============================================================
@@ -124,25 +126,26 @@ Title: "Kariesbefund K02.1 Zahn 46 (ATF-Payload)"
 * code = $icd10gm#K02.1 "Karies des Dentins"
 * code.text = "Dentinkaries, Zahn 46"
 * subject = Reference(AtfPatient)
-* onsetDateTime = "2026-01-15"
-* recordedDate = "2026-01-15"
-* bodySite[0] = $fdi#46 "46"
+* onsetDateTime = "2026-01-10"
+* recordedDate = "2026-01-10"
+// Tooth: FDI 46 — cognovis CodeSystem
+* bodySite[0] = $fdiCS#46 "46"
 * stage[0].summary = https://fhir.cognovis.de/dental/CodeSystem/dental-befund-status#c "kariös"
 * evidence[0].detail = Reference(AtfDentalFindingZahn46)
 
 // ============================================================
-// Patient (inline)
+// Patient (inline) — Klaus Bergmann (GKV)
 // ============================================================
 
 Instance: AtfPatient
 InstanceOf: Patient
 Usage: #inline
-Title: "Patient Max Mustermann (ATF-Payload)"
+Title: "Patient Klaus Bergmann (ATF-Payload)"
 
-* id = "patient-max-mustermann"
+* id = "patient-bergmann-gkv"
 * identifier[0].system = "http://fhir.de/sid/gkv/kvid-10"
-* identifier[0].value = "A123456789"
+* identifier[0].value = "A100100101"
 * name[0].use = #official
-* name[0].family = "Mustermann"
-* name[0].given[0] = "Max"
-* birthDate = "1985-06-15"
+* name[0].family = "Bergmann"
+* name[0].given[0] = "Klaus"
+* birthDate = "1962-04-17"
