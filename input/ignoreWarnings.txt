@@ -225,3 +225,6 @@ dental-befund-transport im ValueSet https://gematik.de/fhir/atf/ValueSet/service
 # Dental service URI used as eventUri in MessageHeader — intentional custom URI, not publicly resolvable
 %dental-befund-transport%
 
+
+# External experimental HL7 ValueSet binding (not under our control)
+%which is experimental, but this structure is not labeled as experimental%

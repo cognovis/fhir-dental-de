@@ -4,7 +4,7 @@ Title: "ZTL Material"
 Description: "Zahntechnisches Material oder Legierungsklasse für zahntechnische Leistungen (ZTL). Enthält die Materialbezeichnung und ggf. die Legierungsklasse nach DIN EN ISO 22674 (z.B. Klasse 4 für Aufbrennlegierungen)."
 * ^url = "https://fhir.cognovis.de/dental/StructureDefinition/ztl-material"
 * ^status = #active
-* ^experimental = true
+* ^experimental = false
 * ^publisher = "cognovis GmbH"
 * ^context[+].type = #element
 * ^context[=].expression = "ChargeItem"

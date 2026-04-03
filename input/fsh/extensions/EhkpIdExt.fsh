@@ -4,7 +4,7 @@ Title: "eHKP Referenznummer"
 Description: "EBZ-Referenznummer für den elektronischen Heil- und Kostenplan (eHKP)."
 * ^url = "https://fhir.cognovis.de/dental/StructureDefinition/ehkp-id"
 * ^status = #active
-* ^experimental = true
+* ^experimental = false
 * ^publisher = "cognovis GmbH"
 * ^context[+].type = #element
 * ^context[=].expression = "CarePlan"

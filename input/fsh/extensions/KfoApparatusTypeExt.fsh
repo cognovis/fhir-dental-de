@@ -4,7 +4,7 @@ Title: "KFO Apparaturtyp"
 Description: "Typ der kieferorthopädischen Apparatur: festsitzend (Brackets, Bänder) oder herausnehmbar (Platten, Aligner). Bestimmt die abrechnungsrelevante BEMA-Gruppe (BEMA §28 Abs. 2 SGB V)."
 * ^url = "https://fhir.cognovis.de/dental/StructureDefinition/kfo-apparatus-type"
 * ^status = #active
-* ^experimental = true
+* ^experimental = false
 * ^publisher = "cognovis GmbH"
 * ^context[+].type = #element
 * ^context[=].expression = "CarePlan"

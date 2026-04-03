@@ -10,7 +10,7 @@ Id: de-mira-par-care-plan
 Title: "PAR-Behandlungsplan (DE)"
 Description: "Profil für parodontologische Behandlungspläne nach PAR-Richtlinie (07/2021). Bildet SWS 2.0 Satzart 9 ab. Enthält UPT-Recall-Intervall und Verweise auf PA-Statuserhebung (Observation) sowie Antibiotika-Therapie (MedicationRequest)."
 * ^status = #active
-* ^experimental = true
+* ^experimental = false
 * ^publisher = "cognovis GmbH"
 
 // --- Identifier (PAR-Plan-ID) ---

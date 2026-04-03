@@ -4,7 +4,7 @@ Title: "HKP Genehmigungsstatus"
 Description: "Genehmigungsstatus des Heil- und Kostenplans (HKP) bei der Krankenkasse. Enthält Status, Datum der Einreichung, Datum der Genehmigung und optionalen Änderungsgrund. Die EBZ-Referenznummer (E-HKP-ID) wird separat über die Extension `ehkp-id` (EhkpIdExt) gesetzt."
 * ^url = "https://fhir.cognovis.de/dental/StructureDefinition/hkp-genehmigungsstatus"
 * ^status = #active
-* ^experimental = true
+* ^experimental = false
 * ^publisher = "cognovis GmbH"
 * ^context[+].type = #element
 * ^context[=].expression = "CarePlan"

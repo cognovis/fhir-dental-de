@@ -4,7 +4,7 @@ Title: "KFO Apparaturtyp"
 Description: "Typ der kieferorthopädischen Behandlungsapparatur. Bestimmt die BEMA-Abrechnungsgruppe (festsitzend: BEMA 118–124; herausnehmbar: BEMA 125–131)."
 * ^url = "https://fhir.cognovis.de/dental/CodeSystem/kfo-apparatus-type"
 * ^status = #active
-* ^experimental = true
+* ^experimental = false
 * ^caseSensitive = true
 * ^content = #complete
 * ^publisher = "cognovis GmbH"

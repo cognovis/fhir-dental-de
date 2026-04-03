@@ -4,7 +4,7 @@ Title: "Gebührenordnung"
 Description: "Abrechnungs-Gebührenordnung für privatärztliche Leistungen: GOÄ (Gebührenordnung für Ärzte) oder GOZ (Gebührenordnung für Zahnärzte)."
 * ^url = "https://fhir.cognovis.de/dental/CodeSystem/gebuehrenordnung"
 * ^status = #active
-* ^experimental = true
+* ^experimental = false
 * ^caseSensitive = true
 * ^content = #complete
 * ^publisher = "cognovis GmbH"

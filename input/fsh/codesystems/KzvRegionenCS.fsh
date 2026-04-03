@@ -4,7 +4,7 @@ Title: "KZV-Regionen"
 Description: "Kassenzahnärztliche Vereinigungen (KZV) in Deutschland nach Bundesland."
 * ^url = "https://fhir.cognovis.de/dental/CodeSystem/kzv-regionen"
 * ^status = #active
-* ^experimental = true
+* ^experimental = false
 * ^caseSensitive = true
 * ^content = #complete
 * ^publisher = "cognovis GmbH (Vorschlag)"

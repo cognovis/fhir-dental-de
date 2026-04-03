@@ -4,7 +4,7 @@ Id: de-mira-dental-communication
 Title: "Zahnärztliche Kommunikation (DE)"
 Description: "Profil für zahnärztliche Kommunikation: Anweisungen, Aufklärungen und Mitteilungen im Behandlungskontext. Basiert auf FHIR R4 Communication."
 * ^status = #active
-* ^experimental = true
+* ^experimental = false
 * ^publisher = "cognovis GmbH"
 
 // Category: instruction (aligned with HL7 Dental IG)

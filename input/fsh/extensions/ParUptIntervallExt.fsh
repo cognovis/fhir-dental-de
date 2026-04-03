@@ -4,7 +4,7 @@ Title: "PAR UPT-Intervall"
 Description: "Recall-Intervall für die Unterstützende Parodontitistherapie (UPT) in Monaten. Nach PAR-Richtlinie (07/2021) besteht ein Anspruch auf UPT für bis zu 2 Jahre nach aktiver Therapie."
 * ^url = "https://fhir.cognovis.de/dental/StructureDefinition/par-upt-intervall"
 * ^status = #active
-* ^experimental = true
+* ^experimental = false
 * ^publisher = "cognovis GmbH"
 * ^context[+].type = #element
 * ^context[=].expression = "CarePlan"

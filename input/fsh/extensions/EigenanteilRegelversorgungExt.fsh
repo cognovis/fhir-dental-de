@@ -4,7 +4,7 @@ Title: "Eigenanteil Regelversorgung"
 Description: "Patientenanteil bei Regelversorgung (Festzuschuss-Differenz). Der Eigenanteil ergibt sich aus den Gesamtkosten minus dem Festzuschuss der Krankenkasse gemäß §56 SGB V."
 * ^url = "https://fhir.cognovis.de/dental/StructureDefinition/eigenanteil-regelversorgung"
 * ^status = #active
-* ^experimental = true
+* ^experimental = false
 * ^publisher = "cognovis GmbH"
 * ^context[+].type = #element
 * ^context[=].expression = "Claim"

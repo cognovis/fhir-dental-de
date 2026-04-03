@@ -4,7 +4,7 @@ Title: "KFO Angle-Klasse"
 Description: "Klassifikation der Malokkusion nach Angle. SNOMED CT bietet keine vollständigen Codes für alle Angle-Unterklassen (insbesondere II/1 und II/2), daher eigenes CodeSystem."
 * ^url = "https://fhir.cognovis.de/dental/CodeSystem/kfo-angle-klasse"
 * ^status = #active
-* ^experimental = true
+* ^experimental = false
 * ^caseSensitive = true
 * ^content = #complete
 * ^publisher = "cognovis GmbH"

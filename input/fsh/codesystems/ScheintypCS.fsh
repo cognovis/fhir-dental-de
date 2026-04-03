@@ -4,7 +4,7 @@ Title: "Scheintyp"
 Description: "Art des Behandlungsscheins im Abrechnungsfall (Satzart 2 SWS 2.0). Unterscheidet den Zugangweg zur kassenzahnärztlichen Behandlung."
 * ^url = "https://fhir.cognovis.de/dental/CodeSystem/scheintyp"
 * ^status = #active
-* ^experimental = true
+* ^experimental = false
 * ^caseSensitive = true
 * ^content = #complete
 * ^publisher = "cognovis GmbH"

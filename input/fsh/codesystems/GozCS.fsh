@@ -4,7 +4,7 @@ Title: "GOZ - Gebührenordnung für Zahnärzte"
 Description: "Gebührenordnung für zahnärztliche Leistungen im Privatbereich (PKV). Bundesverordnung, aktuelle Fassung GOZ 2012."
 * ^url = "http://fhir.de/CodeSystem/bzaek/goz"
 * ^status = #active
-* ^experimental = true
+* ^experimental = false
 * ^caseSensitive = true
 * ^content = #fragment
 * ^publisher = "cognovis GmbH (Vorschlag)"

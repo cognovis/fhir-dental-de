@@ -4,7 +4,7 @@ Title: "Eigenanteil andersartige Versorgung"
 Description: "Patientenanteil bei andersartiger Versorgung (höherwertiger Zahnersatz über Regelversorgung hinaus). Umfasst die vollständigen Mehrkosten, da der Festzuschuss nur den Regelversorgungsanteil abdeckt."
 * ^url = "https://fhir.cognovis.de/dental/StructureDefinition/eigenanteil-andersartig"
 * ^status = #active
-* ^experimental = true
+* ^experimental = false
 * ^publisher = "cognovis GmbH"
 * ^context[+].type = #element
 * ^context[=].expression = "Claim"
