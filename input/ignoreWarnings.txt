@@ -1,6 +1,19 @@
 == Suppressed Messages ==
 
 # ---------------------------------------------------------------------------
+# Fragment CodeSystem "unknown code" warnings
+#
+# BemaCS, BelIICS, and GozCS are defined with content = #fragment (they contain
+# only a representative subset of codes). The IG Publisher validator warns when
+# a code is used that is not in the fragment, but notes it "may be valid in some
+# other fragment". These warnings are expected for fragment CodeSystems and do
+# not indicate real errors.
+# ---------------------------------------------------------------------------
+
+# Fragment CS warnings — codes not in our fragment but valid in the full BEMA/BEL/GOZ
+note that the code system is labeled as a fragment, so the code may be valid in some other fragment
+
+# ---------------------------------------------------------------------------
 # KBV_PR_FOR_Patient suppressions (scope: ALL Patient resources in this IG)
 #
 # Background: ExamplePatient declares conformance to KBV_PR_FOR_Patient via
@@ -44,10 +57,14 @@ Patient.name[0]: matches more than one slice
 # ---------------------------------------------------------------------------
 
 # KZV-Stempelnummer identifier system — internal MIRA namespace, not publicly resolvable
+# Suppressed in both English and German localization of the validator
 URL value 'https://mira.cognovis.de/fhir/identifier/kzv-stempelnummer'
+'https://mira.cognovis.de/fhir/identifier/kzv-stempelnummer' löst nicht auf
 
 # MIRA demo practice identifiers — example-only, not publicly resolvable
+# Suppressed in both English and German localization of the validator
 URL value 'https://mira-demo-mvz.de/
+'https://mira-demo-mvz.de/
 
 # ---------------------------------------------------------------------------
 # External CodeSystem / ValueSet not found locally
@@ -61,6 +78,9 @@ URL value 'https://mira-demo-mvz.de/
 # ICD-10-GM (BfArM) is an external German terminology not bundled in this IG
 CodeSystem http://fhir.de/CodeSystem/bfarm/icd-10-gm not found
 
+# ICD-10-GM CodeSystem not available for code validation (offline/local builds)
+A definition for CodeSystem 'http://fhir.de/CodeSystem/bfarm/icd-10-gm' could not be found
+
 # ICD-10-GM ValueSet from bfarm not resolvable in offline build
 The valueSet reference http://fhir.de/ValueSet/bfarm/icd-10-gm
 
@@ -71,6 +91,7 @@ There are multiple different potential matches for the url 'http://fhir.de/Value
 
 # OPS (German operation codes) — external BfArM terminology
 CodeSystem http://fhir.de/CodeSystem/bfarm/ops not found
+A definition for CodeSystem 'http://fhir.de/CodeSystem/bfarm/ops' could not be found
 
 # ---------------------------------------------------------------------------
 # IG dependency canonical URL resolution failures (offline build)
@@ -100,6 +121,7 @@ URL value 'https://fhir.kbv.de/ValueSet/KBV_VS_SFHIR_KBV_STATUSKENNZEICHEN'
 # LANR (Lebenslange Arztnummer) identifier system — German base profile namespace
 # http://fhir.de/sid/kbv/lanr is defined by de.basisprofil.r4 but does not resolve publicly
 URL value 'http://fhir.de/sid/kbv/lanr'
+'http://fhir.de/sid/kbv/lanr' löst nicht auf
 
 # ---------------------------------------------------------------------------
 # IG dependency canonical URL resolution failures (unfixable)
@@ -205,4 +227,7 @@ value.ofType(code): Der angegebene Wert ('suppressed-messages') ist nicht im Val
 # Dental service URI is not in ATF service-identifier-vs — no dental code available yet
 dental-befund-transport') ist nicht im ValueSet 'Anwendungskennzeichen (VS)'
 dental-befund-transport im ValueSet https://gematik.de/fhir/atf/ValueSet/service-identifier-vs
+
+# Dental service URI used as eventUri in MessageHeader — intentional custom URI, not publicly resolvable
+dental-befund-transport' löst nicht auf
 

@@ -14,9 +14,9 @@ Description: "Zweiflächige Kompositfüllung (MO) nach BEMA 13c an Zahn 46. Durc
 
 * category = https://fhir.cognovis.de/dental/CodeSystem/dental-category#dental "Dental"
 
-// BEMA 13c — Kompositfüllung zweiflächig
-* code.coding[0] = $bemaCS#13c "Kompositfüllung zweiflächig"
-* code.text = "Kompositfüllung BEMA 13c — MO Zahn 46"
+// BEMA 13c — Kompositfüllung dreiflächig
+* code.coding[0] = $bemaCS#13c "Kompositfüllung dreiflächig"
+* code.text = "Kompositfüllung BEMA 13c — Zahn 46"
 
 * subject = Reference(Patient/pat-gkv-01)
 

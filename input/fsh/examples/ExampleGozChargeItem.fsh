@@ -28,8 +28,8 @@ Description: "GOZ-Leistungsposition 2150 (Einlagefüllung, zweiflächig) für Za
 
 * status = #billable
 
-// GOZ 2150 — Einlagefüllung zweiflächig (Keramik-Inlay)
-* code.coding[0] = $gozCS#2150 "Einlagefüllung, zweiflächig"
+// GOZ 2150 — Aufbaufüllung
+* code.coding[0] = $gozCS#2150 "Aufbaufüllung"
 
 * subject = Reference(Patient/pat-pkv-01)
 
