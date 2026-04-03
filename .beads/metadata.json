@@ -1,5 +1,6 @@
 {
-  "dolt_mode": "server",
-  "dolt_database": "fhir_dental_de",
-  "project_id": "4dcdba8b-1d36-4adc-b78b-1548c524ed5a"
+    "database": "",
+    "dolt_mode": "server",
+    "dolt_database": "fhir_dental_de",
+    "project_id": "4dcdba8b-1d36-4adc-b78b-1548c524ed5a"
 }
