@@ -14,7 +14,7 @@ Description: "Kommunikation von Lena Uselmann (Plärrer) an Zahntechnik Nürnber
 * subject = Reference(Patient/pat-pkv-01)
 
 // Sender: Behandlerin
-* sender = Reference(PractitionerRole/role-schoell-gibitzenhof)
+* sender = Reference(PractitionerRole/role-uselmann-plaerrer)
 
 // Recipient: Dentallabor
 * recipient[0] = Reference(ExampleDentallabor)
