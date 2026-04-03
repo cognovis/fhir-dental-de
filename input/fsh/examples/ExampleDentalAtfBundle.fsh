@@ -104,7 +104,7 @@ Title: "PSI-Befund Zahn 46 (ATF-Payload)"
 * code = $loinc#32884-9 "Periodontal attachment level"
 * subject = Reference(AtfPatient)
 * effectiveDateTime = "2026-01-15T09:30:00+01:00"
-* valueCodeableConcept = http://fhir.de/CodeSystem/bfarm/icd-10-gm#K05.3 "Chronische Parodontitis"
+* valueCodeableConcept = $icd10gm#K05.3 "Chronische Parodontitis"
 * valueCodeableConcept.text = "PSI-Code 2: Sondierungstiefe 4 mm, Tasche vorhanden"
 * bodySite = $fdi#46 "46"
 * bodySite.text = "Zahn 46 — erster unterer rechter Molar"
