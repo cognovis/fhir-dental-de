@@ -2,7 +2,7 @@
 // SWS 2.0 Satzart 5 — Zahnärztliche Behandlung
 
 Alias: $fdiCS   = https://fhir.cognovis.de/dental/CodeSystem/tooth-identification-fdi
-Alias: $bemaCS  = https://fhir.cognovis.de/dental/CodeSystem/bema-codes
+Alias: $bemaCS  = http://fhir.de/CodeSystem/kzbv/bema
 
 Instance: ExampleDentalProcedure
 InstanceOf: DentalProcedureDE

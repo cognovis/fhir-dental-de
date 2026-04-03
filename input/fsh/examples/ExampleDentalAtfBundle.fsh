@@ -46,6 +46,10 @@ Description: "ATF-MessageBundle das einen PSI-Befund (Zahn 46) und eine Kariesdi
 * entry[Patient][0].fullUrl = "urn:uuid:6ba7b811-9dad-11d1-80b4-00c04fd430c8"
 * entry[Patient][0].resource = AtfPatient
 
+// --- Eintrag 4: Practitioner (behandelnder Zahnarzt) ---
+* entry[4].fullUrl = "urn:uuid:7c9e2f34-a1b2-4c3d-8e5f-6a7b8c9d0e1f"
+* entry[4].resource = AtfDentist
+
 // ============================================================
 // MessageHeader — ATF-Pflichtressource (folgt ATF-Struktur, ohne formale Konformitätsaussage)
 // ============================================================
@@ -107,6 +111,7 @@ Title: "PSI-Befund Zahn 46 (ATF-Payload)"
 // Used as parent code to satisfy obs-7 constraint (Observation.code must differ from component.code).
 * code = $loinc#8704-9 "Physical findings of Mouth and Throat and Teeth"
 * subject = Reference(urn:uuid:6ba7b811-9dad-11d1-80b4-00c04fd430c8)
+* performer[0] = Reference(urn:uuid:7c9e2f34-a1b2-4c3d-8e5f-6a7b8c9d0e1f)
 * effectiveDateTime = "2026-01-10T09:30:00+01:00"
 * valueCodeableConcept = $icd10gm#K05.3 "Chronische Parodontitis"
 * valueCodeableConcept.text = "PSI-Code 2: Sondierungstiefe 4 mm, Tasche vorhanden"
@@ -153,3 +158,20 @@ Title: "Patient Klaus Bergmann (ATF-Payload)"
 * name[0].family = "Bergmann"
 * name[0].given[0] = "Klaus"
 * birthDate = "1962-04-17"
+
+// ============================================================
+// Practitioner (inline) — Behandelnder Zahnarzt Dr. Schöll
+// ============================================================
+
+Instance: AtfDentist
+InstanceOf: Practitioner
+Usage: #inline
+Title: "Zahnarzt Dr. Schöll (ATF-Payload)"
+
+* id = "7c9e2f34-a1b2-4c3d-8e5f-6a7b8c9d0e1f"
+* identifier[0].system = "https://fhir.kbv.de/NamingSystem/KBV_NS_Base_ANR"
+* identifier[0].value = "721234501"
+* name[0].use = #official
+* name[0].family = "Schöll"
+* name[0].given[0] = "Martin"
+* name[0].prefix[0] = "Dr."

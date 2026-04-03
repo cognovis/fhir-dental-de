@@ -11,7 +11,7 @@ Title: "Beispielpatient Klaus Bergmann (GKV)"
 Description: "Klaus Bergmann, gesetzlich versichert (AOK Bayern), KVID A100100101. Nürnberg."
 
 * identifier[0].type.coding[0].system = "http://fhir.de/CodeSystem/identifier-type-de-basis"
-* identifier[0].type.coding[0].code = #GKV
+* identifier[0].type.coding[0].code = #KVZ10
 * identifier[0].system = "http://fhir.de/sid/gkv/kvid-10"
 * identifier[0].value = "A100100101"
 * active = true
@@ -80,7 +80,7 @@ Title: "Beispielpatientin Aylin Özdemir (GKV)"
 Description: "Aylin Özdemir, gesetzlich versichert (Barmer), KVID B200200202. Nürnberg."
 
 * identifier[0].type.coding[0].system = "http://fhir.de/CodeSystem/identifier-type-de-basis"
-* identifier[0].type.coding[0].code = #GKV
+* identifier[0].type.coding[0].code = #KVZ10
 * identifier[0].system = "http://fhir.de/sid/gkv/kvid-10"
 * identifier[0].value = "B200200202"
 * active = true
