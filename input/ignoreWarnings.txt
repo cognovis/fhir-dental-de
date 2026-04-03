@@ -57,14 +57,12 @@ Patient.name[0]: matches more than one slice
 # ---------------------------------------------------------------------------
 
 # KZV-Stempelnummer identifier system — internal MIRA namespace, not publicly resolvable
-# Suppressed in both English and German localization of the validator
 URL value 'https://mira.cognovis.de/fhir/identifier/kzv-stempelnummer'
-'https://mira.cognovis.de/fhir/identifier/kzv-stempelnummer' löst nicht auf
+mira.cognovis.de/fhir/identifier/kzv-stempelnummer
 
 # MIRA demo practice identifiers — example-only, not publicly resolvable
-# Suppressed in both English and German localization of the validator
 URL value 'https://mira-demo-mvz.de/
-'https://mira-demo-mvz.de/
+mira-demo-mvz.de/
 
 # ---------------------------------------------------------------------------
 # External CodeSystem / ValueSet not found locally
@@ -80,6 +78,7 @@ CodeSystem http://fhir.de/CodeSystem/bfarm/icd-10-gm not found
 
 # ICD-10-GM CodeSystem not available for code validation (offline/local builds)
 A definition for CodeSystem 'http://fhir.de/CodeSystem/bfarm/icd-10-gm' could not be found
+icd-10-gm' could not be found
 
 # ICD-10-GM ValueSet from bfarm not resolvable in offline build
 The valueSet reference http://fhir.de/ValueSet/bfarm/icd-10-gm
@@ -88,10 +87,12 @@ The valueSet reference http://fhir.de/ValueSet/bfarm/icd-10-gm
 # The IG Publisher auto-selects the version matching our declared dependency (1.6.0-ballot2).
 # This warning is expected in environments with multiple cached versions and is harmless.
 There are multiple different potential matches for the url 'http://fhir.de/ValueSet/bfarm/icd-10-gm'
+fhir.de/ValueSet/bfarm/icd-10-gm
 
 # OPS (German operation codes) — external BfArM terminology
 CodeSystem http://fhir.de/CodeSystem/bfarm/ops not found
 A definition for CodeSystem 'http://fhir.de/CodeSystem/bfarm/ops' could not be found
+bfarm/ops
 
 # ---------------------------------------------------------------------------
 # IG dependency canonical URL resolution failures (offline build)
@@ -121,7 +122,7 @@ URL value 'https://fhir.kbv.de/ValueSet/KBV_VS_SFHIR_KBV_STATUSKENNZEICHEN'
 # LANR (Lebenslange Arztnummer) identifier system — German base profile namespace
 # http://fhir.de/sid/kbv/lanr is defined by de.basisprofil.r4 but does not resolve publicly
 URL value 'http://fhir.de/sid/kbv/lanr'
-'http://fhir.de/sid/kbv/lanr' löst nicht auf
+fhir.de/sid/kbv/lanr
 
 # ---------------------------------------------------------------------------
 # IG dependency canonical URL resolution failures (unfixable)
@@ -172,11 +173,13 @@ The HTML fragment 'globals-table.xhtml'
 # validation. Suppress these warnings.
 # ---------------------------------------------------------------------------
 
-# RadLex Playbook URL — external registry, not resolvable
+# RadLex Playbook URL — external registry, not resolvable (used in ImagingStudy bindings)
 http://playbook.radlex.org/
+RadLex_Playbook.aspx
 
-# DICOM registry table URL — external registry, not resolvable
+# DICOM registry table URL — external registry, not resolvable (used in ImagingStudy bindings)
 http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_
+dicom.nema.org/medical/dicom/
 
 # ---------------------------------------------------------------------------
 # Extension examples missing
@@ -229,5 +232,5 @@ dental-befund-transport') ist nicht im ValueSet 'Anwendungskennzeichen (VS)'
 dental-befund-transport im ValueSet https://gematik.de/fhir/atf/ValueSet/service-identifier-vs
 
 # Dental service URI used as eventUri in MessageHeader — intentional custom URI, not publicly resolvable
-dental-befund-transport' löst nicht auf
+dental-befund-transport
 
