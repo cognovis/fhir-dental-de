@@ -1,17 +1,17 @@
-// Example: Parodontalbefund Zahn 36 — 6-Punkt-Messung mit BOP und Rezession
+// Example: Parodontalbefund Zahn 16 — 6-Punkt-Messung mit BOP und Rezession
 
 Alias: $loinc = http://loinc.org
 Alias: $sct   = http://snomed.info/sct
-Alias: $fdi   = http://terminology.hl7.org/CodeSystem/ex-tooth
+Alias: $fdiCS = https://fhir.cognovis.de/dental/CodeSystem/tooth-identification-fdi
 
 Instance: ExamplePeriodontalObservation
 InstanceOf: PeriodontalObservationDE
 Usage: #example
-Title: "Beispiel Parodontalbefund Zahn 36"
-Description: "6-Punkt-Sondierungstiefe, Rezession und BOP fuer Zahn 36 (erster unterer linker Molar). Typischer PA-Status-Befund."
+Title: "Beispiel Parodontalbefund Zahn 16"
+Description: "6-Punkt-Sondierungstiefe, Rezession und BOP fuer Zahn 16 (erster oberer rechter Molar). Typischer PA-Status-Befund. Patient Friedrich Hartmann (Beihilfe)."
 
 * extension[0].url = "https://fhir.cognovis.de/dental/StructureDefinition/fdi-tooth-number"
-* extension[0].valueCode = #36
+* extension[0].valueCode = #16
 
 * status = #final
 
@@ -19,12 +19,13 @@ Description: "6-Punkt-Sondierungstiefe, Rezession und BOP fuer Zahn 36 (erster u
 
 * code = $loinc#32884-9 "Periodontal pocket depth [Length] Mouth by Periodontal probing"
 
-* subject = Reference(ExamplePatient)
+* subject = Reference(Patient/pat-beihilfe-01)
 
-* effectiveDateTime = "2026-03-15T10:00:00+01:00"
+* effectiveDateTime = "2026-02-05T22:15:00+01:00"
 
-* bodySite = $fdi#36 "36"
-* bodySite.text = "Zahn 36 — erster unterer linker Molar"
+// Tooth: FDI 16 — cognovis CodeSystem
+* bodySite = $fdiCS#16 "16"
+* bodySite.text = "Zahn 16 — erster oberer rechter Molar"
 
 // 6x Sondierungstiefe (mesio-bukkal, bukkal, disto-bukkal, mesio-lingual, lingual, disto-lingual)
 * component[probingDepth][0].code = $loinc#32884-9
@@ -36,14 +37,14 @@ Description: "6-Punkt-Sondierungstiefe, Rezession und BOP fuer Zahn 36 (erster u
 
 * component[probingDepth][1].code = $loinc#32884-9
 * component[probingDepth][1].code.text = "Sondierungstiefe bukkal"
-* component[probingDepth][1].valueQuantity.value = 3
+* component[probingDepth][1].valueQuantity.value = 4
 * component[probingDepth][1].valueQuantity.unit = "mm"
 * component[probingDepth][1].valueQuantity.system = "http://unitsofmeasure.org"
 * component[probingDepth][1].valueQuantity.code = #mm
 
 * component[probingDepth][2].code = $loinc#32884-9
 * component[probingDepth][2].code.text = "Sondierungstiefe disto-bukkal"
-* component[probingDepth][2].valueQuantity.value = 4
+* component[probingDepth][2].valueQuantity.value = 5
 * component[probingDepth][2].valueQuantity.unit = "mm"
 * component[probingDepth][2].valueQuantity.system = "http://unitsofmeasure.org"
 * component[probingDepth][2].valueQuantity.code = #mm
@@ -64,7 +65,7 @@ Description: "6-Punkt-Sondierungstiefe, Rezession und BOP fuer Zahn 36 (erster u
 
 * component[probingDepth][5].code = $loinc#32884-9
 * component[probingDepth][5].code.text = "Sondierungstiefe disto-lingual"
-* component[probingDepth][5].valueQuantity.value = 2
+* component[probingDepth][5].valueQuantity.value = 4
 * component[probingDepth][5].valueQuantity.unit = "mm"
 * component[probingDepth][5].valueQuantity.system = "http://unitsofmeasure.org"
 * component[probingDepth][5].valueQuantity.code = #mm

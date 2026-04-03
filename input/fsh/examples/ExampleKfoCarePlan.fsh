@@ -1,29 +1,31 @@
 // Example: KFO-Plan Angle II-1, KIG 4
 // SWS 2.0 Satzart 10 — KFO-Behandlungsplan
 
+Alias: $icd10gm = http://fhir.de/CodeSystem/bfarm/icd-10-gm
+
 Instance: ExampleKfoCarePlan
 InstanceOf: KfoCarePlanDE
 Usage: #example
 Title: "Beispiel KFO-Behandlungsplan Angle II/1 KIG 4"
-Description: "Kieferorthopädischer Behandlungsplan für Angle-Klasse II/1 mit KIG-Stufe 4. Festsitzende Apparatur, aktive Behandlungsphase. Beginn 2026-04-01, geplantes Ende 2028-03-31."
+Description: "Kieferorthopädischer Behandlungsplan für Angle-Klasse II/1 mit KIG-Stufe 4. Festsitzende Apparatur, aktive Behandlungsphase. Beginn 2026-02-01, geplantes Ende 2028-01-31. Patient Klaus Bergmann."
 
 * extension[kfoBehandlungsphase].valueCode = https://fhir.cognovis.de/dental/CodeSystem/kfo-behandlungsphase#aktiv "Aktive Behandlungsphase"
 * extension[kfoApparatusType].valueCode = https://fhir.cognovis.de/dental/CodeSystem/kfo-apparatus-type#festsitzend "Festsitzende Apparatur"
 
-* identifier[0].system = "https://mira.cognovis.de/fhir/identifier/kfo-plan-id"
-* identifier[0].value = "KFO-2026-000003"
+* identifier[0].system = "https://mira-demo-mvz.de/kfo-plan"
+* identifier[0].value = "KFO-2026-0001"
 
 * status = #active
 * intent = #plan
 
 * category[dental] = https://fhir.cognovis.de/dental/CodeSystem/dental-category#dental "Dental"
 
-* subject = Reference(ExamplePatient)
+* subject = Reference(Patient/pat-gkv-01)
 
-* created = "2026-02-01"
+* created = "2026-01-10"
 
-* period.start = "2026-04-01"
-* period.end = "2028-03-31"
+* period.start = "2026-02-01"
+* period.end = "2028-01-31"
 
 * title = "KFO-Behandlungsplan: Angle Klasse II/1, KIG 4, Festsitzende Apparatur"
 
@@ -57,7 +59,7 @@ Description: "Kieferorthopädische Diagnose: Angle-Klasse II/1 mit vergrößerte
 * code = $icd10gm#K07.12 "Distalbiss, Angle-Klasse II"
 * code.text = "Angle-Klasse II/1: Distalbiss mit proklinierter Oberkieferfront, Overjet > 9 mm"
 
-* subject = Reference(ExamplePatient)
+* subject = Reference(Patient/pat-gkv-01)
 
 * onsetDateTime = "2026-02-01"
 * recordedDate = "2026-02-01"

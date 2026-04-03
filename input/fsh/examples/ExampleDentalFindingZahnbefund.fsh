@@ -1,15 +1,16 @@
 // Example: Zahnbefund — Karies an Zahn 26
 // Typischer Einzelbefund aus dem Zahnschema (Befundaufnahme)
 
-Alias: $loinc = http://loinc.org
-Alias: $sct   = http://snomed.info/sct
-Alias: $fdi   = http://terminology.hl7.org/CodeSystem/ex-tooth
+Alias: $loinc   = http://loinc.org
+Alias: $sct     = http://snomed.info/sct
+Alias: $fdiCS   = https://fhir.cognovis.de/dental/CodeSystem/tooth-identification-fdi
+Alias: $surfCS  = https://fhir.cognovis.de/dental/CodeSystem/tooth-surfaces
 
 Instance: ExampleDentalFindingKaries26
 InstanceOf: DentalFindingDE
 Usage: #example
 Title: "Beispiel Zahnbefund — Karies Zahn 26"
-Description: "Kariöse Läsion an Zahn 26 (erster oberer linker Molar), mesial-okklusal, ICDAS-Code 4."
+Description: "Kariöse Läsion an Zahn 26 (erster oberer linker Molar), mesial-okklusal, ICDAS-Code 4. Patient Aylin Özdemir (GKV+ZZV)."
 
 * extension[0].url = "https://fhir.cognovis.de/dental/StructureDefinition/fdi-tooth-number"
 * extension[0].valueCode = #26
@@ -20,21 +21,22 @@ Description: "Kariöse Läsion an Zahn 26 (erster oberer linker Molar), mesial-o
 
 * code = $loinc#34552-0 "Dental findings"
 
-* subject = Reference(ExamplePatient)
+* subject = Reference(Patient/pat-gkv-dental-01)
 
-* effectiveDateTime = "2026-03-15T10:00:00+01:00"
+* effectiveDateTime = "2026-01-15T10:00:00+01:00"
 
 * valueCodeableConcept = $sct#80967001 "Dental caries"
 * valueCodeableConcept.text = "Karies ICDAS 4 — Schattenbildung im Dentin"
 
-* bodySite = $fdi#26 "26"
+// Tooth: FDI 26 — cognovis CodeSystem
+* bodySite = $fdiCS#26 "26"
 * bodySite.text = "Zahn 26 — erster oberer linker Molar"
 
-// Betroffene Flächen
+// Betroffene Flächen — cognovis tooth-surfaces CodeSystem
 * component[0].code = $sct#245647007 "Surface of tooth"
 * component[0].code.text = "Betroffene Zahnfläche"
-* component[0].valueCodeableConcept = https://fhir.cognovis.de/dental/CodeSystem/tooth-surfaces#M "Mesial"
+* component[0].valueCodeableConcept = $surfCS#M "Mesial"
 
 * component[1].code = $sct#245647007 "Surface of tooth"
 * component[1].code.text = "Betroffene Zahnfläche"
-* component[1].valueCodeableConcept = https://fhir.cognovis.de/dental/CodeSystem/tooth-surfaces#O "Okklusal"
+* component[1].valueCodeableConcept = $surfCS#O "Okklusal"
