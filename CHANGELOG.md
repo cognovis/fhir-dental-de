@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file.
 
 ## [unreleased]
 
+### Features
+
+- Add ex-tooth CodeSystem + dental-finding examples, update test suite
+
+### Miscellaneous
+
+- Bump version to 0.4.0
+- **deps**: Upgrade de.basisprofil.r4 1.5.0 → 1.6.0-ballot2, kbv.basis 1.7.0 → 1.8.0
+
+## [0.4.0] - 2026-04-02
+
 ### Bug Fixes
 
 - Strip internal praxis dependency from release tgz
@@ -11,6 +22,7 @@ All notable changes to this project will be documented in this file.
 ### Miscellaneous
 
 - Bump version to 0.3.1
+- Update changelog
 
 ### Test
 
