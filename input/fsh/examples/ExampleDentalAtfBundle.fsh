@@ -86,9 +86,9 @@ Description: "MessageHeader für die KIM-basierte Übermittlung zahnärztlicher 
 * source.contact.value = "support@cognovis.de"
 * source.endpoint = "mailto:dr.schoell@zahnarzt.kim.telematik"
 
-// Focus: Referenzen auf die Payload-Ressourcen
-* focus[0] = Reference(AtfDentalFindingZahn46)
-* focus[1] = Reference(AtfDentalConditionKaries46)
+// Focus: Referenzen auf die Payload-Ressourcen (urn:uuid: matching the Bundle entry fullUrls)
+* focus[0] = Reference(urn:uuid:f47ac10b-58cc-4372-a567-0e02b2c3d479)
+* focus[1] = Reference(urn:uuid:6ba7b810-9dad-11d1-80b4-00c04fd430c8)
 
 // ============================================================
 // DentalFinding: PSI-Befund Zahn 46 (inline)
@@ -102,10 +102,10 @@ Title: "PSI-Befund Zahn 46 (ATF-Payload)"
 * id = "f47ac10b-58cc-4372-a567-0e02b2c3d479"
 * status = #final
 * category[dental] = https://fhir.cognovis.de/dental/CodeSystem/dental-category#dental "Dental"
-// LOINC 34552-0: Dental findings — used as parent code to satisfy obs-7 constraint
-// (obs-7 prohibits Observation.code matching component.code; components use 32884-9)
-* code = $loinc#34552-0 "Dental findings"
-* subject = Reference(AtfPatient)
+// LOINC 8704-9 "Physical findings of Mouth and Throat and Teeth" — official display per CSIRO/LOINC 2.82
+// Used as parent code to satisfy obs-7 constraint (Observation.code must differ from component.code).
+* code = $loinc#8704-9 "Physical findings of Mouth and Throat and Teeth"
+* subject = Reference(urn:uuid:6ba7b811-9dad-11d1-80b4-00c04fd430c8)
 * effectiveDateTime = "2026-01-10T09:30:00+01:00"
 * valueCodeableConcept = $icd10gm#K05.3 "Chronische Parodontitis"
 * valueCodeableConcept.text = "PSI-Code 2: Sondierungstiefe 4 mm, Tasche vorhanden"
@@ -128,13 +128,13 @@ Title: "Kariesbefund K02.1 Zahn 46 (ATF-Payload)"
 * category[dental] = https://fhir.cognovis.de/dental/CodeSystem/dental-category#dental "Dental"
 * code = $icd10gm#K02.1 "Karies des Dentins"
 * code.text = "Dentinkaries, Zahn 46"
-* subject = Reference(AtfPatient)
+* subject = Reference(urn:uuid:6ba7b811-9dad-11d1-80b4-00c04fd430c8)
 * onsetDateTime = "2026-01-10"
 * recordedDate = "2026-01-10"
 // Tooth: FDI 46 — cognovis CodeSystem
 * bodySite[0] = $fdiCS#46 "46"
 * stage[0].summary = https://fhir.cognovis.de/dental/CodeSystem/dental-befund-status#c "kariös"
-* evidence[0].detail = Reference(AtfDentalFindingZahn46)
+* evidence[0].detail = Reference(urn:uuid:f47ac10b-58cc-4372-a567-0e02b2c3d479)
 
 // ============================================================
 // Patient (inline) — Klaus Bergmann (GKV)

@@ -11,7 +11,8 @@ Description: "LOINC- und SNOMED-CT-Codes fuer parodontale Befunde: Sondierungsti
 * ^publisher = "cognovis GmbH"
 
 // LOINC codes for periodontal measurements
-* $loinc#32884-9 "Periodontal pocket depth"
+* $loinc#8704-9 "Physical findings of Mouth and Throat and Teeth"
+* $loinc#32884-9 "Identification {Tooth}"
 * $loinc#32881-5 "Periodontal attachment loss"
 
 // SNOMED-CT periodontal finding concepts
