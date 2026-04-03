@@ -46,4 +46,4 @@ Description: "Behandelnde Zahnärztin Dr. Anna Mustermann, LANR 123456789."
 * name[0].given[0] = "Anna"
 * name[0].prefix[0] = "Dr. med. dent."
 
-* qualification[0].code = http://terminology.hl7.org/CodeSystem/v2-0360#DDS "Doctor of Dental Surgery"
+* qualification[0].code = http://snomed.info/sct#106289002 "Dentist (occupation)"

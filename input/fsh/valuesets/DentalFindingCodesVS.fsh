@@ -11,7 +11,6 @@ Description: "Codes für zahnärztliche Befundarten: LOINC für standardisierte 
 * $loinc#34552-0 "Dental findings"
 * $loinc#34553-8 "Dental history"
 * $loinc#32884-9 "Periodontal attachment level"
-* $loinc#LP96685-5 "Dental caries risk assessment"
 
 // SNOMED-CT dental finding concepts
 * include codes from system $sct

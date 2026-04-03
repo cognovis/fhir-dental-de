@@ -36,7 +36,7 @@ Description: "Parodontologischer Behandlungsplan (PAR-Richtlinie 07/2021) für g
 
 // UPT-Recall-Aktivität: alle 3 Monate
 * activity[0].detail.status = #scheduled
-* activity[0].detail.code = http://snomed.info/sct#229067004 "Periodontal debridement"
+* activity[0].detail.code = http://snomed.info/sct#234731006 "Dental prophylaxis (procedure)"
 * activity[0].detail.code.text = "UPT — Unterstützende Parodontitistherapie"
 * activity[0].detail.scheduledTiming.repeat.period = 3
 * activity[0].detail.scheduledTiming.repeat.periodUnit = #mo
@@ -61,7 +61,7 @@ Description: "Generalisierte Parodontitis, Stadium II, Grad B (BSP-Klassifikatio
 
 * category[0] = https://fhir.cognovis.de/dental/CodeSystem/dental-category#dental "Dental"
 
-* code = http://fhir.de/CodeSystem/bfarm/icd-10-gm#K05.3 "Chronische Parodontitis"
+* code = $icd10gm#K05.3 "Chronische Parodontitis"
 * code.text = "Generalisierte chronische Parodontitis, Stadium II, Grad B"
 
 * subject = Reference(ExamplePatient)

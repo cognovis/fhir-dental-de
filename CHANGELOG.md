@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 
 ## [unreleased]
 
+### Bug Fixes
+
+- **fdde-9e6**: Fix all 37 IG Publisher validation errors
+- **fdde-9e6**: Address review findings iteration 1
+- **fdde-9e6**: Address review findings iteration 2
+- **fdde-9e6**: Use $icd10gm alias in ExampleParCarePlan (consistency)
+
+## [0.5.0] - 2026-04-03
+
 ### Features
 
 - Add ex-tooth CodeSystem + dental-finding examples, update test suite
@@ -12,6 +21,8 @@ All notable changes to this project will be documented in this file.
 
 - Bump version to 0.4.0
 - **deps**: Upgrade de.basisprofil.r4 1.5.0 → 1.6.0-ballot2, kbv.basis 1.7.0 → 1.8.0
+- Update changelog
+- Bump version to 0.5.0
 
 ## [0.4.0] - 2026-04-02
 
@@ -74,13 +85,18 @@ All notable changes to this project will be documented in this file.
 
 ### Miscellaneous
 
-- Bump version to 2026.03.4
 - Switch to SemVer, VERSION file as single source of truth
 - Update changelog
 
 ### Merge
 
 - Feat/fhir-dental-de-axv/observation-profiles-and-semver
+
+## [0.1.0] - 2026-03-29
+
+### Miscellaneous
+
+- Bump version to 2026.03.4
 
 ## [2026.03.4] - 2026-03-29
 
