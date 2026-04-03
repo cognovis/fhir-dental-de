@@ -3,7 +3,7 @@ Id: ze-bonus-prozent
 Title: "ZE Bonus-Prozent"
 Description: "Bonusstufen für den Festzuschuss nach §55 Abs. 1 SGB V. Der Bonus setzt lückenlose Bonusheft-Einträge über die jeweiligen Jahre voraus."
 * ^url = "https://fhir.cognovis.de/dental/CodeSystem/ze-bonus-prozent"
-* ^status = #draft
+* ^status = #active
 * ^experimental = true
 * ^caseSensitive = true
 * ^content = #complete

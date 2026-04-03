@@ -3,7 +3,7 @@ Parent: DentalFindingDE
 Id: de-mira-periodontal-observation
 Title: "Parodontalbefund (DE)"
 Description: "Profil fuer parodontale Befunde: 6-Punkt-Sondierungstiefe, Rezession, BOP und Furkationsbeteiligung pro Zahn. Spezialisierung von DentalFindingDE mit fester component-Struktur."
-* ^status = #draft
+* ^status = #active
 * ^experimental = true
 * ^publisher = "cognovis GmbH"
 

@@ -3,7 +3,7 @@ Id: par-stadium
 Title: "PAR Stadium"
 Description: "Parodontitis-Stadium nach BSP/EFP-Klassifikation 2018 (A=langsam, B=moderat, C=schnell)."
 * ^url = "https://fhir.cognovis.de/dental/ValueSet/par-stadium"
-* ^status = #draft
+* ^status = #active
 * ^experimental = true
 * ^publisher = "cognovis GmbH"
 

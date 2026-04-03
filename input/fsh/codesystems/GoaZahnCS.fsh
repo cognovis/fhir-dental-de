@@ -3,7 +3,7 @@ Id: goae-zahn
 Title: "GOÄ - Relevante Positionen für Zahnärzte"
 Description: "Auswahl der für Zahnärzte relevanten GOÄ-Positionen, insbesondere Anästhesie/Narkose und Laborleistungen."
 * ^url = "https://fhir.cognovis.de/dental/CodeSystem/goae-zahn"
-* ^status = #draft
+* ^status = #active
 * ^experimental = true
 * ^caseSensitive = true
 * ^content = #fragment

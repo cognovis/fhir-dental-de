@@ -3,7 +3,7 @@ Id: privatgebuehr-leistungsart
 Title: "Privatgebühr Leistungsart"
 Description: "Leistungsart für den Steigerungsfaktor: persönlich (Schwellenwert 2,3) oder technisch (Schwellenwert 1,8) gemäß GOÄ/GOZ §5 Abs. 2."
 * ^url = "https://fhir.cognovis.de/dental/ValueSet/privatgebuehr-leistungsart"
-* ^status = #draft
+* ^status = #active
 * ^experimental = true
 * ^publisher = "cognovis GmbH"
 

@@ -3,7 +3,7 @@ Parent: Encounter
 Id: de-mira-dental-encounter
 Title: "Zahnärztlicher Abrechnungsfall (DE)"
 Description: "Profil für den zahnärztlichen Abrechnungsfall (Behandlungsfall) nach SWS 2.0 Satzart 2. Verbindet Patient, Behandler, Abrechnungsquartal und Versicherungskontext."
-* ^status = #draft
+* ^status = #active
 * ^experimental = true
 * ^publisher = "cognovis GmbH"
 

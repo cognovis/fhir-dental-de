@@ -3,7 +3,7 @@ Id: hkp-genehmigungsstatus
 Title: "HKP Genehmigungsstatus"
 Description: "Status der Genehmigung eines Heil- und Kostenplans (HKP) durch die Krankenkasse."
 * ^url = "https://fhir.cognovis.de/dental/CodeSystem/hkp-genehmigungsstatus"
-* ^status = #draft
+* ^status = #active
 * ^experimental = true
 * ^caseSensitive = true
 * ^content = #complete

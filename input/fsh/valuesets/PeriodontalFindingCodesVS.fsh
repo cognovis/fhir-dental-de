@@ -6,7 +6,7 @@ Id: periodontal-finding-codes
 Title: "Parodontale Befundcodes"
 Description: "LOINC- und SNOMED-CT-Codes fuer parodontale Befunde: Sondierungstiefe, Rezession, BOP, Furkation, Attachment-Level."
 * ^url = "https://fhir.cognovis.de/dental/ValueSet/periodontal-finding-codes"
-* ^status = #draft
+* ^status = #active
 * ^experimental = true
 * ^publisher = "cognovis GmbH"
 

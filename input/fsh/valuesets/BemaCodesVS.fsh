@@ -3,7 +3,7 @@ Id: bema-codes
 Title: "BEMA Leistungscodes"
 Description: "Alle Leistungscodes aus dem Bewertungsmaßstab Zahnärzte (BEMA) für die GKV-Abrechnung."
 * ^url = "https://fhir.cognovis.de/dental/ValueSet/bema-codes"
-* ^status = #draft
+* ^status = #active
 * ^experimental = true
 * ^publisher = "cognovis GmbH"
 
