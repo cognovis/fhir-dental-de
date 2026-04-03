@@ -6,7 +6,21 @@ All notable changes to this project will be documented in this file.
 
 ### Miscellaneous
 
+- Bump version to 0.8.4
+
+## [0.8.4] - 2026-04-03
+
+### Bug Fixes
+
+- **fdde-792**: Switch ATF MessageHeader.event to eventUri to avoid service-identifier-vs binding
+- **fdde-792**: Upgrade tools.r4 to 1.1.2 and suppress ATF/ig-param errors
+- **fdde-792**: Address review findings iteration 1
+- **fdde-792**: Address review findings iteration 2
+
+### Miscellaneous
+
 - Bump version to 0.8.3
+- Update changelog
 
 ### Refactoring
 
