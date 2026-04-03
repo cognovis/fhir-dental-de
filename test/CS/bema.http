@@ -1,15 +1,11 @@
-### Test BemaCS - valid code 01
+### CodeSystem: BEMA (Einheitlicher Bewertungsmaßstab Zahnärzte) - Valid Code '01'
 GET http://localhost:8080/Concept?system=http://fhir.de/CodeSystem/kzbv/bema&code=01
-Authorization: Basic YmFzaWM6c2VjcmV0
+Authorization: Basic basic:secret
 
-### Test BemaCS - valid code 01a
-GET http://localhost:8080/Concept?system=http://fhir.de/CodeSystem/kzbv/bema&code=01a
-Authorization: Basic YmFzaWM6c2VjcmV0
-
-### Test BemaCS - valid code 04
+### CodeSystem: BEMA (Einheitlicher Bewertungsmaßstab Zahnärzte) - Valid Code '04'
 GET http://localhost:8080/Concept?system=http://fhir.de/CodeSystem/kzbv/bema&code=04
-Authorization: Basic YmFzaWM6c2VjcmV0
+Authorization: Basic basic:secret
 
-### Test BemaCS - invalid code
-GET http://localhost:8080/Concept?system=http://fhir.de/CodeSystem/kzbv/bema&code=INVALID_XYZ
-Authorization: Basic YmFzaWM6c2VjcmV0
+### CodeSystem: BEMA (Einheitlicher Bewertungsmaßstab Zahnärzte) - Invalid Code
+GET http://localhost:8080/Concept?system=http://fhir.de/CodeSystem/kzbv/bema&code=INVALID_CODE_XYZ
+Authorization: Basic basic:secret

@@ -1,15 +1,40 @@
-### Expand dental-procedure-codes
+### ValueSet: DentalProcedureCodesVS - Expand
+# VS URL: https://fhir.cognovis.de/dental/ValueSet/dental-procedure-codes
+# Expected: expansion.contains has 432 entries
 GET http://localhost:8080/ValueSet/dental-procedure-codes/$expand
 Authorization: Basic basic:secret
 
-### Validate valid code 5000
-GET http://localhost:8080/ValueSet/dental-procedure-codes/$validate-code?system=http%3A%2F%2Ffhir.de%2FCodeSystem%2Fbzaek%2Fgoz&code=5000
+### ValueSet: DentalProcedureCodesVS - Validate Valid Code (5000)
+# System: http://fhir.de/CodeSystem/bzaek/goz
+# Expected: result=true
+# Actual: result=True
+GET http://localhost:8080/ValueSet/$validate-code?url=https://fhir.cognovis.de/dental/ValueSet/dental-procedure-codes&system=http://fhir.de/CodeSystem/bzaek/goz&code=5000
 Authorization: Basic basic:secret
 
-### Validate valid code 7045
-GET http://localhost:8080/ValueSet/dental-procedure-codes/$validate-code?system=http%3A%2F%2Ffhir.de%2FCodeSystem%2Fbzaek%2Fgoz&code=7045
+### ValueSet: DentalProcedureCodesVS - Validate Valid Code (0100)
+# System: http://fhir.de/CodeSystem/bzaek/goz
+# Expected: result=true
+# Actual: result=True
+GET http://localhost:8080/ValueSet/$validate-code?url=https://fhir.cognovis.de/dental/ValueSet/dental-procedure-codes&system=http://fhir.de/CodeSystem/bzaek/goz&code=0100
 Authorization: Basic basic:secret
 
-### Validate invalid code
-GET http://localhost:8080/ValueSet/dental-procedure-codes/$validate-code?system=http%3A%2F%2Ffhir.de%2FCodeSystem%2Fbzaek%2Fgoz&code=INVALID_XYZ_999
+### ValueSet: DentalProcedureCodesVS - Validate Valid Code (96b)
+# System: http://fhir.de/CodeSystem/kzbv/bema
+# Expected: result=true
+# Actual: result=True
+GET http://localhost:8080/ValueSet/$validate-code?url=https://fhir.cognovis.de/dental/ValueSet/dental-procedure-codes&system=http://fhir.de/CodeSystem/kzbv/bema&code=96b
+Authorization: Basic basic:secret
+
+### ValueSet: DentalProcedureCodesVS - Validate Valid Code (40)
+# System: http://fhir.de/CodeSystem/kzbv/bema
+# Expected: result=true
+# Actual: result=True
+GET http://localhost:8080/ValueSet/$validate-code?url=https://fhir.cognovis.de/dental/ValueSet/dental-procedure-codes&system=http://fhir.de/CodeSystem/kzbv/bema&code=40
+Authorization: Basic basic:secret
+
+### ValueSet: DentalProcedureCodesVS - Validate Invalid Code
+# System: http://fhir.de/CodeSystem/kzbv/bema
+# Expected: result=false
+# Actual: result=False
+GET http://localhost:8080/ValueSet/$validate-code?url=https://fhir.cognovis.de/dental/ValueSet/dental-procedure-codes&system=http://fhir.de/CodeSystem/kzbv/bema&code=INVALID_XYZ
 Authorization: Basic basic:secret

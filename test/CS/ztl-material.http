@@ -1,15 +1,11 @@
-### Test ZtlMaterialCS - valid code nem
+### CodeSystem: ZTL Material - Valid Code 'nem'
 GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/ztl-material&code=nem
-Authorization: Basic YmFzaWM6c2VjcmV0
+Authorization: Basic basic:secret
 
-### Test ZtlMaterialCS - valid code em
+### CodeSystem: ZTL Material - Valid Code 'em'
 GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/ztl-material&code=em
-Authorization: Basic YmFzaWM6c2VjcmV0
+Authorization: Basic basic:secret
 
-### Test ZtlMaterialCS - valid code hochgold
-GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/ztl-material&code=hochgold
-Authorization: Basic YmFzaWM6c2VjcmV0
-
-### Test ZtlMaterialCS - invalid code
-GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/ztl-material&code=INVALID_XYZ
-Authorization: Basic YmFzaWM6c2VjcmV0
+### CodeSystem: ZTL Material - Invalid Code
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/ztl-material&code=INVALID_CODE_XYZ
+Authorization: Basic basic:secret

@@ -1,15 +1,26 @@
-### Expand dental-befund-status-vs
+### ValueSet: DentalBefundStatusVS - Expand
+# VS URL: https://fhir.cognovis.de/dental/ValueSet/dental-befund-status
+# Expected: expansion.contains has 21 entries
 GET http://localhost:8080/ValueSet/dental-befund-status-vs/$expand
 Authorization: Basic basic:secret
 
-### Validate valid code f
-GET http://localhost:8080/ValueSet/dental-befund-status-vs/$validate-code?system=https%3A%2F%2Ffhir.cognovis.de%2Fdental%2FCodeSystem%2Fdental-befund-status&code=f
+### ValueSet: DentalBefundStatusVS - Validate Valid Code (f)
+# System: https://fhir.cognovis.de/dental/CodeSystem/dental-befund-status
+# Expected: result=true
+# Actual: result=True
+GET http://localhost:8080/ValueSet/$validate-code?url=https://fhir.cognovis.de/dental/ValueSet/dental-befund-status&system=https://fhir.cognovis.de/dental/CodeSystem/dental-befund-status&code=f
 Authorization: Basic basic:secret
 
-### Validate valid code R
-GET http://localhost:8080/ValueSet/dental-befund-status-vs/$validate-code?system=https%3A%2F%2Ffhir.cognovis.de%2Fdental%2FCodeSystem%2Fdental-befund-status&code=R
+### ValueSet: DentalBefundStatusVS - Validate Valid Code (z)
+# System: https://fhir.cognovis.de/dental/CodeSystem/dental-befund-status
+# Expected: result=true
+# Actual: result=True
+GET http://localhost:8080/ValueSet/$validate-code?url=https://fhir.cognovis.de/dental/ValueSet/dental-befund-status&system=https://fhir.cognovis.de/dental/CodeSystem/dental-befund-status&code=z
 Authorization: Basic basic:secret
 
-### Validate invalid code
-GET http://localhost:8080/ValueSet/dental-befund-status-vs/$validate-code?system=https%3A%2F%2Ffhir.cognovis.de%2Fdental%2FCodeSystem%2Fdental-befund-status&code=INVALID_XYZ_999
+### ValueSet: DentalBefundStatusVS - Validate Invalid Code
+# System: https://fhir.cognovis.de/dental/CodeSystem/dental-befund-status
+# Expected: result=false
+# Actual: result=False
+GET http://localhost:8080/ValueSet/$validate-code?url=https://fhir.cognovis.de/dental/ValueSet/dental-befund-status&system=https://fhir.cognovis.de/dental/CodeSystem/dental-befund-status&code=INVALID_XYZ
 Authorization: Basic basic:secret

@@ -1,0 +1,15 @@
+### CodeSystem: ex-tooth - Valid Code '11'
+GET http://localhost:8080/Concept?system=http://terminology.hl7.org/CodeSystem/ex-tooth&code=11
+Authorization: Basic basic:secret
+
+### CodeSystem: ex-tooth - Valid Code '36'
+GET http://localhost:8080/Concept?system=http://terminology.hl7.org/CodeSystem/ex-tooth&code=36
+Authorization: Basic basic:secret
+
+### CodeSystem: ex-tooth - Valid Code '48'
+GET http://localhost:8080/Concept?system=http://terminology.hl7.org/CodeSystem/ex-tooth&code=48
+Authorization: Basic basic:secret
+
+### CodeSystem: ex-tooth - Invalid Code
+GET http://localhost:8080/Concept?system=http://terminology.hl7.org/CodeSystem/ex-tooth&code=INVALID_CODE_XYZ
+Authorization: Basic basic:secret

@@ -1,15 +1,11 @@
-### Test ZeTherapiekuerzelCS - valid code K
-GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/ze-therapiekuerzel&code=K
-Authorization: Basic YmFzaWM6c2VjcmV0
-
-### Test ZeTherapiekuerzelCS - valid code TK
+### CodeSystem: ZE Therapiekürzel - Valid Code 'TK'
 GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/ze-therapiekuerzel&code=TK
-Authorization: Basic YmFzaWM6c2VjcmV0
+Authorization: Basic basic:secret
 
-### Test ZeTherapiekuerzelCS - valid code B
+### CodeSystem: ZE Therapiekürzel - Valid Code 'B'
 GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/ze-therapiekuerzel&code=B
-Authorization: Basic YmFzaWM6c2VjcmV0
+Authorization: Basic basic:secret
 
-### Test ZeTherapiekuerzelCS - invalid code
-GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/ze-therapiekuerzel&code=INVALID_XYZ
-Authorization: Basic YmFzaWM6c2VjcmV0
+### CodeSystem: ZE Therapiekürzel - Invalid Code
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/ze-therapiekuerzel&code=INVALID_CODE_XYZ
+Authorization: Basic basic:secret

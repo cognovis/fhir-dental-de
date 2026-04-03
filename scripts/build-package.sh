@@ -62,6 +62,16 @@ for f in "$ROOT/fsh-generated/resources/"*.json; do
   cp "$f" "$DIST/$basename"
 done
 
+# 5b. Copy pre-built JSON resources from input/resources/ (e.g., external CodeSystems)
+# Note: Aidbox $fhir-package-install skips resources with external canonical URLs.
+# External CodeSystems (e.g., ex-tooth) must be PUT directly after package install.
+if [ -d "$ROOT/input/resources" ]; then
+  for f in "$ROOT/input/resources/"*.json; do
+    [ -f "$f" ] || continue
+    cp "$f" "$DIST/$(basename "$f")"
+  done
+fi
+
 COUNT=$(ls "$DIST"/*.json | wc -l | tr -d ' ')
 echo "Package dir: $DIST ($COUNT resources)"
 

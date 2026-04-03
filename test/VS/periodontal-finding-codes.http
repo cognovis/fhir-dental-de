@@ -1,15 +1,40 @@
-### Expand periodontal-finding-codes
+### ValueSet: PeriodontalFindingCodesVS - Expand
+# VS URL: https://fhir.cognovis.de/dental/ValueSet/periodontal-finding-codes
+# Expected: expansion.contains has 8 entries
 GET http://localhost:8080/ValueSet/periodontal-finding-codes/$expand
 Authorization: Basic basic:secret
 
-### Validate valid code 3877005
-GET http://localhost:8080/ValueSet/periodontal-finding-codes/$validate-code?system=http%3A%2F%2Fsnomed.info%2Fsct&code=3877005
+### ValueSet: PeriodontalFindingCodesVS - Validate Valid Code (3877005)
+# System: http://snomed.info/sct
+# Expected: result=true
+# Actual: result=True
+GET http://localhost:8080/ValueSet/$validate-code?url=https://fhir.cognovis.de/dental/ValueSet/periodontal-finding-codes&system=http://snomed.info/sct&code=3877005
 Authorization: Basic basic:secret
 
-### Validate valid code LP96685-5
-GET http://localhost:8080/ValueSet/periodontal-finding-codes/$validate-code?system=http%3A%2F%2Floinc.org&code=LP96685-5
+### ValueSet: PeriodontalFindingCodesVS - Validate Valid Code (109728009)
+# System: http://snomed.info/sct
+# Expected: result=true
+# Actual: result=True
+GET http://localhost:8080/ValueSet/$validate-code?url=https://fhir.cognovis.de/dental/ValueSet/periodontal-finding-codes&system=http://snomed.info/sct&code=109728009
 Authorization: Basic basic:secret
 
-### Validate invalid code
-GET http://localhost:8080/ValueSet/periodontal-finding-codes/$validate-code?system=http%3A%2F%2Fsnomed.info%2Fsct&code=INVALID_XYZ_999
+### ValueSet: PeriodontalFindingCodesVS - Validate Valid Code (32881-5)
+# System: http://loinc.org
+# Expected: result=true
+# Actual: result=True
+GET http://localhost:8080/ValueSet/$validate-code?url=https://fhir.cognovis.de/dental/ValueSet/periodontal-finding-codes&system=http://loinc.org&code=32881-5
+Authorization: Basic basic:secret
+
+### ValueSet: PeriodontalFindingCodesVS - Validate Valid Code (32884-9)
+# System: http://loinc.org
+# Expected: result=true
+# Actual: result=True
+GET http://localhost:8080/ValueSet/$validate-code?url=https://fhir.cognovis.de/dental/ValueSet/periodontal-finding-codes&system=http://loinc.org&code=32884-9
+Authorization: Basic basic:secret
+
+### ValueSet: PeriodontalFindingCodesVS - Validate Invalid Code
+# System: http://loinc.org
+# Expected: result=false
+# Actual: result=False
+GET http://localhost:8080/ValueSet/$validate-code?url=https://fhir.cognovis.de/dental/ValueSet/periodontal-finding-codes&system=http://loinc.org&code=INVALID_XYZ
 Authorization: Basic basic:secret

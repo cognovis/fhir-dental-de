@@ -1,15 +1,11 @@
-### Test ZeVersorgungsartCS - valid code regelversorgung
+### CodeSystem: ZE Versorgungsart - Valid Code 'regelversorgung'
 GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/ze-versorgungsart&code=regelversorgung
-Authorization: Basic YmFzaWM6c2VjcmV0
+Authorization: Basic basic:secret
 
-### Test ZeVersorgungsartCS - valid code gleichartig
+### CodeSystem: ZE Versorgungsart - Valid Code 'gleichartig'
 GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/ze-versorgungsart&code=gleichartig
-Authorization: Basic YmFzaWM6c2VjcmV0
+Authorization: Basic basic:secret
 
-### Test ZeVersorgungsartCS - valid code andersartig
-GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/ze-versorgungsart&code=andersartig
-Authorization: Basic YmFzaWM6c2VjcmV0
-
-### Test ZeVersorgungsartCS - invalid code
-GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/ze-versorgungsart&code=INVALID_XYZ
-Authorization: Basic YmFzaWM6c2VjcmV0
+### CodeSystem: ZE Versorgungsart - Invalid Code
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/ze-versorgungsart&code=INVALID_CODE_XYZ
+Authorization: Basic basic:secret

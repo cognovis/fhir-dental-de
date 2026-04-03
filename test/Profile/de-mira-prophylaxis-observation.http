@@ -1,6 +1,6 @@
 ### Validate valid de-mira-prophylaxis-observation
 POST http://localhost:8080/fhir/Observation/$validate?profile=https://fhir.cognovis.de/dental/StructureDefinition/de-mira-prophylaxis-observation
-Authorization: Basic basic:secret
+Authorization: Basic YWRtaW46YVZyeFA1TkJyZlRLZWlpdDBxRnpLVzNL
 Content-Type: application/fhir+json
 
 {
@@ -162,7 +162,7 @@ Content-Type: application/fhir+json
 
 ### Validate invalid de-mira-prophylaxis-observation
 POST http://localhost:8080/fhir/Observation/$validate?profile=https://fhir.cognovis.de/dental/StructureDefinition/de-mira-prophylaxis-observation
-Authorization: Basic basic:secret
+Authorization: Basic YWRtaW46YVZyeFA1TkJyZlRLZWlpdDBxRnpLVzNL
 Content-Type: application/fhir+json
 
 {

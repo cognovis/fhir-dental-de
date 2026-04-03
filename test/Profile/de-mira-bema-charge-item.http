@@ -1,6 +1,6 @@
 ### Validate valid de-mira-bema-charge-item
 POST http://localhost:8080/fhir/ChargeItem/$validate?profile=https://fhir.cognovis.de/dental/StructureDefinition/de-mira-bema-charge-item
-Authorization: Basic basic:secret
+Authorization: Basic YWRtaW46YVZyeFA1TkJyZlRLZWlpdDBxRnpLVzNL
 Content-Type: application/fhir+json
 
 {
@@ -100,7 +100,7 @@ Content-Type: application/fhir+json
 
 ### Validate invalid de-mira-bema-charge-item
 POST http://localhost:8080/fhir/ChargeItem/$validate?profile=https://fhir.cognovis.de/dental/StructureDefinition/de-mira-bema-charge-item
-Authorization: Basic basic:secret
+Authorization: Basic YWRtaW46YVZyeFA1TkJyZlRLZWlpdDBxRnpLVzNL
 Content-Type: application/fhir+json
 
 {

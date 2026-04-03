@@ -1,6 +1,6 @@
 ### Validate valid de-mira-ze-care-plan
 POST http://localhost:8080/fhir/CarePlan/$validate?profile=https://fhir.cognovis.de/dental/StructureDefinition/de-mira-ze-care-plan
-Authorization: Basic basic:secret
+Authorization: Basic YWRtaW46YVZyeFA1TkJyZlRLZWlpdDBxRnpLVzNL
 Content-Type: application/fhir+json
 
 {
@@ -58,7 +58,7 @@ Content-Type: application/fhir+json
 
 ### Validate invalid de-mira-ze-care-plan
 POST http://localhost:8080/fhir/CarePlan/$validate?profile=https://fhir.cognovis.de/dental/StructureDefinition/de-mira-ze-care-plan
-Authorization: Basic basic:secret
+Authorization: Basic YWRtaW46YVZyeFA1TkJyZlRLZWlpdDBxRnpLVzNL
 Content-Type: application/fhir+json
 
 {

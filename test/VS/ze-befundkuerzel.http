@@ -1,15 +1,26 @@
-### Expand ze-befundkuerzel
+### ValueSet: ZeBefundkuerzelVS - Expand
+# VS URL: https://fhir.cognovis.de/dental/ValueSet/ze-befundkuerzel
+# Expected: expansion.contains has 50 entries
 GET http://localhost:8080/ValueSet/ze-befundkuerzel/$expand
 Authorization: Basic basic:secret
 
-### Validate valid code x
-GET http://localhost:8080/ValueSet/ze-befundkuerzel/$validate-code?system=https%3A%2F%2Ffhir.cognovis.de%2Fdental%2FCodeSystem%2Fze-befundkuerzel&code=x
+### ValueSet: ZeBefundkuerzelVS - Validate Valid Code (x)
+# System: https://fhir.cognovis.de/dental/CodeSystem/ze-befundkuerzel
+# Expected: result=true
+# Actual: result=True
+GET http://localhost:8080/ValueSet/$validate-code?url=https://fhir.cognovis.de/dental/ValueSet/ze-befundkuerzel&system=https://fhir.cognovis.de/dental/CodeSystem/ze-befundkuerzel&code=x
 Authorization: Basic basic:secret
 
-### Validate valid code si
-GET http://localhost:8080/ValueSet/ze-befundkuerzel/$validate-code?system=https%3A%2F%2Ffhir.cognovis.de%2Fdental%2FCodeSystem%2Fze-befundkuerzel&code=si
+### ValueSet: ZeBefundkuerzelVS - Validate Valid Code (xb)
+# System: https://fhir.cognovis.de/dental/CodeSystem/ze-befundkuerzel
+# Expected: result=true
+# Actual: result=True
+GET http://localhost:8080/ValueSet/$validate-code?url=https://fhir.cognovis.de/dental/ValueSet/ze-befundkuerzel&system=https://fhir.cognovis.de/dental/CodeSystem/ze-befundkuerzel&code=xb
 Authorization: Basic basic:secret
 
-### Validate invalid code
-GET http://localhost:8080/ValueSet/ze-befundkuerzel/$validate-code?system=https%3A%2F%2Ffhir.cognovis.de%2Fdental%2FCodeSystem%2Fze-befundkuerzel&code=INVALID_XYZ_999
+### ValueSet: ZeBefundkuerzelVS - Validate Invalid Code
+# System: https://fhir.cognovis.de/dental/CodeSystem/ze-befundkuerzel
+# Expected: result=false
+# Actual: result=False
+GET http://localhost:8080/ValueSet/$validate-code?url=https://fhir.cognovis.de/dental/ValueSet/ze-befundkuerzel&system=https://fhir.cognovis.de/dental/CodeSystem/ze-befundkuerzel&code=INVALID_XYZ
 Authorization: Basic basic:secret

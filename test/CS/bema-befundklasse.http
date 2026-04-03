@@ -1,15 +1,11 @@
-### Test BemaBefundklasseCS - valid code c
+### CodeSystem: BEMA Befundklasse - Valid Code 'c'
 GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/bema-befundklasse&code=c
-Authorization: Basic YmFzaWM6c2VjcmV0
+Authorization: Basic basic:secret
 
-### Test BemaBefundklasseCS - valid code k
+### CodeSystem: BEMA Befundklasse - Valid Code 'k'
 GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/bema-befundklasse&code=k
-Authorization: Basic YmFzaWM6c2VjcmV0
+Authorization: Basic basic:secret
 
-### Test BemaBefundklasseCS - valid code f
-GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/bema-befundklasse&code=f
-Authorization: Basic YmFzaWM6c2VjcmV0
-
-### Test BemaBefundklasseCS - invalid code
-GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/bema-befundklasse&code=INVALID_XYZ
-Authorization: Basic YmFzaWM6c2VjcmV0
+### CodeSystem: BEMA Befundklasse - Invalid Code
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/bema-befundklasse&code=INVALID_CODE_XYZ
+Authorization: Basic basic:secret

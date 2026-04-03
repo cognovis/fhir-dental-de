@@ -1,6 +1,6 @@
 ### Validate valid de-mira-dental-organization
 POST http://localhost:8080/fhir/Organization/$validate?profile=https://fhir.cognovis.de/dental/StructureDefinition/de-mira-dental-organization
-Authorization: Basic basic:secret
+Authorization: Basic YWRtaW46YVZyeFA1TkJyZlRLZWlpdDBxRnpLVzNL
 Content-Type: application/fhir+json
 
 {
@@ -65,18 +65,13 @@ Content-Type: application/fhir+json
 }
 
 ### Validate invalid de-mira-dental-organization
+# Expected: error - The property 'name' is required (min:1 in profile)
 POST http://localhost:8080/fhir/Organization/$validate?profile=https://fhir.cognovis.de/dental/StructureDefinition/de-mira-dental-organization
-Authorization: Basic basic:secret
+Authorization: Basic YWRtaW46YVZyeFA1TkJyZlRLZWlpdDBxRnpLVzNL
 Content-Type: application/fhir+json
 
 {
   "resourceType": "Organization",
-  "id": "ExampleDentalOrganization",
-  "meta": {
-    "profile": [
-      "https://fhir.cognovis.de/dental/StructureDefinition/de-mira-dental-organization"
-    ]
-  },
   "identifier": [
     {
       "system": "https://fhir.kbv.de/NamingSystem/KBV_NS_Base_BSNR",
@@ -114,16 +109,6 @@ Content-Type: application/fhir+json
     {
       "system": "phone",
       "value": "+49 89 1234560",
-      "use": "work"
-    },
-    {
-      "system": "fax",
-      "value": "+49 89 1234561",
-      "use": "work"
-    },
-    {
-      "system": "email",
-      "value": "praxis@dr-mustermann-zahnarzt.de",
       "use": "work"
     }
   ]
