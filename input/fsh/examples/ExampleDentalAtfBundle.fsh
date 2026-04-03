@@ -104,7 +104,7 @@ Title: "PSI-Befund Zahn 46 (ATF-Payload)"
 * category[dental] = https://fhir.cognovis.de/dental/CodeSystem/dental-category#dental "Dental"
 // LOINC 8704-9: Physical findings of Mouth — used as parent code to satisfy obs-7 constraint
 // (obs-7 prohibits Observation.code matching component.code; components use 32884-9)
-* code = $loinc#8704-9 "Physical findings of Mouth"
+* code = $loinc#8704-9 "Physical findings of Mouth and Throat and Teeth"
 * subject = Reference(urn:uuid:6ba7b811-9dad-11d1-80b4-00c04fd430c8)
 * effectiveDateTime = "2026-01-10T09:30:00+01:00"
 * valueCodeableConcept = $icd10gm#K05.3 "Chronische Parodontitis"

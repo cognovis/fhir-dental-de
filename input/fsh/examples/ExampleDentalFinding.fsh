@@ -21,7 +21,7 @@ Description: "Parodontaler Screening-Index (PSI) Befund für Zahn 36 (erster unt
 
 // LOINC 8704-9: Physical findings of Mouth — used as parent code to satisfy obs-7 constraint
 // (obs-7 prohibits Observation.code matching component.code; components use 32884-9)
-* code = $loinc#8704-9 "Physical findings of Mouth"
+* code = $loinc#8704-9 "Physical findings of Mouth and Throat and Teeth"
 
 * subject = Reference(Patient/pat-gkv-01)
 
