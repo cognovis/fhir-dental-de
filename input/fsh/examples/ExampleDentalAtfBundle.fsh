@@ -37,15 +37,15 @@ Description: "ATF-MessageBundle das einen PSI-Befund (Zahn 46) und eine Kariesdi
 * entry[MessageHeader][0].resource = AtfDentalMessageHeader
 
 // --- Eintrag 1: DentalFinding (PSI-Befund Zahn 46) ---
-* entry[DentalFinding][0].fullUrl = "urn:uuid:finding-psi-46-001"
+* entry[DentalFinding][0].fullUrl = "urn:uuid:f47ac10b-58cc-4372-a567-0e02b2c3d479"
 * entry[DentalFinding][0].resource = AtfDentalFindingZahn46
 
 // --- Eintrag 2: DentalCondition (Kariesbefund Zahn 46) ---
-* entry[DentalCondition][0].fullUrl = "urn:uuid:condition-k021-46-001"
+* entry[DentalCondition][0].fullUrl = "urn:uuid:6ba7b810-9dad-11d1-80b4-00c04fd430c8"
 * entry[DentalCondition][0].resource = AtfDentalConditionKaries46
 
 // --- Eintrag 3: Patient ---
-* entry[Patient][0].fullUrl = "urn:uuid:patient-bergmann-gkv"
+* entry[Patient][0].fullUrl = "urn:uuid:6ba7b811-9dad-11d1-80b4-00c04fd430c8"
 * entry[Patient][0].resource = AtfPatient
 
 // ============================================================
@@ -60,7 +60,8 @@ Description: "MessageHeader für die KIM-basierte Übermittlung zahnärztlicher 
 
 * meta.profile[0] = $atf-header
 
-// Erfordert eine ID (ATF-Pflicht)
+// ATF-Pflicht: id muss mit dem letzten Segment der fullUrl übereinstimmen
+// (fullUrl in entry[MessageHeader][0]: "urn:uuid:aa11bb22-cc33-dd44-ee55-ff66aa77bb88")
 * id = "aa11bb22-cc33-dd44-ee55-ff66aa77bb88"
 
 // eventCoding: Dental-spezifischer Anwendungsfall
@@ -98,10 +99,10 @@ InstanceOf: DentalFindingDE
 Usage: #inline
 Title: "PSI-Befund Zahn 46 (ATF-Payload)"
 
-* id = "finding-psi-46-001"
+* id = "f47ac10b-58cc-4372-a567-0e02b2c3d479"
 * status = #final
 * category[dental] = https://fhir.cognovis.de/dental/CodeSystem/dental-category#dental "Dental"
-* code = $loinc#32884-9 "Periodontal attachment level"
+* code = $loinc#32884-9 "Periodontal attachment loss"
 * subject = Reference(AtfPatient)
 * effectiveDateTime = "2026-01-10T09:30:00+01:00"
 * valueCodeableConcept = $icd10gm#K05.3 "Chronische Parodontitis"
@@ -119,7 +120,7 @@ InstanceOf: DentalConditionDE
 Usage: #inline
 Title: "Kariesbefund K02.1 Zahn 46 (ATF-Payload)"
 
-* id = "condition-k021-46-001"
+* id = "6ba7b810-9dad-11d1-80b4-00c04fd430c8"
 * clinicalStatus = http://terminology.hl7.org/CodeSystem/condition-clinical#active "Active"
 * verificationStatus = http://terminology.hl7.org/CodeSystem/condition-ver-status#confirmed "Confirmed"
 * category[dental] = https://fhir.cognovis.de/dental/CodeSystem/dental-category#dental "Dental"
@@ -142,7 +143,7 @@ InstanceOf: Patient
 Usage: #inline
 Title: "Patient Klaus Bergmann (ATF-Payload)"
 
-* id = "patient-bergmann-gkv"
+* id = "6ba7b811-9dad-11d1-80b4-00c04fd430c8"
 * identifier[0].system = "http://fhir.de/sid/gkv/kvid-10"
 * identifier[0].value = "A100100101"
 * name[0].use = #official

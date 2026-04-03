@@ -1,7 +1,7 @@
 // Example: Zahnarztpraxis mit BSNR und KZV-Stempelnummer
 // SWS 2.0 Satzart 0 — Praxisstammdaten
 
-Instance: ExampleDentalOrganization
+Instance: org-dental-mvz
 InstanceOf: DentalOrganizationDE
 Usage: #example
 Title: "Beispiel MIRA Demo-Zahnarztpraxis (MVZ)"
