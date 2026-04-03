@@ -65,7 +65,7 @@ Description: "MessageHeader für die KIM-basierte Übermittlung zahnärztlicher 
 * id = "aa11bb22-cc33-dd44-ee55-ff66aa77bb88"
 
 // eventCoding: Dental-spezifischer Anwendungsfall
-* eventCoding = https://fhir.cognovis.de/dental/CodeSystem/dental-category#dental "Dental"
+* eventUri = "https://fhir.cognovis.de/dental/service/dental-befund-transport"
 
 // Ziel: KIM-Adresse der empfangenden Praxis
 * destination[0].endpoint = "mailto:gemeinschaftspraxis@praxis.kim.telematik"
