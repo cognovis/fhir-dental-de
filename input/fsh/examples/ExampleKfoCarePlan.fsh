@@ -1,8 +1,6 @@
 // Example: KFO-Plan Angle II-1, KIG 4
 // SWS 2.0 Satzart 10 — KFO-Behandlungsplan
 
-Alias: $icd10gm = http://fhir.de/CodeSystem/bfarm/icd-10-gm
-
 Instance: ExampleKfoCarePlan
 InstanceOf: KfoCarePlanDE
 Usage: #example

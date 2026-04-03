@@ -12,7 +12,6 @@ Alias: $kim-sid       = http://gematik.de/fhir/sid/KIM-Adresse
 Alias: $loinc         = http://loinc.org
 Alias: $sct           = http://snomed.info/sct
 Alias: $fdi           = http://terminology.hl7.org/CodeSystem/ex-tooth
-Alias: $icd10gm       = http://fhir.de/CodeSystem/bfarm/icd-10-gm
 
 // ============================================================
 // Bundle — Äußere ATF-Nachricht
