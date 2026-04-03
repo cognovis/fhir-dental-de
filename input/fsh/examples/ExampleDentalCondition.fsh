@@ -5,10 +5,6 @@
 // issues with KBV_PR_Base_Condition_Diagnosis code.coding slicing.
 // The meta.profile assertion declares conformance to DentalConditionDE.
 
-Alias: $icd10gm = http://fhir.de/CodeSystem/bfarm/icd-10-gm
-Alias: $fdiCS   = https://fhir.cognovis.de/dental/CodeSystem/tooth-identification-fdi
-Alias: $sct     = http://snomed.info/sct
-
 Instance: ExampleDentalCondition
 InstanceOf: Condition
 Usage: #example
