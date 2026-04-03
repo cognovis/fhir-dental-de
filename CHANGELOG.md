@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 
 ## [unreleased]
 
+### Miscellaneous
+
+- Bump version to 0.8.3
+
+### Refactoring
+
+- **fdde-13o**: Centralize FSH aliases — remove duplicates from ExampleDentalCondition and DentalProcedureDE
+
+## [0.8.3] - 2026-04-03
+
 ### Bug Fixes
 
 - **fdde-5up**: Fix hl7 tools r4 dep, ATF Bundle refs, LOINC displays
@@ -13,6 +23,11 @@ All notable changes to this project will be documented in this file.
 ### Miscellaneous
 
 - Bump version to 0.8.2
+- Update changelog
+
+### Merge
+
+- Worktree-bead-fdde-5up
 
 ## [0.8.2] - 2026-04-03
 
