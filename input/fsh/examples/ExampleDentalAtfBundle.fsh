@@ -60,7 +60,8 @@ Description: "MessageHeader für die KIM-basierte Übermittlung zahnärztlicher 
 
 * meta.profile[0] = $atf-header
 
-// Erfordert eine ID (ATF-Pflicht) — muss der letzten Gruppe der fullUrl entsprechen
+// ATF-Pflicht: id muss mit dem letzten Segment der fullUrl übereinstimmen
+// (fullUrl in entry[MessageHeader][0]: "urn:uuid:aa11bb22-cc33-dd44-ee55-ff66aa77bb88")
 * id = "aa11bb22-cc33-dd44-ee55-ff66aa77bb88"
 
 // eventCoding: Dental-spezifischer Anwendungsfall
