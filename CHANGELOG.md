@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 
 ## [unreleased]
 
+### Features
+
+- **fdde-j3p**: Set status active and releaseLabel trial-use for registry submission
+
+### Miscellaneous
+
+- Bump version to 0.6.1
+
+## [0.6.1] - 2026-04-03
+
 ### Bug Fixes
 
 - **fdde-ea2**: Resolve IG Publisher warnings — experimental alignment, suppressions
@@ -13,6 +23,11 @@ All notable changes to this project will be documented in this file.
 ### Miscellaneous
 
 - Bump version to 0.6.0
+- Update changelog
+
+### Merge
+
+- Worktree-bead-fdde-ea2
 
 ## [0.6.0] - 2026-04-03
 
