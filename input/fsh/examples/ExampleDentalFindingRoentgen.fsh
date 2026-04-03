@@ -34,6 +34,6 @@ Description: "Radiologischer Befund: apikale Aufhellung an Zahn 46 (erster unter
 * bodySite.text = "Zahn 46 — erster unterer rechter Molar"
 
 // Befundquelle
-* component[0].code = $sct#168537006 "Plain radiograph"
+* component[0].code = $sct#168537006 "Plain film"
 * component[0].code.text = "Befundquelle"
 * component[0].valueString = "OPG vom 2026-02-05"

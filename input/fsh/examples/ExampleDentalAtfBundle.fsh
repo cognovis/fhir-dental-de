@@ -102,7 +102,7 @@ Title: "PSI-Befund Zahn 46 (ATF-Payload)"
 * id = "f47ac10b-58cc-4372-a567-0e02b2c3d479"
 * status = #final
 * category[dental] = https://fhir.cognovis.de/dental/CodeSystem/dental-category#dental "Dental"
-* code = $loinc#32884-9 "Periodontal attachment loss"
+* code = $loinc#34552-0 "Dental findings"
 * subject = Reference(AtfPatient)
 * effectiveDateTime = "2026-01-10T09:30:00+01:00"
 * valueCodeableConcept = $icd10gm#K05.3 "Chronische Parodontitis"
