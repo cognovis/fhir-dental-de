@@ -1,41 +1,49 @@
-// Example: GOZ 2080 Kompositfüllung, Faktor 2.3, Zahn 16
+// Example: GOZ 2150 Einlagefüllung (Inlay), Faktor 2.3, Zahn 15
 // SWS 2.0 Satzart 7 — GOZ-Leistungsabrechnung (Privatpatient)
 
-Alias: $fdi = http://terminology.hl7.org/CodeSystem/ex-tooth
+Alias: $fdiCS     = https://fhir.cognovis.de/dental/CodeSystem/tooth-identification-fdi
+Alias: $gozCS     = https://fhir.cognovis.de/dental/CodeSystem/goz-codes
+Alias: $surfaceCS = https://fhir.cognovis.de/dental/CodeSystem/tooth-surfaces
 
 Instance: ExampleGozChargeItem
 InstanceOf: GozChargeItemDE
 Usage: #example
-Title: "Beispiel GOZ 2080 Kompositfüllung Zahn 16"
-Description: "GOZ-Leistungsposition 2080 (einflächige dentinadhäsive Füllung, Komposit) für Zahn 16 (erster oberer rechter Molar). Steigerungsfaktor 2,3 (Regelsatz), Privatpatient."
+Title: "Beispiel GOZ 2150 Einlagefüllung (Inlay) Zahn 15"
+Description: "GOZ-Leistungsposition 2150 (Einlagefüllung, zweiflächig) für Zahn 15 (zweiter oberer rechter Prämolar). Steigerungsfaktor 2,3 (Regelsatz). Privatpatientin Charlotte von Hohenstein (DKV). Analogleistung-Extension demonstriert."
 
-* extension[fdiToothNumber].valueCode = #16
+* extension[fdiToothNumber].valueCode = #15
 
-* extension[toothSurfaces][0].valueCodeableConcept = http://terminology.hl7.org/CodeSystem/FDI-surface#O "Occlusal"
+* extension[toothSurfaces][0].valueCodeableConcept = $surfaceCS#M "Mesial"
+* extension[toothSurfaces][1].valueCodeableConcept = $surfaceCS#O "Okklusal"
 
 // Steigerungsfaktor-Extension: Faktor 2,3 (Regelsatz, keine Begründungspflicht)
 * extension[steigerungsfaktor].extension[faktor].valueDecimal = 2.3
 * extension[steigerungsfaktor].extension[schwellenwert].valueDecimal = 2.3
 * extension[steigerungsfaktor].extension[leistungsart].valueCode = https://fhir.cognovis.de/dental/CodeSystem/privatgebuehr-leistungsart#persoenlich "Persönliche Leistung"
 
+// Analogleistung-Reference: §6 GOZ — Bezug auf Analoggebührenposition
+* extension[analogReference].extension[analoge-nummer].valueString = "2150"
+* extension[analogReference].extension[gebuehrenordnung].valueCode = #goz
+* extension[analogReference].extension[begruendung].valueString = "Keramik-Inlay CAD/CAM, Analogabrechnung nach §6 GOZ"
+
 * status = #billable
 
-// GOZ 2080 — Einflächige dentinadhäsive Füllung (Komposit)
-* code.coding[0].system = "http://fhir.de/CodeSystem/bzaek/goz"
-* code.coding[0].code = #2080
-* code.coding[0].display = "Einflächige dentinadhäsive Füllung (Komposit)"
+// GOZ 2150 — Einlagefüllung zweiflächig (Keramik-Inlay)
+* code.coding[0] = $gozCS#2150 "Einlagefüllung, zweiflächig"
 
-* subject = Reference(ExamplePatient)
+* subject = Reference(Patient/pat-pkv-01)
 
-* occurrenceDateTime = "2026-01-15"
+* context = Reference(Encounter/enc-dental-02-privatschein)
+
+* occurrenceDateTime = "2026-01-22"
 
 // Steigerungsfaktor GOZ (factorOverride = 2.3)
 * factorOverride = 2.3
 
-// Eurobetrag: GOZ 2080 Einfachgebühr 17,49 € × 2,3 = 40,23 €
-* priceOverride.value = 40.23
+// Eurobetrag
+* priceOverride.value = 187.45
 * priceOverride.currency = #EUR
 
-// Bodyside: FDI 16
-* bodysite = $fdi#16 "16"
-* bodysite.text = "Zahn 16 — erster oberer rechter Molar"
+// Bodyside: FDI 15
+* bodysite = $fdiCS#15 "15"
+* bodysite.text = "Zahn 15 — zweiter oberer rechter Prämolar"
