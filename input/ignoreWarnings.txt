@@ -77,10 +77,15 @@ CodeSystem http://fhir.de/CodeSystem/bfarm/ops not found
 # ---------------------------------------------------------------------------
 
 # de.basisprofil.r4 canonical URLs — resolved in CI, not in local builds
-http://fhir.de/
+http://fhir.de/StructureDefinition/
+http://fhir.de/CodeSystem/
+http://fhir.de/ValueSet/
+http://fhir.de/NamingSystem/
 
 # kbv.basis canonical URLs — resolved in CI
-https://fhir.kbv.de/
+https://fhir.kbv.de/StructureDefinition/
+https://fhir.kbv.de/ValueSet/
+https://fhir.kbv.de/NamingSystem/
 
 # ---------------------------------------------------------------------------
 # HTML fragment warnings — standard IG Publisher behavior
@@ -112,14 +117,16 @@ http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_
 # ---------------------------------------------------------------------------
 # Extension examples missing
 #
-# The following 7 extensions are defined in this IG but have no dedicated
-# standalone example instances. They are demonstrated indirectly through
-# the profile examples (e.g., ExampleBemaChargeItem uses BemaBefundklasseExt,
-# ExampleDentalFinding uses FdiToothNumberExt, etc.). Creating standalone
-# extension examples would add little value for implementers.
+# ALL 22 extensions defined in this IG are intentionally suppressed here.
+# None have dedicated standalone example instances; they are all demonstrated
+# indirectly through profile examples (e.g., ExampleBemaChargeItem uses
+# BemaBefundklasseExt, ExampleDentalFinding uses FdiToothNumberExt, etc.).
+# Creating standalone extension examples would add little value for implementers.
+# This broad suppression is deliberate and covers all current and future
+# extensions in this IG.
 # ---------------------------------------------------------------------------
 
-# Extensions demonstrated via profile examples — no standalone examples needed
+# All extensions in this IG are demonstrated via profile examples — no standalone examples needed
 No example found for this extension
 
 # ---------------------------------------------------------------------------
