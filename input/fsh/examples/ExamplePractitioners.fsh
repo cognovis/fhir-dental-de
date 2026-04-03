@@ -58,12 +58,12 @@ Description: "Dr. Martin Schöll als Zahnarzt in der MIRA Demo-Zahnarztpraxis (M
 * specialty[0].text = "Zahnarzt"
 
 // ============================================================
-// PractitionerRole 2: Lena Uselmann @ Plärrер (org-dental-mvz)
+// PractitionerRole 2: Lena Uselmann @ Plärrer (org-dental-mvz)
 // ============================================================
 Instance: role-uselmann-plaerrer
 InstanceOf: PractitionerRole
 Usage: #example
-Title: "Beispiel Zahnarztrolle Lena Uselmann (Plärrер)"
+Title: "Beispiel Zahnarztrolle Lena Uselmann (Plärrer)"
 Description: "Lena Uselmann als Zahnärztin in der MIRA Demo-Zahnarztpraxis (MVZ)."
 
 * active = true

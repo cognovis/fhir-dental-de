@@ -39,7 +39,7 @@ Instance: enc-dental-02-privatschein
 InstanceOf: DentalEncounterDE
 Usage: #example
 Title: "Beispiel Abrechnungsfall Privatschein (enc-dental-02)"
-Description: "Privatschein Q1/2026 für Charlotte von Hohenstein bei Lena Uselmann (Plärrер). Behandlung am 2026-01-22."
+Description: "Privatschein Q1/2026 für Charlotte von Hohenstein bei Lena Uselmann (Plärrer). Behandlung am 2026-01-22."
 
 * extension[abrechnungsquartal].valueString = "2026Q1"
 
