@@ -3,11 +3,9 @@
 // vom Zahnarzt an eine Gemeinschaftspraxis über KIM-Adressen.
 //
 // Das Bundle ist konform zu BundleAppTransportFramework (de.gematik.fhir.atf#1.4.1).
-// Der enthaltene MessageHeader ist konform zu MessageHeaderAppTransportFramework.
+// Der enthaltene MessageHeader folgt der ATF-Struktur, aber ohne formale Konformitätsaussage zu MessageHeaderAppTransportFramework, da kein Dental-Anwendungskennzeichen in service-identifier-vs vorhanden ist.
 
 Alias: $atf-bundle    = https://gematik.de/fhir/atf/StructureDefinition/atf-message-bundle
-Alias: $atf-header    = https://gematik.de/fhir/atf/StructureDefinition/atf-message-header
-Alias: $atf-svc-cs    = https://gematik.de/fhir/atf/CodeSystem/service-identifier-cs
 Alias: $kim-sid       = http://gematik.de/fhir/sid/KIM-Adresse
 Alias: $loinc         = http://loinc.org
 Alias: $sct           = http://snomed.info/sct
@@ -67,7 +65,7 @@ Description: "MessageHeader für die KIM-basierte Übermittlung zahnärztlicher 
 // (fullUrl in entry[MessageHeader][0]: "urn:uuid:aa11bb22-cc33-dd44-ee55-ff66aa77bb88")
 * id = "aa11bb22-cc33-dd44-ee55-ff66aa77bb88"
 
-// eventCoding: Dental-spezifischer Anwendungsfall
+// eventUri: Dental-spezifischer Anwendungsfall
 * eventUri = "https://fhir.cognovis.de/dental/service/dental-befund-transport"
 
 // Ziel: KIM-Adresse der empfangenden Praxis
