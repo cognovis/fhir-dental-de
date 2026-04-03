@@ -1,28 +1,30 @@
 // Example: PAR-Plan, UPT-Intervall 3 Monate
 // SWS 2.0 Satzart 9 — PAR-Behandlungsplan
 
+Alias: $icd10gm = http://fhir.de/CodeSystem/bfarm/icd-10-gm
+
 Instance: ExampleParCarePlan
 InstanceOf: ParCarePlanDE
 Usage: #example
 Title: "Beispiel PAR-Behandlungsplan UPT 3 Monate"
-Description: "Parodontologischer Behandlungsplan (PAR-Richtlinie 07/2021) für generalisierten Parodontitis-Befund. UPT-Recall-Intervall 3 Monate. Behandlungszeitraum: 2026-Q1 bis 2027-Q4."
+Description: "Parodontologischer Behandlungsplan (PAR-Richtlinie 07/2021) für generalisierten Parodontitis-Befund. UPT-Recall-Intervall 3 Monate. Behandlungszeitraum: 2026-02-10 bis 2028-02-09. Patient Friedrich Hartmann (Beihilfe)."
 
 * extension[parUptIntervall].valueInteger = 3
 
-* identifier[0].system = "https://mira.cognovis.de/fhir/identifier/par-plan-id"
-* identifier[0].value = "PAR-2026-000005"
+* identifier[0].system = "https://mira-demo-mvz.de/par-plan"
+* identifier[0].value = "PAR-2026-0001"
 
 * status = #active
 * intent = #plan
 
 * category[dental] = https://fhir.cognovis.de/dental/CodeSystem/dental-category#dental "Dental"
 
-* subject = Reference(ExamplePatient)
+* subject = Reference(Patient/pat-beihilfe-01)
 
-* created = "2026-01-15"
+* created = "2026-02-05"
 
-* period.start = "2026-02-01"
-* period.end = "2027-12-31"
+* period.start = "2026-02-10"
+* period.end = "2028-02-09"
 
 * title = "PAR-Behandlungsplan: Parodontitis generalisiert, Stadium II, Grad B"
 
@@ -61,10 +63,10 @@ Description: "Generalisierte Parodontitis, Stadium II, Grad B (BSP-Klassifikatio
 
 * category[0] = https://fhir.cognovis.de/dental/CodeSystem/dental-category#dental "Dental"
 
-* code = $icd10gm#K05.3 "Chronische Parodontitis"
+* code = $icd10gm#K05.31 "Chronische Parodontitis, generalisiert"
 * code.text = "Generalisierte chronische Parodontitis, Stadium II, Grad B"
 
-* subject = Reference(ExamplePatient)
+* subject = Reference(Patient/pat-beihilfe-01)
 
-* onsetDateTime = "2026-01-15"
-* recordedDate = "2026-01-15"
+* onsetDateTime = "2026-02-05"
+* recordedDate = "2026-02-05"

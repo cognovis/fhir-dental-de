@@ -3,13 +3,14 @@
 
 Alias: $loinc   = http://loinc.org
 Alias: $sct     = http://snomed.info/sct
-Alias: $fdi     = http://terminology.hl7.org/CodeSystem/ex-tooth
+Alias: $icd10gm = http://fhir.de/CodeSystem/bfarm/icd-10-gm
+Alias: $fdiCS   = https://fhir.cognovis.de/dental/CodeSystem/tooth-identification-fdi
 
 Instance: ExampleDentalFinding
 InstanceOf: DentalFindingDE
 Usage: #example
 Title: "Beispiel PSI-Befund Zahn 36"
-Description: "Parodontaler Screening-Index (PSI) Befund für Zahn 36 (erster unterer linker Molar). Sondierungstiefe 4 mm, PSI-Code 2."
+Description: "Parodontaler Screening-Index (PSI) Befund für Zahn 36 (erster unterer linker Molar). Sondierungstiefe 4 mm, PSI-Code 2. Patient Klaus Bergmann (AOK Bayern)."
 
 * extension[0].url = "https://fhir.cognovis.de/dental/StructureDefinition/fdi-tooth-number"
 * extension[0].valueCode = #36
@@ -21,16 +22,16 @@ Description: "Parodontaler Screening-Index (PSI) Befund für Zahn 36 (erster unt
 // LOINC: Periodontal attachment level measurement
 * code = $loinc#32884-9 "Periodontal attachment level"
 
-* subject = Reference(ExamplePatient)
+* subject = Reference(Patient/pat-gkv-01)
 
-* effectiveDateTime = "2026-01-15T09:30:00+01:00"
+* effectiveDateTime = "2026-01-10T09:30:00+01:00"
 
 // PSI-Code 2: Sondierungstiefe 3,5–5,5 mm (Tasche vorhanden)
 * valueCodeableConcept = $icd10gm#K05.3 "Chronische Parodontitis"
 * valueCodeableConcept.text = "PSI-Code 2: Sondierungstiefe 4 mm, Tasche vorhanden"
 
-// Tooth: FDI 36 (lower-left first molar)
-* bodySite = $fdi#36 "36"
+// Tooth: FDI 36 (lower-left first molar) — cognovis CodeSystem
+* bodySite = $fdiCS#36 "36"
 * bodySite.text = "Zahn 36 — erster unterer linker Molar"
 
 // Components: six probing depths (mesio-bukkal, bukkal, disto-bukkal, mesio-lingual, lingual, disto-lingual)
