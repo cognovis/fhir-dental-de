@@ -1,11 +1,11 @@
-### Test GebuehrenordnungCS - valid code goae
+### CodeSystem: Gebührenordnung - Valid Code 'goae'
 GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/gebuehrenordnung&code=goae
-Authorization: Basic YmFzaWM6c2VjcmV0
+Authorization: Basic basic:secret
 
-### Test GebuehrenordnungCS - valid code goz
+### CodeSystem: Gebührenordnung - Valid Code 'goz'
 GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/gebuehrenordnung&code=goz
-Authorization: Basic YmFzaWM6c2VjcmV0
+Authorization: Basic basic:secret
 
-### Test GebuehrenordnungCS - invalid code
-GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/gebuehrenordnung&code=INVALID_XYZ
-Authorization: Basic YmFzaWM6c2VjcmV0
+### CodeSystem: Gebührenordnung - Invalid Code
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/gebuehrenordnung&code=INVALID_CODE_XYZ
+Authorization: Basic basic:secret

@@ -1,6 +1,6 @@
 ### Validate valid de-mira-dental-communication
 POST http://localhost:8080/fhir/Communication/$validate?profile=https://fhir.cognovis.de/dental/StructureDefinition/de-mira-dental-communication
-Authorization: Basic basic:secret
+Authorization: Basic YWRtaW46YVZyeFA1TkJyZlRLZWlpdDBxRnpLVzNL
 Content-Type: application/fhir+json
 
 {
@@ -50,7 +50,7 @@ Content-Type: application/fhir+json
 
 ### Validate invalid de-mira-dental-communication
 POST http://localhost:8080/fhir/Communication/$validate?profile=https://fhir.cognovis.de/dental/StructureDefinition/de-mira-dental-communication
-Authorization: Basic basic:secret
+Authorization: Basic YWRtaW46YVZyeFA1TkJyZlRLZWlpdDBxRnpLVzNL
 Content-Type: application/fhir+json
 
 {

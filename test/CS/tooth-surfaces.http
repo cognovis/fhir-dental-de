@@ -1,15 +1,11 @@
-### Test ToothSurfacesCS - valid code M
+### CodeSystem: Zahnflächen - Valid Code 'M'
 GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/tooth-surfaces&code=M
-Authorization: Basic YmFzaWM6c2VjcmV0
+Authorization: Basic basic:secret
 
-### Test ToothSurfacesCS - valid code D
+### CodeSystem: Zahnflächen - Valid Code 'D'
 GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/tooth-surfaces&code=D
-Authorization: Basic YmFzaWM6c2VjcmV0
+Authorization: Basic basic:secret
 
-### Test ToothSurfacesCS - valid code O
-GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/tooth-surfaces&code=O
-Authorization: Basic YmFzaWM6c2VjcmV0
-
-### Test ToothSurfacesCS - invalid code
-GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/tooth-surfaces&code=INVALID_XYZ
-Authorization: Basic YmFzaWM6c2VjcmV0
+### CodeSystem: Zahnflächen - Invalid Code
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/tooth-surfaces&code=INVALID_CODE_XYZ
+Authorization: Basic basic:secret

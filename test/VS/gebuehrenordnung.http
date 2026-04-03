@@ -1,15 +1,26 @@
-### Expand gebuehrenordnung
+### ValueSet: GebuehrenordnungVS - Expand
+# VS URL: https://fhir.cognovis.de/dental/ValueSet/gebuehrenordnung
+# Expected: expansion.contains has 2 entries
 GET http://localhost:8080/ValueSet/gebuehrenordnung/$expand
 Authorization: Basic basic:secret
 
-### Validate valid code goae
-GET http://localhost:8080/ValueSet/gebuehrenordnung/$validate-code?system=https%3A%2F%2Ffhir.cognovis.de%2Fdental%2FCodeSystem%2Fgebuehrenordnung&code=goae
+### ValueSet: GebuehrenordnungVS - Validate Valid Code (goae)
+# System: https://fhir.cognovis.de/dental/CodeSystem/gebuehrenordnung
+# Expected: result=true
+# Actual: result=True
+GET http://localhost:8080/ValueSet/$validate-code?url=https://fhir.cognovis.de/dental/ValueSet/gebuehrenordnung&system=https://fhir.cognovis.de/dental/CodeSystem/gebuehrenordnung&code=goae
 Authorization: Basic basic:secret
 
-### Validate valid code goz
-GET http://localhost:8080/ValueSet/gebuehrenordnung/$validate-code?system=https%3A%2F%2Ffhir.cognovis.de%2Fdental%2FCodeSystem%2Fgebuehrenordnung&code=goz
+### ValueSet: GebuehrenordnungVS - Validate Valid Code (goz)
+# System: https://fhir.cognovis.de/dental/CodeSystem/gebuehrenordnung
+# Expected: result=true
+# Actual: result=True
+GET http://localhost:8080/ValueSet/$validate-code?url=https://fhir.cognovis.de/dental/ValueSet/gebuehrenordnung&system=https://fhir.cognovis.de/dental/CodeSystem/gebuehrenordnung&code=goz
 Authorization: Basic basic:secret
 
-### Validate invalid code
-GET http://localhost:8080/ValueSet/gebuehrenordnung/$validate-code?system=https%3A%2F%2Ffhir.cognovis.de%2Fdental%2FCodeSystem%2Fgebuehrenordnung&code=INVALID_XYZ_999
+### ValueSet: GebuehrenordnungVS - Validate Invalid Code
+# System: https://fhir.cognovis.de/dental/CodeSystem/gebuehrenordnung
+# Expected: result=false
+# Actual: result=False
+GET http://localhost:8080/ValueSet/$validate-code?url=https://fhir.cognovis.de/dental/ValueSet/gebuehrenordnung&system=https://fhir.cognovis.de/dental/CodeSystem/gebuehrenordnung&code=INVALID_XYZ
 Authorization: Basic basic:secret

@@ -1,6 +1,6 @@
 ### Validate valid de-mira-dental-procedure
 POST http://localhost:8080/fhir/Procedure/$validate?profile=https://fhir.cognovis.de/dental/StructureDefinition/de-mira-dental-procedure
-Authorization: Basic basic:secret
+Authorization: Basic YWRtaW46YVZyeFA1TkJyZlRLZWlpdDBxRnpLVzNL
 Content-Type: application/fhir+json
 
 {
@@ -59,7 +59,7 @@ Content-Type: application/fhir+json
 
 ### Validate invalid de-mira-dental-procedure
 POST http://localhost:8080/fhir/Procedure/$validate?profile=https://fhir.cognovis.de/dental/StructureDefinition/de-mira-dental-procedure
-Authorization: Basic basic:secret
+Authorization: Basic YWRtaW46YVZyeFA1TkJyZlRLZWlpdDBxRnpLVzNL
 Content-Type: application/fhir+json
 
 {

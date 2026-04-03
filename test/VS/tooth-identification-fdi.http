@@ -1,3 +1,17 @@
-### Expand tooth-identification-fdi
+### ValueSet: ToothIdentificationFDI_VS - Expand
+# VS URL: https://fhir.cognovis.de/dental/ValueSet/tooth-identification-fdi
+# Expected: 41 codes from http://terminology.hl7.org/CodeSystem/ex-tooth
 GET http://localhost:8080/ValueSet/tooth-identification-fdi/$expand
+Authorization: Basic basic:secret
+
+### ValueSet: ToothIdentificationFDI_VS - Validate Valid Code (36)
+# System: http://terminology.hl7.org/CodeSystem/ex-tooth
+# Expected: result=true
+GET http://localhost:8080/ValueSet/$validate-code?url=https://fhir.cognovis.de/dental/ValueSet/tooth-identification-fdi&system=http://terminology.hl7.org/CodeSystem/ex-tooth&code=36
+Authorization: Basic basic:secret
+
+### ValueSet: ToothIdentificationFDI_VS - Validate Invalid Code
+# System: http://terminology.hl7.org/CodeSystem/ex-tooth
+# Expected: result=false
+GET http://localhost:8080/ValueSet/$validate-code?url=https://fhir.cognovis.de/dental/ValueSet/tooth-identification-fdi&system=http://terminology.hl7.org/CodeSystem/ex-tooth&code=INVALID_XYZ
 Authorization: Basic basic:secret

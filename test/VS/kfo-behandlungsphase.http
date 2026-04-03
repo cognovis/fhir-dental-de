@@ -1,15 +1,26 @@
-### Expand kfo-behandlungsphase
+### ValueSet: KfoBehandlungsphaseVS - Expand
+# VS URL: https://fhir.cognovis.de/dental/ValueSet/kfo-behandlungsphase
+# Expected: expansion.contains has 3 entries
 GET http://localhost:8080/ValueSet/kfo-behandlungsphase/$expand
 Authorization: Basic basic:secret
 
-### Validate valid code aktiv
-GET http://localhost:8080/ValueSet/kfo-behandlungsphase/$validate-code?system=https%3A%2F%2Ffhir.cognovis.de%2Fdental%2FCodeSystem%2Fkfo-behandlungsphase&code=aktiv
+### ValueSet: KfoBehandlungsphaseVS - Validate Valid Code (aktiv)
+# System: https://fhir.cognovis.de/dental/CodeSystem/kfo-behandlungsphase
+# Expected: result=true
+# Actual: result=True
+GET http://localhost:8080/ValueSet/$validate-code?url=https://fhir.cognovis.de/dental/ValueSet/kfo-behandlungsphase&system=https://fhir.cognovis.de/dental/CodeSystem/kfo-behandlungsphase&code=aktiv
 Authorization: Basic basic:secret
 
-### Validate valid code abschluss
-GET http://localhost:8080/ValueSet/kfo-behandlungsphase/$validate-code?system=https%3A%2F%2Ffhir.cognovis.de%2Fdental%2FCodeSystem%2Fkfo-behandlungsphase&code=abschluss
+### ValueSet: KfoBehandlungsphaseVS - Validate Valid Code (retention)
+# System: https://fhir.cognovis.de/dental/CodeSystem/kfo-behandlungsphase
+# Expected: result=true
+# Actual: result=True
+GET http://localhost:8080/ValueSet/$validate-code?url=https://fhir.cognovis.de/dental/ValueSet/kfo-behandlungsphase&system=https://fhir.cognovis.de/dental/CodeSystem/kfo-behandlungsphase&code=retention
 Authorization: Basic basic:secret
 
-### Validate invalid code
-GET http://localhost:8080/ValueSet/kfo-behandlungsphase/$validate-code?system=https%3A%2F%2Ffhir.cognovis.de%2Fdental%2FCodeSystem%2Fkfo-behandlungsphase&code=INVALID_XYZ_999
+### ValueSet: KfoBehandlungsphaseVS - Validate Invalid Code
+# System: https://fhir.cognovis.de/dental/CodeSystem/kfo-behandlungsphase
+# Expected: result=false
+# Actual: result=False
+GET http://localhost:8080/ValueSet/$validate-code?url=https://fhir.cognovis.de/dental/ValueSet/kfo-behandlungsphase&system=https://fhir.cognovis.de/dental/CodeSystem/kfo-behandlungsphase&code=INVALID_XYZ
 Authorization: Basic basic:secret

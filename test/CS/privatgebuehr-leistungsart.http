@@ -1,11 +1,11 @@
-### Test PrivatgebuehrLeistungsartCS - valid code persoenlich
+### CodeSystem: Privatgebühr Leistungsart - Valid Code 'persoenlich'
 GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/privatgebuehr-leistungsart&code=persoenlich
-Authorization: Basic YmFzaWM6c2VjcmV0
+Authorization: Basic basic:secret
 
-### Test PrivatgebuehrLeistungsartCS - valid code technisch
+### CodeSystem: Privatgebühr Leistungsart - Valid Code 'technisch'
 GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/privatgebuehr-leistungsart&code=technisch
-Authorization: Basic YmFzaWM6c2VjcmV0
+Authorization: Basic basic:secret
 
-### Test PrivatgebuehrLeistungsartCS - invalid code
-GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/privatgebuehr-leistungsart&code=INVALID_XYZ
-Authorization: Basic YmFzaWM6c2VjcmV0
+### CodeSystem: Privatgebühr Leistungsart - Invalid Code
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/privatgebuehr-leistungsart&code=INVALID_CODE_XYZ
+Authorization: Basic basic:secret

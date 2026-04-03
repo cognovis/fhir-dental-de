@@ -1,15 +1,26 @@
-### Expand tooth-surfaces
+### ValueSet: ToothSurfacesVS - Expand
+# VS URL: https://fhir.cognovis.de/dental/ValueSet/tooth-surfaces
+# Expected: expansion.contains has 8 entries
 GET http://localhost:8080/ValueSet/tooth-surfaces/$expand
 Authorization: Basic basic:secret
 
-### Validate valid code M
-GET http://localhost:8080/ValueSet/tooth-surfaces/$validate-code?system=https%3A%2F%2Ffhir.cognovis.de%2Fdental%2FCodeSystem%2Ftooth-surfaces&code=M
+### ValueSet: ToothSurfacesVS - Validate Valid Code (M)
+# System: https://fhir.cognovis.de/dental/CodeSystem/tooth-surfaces
+# Expected: result=true
+# Actual: result=True
+GET http://localhost:8080/ValueSet/$validate-code?url=https://fhir.cognovis.de/dental/ValueSet/tooth-surfaces&system=https://fhir.cognovis.de/dental/CodeSystem/tooth-surfaces&code=M
 Authorization: Basic basic:secret
 
-### Validate valid code P
-GET http://localhost:8080/ValueSet/tooth-surfaces/$validate-code?system=https%3A%2F%2Ffhir.cognovis.de%2Fdental%2FCodeSystem%2Ftooth-surfaces&code=P
+### ValueSet: ToothSurfacesVS - Validate Valid Code (D)
+# System: https://fhir.cognovis.de/dental/CodeSystem/tooth-surfaces
+# Expected: result=true
+# Actual: result=True
+GET http://localhost:8080/ValueSet/$validate-code?url=https://fhir.cognovis.de/dental/ValueSet/tooth-surfaces&system=https://fhir.cognovis.de/dental/CodeSystem/tooth-surfaces&code=D
 Authorization: Basic basic:secret
 
-### Validate invalid code
-GET http://localhost:8080/ValueSet/tooth-surfaces/$validate-code?system=https%3A%2F%2Ffhir.cognovis.de%2Fdental%2FCodeSystem%2Ftooth-surfaces&code=INVALID_XYZ_999
+### ValueSet: ToothSurfacesVS - Validate Invalid Code
+# System: https://fhir.cognovis.de/dental/CodeSystem/tooth-surfaces
+# Expected: result=false
+# Actual: result=False
+GET http://localhost:8080/ValueSet/$validate-code?url=https://fhir.cognovis.de/dental/ValueSet/tooth-surfaces&system=https://fhir.cognovis.de/dental/CodeSystem/tooth-surfaces&code=INVALID_XYZ
 Authorization: Basic basic:secret
