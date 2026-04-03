@@ -22,7 +22,7 @@ Description: "Radiologischer Befund: apikale Aufhellung an Zahn 46 (erster unter
 
 * subject = Reference(Patient/pat-beihilfe-01)
 
-* performer[0] = Reference(ExampleDentalOrganization)
+* performer[0] = Reference(Organization/org-dental-mvz)
 
 * effectiveDateTime = "2026-02-05T22:20:00+01:00"
 

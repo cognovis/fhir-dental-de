@@ -21,7 +21,7 @@ Description: "6-Punkt-Sondierungstiefe, Rezession und BOP fuer Zahn 16 (erster o
 
 * subject = Reference(Patient/pat-beihilfe-01)
 
-* performer[0] = Reference(ExampleDentalOrganization)
+* performer[0] = Reference(Organization/org-dental-mvz)
 
 * effectiveDateTime = "2026-02-05T22:15:00+01:00"
 

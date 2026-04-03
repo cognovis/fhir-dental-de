@@ -24,7 +24,7 @@ Description: "Parodontaler Screening-Index (PSI) Befund für Zahn 36 (erster unt
 
 * subject = Reference(Patient/pat-gkv-01)
 
-* performer[0] = Reference(ExampleDentalOrganization)
+* performer[0] = Reference(Organization/org-dental-mvz)
 
 * effectiveDateTime = "2026-01-10T09:30:00+01:00"
 
