@@ -6,6 +6,18 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
+- **fdde-ea2**: Resolve IG Publisher warnings — experimental alignment, suppressions
+- **fdde-ea2**: Address review findings iteration 1 — narrow ignoreWarnings suppressions
+- **fdde-ea2**: Address review findings iteration 1 — org type bus, narrow suppressions, remove future clause
+
+### Miscellaneous
+
+- Bump version to 0.6.0
+
+## [0.6.0] - 2026-04-03
+
+### Bug Fixes
+
 - **fdde-as8**: Address review findings iteration 1
 - **fdde-as8**: Correct Communication sender to role-uselmann-plaerrer per MIRA seed
 
@@ -19,6 +31,11 @@ All notable changes to this project will be documented in this file.
 - Switch beads to embedded Dolt mode for worktree compatibility
 - Revert to shared-server Dolt mode (worktrees need shared DB access)
 - Use shared-server Dolt mode (required for worktree bead access)
+- Update changelog
+
+### Merge
+
+- Worktree-bead-fdde-as8
 
 ## [0.5.1] - 2026-04-03
 
