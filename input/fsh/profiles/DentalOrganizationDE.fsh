@@ -13,6 +13,7 @@ Id: de-mira-dental-organization
 Title: "Zahnarztpraxis / Organisation (DE)"
 Description: "Profil für Zahnarztpraxen und beteiligte Organisationen (z.B. Dentallabore). Bildet SWS 2.0 Satzart 0 (Praxisstammdaten) ab. Enthält BSNR, KZV-Stempelnummer, Adresse und Kontaktdaten."
 * ^status = #draft
+* ^experimental = true
 * ^publisher = "cognovis GmbH"
 
 // --- Identifier slicing: BSNR + KZV-Stempelnummer ---

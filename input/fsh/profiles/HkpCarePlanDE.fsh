@@ -9,6 +9,7 @@ Id: de-mira-hkp-care-plan
 Title: "HKP/KV Behandlungsplan (DE)"
 Description: "Profil für Heil- und Kostenpläne (HKP) und Kostenvoranschläge (KV) nach KZBV-Richtlinien. Bildet SWS 2.0 Satzart 8 ab. Unterstützt den Genehmigungsworkflow (Da Vinci PAS-Muster) über ClaimResponse."
 * ^status = #draft
+* ^experimental = true
 * ^publisher = "cognovis GmbH"
 
 // --- Identifier (Plan-ID) ---
