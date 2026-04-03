@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file.
 
+## [unreleased]
+
+### Bug Fixes
+
+- **fdde-5up**: Fix hl7 tools r4 dep, ATF Bundle refs, LOINC displays
+- **fdde-5up**: Correct LOINC 8704-9 display to official terminology
+- **fdde-5up**: Update truncated LOINC comments with full display and CSIRO evidence
+
+### Miscellaneous
+
+- Bump version to 0.8.2
+
+## [0.8.2] - 2026-04-03
+
+### Miscellaneous
+
+- Update changelog
+
+### Merge
+
+- Worktree-bead-fdde-1dh
+
 ## [0.8.1] - 2026-04-03
 
 ### Bug Fixes

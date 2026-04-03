@@ -17,9 +17,10 @@ Description: "6-Punkt-Sondierungstiefe, Rezession und BOP fuer Zahn 16 (erster o
 
 * category[dental] = https://fhir.cognovis.de/dental/CodeSystem/dental-category#dental "Dental"
 
-// LOINC 34552-0: Dental findings — used as parent code to satisfy obs-7 constraint
-// (obs-7 prohibits Observation.code matching component.code; components use 32884-9)
-* code = $loinc#34552-0 "Dental findings"
+// LOINC 8704-9 "Physical findings of Mouth and Throat and Teeth" — official display per CSIRO/LOINC 2.82
+// Used as parent code to satisfy obs-7 constraint (Observation.code must differ from component.code).
+// Components use LOINC 32884-9 "Identification {Tooth}" — official LOINC display (not "Periodontal pocket depth").
+* code = $loinc#8704-9 "Physical findings of Mouth and Throat and Teeth"
 
 * subject = Reference(Patient/pat-beihilfe-01)
 

@@ -19,7 +19,7 @@ Description: "Kariöse Läsion an Zahn 26 (erster oberer linker Molar), mesial-o
 
 * category[dental] = https://fhir.cognovis.de/dental/CodeSystem/dental-category#dental "Dental"
 
-* code = $loinc#34552-0 "Dental findings"
+* code = $loinc#8704-9 "Physical findings of Mouth and Throat and Teeth"
 
 * subject = Reference(Patient/pat-gkv-dental-01)
 
