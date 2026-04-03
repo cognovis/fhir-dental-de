@@ -6,7 +6,7 @@ Id: prophylaxis-finding-codes
 Title: "Prophylaxe-Befundcodes"
 Description: "LOINC- und SNOMED-CT-Codes fuer Prophylaxe-Befunde: Plaque-Index, Mundhygienestatus, Gingivitis-Index, PSI-Screening."
 * ^url = "https://fhir.cognovis.de/dental/ValueSet/prophylaxis-finding-codes"
-* ^status = #draft
+* ^status = #active
 * ^experimental = true
 * ^publisher = "cognovis GmbH"
 

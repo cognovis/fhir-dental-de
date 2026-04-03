@@ -3,7 +3,7 @@ Id: dental-category
 Title: "Dental Category"
 Description: "Category code to identify dental-specific resources. Aligned with HL7 Dental Data Exchange IG concept."
 * ^url = "https://fhir.cognovis.de/dental/CodeSystem/dental-category"
-* ^status = #draft
+* ^status = #active
 * ^experimental = true
 * ^caseSensitive = true
 * ^content = #complete

@@ -3,7 +3,7 @@ Id: ze-therapiekuerzel
 Title: "ZE-Therapiekürzel (KZBV DPF)"
 Description: "Therapiekürzel für die Zahnersatz-Planung (Soll-Versorgung) gemäß KZBV Digitaler Planungsbogen für Zahnersatz (DPF)."
 * ^url = "https://fhir.cognovis.de/dental/CodeSystem/ze-therapiekuerzel"
-* ^status = #draft
+* ^status = #active
 * ^experimental = true
 * ^caseSensitive = true
 * ^content = #fragment

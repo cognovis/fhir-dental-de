@@ -3,7 +3,7 @@ Id: gebuehrenordnung
 Title: "Gebührenordnung"
 Description: "Privatärztliche Gebührenordnungen für Analogleistungen: GOÄ (ärztlich) oder GOZ (zahnärztlich)."
 * ^url = "https://fhir.cognovis.de/dental/ValueSet/gebuehrenordnung"
-* ^status = #draft
+* ^status = #active
 * ^experimental = true
 * ^publisher = "cognovis GmbH"
 

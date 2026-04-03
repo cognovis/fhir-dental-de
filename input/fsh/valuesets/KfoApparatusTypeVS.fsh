@@ -3,7 +3,7 @@ Id: kfo-apparatus-type
 Title: "KFO Apparaturtyp"
 Description: "Typen kieferorthopädischer Behandlungsapparaturen (festsitzend, herausnehmbar)."
 * ^url = "https://fhir.cognovis.de/dental/ValueSet/kfo-apparatus-type"
-* ^status = #draft
+* ^status = #active
 * ^experimental = true
 * ^publisher = "cognovis GmbH"
 

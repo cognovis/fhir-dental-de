@@ -3,7 +3,7 @@ Id: ze-versorgungsart
 Title: "ZE Versorgungsart"
 Description: "Art der Zahnersatz-Versorgung nach §56 SGB V. Bestimmt die Berechnung des Festzuschusses und die Eigenanteilspflicht des Patienten."
 * ^url = "https://fhir.cognovis.de/dental/CodeSystem/ze-versorgungsart"
-* ^status = #draft
+* ^status = #active
 * ^experimental = true
 * ^caseSensitive = true
 * ^content = #complete

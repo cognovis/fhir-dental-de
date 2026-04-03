@@ -3,7 +3,7 @@ Id: dental-finding-codes
 Title: "Zahnärztliche Befundcodes"
 Description: "Codes für zahnärztliche Befundarten: LOINC für standardisierte Beobachtungen, SNOMED-CT für klinische Befunde."
 * ^url = "https://fhir.cognovis.de/dental/ValueSet/dental-finding-codes"
-* ^status = #draft
+* ^status = #active
 * ^experimental = true
 * ^publisher = "cognovis GmbH"
 

@@ -3,7 +3,7 @@ Id: kfo-behandlungsphase
 Title: "KFO Behandlungsphase"
 Description: "Phasen der kieferorthopädischen Behandlung nach BEMA §28 Abs. 2 SGB V."
 * ^url = "https://fhir.cognovis.de/dental/CodeSystem/kfo-behandlungsphase"
-* ^status = #draft
+* ^status = #active
 * ^experimental = true
 * ^caseSensitive = true
 * ^content = #complete
