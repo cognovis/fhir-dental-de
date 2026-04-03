@@ -3,7 +3,7 @@ Id: par-stadium
 Title: "PAR Stadium"
 Description: "Parodontitis-Stadium (Grad der Progression) nach BSP/EFP-Klassifikation 2018 (Tonetti et al., J Periodontol 2018). Ergänzt die Stadien I–IV, die den Schweregrad beschreiben."
 * ^url = "https://fhir.cognovis.de/dental/CodeSystem/par-stadium"
-* ^status = #draft
+* ^status = #active
 * ^experimental = true
 * ^caseSensitive = true
 * ^content = #complete

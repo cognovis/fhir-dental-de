@@ -17,7 +17,7 @@ Parent: ImagingStudy
 Id: de-mira-dental-imaging-study
 Title: "Zahnärztliche Röntgendiagnostik (DE)"
 Description: "Profil für zahnärztliche Röntgenaufnahmen (EZA, OPG, DVT, FRS, Aufbiss). Bildet SWS 2.0 Satzart 12 ab. Modality-Codes nach DICOM (DX, IO, PX, CT). Zahnbezug über FDI-Zahnnummer."
-* ^status = #draft
+* ^status = #active
 * ^experimental = true
 * ^publisher = "cognovis GmbH"
 

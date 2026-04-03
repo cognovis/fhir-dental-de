@@ -3,7 +3,7 @@ Id: tooth-surfaces
 Title: "Zahnflächen"
 Description: "Betroffene Zahnfläche. Diese Extension ist wiederholbar (0..*) um mehrere betroffene Flächen pro Zahn anzugeben (z.B. mesial + okklusal bei einer zweiflächigen Füllung). Kodierung: M=Mesial, D=Distal, O=Okklusal, I=Inzisal, B=Bukkal, V=Vestibulär, L=Lingual, P=Palatinal."
 * ^url = "https://fhir.cognovis.de/dental/StructureDefinition/tooth-surfaces"
-* ^status = #draft
+* ^status = #active
 * ^experimental = true
 * ^publisher = "cognovis GmbH"
 // Contexts: ChargeItem (Leistungsabrechnung) and Observation (Zahnbefund) are the primary
