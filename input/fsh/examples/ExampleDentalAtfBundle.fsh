@@ -47,6 +47,7 @@ Description: "ATF-MessageBundle das einen PSI-Befund (Zahn 46) und eine Kariesdi
 * entry[Patient][0].resource = AtfPatient
 
 // --- Eintrag 4: Practitioner (behandelnder Zahnarzt) ---
+// entry[4]: Practitioner (no Practitioner slice in DentalAtfBundleDE profile — numeric index required)
 * entry[4].fullUrl = "urn:uuid:7c9e2f34-a1b2-4c3d-8e5f-6a7b8c9d0e1f"
 * entry[4].resource = AtfDentist
 
