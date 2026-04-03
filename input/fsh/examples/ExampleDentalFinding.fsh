@@ -19,7 +19,8 @@ Description: "Parodontaler Screening-Index (PSI) Befund für Zahn 36 (erster unt
 
 * category[dental] = https://fhir.cognovis.de/dental/CodeSystem/dental-category#dental "Dental"
 
-// LOINC: Dental findings — PSI Screening Observation
+// LOINC 34552-0: Dental findings — used as parent code to satisfy obs-7 constraint
+// (obs-7 prohibits Observation.code matching component.code; components use 32884-9)
 * code = $loinc#34552-0 "Dental findings"
 
 * subject = Reference(Patient/pat-gkv-01)
