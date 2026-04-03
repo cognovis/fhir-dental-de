@@ -33,3 +33,116 @@ Patient.text: max allowed is 0 but found 1
 # (slice matching issues due to open/closed slicing on identifier/name)
 Patient.identifier[0]: matches more than one slice
 Patient.name[0]: matches more than one slice
+
+# ---------------------------------------------------------------------------
+# Identifier system URLs that don't resolve publicly
+#
+# mira.cognovis.de/fhir/identifier/* are internal MIRA application identifier
+# namespaces. They are used in DentalOrganizationDE (kzv slice) and example
+# instances. These are valid NamingSystem-style URLs that intentionally do not
+# resolve as public web pages. Suppress the "URL does not resolve" warnings.
+# ---------------------------------------------------------------------------
+
+# KZV-Stempelnummer identifier system — internal MIRA namespace, not publicly resolvable
+URL value 'https://mira.cognovis.de/fhir/identifier/kzv-stempelnummer'
+
+# MIRA demo practice identifiers — example-only, not publicly resolvable
+URL value 'https://mira-demo-mvz.de/
+
+# ---------------------------------------------------------------------------
+# External CodeSystem / ValueSet not found locally
+#
+# ICD-10-GM (BfArM) is a proprietary German terminology that cannot be bundled
+# in this IG. The canonical URL http://fhir.de/CodeSystem/bfarm/icd-10-gm is
+# defined by the German base profiles (de.basisprofil.r4) but is not available
+# in the local build environment. Suppress related CodeSystem-not-found warnings.
+# ---------------------------------------------------------------------------
+
+# ICD-10-GM (BfArM) is an external German terminology not bundled in this IG
+CodeSystem http://fhir.de/CodeSystem/bfarm/icd-10-gm not found
+
+# ICD-10-GM ValueSet from bfarm not resolvable in offline build
+The valueSet reference http://fhir.de/ValueSet/bfarm/icd-10-gm
+
+# OPS (German operation codes) — external BfArM terminology
+CodeSystem http://fhir.de/CodeSystem/bfarm/ops not found
+
+# ---------------------------------------------------------------------------
+# IG dependency canonical URL resolution failures (offline build)
+#
+# The IG Publisher cannot resolve canonical URLs from de.basisprofil.r4,
+# kbv.basis, and kbv.ita.for during local/offline builds. These dependencies
+# are resolved correctly in CI via the package registry. Suppress warnings
+# about unresolvable canonical URLs from these packages.
+# ---------------------------------------------------------------------------
+
+# de.basisprofil.r4 canonical URLs — resolved in CI, not in local builds.
+# Specific URLs referenced from our FSH files that cannot be resolved offline.
+# Review this list when updating de.basisprofil.r4 or kbv.* dependency versions.
+URL value 'http://fhir.de/CodeSystem/bzaek/goz'
+URL value 'http://fhir.de/CodeSystem/kzbv/bema'
+URL value 'http://fhir.de/sid/gkv/kvid-10'
+URL value 'http://fhir.de/StructureDefinition/normgroesse'
+URL value 'http://fhir.de/StructureDefinition/humanname-namenszusatz'
+URL value 'http://fhir.de/StructureDefinition/humanname-own-name'
+URL value 'http://fhir.de/StructureDefinition/humanname-own-prefix'
+
+# kbv.basis / kbv.ita.for canonical URLs — resolved in CI, not in local builds
+URL value 'https://fhir.kbv.de/NamingSystem/KBV_NS_FOR_Patient'
+URL value 'https://fhir.kbv.de/StructureDefinition/KBV_PR_FOR_Patient'
+URL value 'https://fhir.kbv.de/ValueSet/KBV_VS_SFHIR_KBV_STATUSKENNZEICHEN'
+
+# ---------------------------------------------------------------------------
+# HTML fragment warnings — standard IG Publisher behavior
+#
+# The IG Publisher generates standard "The HTML fragment ..." warnings for
+# references to core FHIR and extension packages. These are expected and
+# do not indicate errors in this IG.
+# ---------------------------------------------------------------------------
+
+# Standard IG Publisher HTML fragment warnings
+The HTML fragment 'hl7.fhir.r4.core
+The HTML fragment 'hl7.fhir.uv.extensions
+
+# ---------------------------------------------------------------------------
+# External URLs that do not resolve (third-party registries)
+#
+# RadLex Playbook and DICOM registry URLs are referenced indirectly via
+# inherited bindings from ImagingStudy and related resources. These external
+# URLs are outside our control and are not expected to be resolvable during
+# validation. Suppress these warnings.
+# ---------------------------------------------------------------------------
+
+# RadLex Playbook URL — external registry, not resolvable
+http://playbook.radlex.org/
+
+# DICOM registry table URL — external registry, not resolvable
+http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_
+
+# ---------------------------------------------------------------------------
+# Extension examples missing
+#
+# ALL 22 extensions defined in this IG (as of v0.6.0) are intentionally
+# suppressed here. None have dedicated standalone example instances; they are
+# all demonstrated indirectly through profile examples (e.g., ExampleBemaChargeItem
+# uses BemaBefundklasseExt, ExampleDentalFinding uses FdiToothNumberExt, etc.).
+# Creating standalone extension examples would add little value for implementers.
+#
+# NOTE: This suppression must be reviewed when new extensions are added to the IG.
+# Do NOT rely on it to silently hide missing examples for new extensions.
+# ---------------------------------------------------------------------------
+
+# All extensions in this IG are demonstrated via profile examples — no standalone examples needed
+No example found for this extension
+
+# ---------------------------------------------------------------------------
+# BEMA Punkte system URL not recognized
+#
+# http://fhir.de/CodeSystem/kzbv/bema-punkte-je-land is a custom CodeSystem
+# URL for regional BEMA point values. It is not registered in standard
+# terminology servers but is valid as a locally-defined CodeSystem.
+# ---------------------------------------------------------------------------
+
+# BEMA punkte je Land — locally defined, not in standard registries
+http://fhir.de/CodeSystem/kzbv/bema-punkte-je-land
+

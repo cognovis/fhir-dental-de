@@ -4,6 +4,7 @@ Id: de-mira-prophylaxis-observation
 Title: "Prophylaxe-Befund (DE)"
 Description: "Profil fuer Prophylaxe-Befunde: Plaque-Index (API/QHI), Mundhygienestatus, Gingivitis-Index, PSI-Screening. Gesamtmund-Scores als Grundlage fuer Prophylaxe-Massnahmen (IP/PZR). Spezialisierung von DentalFindingDE."
 * ^status = #draft
+* ^experimental = true
 * ^publisher = "cognovis GmbH"
 
 // Code: must be from prophylaxis finding codes
