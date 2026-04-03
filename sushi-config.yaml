@@ -44,10 +44,40 @@ pages:
 
 parameters:
   special-url:
+    # External CodeSystems from German base profiles (not in standard registries)
     - http://fhir.de/CodeSystem/kzbv/bema
     - http://fhir.de/CodeSystem/bzaek/goz
     - http://terminology.hl7.org/CodeSystem/ex-tooth
+    - http://fhir.de/CodeSystem/bfarm/icd-10-gm
+    - http://fhir.de/CodeSystem/bfarm/ops
+    # Own CodeSystems defined in this IG (under https://fhir.cognovis.de/dental/CodeSystem/)
+    - https://fhir.cognovis.de/dental/CodeSystem/ze-befundkuerzel
+    - https://fhir.cognovis.de/dental/CodeSystem/kfo-behandlungsphase
+    - https://fhir.cognovis.de/dental/CodeSystem/bema-befundklasse
+    - https://fhir.cognovis.de/dental/CodeSystem/privatgebuehr-begruendungskategorie
+    - https://fhir.cognovis.de/dental/CodeSystem/beb97
+    - https://fhir.cognovis.de/dental/CodeSystem/privatgebuehr-leistungsart
+    - https://fhir.cognovis.de/dental/CodeSystem/ze-therapiekuerzel
+    - https://fhir.cognovis.de/dental/CodeSystem/tooth-surfaces
+    - https://fhir.cognovis.de/dental/CodeSystem/kfo-angle-klasse
+    - https://fhir.cognovis.de/dental/CodeSystem/ze-versorgungsart
+    - https://fhir.cognovis.de/dental/CodeSystem/dental-befund-status
+    - https://fhir.cognovis.de/dental/CodeSystem/hkp-genehmigungsstatus
+    - https://fhir.cognovis.de/dental/CodeSystem/ztl-material
+    - https://fhir.cognovis.de/dental/CodeSystem/gebuehrenordnung
+    - https://fhir.cognovis.de/dental/CodeSystem/goae-zahn
+    - https://fhir.cognovis.de/dental/CodeSystem/dental-category
+    - https://fhir.cognovis.de/dental/CodeSystem/scheintyp
+    - https://fhir.cognovis.de/dental/CodeSystem/bel-ii
+    - https://fhir.cognovis.de/dental/CodeSystem/ze-bonus-prozent
+    - https://fhir.cognovis.de/dental/CodeSystem/kzv-regionen
+    - https://fhir.cognovis.de/dental/CodeSystem/par-stadium
+    - https://fhir.cognovis.de/dental/CodeSystem/kfo-apparatus-type
+    - https://fhir.cognovis.de/dental/CodeSystem/tooth-identification-fdi
   path-suppressed-warnings: input/ignoreWarnings.txt
+  # Pin ICD-10-GM canonical to the version from our declared dependency (de.basisprofil.r4#1.6.0-ballot2)
+  # to avoid "multiple matches" warning when resolving the ValueSet binding.
+  pin-canonicals: http://fhir.de/ValueSet/bfarm/icd-10-gm|1.6.0-ballot
 
 menu:
   Home: index.html

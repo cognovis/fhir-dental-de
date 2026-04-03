@@ -2,7 +2,7 @@
 // SWS 2.0 Satzart 7 — GOZ-Leistungsabrechnung (Privatpatient)
 
 Alias: $fdiCS     = https://fhir.cognovis.de/dental/CodeSystem/tooth-identification-fdi
-Alias: $gozCS     = https://fhir.cognovis.de/dental/CodeSystem/goz-codes
+Alias: $gozCS     = http://fhir.de/CodeSystem/bzaek/goz
 Alias: $surfaceCS = https://fhir.cognovis.de/dental/CodeSystem/tooth-surfaces
 
 Instance: ExampleGozChargeItem

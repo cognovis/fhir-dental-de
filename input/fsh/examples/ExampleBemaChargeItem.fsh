@@ -2,7 +2,7 @@
 // SWS 2.0 Satzart 6 — BEMA-Leistungsabrechnung
 
 Alias: $fdiCS    = https://fhir.cognovis.de/dental/CodeSystem/tooth-identification-fdi
-Alias: $bemaCS   = https://fhir.cognovis.de/dental/CodeSystem/bema-codes
+Alias: $bemaCS   = http://fhir.de/CodeSystem/kzbv/bema
 Alias: $surfaceCS = https://fhir.cognovis.de/dental/CodeSystem/tooth-surfaces
 
 Instance: ExampleBemaChargeItem
