@@ -47,14 +47,14 @@ Description: "ATF-MessageBundle das einen PSI-Befund (Zahn 46) und eine Kariesdi
 * entry[Patient][0].resource = AtfPatient
 
 // ============================================================
-// MessageHeader — ATF-Pflichtressource (konform zu atf-message-header)
+// MessageHeader — ATF-Pflichtressource (folgt ATF-Struktur, ohne formale Konformitätsaussage)
 // ============================================================
 
 Instance: AtfDentalMessageHeader
 InstanceOf: MessageHeader
 Usage: #inline
 Title: "ATF MessageHeader: Zahnbefund-Übermittlung"
-Description: "MessageHeader für die KIM-basierte Übermittlung zahnärztlicher Befunddaten. Konform zu MessageHeaderAppTransportFramework (de.gematik.fhir.atf)."
+Description: "MessageHeader für die KIM-basierte Übermittlung zahnärztlicher Befunddaten. Folgt der ATF-Struktur ohne formale Konformitätsaussage (kein Dental-Anwendungskennzeichen in service-identifier-vs verfügbar)."
 
 // Note: meta.profile for atf-message-header intentionally omitted.
 // The ATF service-identifier-vs has no dental application code (required binding).
