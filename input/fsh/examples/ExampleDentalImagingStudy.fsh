@@ -2,7 +2,6 @@
 // SWS 2.0 Satzart 12 — Röntgendiagnostik
 
 Alias: $dicom  = http://dicom.nema.org/resources/ontology/DCM
-Alias: $sct    = http://snomed.info/sct
 Alias: $fdiCS  = https://fhir.cognovis.de/dental/CodeSystem/tooth-identification-fdi
 
 Instance: ExampleDentalImagingStudy
@@ -32,7 +31,7 @@ Description: "Orthopantomogramm (OPG) zur Übersichtsaufnahme des gesamten Kiefe
 * series[0].modality = $dicom#PX "Panoramic X-Ray"
 * series[0].description = "OPG Gesamtkiefer — Panoramaschichtaufnahme"
 * series[0].numberOfInstances = 1
-* series[0].bodySite = $fdiCS#00 "Gesamtgebiss"
+// bodySite not set: OPG covers full dentition; no single FDI tooth code applies
 
 // Instance: das eigentliche DICOM-Bild
 * series[0].instance[0].uid = "1.2.276.0.7230010.3.1.4.2026020522200001.1"
