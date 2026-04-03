@@ -13,7 +13,7 @@ Description: "Mundhygienestatus mit Plaque-Index (API 22%), Gingivitis-Index (SB
 
 * category[dental] = https://fhir.cognovis.de/dental/CodeSystem/dental-category#dental "Dental"
 
-* code = $sct#129851006 "Oral hygiene assessment"
+* code = $sct#364126007 "Oral hygiene status"
 
 * subject = Reference(Patient/pat-gkv-dental-01)
 
@@ -30,7 +30,7 @@ Description: "Mundhygienestatus mit Plaque-Index (API 22%), Gingivitis-Index (SB
 * component[plaqueIndex].valueQuantity.code = #%
 
 // Gingivitis-Index: SBI 15%
-* component[gingivitisIndex].code = $sct#37397005
+* component[gingivitisIndex].code = $sct#66383009
 * component[gingivitisIndex].code.text = "Sulcus-Blutungs-Index (SBI)"
 * component[gingivitisIndex].valueQuantity.value = 15
 * component[gingivitisIndex].valueQuantity.unit = "%"
@@ -38,31 +38,31 @@ Description: "Mundhygienestatus mit Plaque-Index (API 22%), Gingivitis-Index (SB
 * component[gingivitisIndex].valueQuantity.code = #%
 
 // PSI per Sextant (Sextant 1-6: oben rechts, oben frontal, oben links, unten links, unten frontal, unten rechts)
-* component[psiScore][0].code = $sct#427182008
+* component[psiScore][0].code = $sct#251309006
 * component[psiScore][0].code.text = "PSI Sextant 1 (oben rechts)"
 * component[psiScore][0].valueInteger = 1
 
-* component[psiScore][1].code = $sct#427182008
+* component[psiScore][1].code = $sct#251309006
 * component[psiScore][1].code.text = "PSI Sextant 2 (oben frontal)"
 * component[psiScore][1].valueInteger = 1
 
-* component[psiScore][2].code = $sct#427182008
+* component[psiScore][2].code = $sct#251309006
 * component[psiScore][2].code.text = "PSI Sextant 3 (oben links)"
 * component[psiScore][2].valueInteger = 1
 
-* component[psiScore][3].code = $sct#427182008
+* component[psiScore][3].code = $sct#251309006
 * component[psiScore][3].code.text = "PSI Sextant 4 (unten links)"
 * component[psiScore][3].valueInteger = 1
 
-* component[psiScore][4].code = $sct#427182008
+* component[psiScore][4].code = $sct#251309006
 * component[psiScore][4].code.text = "PSI Sextant 5 (unten frontal)"
 * component[psiScore][4].valueInteger = 1
 
-* component[psiScore][5].code = $sct#427182008
+* component[psiScore][5].code = $sct#251309006
 * component[psiScore][5].code.text = "PSI Sextant 6 (unten rechts)"
 * component[psiScore][5].valueInteger = 1
 
 // Mundhygienestatus: befriedigend
-* component[oralHygieneStatus].code = $sct#129851006
+* component[oralHygieneStatus].code = $sct#364126007
 * component[oralHygieneStatus].code.text = "Mundhygienestatus"
 * component[oralHygieneStatus].valueCodeableConcept.text = "Befriedigend — geringe Plaqueanlagerungen interproximal"
