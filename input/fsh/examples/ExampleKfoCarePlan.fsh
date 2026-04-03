@@ -54,8 +54,8 @@ Description: "Kieferorthopädische Diagnose: Angle-Klasse II/1 mit vergrößerte
 
 * category[0] = https://fhir.cognovis.de/dental/CodeSystem/dental-category#dental "Dental"
 
-* code = http://snomed.info/sct#47365005 "Class II division 1 malocclusion"
-* code.text = "Angle-Klasse II/1 (SCT 47365005): Distokkusion mit proklinierter Oberkieferfront, Overjet > 9 mm"
+* code = $icd10gm#K07.12 "Distalbiss, Angle-Klasse II"
+* code.text = "Angle-Klasse II/1: Distalbiss mit proklinierter Oberkieferfront, Overjet > 9 mm"
 
 * subject = Reference(ExamplePatient)
 
