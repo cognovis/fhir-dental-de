@@ -35,10 +35,10 @@ Description: "Kariöse Läsion an Zahn 26 (erster oberer linker Molar), mesial-o
 * bodySite.text = "Zahn 26 — erster oberer linker Molar"
 
 // Betroffene Flächen — cognovis tooth-surfaces CodeSystem
-* component[0].code = $sct#245647007 "Surface of tooth"
+* component[0].code = $sct#245647007 "Entire vestibular surface of tooth"
 * component[0].code.text = "Betroffene Zahnfläche"
 * component[0].valueCodeableConcept = $surfCS#M "Mesial"
 
-* component[1].code = $sct#245647007 "Surface of tooth"
+* component[1].code = $sct#245647007 "Entire vestibular surface of tooth"
 * component[1].code.text = "Betroffene Zahnfläche"
 * component[1].valueCodeableConcept = $surfCS#O "Okklusal"
