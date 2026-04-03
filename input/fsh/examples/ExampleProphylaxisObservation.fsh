@@ -17,7 +17,7 @@ Description: "Mundhygienestatus mit Plaque-Index (API 22%), Gingivitis-Index (SB
 
 * subject = Reference(Patient/pat-gkv-dental-01)
 
-* performer[0] = Reference(ExampleDentalOrganization)
+* performer[0] = Reference(Organization/org-dental-mvz)
 
 * effectiveDateTime = "2026-01-15T09:30:00+01:00"
 
