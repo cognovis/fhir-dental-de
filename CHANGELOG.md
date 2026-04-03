@@ -4,9 +4,31 @@ All notable changes to this project will be documented in this file.
 
 ## [unreleased]
 
+### Bug Fixes
+
+- **fdde-b9n**: Reduce IG Publisher warnings via special-url, CS fixes, and ignoreWarnings
+- **fdde-b9n**: Fix pin-canonicals error and add ICD-10-GM version warning to ignoreWarnings
+- **fdde-b9n**: Fix display names and expand ignoreWarnings for localization
+- **fdde-b9n**: Fix ignoreWarnings.txt suppression patterns for German-localized warnings
+- **fdde-b9n**: Convert ignoreWarnings.txt suppressions to %text% contains-match format
+- **fdde-b9n**: Address review findings iteration 1 - fix example inconsistencies
+- **fdde-b9n**: Address review findings iteration 2 - document ATF entry index
+- **fdde-b9n**: Remove redundant exact-match suppressions covered by %text% patterns
+
+### Miscellaneous
+
+- Bump version to 0.8.5
+
+## [0.8.5] - 2026-04-03
+
 ### Miscellaneous
 
 - Bump version to 0.8.4
+- Update changelog
+
+### Merge
+
+- Worktree-bead-fdde-792
 
 ## [0.8.4] - 2026-04-03
 
