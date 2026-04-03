@@ -33,15 +33,15 @@ Description: "Profil fuer Prophylaxe-Befunde: Plaque-Index (API/QHI), Mundhygien
 * component[plaqueIndex].valueQuantity.code = #%
 
 // Gingivitis index: Sulcus-Blutungs-Index (SBI) or PBI, 0-100%
-* component[gingivitisIndex].code = http://snomed.info/sct#37397005
+* component[gingivitisIndex].code = http://snomed.info/sct#66383009
 * component[gingivitisIndex].value[x] only Quantity
 * component[gingivitisIndex].valueQuantity.system = "http://unitsofmeasure.org"
 * component[gingivitisIndex].valueQuantity.code = #%
 
 // PSI score per sextant (0-4, codes * and X)
-* component[psiScore].code = http://snomed.info/sct#427182008
+* component[psiScore].code = http://snomed.info/sct#251309006
 * component[psiScore].value[x] only integer
 
 // Oral hygiene status: overall assessment (CodeableConcept)
-* component[oralHygieneStatus].code = http://snomed.info/sct#129851006
+* component[oralHygieneStatus].code = http://snomed.info/sct#364126007
 * component[oralHygieneStatus].value[x] only CodeableConcept

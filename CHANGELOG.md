@@ -2,14 +2,27 @@
 
 All notable changes to this project will be documented in this file.
 
-## [unreleased]
+## [0.8.1] - 2026-04-03
 
 ### Bug Fixes
 
+- **fdde-1dh**: Replace invalid SNOMED/LOINC codes with verified valid alternatives
+- **fdde-1dh**: Address review findings iteration 1
+- **fdde-1dh**: Address review findings iteration 2
+- **fdde-1dh**: Replace periapical finding code with verified 718052004 (asymptomatic periapical periodontitis)
 - **fdde-0wc**: Fix display names, ex-tooth URL, obs-7 constraint, and IG parameters
 - **fdde-0wc**: Document display name rationale and obs-7 code change
 - **fdde-0wc**: Add obs-7 rationale comment to AtfBundle example
 - **fdde-0wc**: Obs-7 fix in ExamplePeriodontalObservation, add hl7 tools comment
+
+### Miscellaneous
+
+- Update changelog
+- Bump version to 0.8.1
+
+### Merge
+
+- Worktree-bead-fdde-0wc
 
 ## [0.8.0] - 2026-04-03
 
