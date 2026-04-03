@@ -11,7 +11,7 @@ Description: "LOINC- und SNOMED-CT-Codes fuer Prophylaxe-Befunde: Plaque-Index, 
 * ^publisher = "cognovis GmbH"
 
 // LOINC codes for prophylaxis assessments
-* $loinc#8704-9 "Physical findings of Mouth"
+* $loinc#8704-9 "Physical findings of Mouth and Throat and Teeth"
 * $loinc#32884-9 "Identification {Tooth}"
 
 // SNOMED-CT prophylaxis finding concepts
