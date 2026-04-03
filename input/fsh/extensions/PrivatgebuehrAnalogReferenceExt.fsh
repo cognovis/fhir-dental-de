@@ -4,7 +4,7 @@ Title: "Privatgebühr Analogleistung"
 Description: "GOÄ §6 Abs. 2 / GOZ §6 Abs. 1 Analogleistungsbezug: Verweis auf die analoge Gebührennummer mit Gebührenordnung und Begründungstext."
 * ^url = "https://fhir.cognovis.de/dental/StructureDefinition/privatgebuehr-analog-reference"
 * ^status = #active
-* ^experimental = true
+* ^experimental = false
 * ^publisher = "cognovis GmbH"
 * ^context[+].type = #element
 * ^context[=].expression = "ChargeItem"

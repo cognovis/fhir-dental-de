@@ -4,7 +4,7 @@ Title: "ZTL Material"
 Description: "Zahntechnische Materialien und Legierungsklassen für Laborleistungen. Basiert auf DIN EN ISO 22674 (Legierungsklassen) und klinischer Praxis."
 * ^url = "https://fhir.cognovis.de/dental/CodeSystem/ztl-material"
 * ^status = #active
-* ^experimental = true
+* ^experimental = false
 * ^caseSensitive = true
 * ^content = #fragment
 * ^publisher = "cognovis GmbH (Vorschlag)"

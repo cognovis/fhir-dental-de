@@ -4,7 +4,7 @@ Title: "BEMA Befundklasse"
 Description: "Befundklassen für den BEMA-Zahnbefund (Zahnschema)."
 * ^url = "https://fhir.cognovis.de/dental/CodeSystem/bema-befundklasse"
 * ^status = #active
-* ^experimental = true
+* ^experimental = false
 * ^caseSensitive = true
 * ^content = #complete
 * ^publisher = "cognovis GmbH"

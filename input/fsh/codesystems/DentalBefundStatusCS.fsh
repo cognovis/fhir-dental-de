@@ -4,7 +4,7 @@ Title: "Zahnärztlicher Befundstatus"
 Description: "Statuscodes für den zahnärztlichen Befund (B-Zeile im HKP). Kleinbuchstaben = Befund, Großbuchstaben = geplante Therapie. Nach KZBV-Befundschema."
 * ^url = "https://fhir.cognovis.de/dental/CodeSystem/dental-befund-status"
 * ^status = #active
-* ^experimental = true
+* ^experimental = false
 * ^caseSensitive = true
 * ^content = #complete
 * ^publisher = "cognovis GmbH"

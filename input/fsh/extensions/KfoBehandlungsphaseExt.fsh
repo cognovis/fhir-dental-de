@@ -4,7 +4,7 @@ Title: "KFO Behandlungsphase"
 Description: "Phase der kieferorthopädischen Behandlung: aktive Behandlungsphase, Retentionsphase oder Abschluss. Ergänzt CarePlan.status für den KFO-spezifischen Phasenverlauf."
 * ^url = "https://fhir.cognovis.de/dental/StructureDefinition/kfo-behandlungsphase"
 * ^status = #active
-* ^experimental = true
+* ^experimental = false
 * ^publisher = "cognovis GmbH"
 * ^context[+].type = #element
 * ^context[=].expression = "CarePlan"

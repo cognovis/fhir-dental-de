@@ -11,7 +11,7 @@ Id: de-mira-ze-care-plan
 Title: "ZE/Festzuschüsse Behandlungsplan (DE)"
 Description: "Profil für Zahnersatz-Behandlungspläne mit Festzuschuss-Berechnung nach §56 SGB V (KZBV DPF-Schlüssel). Bildet SWS 2.0 Satzart 11 ab. Enthält Befund-/Therapiekürzel und Versorgungsart (Regelversorgung, gleichartig, andersartig)."
 * ^status = #active
-* ^experimental = true
+* ^experimental = false
 * ^publisher = "cognovis GmbH"
 
 // --- Identifier (ZE-ID) ---

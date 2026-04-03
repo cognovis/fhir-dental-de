@@ -4,7 +4,7 @@ Id: de-mira-dental-finding
 Title: "Zahnärztlicher Befund (DE)"
 Description: "Profil für zahnärztliche Einzelbefunde: Zahnschema-Einträge, Parodontalindices (PSI, BOP, Sondierungstiefe), Vitalitätsprüfungen, Mundschleimhautbefunde. Entspricht dem DentalFinding (Observation) im HL7 Dental Data Exchange IG."
 * ^status = #active
-* ^experimental = true
+* ^experimental = false
 * ^publisher = "cognovis GmbH"
 
 // Category: dental

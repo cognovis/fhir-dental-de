@@ -4,7 +4,7 @@ Title: "Zahnidentifikation nach FDI/ISO 3950"
 Description: "Zahnidentifikation nach dem FDI-Zahnschema (ISO 3950). Nummerierung der permanenten Zähne (11–48) und der Milchzähne (51–85). Weit verbreitet in europäischen und internationalen Zahnarztpraxen."
 * ^url = "https://fhir.cognovis.de/dental/CodeSystem/tooth-identification-fdi"
 * ^status = #active
-* ^experimental = true
+* ^experimental = false
 * ^publisher = "cognovis GmbH"
 * ^caseSensitive = true
 * ^content = #complete

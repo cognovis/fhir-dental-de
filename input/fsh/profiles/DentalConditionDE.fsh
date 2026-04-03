@@ -8,7 +8,7 @@ Id: de-mira-dental-condition
 Title: "Zahnärztliche Diagnose (DE)"
 Description: "Profil für zahnärztliche Diagnosen und Befunde. Nutzt ICD-10-GM und FDI-Zahnschema. Orientiert sich am HL7 Dental Data Exchange IG DentalCondition. Kompatibel mit KBV_PR_Base_Condition_Diagnosis."
 * ^status = #active
-* ^experimental = true
+* ^experimental = false
 * ^publisher = "cognovis GmbH"
 
 // Category: dental (zusätzlich zu encounter-diagnosis etc.)
@@ -21,7 +21,7 @@ Description: "Profil für zahnärztliche Diagnosen und Befunde. Nutzt ICD-10-GM 
 
 // Code: ICD-10-GM binding (extensible to allow SNOMED CT etc.)
 * code 1..1 MS
-* code from http://fhir.de/ValueSet/bfarm/icd-10-gm (extensible)
+* code from http://fhir.de/ValueSet/bfarm/icd-10-gm|1.6.0-ballot2 (extensible)
 
 // Subject
 * subject 1..1 MS

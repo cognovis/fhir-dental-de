@@ -4,7 +4,7 @@ Title: "ZE-Befundkürzel (KZBV DPF)"
 Description: "Befundkürzel für den Zahnersatz-Befund (Ist-Zustand) gemäß KZBV Digitaler Planungsbogen für Zahnersatz (DPF)."
 * ^url = "https://fhir.cognovis.de/dental/CodeSystem/ze-befundkuerzel"
 * ^status = #active
-* ^experimental = true
+* ^experimental = false
 * ^caseSensitive = true
 * ^content = #fragment
 * ^publisher = "cognovis GmbH (Vorschlag)"

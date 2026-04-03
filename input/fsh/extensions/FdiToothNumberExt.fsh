@@ -4,7 +4,7 @@ Title: "FDI Zahnnummer"
 Description: "Zahnnummer nach dem FDI-Zahnschema (ISO 3950)."
 * ^url = "https://fhir.cognovis.de/dental/StructureDefinition/fdi-tooth-number"
 * ^status = #active
-* ^experimental = true
+* ^experimental = false
 * ^publisher = "cognovis GmbH"
 * ^context[+].type = #element
 * ^context[=].expression = "ChargeItem"

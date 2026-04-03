@@ -4,7 +4,7 @@ Title: "Zahnflächen"
 Description: "Kodierung der Zahnflächen für zahnärztliche Befunde und Behandlungen."
 * ^url = "https://fhir.cognovis.de/dental/CodeSystem/tooth-surfaces"
 * ^status = #active
-* ^experimental = true
+* ^experimental = false
 * ^caseSensitive = true
 * ^content = #complete
 * ^publisher = "cognovis GmbH"

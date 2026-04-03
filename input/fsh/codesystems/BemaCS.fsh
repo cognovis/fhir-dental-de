@@ -4,7 +4,7 @@ Title: "BEMA - Bewertungsmaßstab zahnärztlicher Leistungen"
 Description: "Gebührenverzeichnis für zahnärztliche Leistungen im Rahmen der gesetzlichen Krankenversicherung (GKV). Herausgegeben von KZBV und GKV-Spitzenverband."
 * ^url = "http://fhir.de/CodeSystem/kzbv/bema"
 * ^status = #active
-* ^experimental = true
+* ^experimental = false
 * ^caseSensitive = true
 * ^content = #fragment
 * ^publisher = "cognovis GmbH (Vorschlag)"

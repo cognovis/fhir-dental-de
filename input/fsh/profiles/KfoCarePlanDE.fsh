@@ -11,7 +11,7 @@ Id: de-mira-kfo-care-plan
 Title: "KFO-Behandlungsplan (DE)"
 Description: "Profil für kieferorthopädische Behandlungspläne und Anträge nach BEMA §28 Abs. 2 SGB V. Bildet SWS 2.0 Satzart 10 ab. Enthält Behandlungsphase, Apparaturtyp und Verweis auf KFO-Diagnose (Condition mit Angle-Klasse und KIG-Punkten)."
 * ^status = #active
-* ^experimental = true
+* ^experimental = false
 * ^publisher = "cognovis GmbH"
 
 // --- Identifier (KFO-Plan-ID) ---

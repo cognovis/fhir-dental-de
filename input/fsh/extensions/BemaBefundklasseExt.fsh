@@ -4,7 +4,7 @@ Title: "BEMA Befundklasse"
 Description: "Befundklasse des Zahnes nach BEMA-Zahnschema (c/k/f/e/b)."
 * ^url = "https://fhir.cognovis.de/dental/StructureDefinition/bema-befundklasse"
 * ^status = #active
-* ^experimental = true
+* ^experimental = false
 * ^publisher = "cognovis GmbH"
 * ^context[+].type = #element
 * ^context[=].expression = "ChargeItem"

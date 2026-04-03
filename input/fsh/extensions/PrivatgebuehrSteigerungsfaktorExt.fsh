@@ -4,7 +4,7 @@ Title: "Privatgebühr Steigerungsfaktor"
 Description: "GOÄ §5 Abs. 2 / GOZ §5 Abs. 2 Steigerungsfaktor mit Begründungspflicht bei Überschreitung des Schwellenwerts (2,3-fach persönlich / 1,8-fach technisch)."
 * ^url = "https://fhir.cognovis.de/dental/StructureDefinition/privatgebuehr-steigerungsfaktor"
 * ^status = #active
-* ^experimental = true
+* ^experimental = false
 * ^publisher = "cognovis GmbH"
 * ^context[+].type = #element
 * ^context[=].expression = "ChargeItem"

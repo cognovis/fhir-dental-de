@@ -4,7 +4,7 @@ Id: de-mira-dental-procedure
 Title: "Zahnärztliche Behandlung (DE)"
 Description: "Profil für zahnärztliche Behandlungen in deutschen Praxen. Leistungscodes binden an BEMA (GKV) und GOZ (PKV) statt CDT."
 * ^status = #active
-* ^experimental = true
+* ^experimental = false
 * ^publisher = "cognovis GmbH"
 
 // Category: dental (Procedure.category is 0..1 in R4, not sliceable)

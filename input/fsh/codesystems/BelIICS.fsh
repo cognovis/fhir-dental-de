@@ -4,7 +4,7 @@ Title: "BEL II - Bundeseinheitliche Leistungsbeschreibung für zahntechnische Le
 Description: "Leistungsbeschreibung für zahntechnische Leistungen bei GKV-Versicherten. BEL II ist die Grundlage für die Abrechnung zahntechnischer Leistungen im Rahmen der gesetzlichen Krankenversicherung."
 * ^url = "https://fhir.cognovis.de/dental/CodeSystem/bel-ii"
 * ^status = #active
-* ^experimental = true
+* ^experimental = false
 * ^caseSensitive = true
 * ^content = #fragment
 * ^publisher = "cognovis GmbH (Vorschlag)"
