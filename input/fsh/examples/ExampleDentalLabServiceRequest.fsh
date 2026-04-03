@@ -1,6 +1,8 @@
 // Example: Laborauftrag an Dentallabor für Keramik-Inlay Zahn 15
 // SWS 2.0 Satzart 13 — Zahntechnischer Laborauftrag
 
+Alias: $fdiCS = https://fhir.cognovis.de/dental/CodeSystem/tooth-identification-fdi
+
 Instance: ExampleDentalLabServiceRequest
 InstanceOf: DentalLabServiceRequestDE
 Usage: #example
@@ -12,6 +14,8 @@ Description: "Zahntechnischer Laborauftrag an Dentallabor Zahntechnik Nürnberg 
 
 * status = #completed
 * intent = #order
+
+* code.text = "Keramik-Inlay Zahn 15, CAD/CAM"
 
 * subject = Reference(Patient/pat-pkv-01)
 
@@ -94,4 +98,4 @@ Description: "Zahntechnische Leistungsposition (BEL II) für Keramik-Inlay Zahn 
 * priceOverride.value = 198.40
 * priceOverride.currency = #EUR
 
-* bodysite = https://fhir.cognovis.de/dental/CodeSystem/tooth-identification-fdi#15 "15"
+* bodysite = $fdiCS#15 "15"

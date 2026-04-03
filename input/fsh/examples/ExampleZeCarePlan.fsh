@@ -56,15 +56,47 @@ Description: "Claim-Ressource für ZE-Abrechnung Brücke Zahn 35-37. Demonstrier
 * extension[https://fhir.cognovis.de/dental/StructureDefinition/eigenanteil-gleichartig].valueMoney.value = 320.00
 * extension[https://fhir.cognovis.de/dental/StructureDefinition/eigenanteil-gleichartig].valueMoney.currency = #EUR
 
-// eigenanteil-andersartig: 0 EUR (keine andersartige Versorgung)
-// Nur als Referenzbeispiel: bei andersartiger Versorgung würden die vollen Mehrkosten erfasst
-// * extension[https://fhir.cognovis.de/dental/StructureDefinition/eigenanteil-andersartig].valueMoney.value = 0.00
-// * extension[https://fhir.cognovis.de/dental/StructureDefinition/eigenanteil-andersartig].valueMoney.currency = #EUR
-
 * status = #active
 * use = #claim
 * type = http://terminology.hl7.org/CodeSystem/claim-type#oral "Oral"
 * created = "2026-01-15"
+
+* patient = Reference(Patient/pat-gkv-dental-01)
+
+* provider = Reference(PractitionerRole/role-schoell-gibitzenhof)
+
+* priority = http://terminology.hl7.org/CodeSystem/processpriority#normal
+
+* insurance[0].sequence = 1
+* insurance[0].focal = true
+* insurance[0].coverage = Reference(Coverage/cov-gkv-dental-01-gkv)
+
+
+// -----------------------------------------------------------------------
+// Weiteres Claim-Beispiel: Demonstriert eigenanteil-andersartig Extension
+// Andersartige Versorgung: Vollkeramikkrone statt NEM-Regelversorgung
+// -----------------------------------------------------------------------
+Instance: ExampleZeEigenanteilAndersartigClaim
+InstanceOf: Claim
+Usage: #example
+Title: "Beispiel ZE-Eigenanteil Claim — andersartige Versorgung"
+Description: "Claim-Ressource für ZE-Abrechnung mit andersartiger Versorgung (Vollkeramikkrone statt NEM-Regelversorgung). Demonstriert eigenanteil-andersartig Extension. Patientin Aylin Özdemir (GKV+ZZV)."
+
+// ze-bonus-prozent: 70% (10 Jahre lückenlose Bonusheft-Dokumentation)
+* extension[https://fhir.cognovis.de/dental/StructureDefinition/ze-bonus-prozent].valueInteger = 70
+
+// eigenanteil-regelversorgung: 180 EUR (Differenz Regelversorgung minus Festzuschuss)
+* extension[https://fhir.cognovis.de/dental/StructureDefinition/eigenanteil-regelversorgung].valueMoney.value = 180.00
+* extension[https://fhir.cognovis.de/dental/StructureDefinition/eigenanteil-regelversorgung].valueMoney.currency = #EUR
+
+// eigenanteil-andersartig: 580 EUR (volle Mehrkosten bei andersartiger Vollkeramikversorgung)
+* extension[https://fhir.cognovis.de/dental/StructureDefinition/eigenanteil-andersartig].valueMoney.value = 580.00
+* extension[https://fhir.cognovis.de/dental/StructureDefinition/eigenanteil-andersartig].valueMoney.currency = #EUR
+
+* status = #active
+* use = #claim
+* type = http://terminology.hl7.org/CodeSystem/claim-type#oral "Oral"
+* created = "2026-02-10"
 
 * patient = Reference(Patient/pat-gkv-dental-01)
 
