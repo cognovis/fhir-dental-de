@@ -84,7 +84,7 @@ Description: "Zahntechnische Leistungsposition (BEL II) für Keramik-Inlay Zahn 
 
 * status = #billable
 
-* code.coding[0] = https://fhir.cognovis.de/dental/CodeSystem/bema-codes#98c "Inlay, zweiflächig, vollkeramisch (BEL II)"
+* code.coding[0] = https://fhir.cognovis.de/dental/CodeSystem/bel-ii#98c "Inlay, zweiflächig, vollkeramisch (BEL II)"
 
 * subject = Reference(Patient/pat-pkv-01)
 
