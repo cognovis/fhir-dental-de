@@ -146,3 +146,26 @@ No example found for this extension
 # BEMA punkte je Land — locally defined, not in standard registries
 http://fhir.de/CodeSystem/kzbv/bema-punkte-je-land
 
+# ---------------------------------------------------------------------------
+# ig-parameters: suppressed-messages is a valid IG Publisher parameter
+# but is not formally listed in the ig-parameters CodeSystem.
+# This is a known gap in hl7.fhir.uv.tools.r4.
+# ---------------------------------------------------------------------------
+# suppressed-messages is a valid IG Publisher parameter — not in formal VS
+The value provided ('suppressed-messages') is not in the value set 'ig-parameters Codes ValueSet'
+The system URI could not be determined for the code suppressed-messages in the value set http://hl7.org/fhir/tools/ValueSet/ig-parameters
+value.ofType(string): Die System-URI konnte für den Code suppressed-messages
+value.ofType(string): Der angegebene Wert ('suppressed-messages') ist nicht im ValueSet 'ig-parameters Codes ValueSet'
+value.ofType(code): Die System-URI konnte für den Code suppressed-messages
+value.ofType(code): Der angegebene Wert ('suppressed-messages') ist nicht im ValueSet 'ig-parameters Codes ValueSet'
+
+# ---------------------------------------------------------------------------
+# ATF service-identifier-vs: no dental application code exists in the
+# Gematik ATF service-identifier-vs ValueSet. The cognovis dental service URI
+# is intentionally outside this VS — dental KIM transport is not yet
+# standardized in the ATF service identifier registry.
+# ---------------------------------------------------------------------------
+# Dental service URI is not in ATF service-identifier-vs — no dental code available yet
+dental-befund-transport') ist nicht im ValueSet 'Anwendungskennzeichen (VS)'
+dental-befund-transport im ValueSet https://gematik.de/fhir/atf/ValueSet/service-identifier-vs
+

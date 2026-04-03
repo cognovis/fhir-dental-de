@@ -58,7 +58,10 @@ Usage: #inline
 Title: "ATF MessageHeader: Zahnbefund-Übermittlung"
 Description: "MessageHeader für die KIM-basierte Übermittlung zahnärztlicher Befunddaten. Konform zu MessageHeaderAppTransportFramework (de.gematik.fhir.atf)."
 
-* meta.profile[0] = $atf-header
+// Note: meta.profile for atf-message-header intentionally omitted.
+// The ATF service-identifier-vs has no dental application code (required binding).
+// Conformance to atf-message-header is structural only (event, destination, source).
+// See: https://gematik.de/fhir/atf/ValueSet/service-identifier-vs
 
 // ATF-Pflicht: id muss mit dem letzten Segment der fullUrl übereinstimmen
 // (fullUrl in entry[MessageHeader][0]: "urn:uuid:aa11bb22-cc33-dd44-ee55-ff66aa77bb88")
