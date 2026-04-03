@@ -36,7 +36,7 @@ Description: "Parodontologischer Behandlungsplan (PAR-Richtlinie 07/2021) für g
 
 // UPT-Recall-Aktivität: alle 3 Monate
 * activity[0].detail.status = #scheduled
-* activity[0].detail.code = http://snomed.info/sct#86477000 "Subgingival curettage"
+* activity[0].detail.code = http://snomed.info/sct#234731006 "Dental prophylaxis (procedure)"
 * activity[0].detail.code.text = "UPT — Unterstützende Parodontitistherapie"
 * activity[0].detail.scheduledTiming.repeat.period = 3
 * activity[0].detail.scheduledTiming.repeat.periodUnit = #mo
