@@ -19,6 +19,7 @@ Id: de-mira-dental-lab-service-request
 Title: "Zahntechnischer Laborauftrag (DE)"
 Description: "Profil für zahntechnische Laboraufträge (BEL II / beb'97). Bildet SWS 2.0 Satzart 13 ab. Verknüpft den Laborauftrag mit dem Patienten, dem zugehörigen ZE-Behandlungsplan (CarePlan) und dem ausführenden Dentallabor. Einzelne BEL-II- und beb'97-Leistungspositionen werden als ChargeItem-Ressourcen mit den Extensions bel-punkte und ztl-material erfasst."
 * ^status = #draft
+* ^experimental = true
 * ^publisher = "cognovis GmbH"
 
 // --- Status + Intent (required by FHIR R4 base) ---

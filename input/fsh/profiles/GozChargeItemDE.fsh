@@ -10,6 +10,7 @@ Id: de-mira-goz-charge-item
 Title: "GOZ Leistungsposition (DE)"
 Description: "Profil für privatzahnärztliche Leistungen nach GOZ 2012 (Gebührenordnung für Zahnärzte). Bildet SWS 2.0 Satzart 7 ab."
 * ^status = #draft
+* ^experimental = true
 * ^publisher = "cognovis GmbH"
 
 // Note: ChargeItem R4 has no category element. The dental/private-fee category is expressed

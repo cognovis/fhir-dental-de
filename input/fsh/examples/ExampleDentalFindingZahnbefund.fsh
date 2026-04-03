@@ -23,6 +23,8 @@ Description: "Kariöse Läsion an Zahn 26 (erster oberer linker Molar), mesial-o
 
 * subject = Reference(Patient/pat-gkv-dental-01)
 
+* performer[0] = Reference(ExampleDentalOrganization)
+
 * effectiveDateTime = "2026-01-15T10:00:00+01:00"
 
 * valueCodeableConcept = $sct#80967001 "Dental caries"
