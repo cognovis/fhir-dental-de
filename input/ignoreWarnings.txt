@@ -57,11 +57,9 @@ Patient.name[0]: matches more than one slice
 # ---------------------------------------------------------------------------
 
 # KZV-Stempelnummer identifier system — internal MIRA namespace, not publicly resolvable
-URL value 'https://mira.cognovis.de/fhir/identifier/kzv-stempelnummer'
 %mira.cognovis.de/fhir/identifier/kzv-stempelnummer%
 
 # MIRA demo practice identifiers — example-only, not publicly resolvable
-URL value 'https://mira-demo-mvz.de/
 %mira-demo-mvz.de/%
 
 # ---------------------------------------------------------------------------
@@ -77,7 +75,6 @@ URL value 'https://mira-demo-mvz.de/
 CodeSystem http://fhir.de/CodeSystem/bfarm/icd-10-gm not found
 
 # ICD-10-GM CodeSystem not available for code validation (offline/local builds)
-A definition for CodeSystem 'http://fhir.de/CodeSystem/bfarm/icd-10-gm' could not be found
 %fhir.de/codesystem/bfarm/icd-10-gm%
 
 # ICD-10-GM ValueSet from bfarm not resolvable in offline build
@@ -86,12 +83,9 @@ The valueSet reference http://fhir.de/ValueSet/bfarm/icd-10-gm
 # ICD-10-GM ValueSet exists in multiple de.basisprofil.r4 versions in the local package cache.
 # The IG Publisher auto-selects the version matching our declared dependency (1.6.0-ballot2).
 # This warning is expected in environments with multiple cached versions and is harmless.
-There are multiple different potential matches for the url 'http://fhir.de/ValueSet/bfarm/icd-10-gm'
 %fhir.de/valueset/bfarm/icd-10-gm%
 
 # OPS (German operation codes) — external BfArM terminology
-CodeSystem http://fhir.de/CodeSystem/bfarm/ops not found
-A definition for CodeSystem 'http://fhir.de/CodeSystem/bfarm/ops' could not be found
 %bfarm/ops%
 
 # ---------------------------------------------------------------------------
@@ -121,7 +115,6 @@ URL value 'https://fhir.kbv.de/ValueSet/KBV_VS_SFHIR_KBV_STATUSKENNZEICHEN'
 
 # LANR (Lebenslange Arztnummer) identifier system — German base profile namespace
 # http://fhir.de/sid/kbv/lanr is defined by de.basisprofil.r4 but does not resolve publicly
-URL value 'http://fhir.de/sid/kbv/lanr'
 %fhir.de/sid/kbv/lanr%
 
 # ---------------------------------------------------------------------------
@@ -174,11 +167,9 @@ The HTML fragment 'hl7.fhir.uv.extensions
 # ---------------------------------------------------------------------------
 
 # RadLex Playbook URL — external registry, not resolvable (used in ImagingStudy bindings)
-http://playbook.radlex.org/
 %radlex_playbook.aspx%
 
 # DICOM registry table URL — external registry, not resolvable (used in ImagingStudy bindings)
-http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_
 %dicom.nema.org/medical/dicom/%
 
 # ---------------------------------------------------------------------------
