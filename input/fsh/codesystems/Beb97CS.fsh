@@ -3,7 +3,7 @@ Id: beb97
 Title: "beb'97 - Bundeseinheitliche Benennungsliste für zahntechnische Leistungen (privat)"
 Description: "Benennungsliste für zahntechnische Leistungen im Privatbereich (PKV). beb'97 ist die Grundlage für die Abrechnung zahntechnischer Privatleistungen."
 * ^url = "https://fhir.cognovis.de/dental/CodeSystem/beb97"
-* ^status = #draft
+* ^status = #active
 * ^experimental = true
 * ^caseSensitive = true
 * ^content = #fragment

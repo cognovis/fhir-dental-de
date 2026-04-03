@@ -3,7 +3,7 @@ Parent: Communication
 Id: de-mira-dental-communication
 Title: "Zahnärztliche Kommunikation (DE)"
 Description: "Profil für zahnärztliche Kommunikation: Anweisungen, Aufklärungen und Mitteilungen im Behandlungskontext. Basiert auf FHIR R4 Communication."
-* ^status = #draft
+* ^status = #active
 * ^experimental = true
 * ^publisher = "cognovis GmbH"
 

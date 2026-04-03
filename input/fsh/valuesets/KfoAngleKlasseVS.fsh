@@ -3,7 +3,7 @@ Id: kfo-angle-klasse
 Title: "KFO Angle-Klasse"
 Description: "Angle-Klassifikation der Malokkusion (I, II/1, II/2, III)."
 * ^url = "https://fhir.cognovis.de/dental/ValueSet/kfo-angle-klasse"
-* ^status = #draft
+* ^status = #active
 * ^experimental = true
 * ^publisher = "cognovis GmbH"
 

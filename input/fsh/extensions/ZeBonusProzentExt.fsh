@@ -3,7 +3,7 @@ Id: ze-bonus-prozent
 Title: "ZE Bonus-Prozent"
 Description: "Bonusheft-Zuschlag auf den Festzuschuss gemäß §55 Abs. 1 SGB V: 50% (Grundanspruch), 60% (5 Jahre lückenlose Dokumentation) oder 70% (10 Jahre lückenlose Dokumentation)."
 * ^url = "https://fhir.cognovis.de/dental/StructureDefinition/ze-bonus-prozent"
-* ^status = #draft
+* ^status = #active
 * ^experimental = true
 * ^publisher = "cognovis GmbH"
 * ^context[+].type = #element

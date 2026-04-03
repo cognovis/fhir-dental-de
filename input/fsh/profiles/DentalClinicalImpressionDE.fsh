@@ -8,7 +8,7 @@ Parent: ClinicalImpression
 Id: de-mira-dental-clinical-impression
 Title: "Zahnärztlicher Behandlungsjournaleintrag (DE)"
 Description: "Profil für Einträge im zahnärztlichen Behandlungsjournal (Krankenblatt). Bildet SWS 2.0 Satzart 3 ab. Enthält Freitext-Notizen, klinische Einschätzungen und Verweise auf strukturierte Befunde (Observations)."
-* ^status = #draft
+* ^status = #active
 * ^experimental = true
 * ^publisher = "cognovis GmbH"
 

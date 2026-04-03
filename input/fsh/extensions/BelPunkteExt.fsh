@@ -3,7 +3,7 @@ Id: bel-punkte
 Title: "BEL II Punkte"
 Description: "Punktzahl für zahntechnische Leistungen nach BEL II (Bewertungsmaßstab für zahntechnische Leistungen). Die Punktzahl multipliziert mit dem KZV-Punktwert ergibt den Abrechnungsbetrag."
 * ^url = "https://fhir.cognovis.de/dental/StructureDefinition/bel-punkte"
-* ^status = #draft
+* ^status = #active
 * ^experimental = true
 * ^publisher = "cognovis GmbH"
 * ^context[+].type = #element

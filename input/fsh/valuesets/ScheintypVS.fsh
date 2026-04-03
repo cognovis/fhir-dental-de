@@ -3,7 +3,7 @@ Id: scheintyp
 Title: "Scheintyp"
 Description: "Mögliche Arten des Behandlungsscheins im GKV-Abrechnungsfall (Satzart 2 SWS 2.0)."
 * ^url = "https://fhir.cognovis.de/dental/ValueSet/scheintyp"
-* ^status = #draft
+* ^status = #active
 * ^experimental = true
 * ^publisher = "cognovis GmbH"
 

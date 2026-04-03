@@ -8,7 +8,7 @@ Parent: ChargeItem
 Id: de-mira-bema-charge-item
 Title: "BEMA Leistungsposition (DE)"
 Description: "Profil für kassenzahnärztliche Leistungen nach BEMA (Bewertungsmaßstab Zahnärzte). Bildet SWS 2.0 Satzart 6 ab."
-* ^status = #draft
+* ^status = #active
 * ^experimental = true
 * ^publisher = "cognovis GmbH"
 

@@ -3,7 +3,7 @@ Id: privatgebuehr-leistungsart
 Title: "Privatgebühr Leistungsart"
 Description: "Unterscheidung zwischen persönlichen und technischen Leistungen gemäß GOÄ/GOZ §5 Abs. 2. Persönliche Leistungen haben einen Schwellenwert von 2,3; technische Leistungen von 1,8."
 * ^url = "https://fhir.cognovis.de/dental/CodeSystem/privatgebuehr-leistungsart"
-* ^status = #draft
+* ^status = #active
 * ^experimental = true
 * ^caseSensitive = true
 * ^content = #complete

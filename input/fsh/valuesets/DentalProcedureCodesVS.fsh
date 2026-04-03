@@ -3,7 +3,7 @@ Id: dental-procedure-codes
 Title: "Zahnärztliche Leistungscodes"
 Description: "Vereinigtes ValueSet für zahnärztliche Leistungen: BEMA (GKV), GOZ (PKV) und OPS (chirurgische Eingriffe)."
 * ^url = "https://fhir.cognovis.de/dental/ValueSet/dental-procedure-codes"
-* ^status = #draft
+* ^status = #active
 * ^experimental = true
 * ^publisher = "cognovis GmbH"
 

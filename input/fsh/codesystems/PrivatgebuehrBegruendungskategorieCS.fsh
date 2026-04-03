@@ -3,7 +3,7 @@ Id: privatgebuehr-begruendungskategorie
 Title: "Privatgebühr Begründungskategorie"
 Description: "Kategorien für die Begründung eines erhöhten Steigerungsfaktors gemäß GOÄ/GOZ §5 Abs. 2 (persönliche Erschwernis und besondere Umstände der Leistungserbringung)."
 * ^url = "https://fhir.cognovis.de/dental/CodeSystem/privatgebuehr-begruendungskategorie"
-* ^status = #draft
+* ^status = #active
 * ^experimental = true
 * ^caseSensitive = true
 * ^content = #complete
