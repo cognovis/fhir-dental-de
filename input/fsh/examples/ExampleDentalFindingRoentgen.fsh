@@ -26,8 +26,6 @@ Description: "Radiologischer Befund: apikale Aufhellung an Zahn 46 (erster unter
 
 * effectiveDateTime = "2026-02-05T22:20:00+01:00"
 
-// Closest valid SNOMED code to periapical radiolucency/periodontitis; sinus tract not required for this code's use
-* valueCodeableConcept = $sct#74598008 "Periapical abscess with sinus tract"
 * valueCodeableConcept.text = "Apikale Aufhellung — V.a. periapikale Parodontitis"
 
 // Tooth: FDI 46 — cognovis CodeSystem
