@@ -6,6 +6,15 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
+- **fdde-0wc**: Fix display names, ex-tooth URL, obs-7 constraint, and IG parameters
+- **fdde-0wc**: Document display name rationale and obs-7 code change
+- **fdde-0wc**: Add obs-7 rationale comment to AtfBundle example
+- **fdde-0wc**: Obs-7 fix in ExamplePeriodontalObservation, add hl7 tools comment
+
+## [0.8.0] - 2026-04-03
+
+### Bug Fixes
+
 - **fdde-rcf**: Address review findings iteration 1
 - **fdde-rcf**: Address review findings iteration 2
 - **fdde-rcf**: Address cmux review panel findings iteration 1
@@ -17,6 +26,12 @@ All notable changes to this project will be documented in this file.
 ### Miscellaneous
 
 - Bump version to 0.7.0
+- Update changelog
+- Bump version to 0.8.0
+
+### Merge
+
+- Worktree-bead-fdde-rcf
 
 ## [0.7.0] - 2026-04-03
 
