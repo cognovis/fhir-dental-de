@@ -1,8 +1,3 @@
-Alias: $icd10gm = http://fhir.de/CodeSystem/bfarm/icd-10-gm
-Alias: $sct = http://snomed.info/sct
-Alias: $fdi-tooth = http://terminology.hl7.org/CodeSystem/ex-tooth
-Alias: $fdi-surface = http://terminology.hl7.org/CodeSystem/FDI-surface
-
 Profile: DentalProcedureDE
 Parent: Procedure
 Id: de-mira-dental-procedure
