@@ -16,6 +16,6 @@ Description: "LOINC- und SNOMED-CT-Codes fuer Prophylaxe-Befunde: Plaque-Index, 
 
 // SNOMED-CT prophylaxis finding concepts
 * $sct#18949003 "Dental plaque"
-* $sct#129851006 "Oral hygiene assessment"
-* $sct#37397005 "Gingivitis"
-* $sct#427182008 "Periodontal screening"
+* $sct#364126007 "Oral hygiene status"
+* $sct#66383009 "Gingivitis"
+* $sct#251309006 "Community periodontal index of treatment need"
