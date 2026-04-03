@@ -3,11 +3,9 @@
 // vom Zahnarzt an eine Gemeinschaftspraxis über KIM-Adressen.
 //
 // Das Bundle ist konform zu BundleAppTransportFramework (de.gematik.fhir.atf#1.4.1).
-// Der enthaltene MessageHeader ist konform zu MessageHeaderAppTransportFramework.
+// Der enthaltene MessageHeader folgt der ATF-Struktur, aber ohne formale Konformitätsaussage zu MessageHeaderAppTransportFramework, da kein Dental-Anwendungskennzeichen in service-identifier-vs vorhanden ist.
 
 Alias: $atf-bundle    = https://gematik.de/fhir/atf/StructureDefinition/atf-message-bundle
-Alias: $atf-header    = https://gematik.de/fhir/atf/StructureDefinition/atf-message-header
-Alias: $atf-svc-cs    = https://gematik.de/fhir/atf/CodeSystem/service-identifier-cs
 Alias: $kim-sid       = http://gematik.de/fhir/sid/KIM-Adresse
 Alias: $loinc         = http://loinc.org
 Alias: $sct           = http://snomed.info/sct
@@ -49,23 +47,26 @@ Description: "ATF-MessageBundle das einen PSI-Befund (Zahn 46) und eine Kariesdi
 * entry[Patient][0].resource = AtfPatient
 
 // ============================================================
-// MessageHeader — ATF-Pflichtressource (konform zu atf-message-header)
+// MessageHeader — ATF-Pflichtressource (folgt ATF-Struktur, ohne formale Konformitätsaussage)
 // ============================================================
 
 Instance: AtfDentalMessageHeader
 InstanceOf: MessageHeader
 Usage: #inline
 Title: "ATF MessageHeader: Zahnbefund-Übermittlung"
-Description: "MessageHeader für die KIM-basierte Übermittlung zahnärztlicher Befunddaten. Konform zu MessageHeaderAppTransportFramework (de.gematik.fhir.atf)."
+Description: "MessageHeader für die KIM-basierte Übermittlung zahnärztlicher Befunddaten. Folgt der ATF-Struktur ohne formale Konformitätsaussage (kein Dental-Anwendungskennzeichen in service-identifier-vs verfügbar)."
 
-* meta.profile[0] = $atf-header
+// Note: meta.profile for atf-message-header intentionally omitted.
+// The ATF service-identifier-vs has no dental application code (required binding).
+// Conformance to atf-message-header is structural only (event, destination, source).
+// See: https://gematik.de/fhir/atf/ValueSet/service-identifier-vs
 
 // ATF-Pflicht: id muss mit dem letzten Segment der fullUrl übereinstimmen
 // (fullUrl in entry[MessageHeader][0]: "urn:uuid:aa11bb22-cc33-dd44-ee55-ff66aa77bb88")
 * id = "aa11bb22-cc33-dd44-ee55-ff66aa77bb88"
 
-// eventCoding: Dental-spezifischer Anwendungsfall
-* eventCoding = https://fhir.cognovis.de/dental/CodeSystem/dental-category#dental "Dental"
+// eventUri: Dental-spezifischer Anwendungsfall
+* eventUri = "https://fhir.cognovis.de/dental/service/dental-befund-transport"
 
 // Ziel: KIM-Adresse der empfangenden Praxis
 * destination[0].endpoint = "mailto:gemeinschaftspraxis@praxis.kim.telematik"
