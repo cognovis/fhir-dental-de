@@ -1,9 +1,10 @@
 // Example: PSI-Screening Befund, Zahn 36, Sondierungstiefe 4 mm
 // SWS 2.0 Satzart 3 — Zahnärztlicher Befund (Observation)
 
-Alias: $loinc = http://loinc.org
-Alias: $sct   = http://snomed.info/sct
-Alias: $fdi   = http://terminology.hl7.org/CodeSystem/ex-tooth
+Alias: $loinc   = http://loinc.org
+Alias: $sct     = http://snomed.info/sct
+Alias: $fdi     = http://terminology.hl7.org/CodeSystem/ex-tooth
+Alias: $icd10gm = http://fhir.de/CodeSystem/bfarm/icd-10-gm
 
 Instance: ExampleDentalFinding
 InstanceOf: DentalFindingDE
@@ -26,7 +27,7 @@ Description: "Parodontaler Screening-Index (PSI) Befund für Zahn 36 (erster unt
 * effectiveDateTime = "2026-01-15T09:30:00+01:00"
 
 // PSI-Code 2: Sondierungstiefe 3,5–5,5 mm (Tasche vorhanden)
-* valueCodeableConcept = http://fhir.de/CodeSystem/bfarm/icd-10-gm#K05.3 "Chronische Parodontitis"
+* valueCodeableConcept = $icd10gm#K05.3 "Chronische Parodontitis"
 * valueCodeableConcept.text = "PSI-Code 2: Sondierungstiefe 4 mm, Tasche vorhanden"
 
 // Tooth: FDI 36 (lower-left first molar)

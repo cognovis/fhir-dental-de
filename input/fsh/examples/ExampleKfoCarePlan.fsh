@@ -1,6 +1,8 @@
 // Example: KFO-Plan Angle II-1, KIG 4
 // SWS 2.0 Satzart 10 — KFO-Behandlungsplan
 
+Alias: $icd10gm = http://fhir.de/CodeSystem/bfarm/icd-10-gm
+
 Instance: ExampleKfoCarePlan
 InstanceOf: KfoCarePlanDE
 Usage: #example
@@ -54,7 +56,7 @@ Description: "Kieferorthopädische Diagnose: Angle-Klasse II/1 mit vergrößerte
 
 * category[0] = https://fhir.cognovis.de/dental/CodeSystem/dental-category#dental "Dental"
 
-* code = http://fhir.de/CodeSystem/bfarm/icd-10-gm#K07.12 "Distalbiss, Angle-Klasse II"
+* code = $icd10gm#K07.12 "Distalbiss, Angle-Klasse II"
 * code.text = "Angle-Klasse II/1: Distalbiss mit proklinierter Oberkieferfront, Overjet > 9 mm"
 
 * subject = Reference(ExamplePatient)
