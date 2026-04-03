@@ -101,10 +101,10 @@ Title: "PSI-Befund Zahn 46 (ATF-Payload)"
 * id = "finding-psi-46-001"
 * status = #final
 * category[dental] = https://fhir.cognovis.de/dental/CodeSystem/dental-category#dental "Dental"
-* code = $loinc#32884-9 "Periodontal pocket depth [Length] Mouth by Periodontal probing"
+* code = $loinc#32884-9 "Periodontal attachment level"
 * subject = Reference(AtfPatient)
 * effectiveDateTime = "2026-01-15T09:30:00+01:00"
-* valueCodeableConcept = $sct#40104002 "Periodontal pocket"
+* valueCodeableConcept = http://fhir.de/CodeSystem/bfarm/icd-10-gm#K05.3 "Chronische Parodontitis"
 * valueCodeableConcept.text = "PSI-Code 2: Sondierungstiefe 4 mm, Tasche vorhanden"
 * bodySite = $fdi#46 "46"
 * bodySite.text = "Zahn 46 — erster unterer rechter Molar"

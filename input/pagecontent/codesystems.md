@@ -5,7 +5,7 @@ This implementation guide defines the following code systems for German dental t
 #### Billing Code Systems
 - [BEMA](CodeSystem-bema.html) — Bewertungsmaßstab zahnärztlicher Leistungen (GKV)
 - [GOZ](CodeSystem-goz.html) — Gebührenordnung für Zahnärzte (PKV)
-- [GOÄ Zahnarzt](CodeSystem-goa-zahnarzt.html) — Relevante GOÄ-Positionen für Zahnärzte
+- [GOÄ Zahnarzt](CodeSystem-goae-zahn.html) — Relevante GOÄ-Positionen für Zahnärzte
 - [BEL-II](CodeSystem-bel-ii.html) — Zahntechnischer Leistungskatalog
 - [beb'97](CodeSystem-beb97.html) — Private zahntechnische Leistungen
 

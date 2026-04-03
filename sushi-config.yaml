@@ -41,6 +41,12 @@ pages:
   international-interoperability.md:
     title: International Interoperability
 
+parameters:
+  special-url:
+    - http://fhir.de/CodeSystem/kzbv/bema
+    - http://fhir.de/CodeSystem/bzaek/goz
+  suppressed-messages: input/ignoreWarnings.txt
+
 menu:
   Home: index.html
   Profiles: profiles.html
