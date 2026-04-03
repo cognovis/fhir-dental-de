@@ -8,3 +8,4 @@ Description: "Alle Zahnflächen-Codes aus dem ToothSurfacesCS CodeSystem."
 * ^publisher = "cognovis GmbH"
 
 * include codes from system https://fhir.cognovis.de/dental/CodeSystem/tooth-surfaces
+* include codes from system http://terminology.hl7.org/CodeSystem/FDI-surface

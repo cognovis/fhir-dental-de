@@ -1,0 +1,10 @@
+== Suppressed Messages ==
+
+# KBV_PR_FOR_Patient: IG Publisher auto-generates Patient.text narrative
+# but KBV disallows it (max=0). Suppress the resulting validation error.
+Patient.text: max allowed is 0 but found 1
+
+# Suppress KBV_PR_FOR_Patient validation errors for ExamplePatient
+# (slice matching issues due to open/closed slicing on identifier/name)
+Patient.identifier[0]: matches more than one slice
+Patient.name[0]: matches more than one slice

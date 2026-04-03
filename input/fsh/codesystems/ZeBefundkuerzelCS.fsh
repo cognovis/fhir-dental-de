@@ -29,6 +29,7 @@ Description: "Befundkürzel für den Zahnersatz-Befund (Ist-Zustand) gemäß KZB
 
 // Parodontologie
 * #pa "Parodontal behandlungsbedürftig"
+* #pw "Erhaltungswürdiger Zahn mit partieller Zerstörung" "Eigener Zahn mit partieller Substanzzerstörung, erhaltungswürdig"
 
 // Wurzelversorgung
 * #w "Wurzelstift"
