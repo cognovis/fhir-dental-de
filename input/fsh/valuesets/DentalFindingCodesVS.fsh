@@ -8,9 +8,9 @@ Description: "Codes für zahnärztliche Befundarten: LOINC für standardisierte 
 * ^publisher = "cognovis GmbH"
 
 // LOINC codes for dental observations
-* $loinc#34552-0 "Dental findings"
+* $loinc#8704-9 "Physical findings of Mouth"
 * $loinc#34553-8 "Dental history"
-* $loinc#32884-9 "Periodontal attachment level"
+* $loinc#32884-9 "Identification {Tooth}"
 
 // SNOMED-CT dental finding concepts
 * include codes from system $sct

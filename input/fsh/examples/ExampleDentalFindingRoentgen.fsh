@@ -18,7 +18,7 @@ Description: "Radiologischer Befund: apikale Aufhellung an Zahn 46 (erster unter
 
 * category[dental] = https://fhir.cognovis.de/dental/CodeSystem/dental-category#dental "Dental"
 
-* code = $loinc#34552-0 "Dental findings"
+* code = $loinc#8704-9 "Physical findings of Mouth"
 
 * subject = Reference(Patient/pat-beihilfe-01)
 
