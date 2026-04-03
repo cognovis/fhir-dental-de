@@ -1,4 +1,4 @@
-// Example: GOZ 2150 Einlagefüllung (Inlay), Faktor 2.3, Zahn 15
+// Example: GOZ 2150 Aufbaufüllung, Faktor 2.3, Zahn 15
 // SWS 2.0 Satzart 7 — GOZ-Leistungsabrechnung (Privatpatient)
 
 Alias: $fdiCS     = https://fhir.cognovis.de/dental/CodeSystem/tooth-identification-fdi
@@ -8,8 +8,8 @@ Alias: $surfaceCS = https://fhir.cognovis.de/dental/CodeSystem/tooth-surfaces
 Instance: ExampleGozChargeItem
 InstanceOf: GozChargeItemDE
 Usage: #example
-Title: "Beispiel GOZ 2150 Einlagefüllung (Inlay) Zahn 15"
-Description: "GOZ-Leistungsposition 2150 (Einlagefüllung, zweiflächig) für Zahn 15 (zweiter oberer rechter Prämolar). Steigerungsfaktor 2,3 (Regelsatz). Privatpatientin Charlotte von Hohenstein (DKV). Analogleistung-Extension demonstriert."
+Title: "Beispiel GOZ 2150 Aufbaufüllung Zahn 15"
+Description: "GOZ-Leistungsposition 2150 (Aufbaufüllung) für Zahn 15 (zweiter oberer rechter Prämolar). Steigerungsfaktor 2,3 (Regelsatz). Privatpatientin Charlotte von Hohenstein (DKV). Analogleistung-Extension demonstriert."
 
 * extension[fdiToothNumber].valueCode = #15
 
