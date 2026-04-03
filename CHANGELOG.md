@@ -4,6 +4,22 @@ All notable changes to this project will be documented in this file.
 
 ## [unreleased]
 
+### Bug Fixes
+
+- **fdde-rcf**: Address review findings iteration 1
+- **fdde-rcf**: Address review findings iteration 2
+- **fdde-rcf**: Address cmux review panel findings iteration 1
+
+### Features
+
+- **fdde-rcf**: Add missing FSH example instances for referenced resources
+
+### Miscellaneous
+
+- Bump version to 0.7.0
+
+## [0.7.0] - 2026-04-03
+
 ### Features
 
 - **fdde-j3p**: Set status active and releaseLabel trial-use for registry submission
@@ -11,6 +27,11 @@ All notable changes to this project will be documented in this file.
 ### Miscellaneous
 
 - Bump version to 0.6.1
+- Update changelog
+
+### Merge
+
+- Worktree-bead-fdde-j3p
 
 ## [0.6.1] - 2026-04-03
 
