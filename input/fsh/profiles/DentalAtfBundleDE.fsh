@@ -11,6 +11,7 @@ Id: de-mira-dental-atf-bundle
 Title: "Zahnärztliches ATF-MessageBundle (DE)"
 Description: "Profil für den Transport zahnärztlicher Befunde (DentalFinding, DentalCondition) über das gematik Application Transport Framework (ATF) via KIM oder TIM."
 * ^status = #draft
+* ^experimental = true
 * ^publisher = "cognovis GmbH"
 
 // ATF-Pflicht: Bundle-Identifier zur eindeutigen Nachrichtenidentifikation

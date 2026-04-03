@@ -45,7 +45,7 @@ Description: "Dentallabor als Auftragnehmer für zahntechnische Leistungen."
 
 * name = "Zahntechnik Nürnberg GmbH"
 
-* type[0] = http://terminology.hl7.org/CodeSystem/organization-type#other "Other"
+* type[0] = http://terminology.hl7.org/CodeSystem/organization-type#bus "Non-Healthcare Business"
 * type[0].text = "Dentallabor"
 
 * address[0].use = #work

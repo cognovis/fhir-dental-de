@@ -24,6 +24,8 @@ Description: "Parodontaler Screening-Index (PSI) Befund für Zahn 36 (erster unt
 
 * subject = Reference(Patient/pat-gkv-01)
 
+* performer[0] = Reference(ExampleDentalOrganization)
+
 * effectiveDateTime = "2026-01-10T09:30:00+01:00"
 
 // PSI-Code 2: Sondierungstiefe 3,5–5,5 mm (Tasche vorhanden)
