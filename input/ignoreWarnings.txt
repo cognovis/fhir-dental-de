@@ -76,16 +76,21 @@ CodeSystem http://fhir.de/CodeSystem/bfarm/ops not found
 # about unresolvable canonical URLs from these packages.
 # ---------------------------------------------------------------------------
 
-# de.basisprofil.r4 canonical URLs — resolved in CI, not in local builds
-http://fhir.de/StructureDefinition/
-http://fhir.de/CodeSystem/
-http://fhir.de/ValueSet/
-http://fhir.de/NamingSystem/
+# de.basisprofil.r4 canonical URLs — resolved in CI, not in local builds.
+# Specific URLs referenced from our FSH files that cannot be resolved offline.
+# Review this list when updating de.basisprofil.r4 or kbv.* dependency versions.
+URL value 'http://fhir.de/CodeSystem/bzaek/goz'
+URL value 'http://fhir.de/CodeSystem/kzbv/bema'
+URL value 'http://fhir.de/sid/gkv/kvid-10'
+URL value 'http://fhir.de/StructureDefinition/normgroesse'
+URL value 'http://fhir.de/StructureDefinition/humanname-namenszusatz'
+URL value 'http://fhir.de/StructureDefinition/humanname-own-name'
+URL value 'http://fhir.de/StructureDefinition/humanname-own-prefix'
 
-# kbv.basis canonical URLs — resolved in CI
-https://fhir.kbv.de/StructureDefinition/
-https://fhir.kbv.de/ValueSet/
-https://fhir.kbv.de/NamingSystem/
+# kbv.basis / kbv.ita.for canonical URLs — resolved in CI, not in local builds
+URL value 'https://fhir.kbv.de/NamingSystem/KBV_NS_FOR_Patient'
+URL value 'https://fhir.kbv.de/StructureDefinition/KBV_PR_FOR_Patient'
+URL value 'https://fhir.kbv.de/ValueSet/KBV_VS_SFHIR_KBV_STATUSKENNZEICHEN'
 
 # ---------------------------------------------------------------------------
 # HTML fragment warnings — standard IG Publisher behavior
@@ -117,13 +122,14 @@ http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_
 # ---------------------------------------------------------------------------
 # Extension examples missing
 #
-# ALL 22 extensions defined in this IG are intentionally suppressed here.
-# None have dedicated standalone example instances; they are all demonstrated
-# indirectly through profile examples (e.g., ExampleBemaChargeItem uses
-# BemaBefundklasseExt, ExampleDentalFinding uses FdiToothNumberExt, etc.).
+# ALL 22 extensions defined in this IG (as of v0.6.0) are intentionally
+# suppressed here. None have dedicated standalone example instances; they are
+# all demonstrated indirectly through profile examples (e.g., ExampleBemaChargeItem
+# uses BemaBefundklasseExt, ExampleDentalFinding uses FdiToothNumberExt, etc.).
 # Creating standalone extension examples would add little value for implementers.
-# This broad suppression is deliberate and covers all current and future
-# extensions in this IG.
+#
+# NOTE: This suppression must be reviewed when new extensions are added to the IG.
+# Do NOT rely on it to silently hide missing examples for new extensions.
 # ---------------------------------------------------------------------------
 
 # All extensions in this IG are demonstrated via profile examples — no standalone examples needed
