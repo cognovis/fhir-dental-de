@@ -57,6 +57,7 @@ Description: "Generisches Profil fuer Dental-Behandlungsplaene. Unterscheidet Pl
 * period ^short = "Behandlungszeitraum"
 
 // --- Addresses (KFO + PAR) ---
+// Note: intentionally unconstrained (was Reference(Condition) in old KFO/PAR profiles, relaxed for generic use)
 * addresses MS
 * addresses ^short = "Verweis auf zugehoerige Diagnose (Condition)"
 
@@ -68,6 +69,7 @@ Description: "Generisches Profil fuer Dental-Behandlungsplaene. Unterscheidet Pl
 * activity MS
 * activity.detail MS
 * activity.detail.scheduledTiming MS
+// Note: periodUnit not fixed (was #mo in old ParCarePlanDE, relaxed for generic use)
 * activity.detail.scheduledTiming ^short = "Recall-Intervall (scheduledTiming.repeat.period)"
 
 // --- Extensions: alle Typ-spezifischen Extensions als optional ---

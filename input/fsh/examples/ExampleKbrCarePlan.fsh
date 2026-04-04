@@ -13,7 +13,7 @@ Description: "Behandlungsplan für Kieferbruch-Behandlung nach BEMA W-Serie. Fra
 * status = #draft
 * intent = #plan
 
-* category[dental] = DentalCategoryCS#dental "Dental"
+* category[dental] = https://fhir.cognovis.de/dental/CodeSystem/dental-category#dental "Dental"
 * category[planType] = https://fhir.cognovis.de/dental/CodeSystem/dental-care-plan-type#kbr "Kieferbruch-Behandlung (KBR)"
 
 * subject = Reference(Patient/pat-gkv-01)
