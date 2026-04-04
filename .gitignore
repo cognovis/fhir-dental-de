@@ -26,3 +26,6 @@ logs/
 
 # IG Publisher artifacts in root
 Requirements-fromNarrative.json
+
+# Draft documents (not ready for publication)
+docs/white-paper-ihe-dental-europe.md
