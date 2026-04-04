@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 ## [unreleased]
 
+### Miscellaneous
+
+- Bump version to 0.13.1
+
+## [0.13.1] - 2026-04-04
+
 ### Bug Fixes
 
 - **fdde-82z**: Address review findings iteration 1 — use planType: convention
@@ -15,6 +21,11 @@ All notable changes to this project will be documented in this file.
 ### Miscellaneous
 
 - Bump version to 0.13.0
+- Update changelog
+
+### Merge
+
+- Worktree-bead-fdde-82z
 
 ## [0.13.0] - 2026-04-04
 
