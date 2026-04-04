@@ -13,7 +13,7 @@ Description: "Behandlungsplan für Kiefergelenk-Erkrankung (CMD) nach BEMA U-Ser
 * status = #active
 * intent = #plan
 
-* category[dental] = DentalCategoryCS#dental "Dental"
+* category[dental] = https://fhir.cognovis.de/dental/CodeSystem/dental-category#dental "Dental"
 * category[planType] = https://fhir.cognovis.de/dental/CodeSystem/dental-care-plan-type#kgl "Kiefergelenk-Behandlung (KGL)"
 
 * subject = Reference(Patient/pat-gkv-01)
@@ -38,6 +38,8 @@ InstanceOf: Condition
 Usage: #example
 Title: "Beispiel CMD-Diagnose Myoarthropathie"
 Description: "Kraniomandibulare Dysfunktion mit Myoarthropathie als Grundlage für KGL-Behandlungsplan."
+
+* meta.profile[0] = "https://fhir.cognovis.de/dental/StructureDefinition/de-mira-dental-condition"
 
 * clinicalStatus = http://terminology.hl7.org/CodeSystem/condition-clinical#active "Active"
 * verificationStatus = http://terminology.hl7.org/CodeSystem/condition-ver-status#confirmed "Confirmed"
