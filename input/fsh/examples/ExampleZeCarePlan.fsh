@@ -2,7 +2,7 @@
 // SWS 2.0 Satzart 11 — Zahnersatz-Behandlungsplan
 
 Instance: ExampleZeCarePlan
-InstanceOf: ZeCarePlanDE
+InstanceOf: DentalCarePlanDE
 Usage: #example
 Title: "Beispiel ZE-Plan Brücke Zahn 35-37 — gleichartige Versorgung"
 Description: "Zahnersatz-Behandlungsplan für dreigliedrige Brücke Zahn 35-37. Befundkürzel: x (fehlender Zahn). Therapiekürzel: B (Brücke). Versorgungsart: gleichartig. Patient Aylin Özdemir (GKV+ZZV). Eigenanteile werden in der zugehörigen Claim-Ressource erfasst."
@@ -23,6 +23,7 @@ Description: "Zahnersatz-Behandlungsplan für dreigliedrige Brücke Zahn 35-37. 
 * intent = #plan
 
 * category[dental] = https://fhir.cognovis.de/dental/CodeSystem/dental-category#dental "Dental"
+* category[planType] = https://fhir.cognovis.de/dental/CodeSystem/dental-care-plan-type#ze "Zahnersatz (ZE)"
 
 * subject = Reference(Patient/pat-gkv-dental-01)
 
