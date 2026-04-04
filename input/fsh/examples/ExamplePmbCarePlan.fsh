@@ -1,11 +1,11 @@
 // Example: PMB-Plan (Professionelle Mundgesundheitsberatung)
-// Praeventive Massnahmen und professioneller Mundgesundheitsberatung inkl. PZR-Recall
+// Präventive Maßnahmen und professionelle Mundgesundheitsberatung inkl. PZR-Recall
 
 Instance: ExamplePmbCarePlan
 InstanceOf: DentalCarePlanDE
 Usage: #example
 Title: "Beispiel PMB-Plan PZR-Recall 6 Monate"
-Description: "Praeventionsplan fuer professionelle Mundgesundheitsberatung mit PZR-Recall alle 6 Monate. Patient Aylin Oezdemir (GKV+ZZV). Recall-Aktivitaet halbjaehrlich geplant."
+Description: "Präventionsplan für professionelle Mundgesundheitsberatung mit PZR-Recall alle 6 Monate. Patient Aylin Özdemir (GKV+ZZV). Recall-Aktivität halbjährlich geplant."
 
 * identifier[0].system = "https://mira-demo-mvz.de/pmb-plan"
 * identifier[0].value = "PMB-2026-0001"
@@ -23,11 +23,11 @@ Description: "Praeventionsplan fuer professionelle Mundgesundheitsberatung mit P
 * period.start = "2026-01-10"
 * period.end = "2028-01-09"
 
-* title = "PMB-Plan: PZR-Recall-Programm halbjaehrlich"
+* title = "PMB-Plan: PZR-Recall-Programm halbjährlich"
 
-* description = "Professionelle Mundgesundheitsberatung und praeventive Zahnarztbehandlung. Regelmaessige professionelle Zahnreinigung (PZR) im 6-Monats-Intervall. Mundhygieneunterweisung, Fluoridierung, Kariesprophylaxe. Individuelle Praeventionsmassnahmen entsprechend Risikobewertung."
+* description = "Professionelle Mundgesundheitsberatung und präventive Zahnarztbehandlung. Regelmäßige professionelle Zahnreinigung (PZR) im 6-Monats-Intervall. Mundhygieneunterweisung, Fluoridierung, Kariesprophylaxe. Individuelle Präventionsmaßnahmen entsprechend Risikobewertung."
 
-// PZR-Recall-Aktivitaet: alle 6 Monate
+// PZR-Recall-Aktivität: alle 6 Monate
 * activity[0].detail.status = #scheduled
 * activity[0].detail.code = http://snomed.info/sct#70762009 "Professional dental prophylaxis"
 * activity[0].detail.code.text = "PZR — Professionelle Zahnreinigung"
