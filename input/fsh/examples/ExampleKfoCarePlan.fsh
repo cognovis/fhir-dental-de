@@ -4,7 +4,7 @@
 Alias: $icd10gm = http://fhir.de/CodeSystem/bfarm/icd-10-gm
 
 Instance: ExampleKfoCarePlan
-InstanceOf: KfoCarePlanDE
+InstanceOf: DentalCarePlanDE
 Usage: #example
 Title: "Beispiel KFO-Behandlungsplan Angle II/1 KIG 4"
 Description: "Kieferorthopädischer Behandlungsplan für Angle-Klasse II/1 mit KIG-Stufe 4. Festsitzende Apparatur, aktive Behandlungsphase. Beginn 2026-02-01, geplantes Ende 2028-01-31. Patient Klaus Bergmann."
@@ -19,6 +19,7 @@ Description: "Kieferorthopädischer Behandlungsplan für Angle-Klasse II/1 mit K
 * intent = #plan
 
 * category[dental] = https://fhir.cognovis.de/dental/CodeSystem/dental-category#dental "Dental"
+* category[planType] = https://fhir.cognovis.de/dental/CodeSystem/dental-care-plan-type#kfo "Kieferorthopaedie (KFO)"
 
 * subject = Reference(Patient/pat-gkv-01)
 
