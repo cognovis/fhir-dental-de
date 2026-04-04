@@ -5,7 +5,7 @@ Instance: ExampleKglCarePlan
 InstanceOf: DentalCarePlanDE
 Usage: #example
 Title: "Beispiel KGL-Behandlungsplan Kiefergelenk CMD"
-Description: "Behandlungsplan fuer Kiefergelenk-Erkrankung (CMD) nach BEMA U-Serie. Kraniomandibulare Dysfunktion mit Myoarthropathie. Patient Klaus Bergmann (GKV). Inkl. Funktionsanalyse als unterstuetzende Information."
+Description: "Behandlungsplan für Kiefergelenk-Erkrankung (CMD) nach BEMA U-Serie. Kraniomandibulare Dysfunktion mit Myoarthropathie. Patient Klaus Bergmann (GKV). Inkl. Funktionsanalyse als unterstützende Information."
 
 * identifier[0].system = "https://mira-demo-mvz.de/kgl-plan"
 * identifier[0].value = "KGL-2026-0001"
@@ -27,17 +27,17 @@ Description: "Behandlungsplan fuer Kiefergelenk-Erkrankung (CMD) nach BEMA U-Ser
 
 * description = "Kiefergelenk-Behandlung nach BEMA U-Serie. Diagnose: Kraniomandibulare Dysfunktion (CMD) mit Myoarthropathie (ICD-10: K07.6). Therapieplanung: instrumentelle Funktionsanalyse (U10), Aufbissschiene (U11), Physiotherapiekooperation. Behandlungszeitraum 6 Monate mit Verlaufskontrolle."
 
-// Funktionsanalyse als unterstuetzende Information
+// Funktionsanalyse als unterstützende Information
 * supportingInfo[0] = Reference(ExampleFunktionsanalyseDiagnose)
 
 // -----------------------------------------------------------------------
-// Inline Diagnose fuer Funktionsanalyse (referenced by KGL CarePlan)
+// Inline Diagnose für Funktionsanalyse (referenced by KGL CarePlan)
 // -----------------------------------------------------------------------
 Instance: ExampleFunktionsanalyseDiagnose
 InstanceOf: Condition
 Usage: #example
 Title: "Beispiel CMD-Diagnose Myoarthropathie"
-Description: "Kraniomandibulare Dysfunktion mit Myoarthropathie als Grundlage fuer KGL-Behandlungsplan."
+Description: "Kraniomandibulare Dysfunktion mit Myoarthropathie als Grundlage für KGL-Behandlungsplan."
 
 * clinicalStatus = http://terminology.hl7.org/CodeSystem/condition-clinical#active "Active"
 * verificationStatus = http://terminology.hl7.org/CodeSystem/condition-ver-status#confirmed "Confirmed"
