@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file.
 
 ## [unreleased]
 
+### Features
+
+- **fdde-cf0**: Add SNOMED bone resorption codes to PeriodontalFindingCodesVS
+- **fdde-cf0**: Add ExampleDentalFindingKnochenresorption with derivedFrom ImagingStudy
+
+### Miscellaneous
+
+- Bump version to 0.9.0
+
+## [0.9.0] - 2026-04-04
+
 ### Bug Fixes
 
 - Copy package-list.json and publication-request.json to output for GitHub Pages
@@ -19,6 +30,7 @@ All notable changes to this project will be documented in this file.
 ### Miscellaneous
 
 - Bump version to 0.8.7
+- Update changelog
 
 ## [0.8.7] - 2026-04-04
 
