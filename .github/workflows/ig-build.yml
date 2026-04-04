@@ -72,10 +72,10 @@ jobs:
 
       - name: Copy root files to output
         run: |
-          # package-list.json and publication-request.json must be served at the canonical URL
-          for f in package-list.json publication-request.json; do
-            [ -f "$f" ] && cp "$f" output/
-          done
+          # package-list.json must be served at the canonical URL but not in root during build
+          # (IG Publisher flags it as error if found in root)
+          [ -f ".package-list.json" ] && cp .package-list.json output/package-list.json
+          [ -f "publication-request.json" ] && cp publication-request.json output/
 
       - name: Build release package
         run: |
