@@ -4,9 +4,37 @@ All notable changes to this project will be documented in this file.
 
 ## [unreleased]
 
+### Bug Fixes
+
+- **fdde-6qx**: Address review findings iteration 1 — use Unicode in new example files
+
+### Documentation
+
+- **fdde-6qx**: Update sws-mapping with KBR/KGL entries and DentalCarePlanDE references
+- Add SWS 2.0 research summary and quick reference
+
+### Features
+
+- **fdde-6qx**: Green — DentalCarePlanDE generic profile with 7 plan types
+
+### Miscellaneous
+
+- Bump version to 0.11.0
+
+### Style
+
+- **fdde-6qx**: Use DentalCategoryCS FSH name in new examples (consistency)
+
+## [0.11.0] - 2026-04-04
+
 ### Miscellaneous
 
 - Bump version to 0.10.0
+- Update changelog
+
+### Merge
+
+- Worktree-bead-fdde-yku
 
 ## [0.10.0] - 2026-04-04
 
