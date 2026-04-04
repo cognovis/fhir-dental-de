@@ -4,14 +4,30 @@ All notable changes to this project will be documented in this file.
 
 ## [unreleased]
 
+### Miscellaneous
+
+- Bump version to 0.10.0
+
+## [0.10.0] - 2026-04-04
+
+### Bug Fixes
+
+- **fdde-yku**: Address review findings iteration 1
+
 ### Features
 
+- **fdde-yku**: Replace PAR1-PAR10 with official KZBV codes (ATG/MHU/AIT/BEV/CPT/UPT)
 - **fdde-cf0**: Add SNOMED bone resorption codes to PeriodontalFindingCodesVS
 - **fdde-cf0**: Add ExampleDentalFindingKnochenresorption with derivedFrom ImagingStudy
 
 ### Miscellaneous
 
 - Bump version to 0.9.0
+- Update changelog
+
+### Merge
+
+- Worktree-bead-fdde-cf0
 
 ## [0.9.0] - 2026-04-04
 
