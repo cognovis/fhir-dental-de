@@ -6,11 +6,30 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
+- Copy package-list.json and publication-request.json to output for GitHub Pages
+- Resolve QA report errors in publication metadata
+- Suppress praxis dependency canonical URL warnings in QA report
+- Suppress IG_DEPENDENCY_DIRECT error for praxis dependency
+- Revert praxis dependency to current (not yet published on registry)
+
+### Features
+
+- Prepare IG for FHIR registry publication
+
+### Miscellaneous
+
+- Bump version to 0.8.7
+
+## [0.8.7] - 2026-04-04
+
+### Bug Fixes
+
 - Set experimental=false on all resources, pin ICD-10-GM version, suppress external binding warning
 
 ### Miscellaneous
 
 - Bump version to 0.8.6
+- Update changelog
 
 ## [0.8.6] - 2026-04-03
 
