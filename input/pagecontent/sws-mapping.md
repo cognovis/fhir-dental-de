@@ -269,6 +269,37 @@ Dental prosthetics documentation with fixed subsidy calculation. Contains findin
 
 ---
 
+### KBR: Kieferbruch-Behandlung (BEMA W-Serie)
+
+Treatment plans for jaw fracture and injuries. Not a formal SWS Satzart, but maps to BEMA W-Serie procedures (W10–W25). Modelled as a generic `DentalCarePlanDE` instance with `category[planType] = #kbr`.
+
+| SWS / BEMA Field | Name (DE) | FHIR Resource | FHIR Path | Notes |
+|-----------------|-----------|---------------|-----------|-------|
+| Plan-ID | Interne Plan-ID | `CarePlan` | `CarePlan.identifier` | |
+| Plantyp | Kieferbruch (W-Serie) | `CarePlan` | `CarePlan.category[planType]` | code: `#kbr` |
+| Diagnose | Kieferbruch-Diagnose (ICD-10) | `Condition` | `CarePlan.addresses` | e.g. S02.6 Unterkieferfraktur |
+| Erstelldatum | Plan creation date | `CarePlan` | `CarePlan.created` | |
+| Behandlungszeitraum | Treatment period (typ. 6 weeks) | `CarePlan` | `CarePlan.period` | |
+| W-Positionen | BEMA W-Serie services (W10–W25) | `ChargeItem` | → Satzart 6 mapping | Kieferbruch/Schienentherapie |
+
+---
+
+### KGL: Kiefergelenk-Behandlung (BEMA U-Serie)
+
+Treatment plans for temporomandibular joint (TMJ) disorders and craniomandibular dysfunction (CMD). Maps to BEMA U-Serie procedures (U10–U15). Modelled as a generic `DentalCarePlanDE` instance with `category[planType] = #kgl`.
+
+| SWS / BEMA Field | Name (DE) | FHIR Resource | FHIR Path | Notes |
+|-----------------|-----------|---------------|-----------|-------|
+| Plan-ID | Interne Plan-ID | `CarePlan` | `CarePlan.identifier` | |
+| Plantyp | Kiefergelenk (U-Serie) | `CarePlan` | `CarePlan.category[planType]` | code: `#kgl` |
+| Funktionsanalyse | Instrumental function analysis | `CarePlan` | `CarePlan.supportingInfo` | Reference to Condition/Observation |
+| Schiene | Occlusal splint therapy | `CarePlan` | `CarePlan.activity` | U11 (Aufbissschiene) |
+| Erstelldatum | Plan creation date | `CarePlan` | `CarePlan.created` | |
+| Behandlungszeitraum | Treatment period | `CarePlan` | `CarePlan.period` | |
+| U-Positionen | BEMA U-Serie services (U10–U15) | `ChargeItem` | → Satzart 6 mapping | CMD/Kiefergelenk-Behandlung |
+
+---
+
 ### Satzart 12: Röntgendiagnostik
 
 Radiological imaging and findings. Covers single-tooth X-rays (EZA), panoramic (OPG/DVT), bitewing, and cephalometric (FRS). Contains radiation exposure, acquisition data, and finding text.

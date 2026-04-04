@@ -4,7 +4,7 @@
 Alias: $icd10gm = http://fhir.de/CodeSystem/bfarm/icd-10-gm
 
 Instance: ExampleParCarePlan
-InstanceOf: ParCarePlanDE
+InstanceOf: DentalCarePlanDE
 Usage: #example
 Title: "Beispiel PAR-Behandlungsplan UPT 3 Monate"
 Description: "Parodontologischer Behandlungsplan (PAR-Richtlinie 07/2021) für generalisierten Parodontitis-Befund. UPT-Recall-Intervall 3 Monate. Behandlungszeitraum: 2026-02-10 bis 2028-02-09. Patient Friedrich Hartmann (Beihilfe)."
@@ -18,6 +18,7 @@ Description: "Parodontologischer Behandlungsplan (PAR-Richtlinie 07/2021) für g
 * intent = #plan
 
 * category[dental] = https://fhir.cognovis.de/dental/CodeSystem/dental-category#dental "Dental"
+* category[planType] = https://fhir.cognovis.de/dental/CodeSystem/dental-care-plan-type#par "Parodontologie (PAR)"
 
 * subject = Reference(Patient/pat-beihilfe-01)
 

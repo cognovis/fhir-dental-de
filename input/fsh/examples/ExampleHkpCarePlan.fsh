@@ -2,7 +2,7 @@
 // SWS 2.0 Satzart 8 — Heil- und Kostenplan
 
 Instance: ExampleHkpCarePlan
-InstanceOf: HkpCarePlanDE
+InstanceOf: DentalCarePlanDE
 Usage: #example
 Title: "Beispiel HKP Brücke Zahn 35-37 — genehmigt"
 Description: "Heil- und Kostenplan (HKP) für Brückenversorgung Zahn 35-37 (Zahn 36 fehlt). Status: genehmigt durch Barmer am 2026-02-01. Patient Aylin Özdemir (GKV+ZZV)."
@@ -23,6 +23,7 @@ Description: "Heil- und Kostenplan (HKP) für Brückenversorgung Zahn 35-37 (Zah
 * intent = #plan
 
 * category[dental] = https://fhir.cognovis.de/dental/CodeSystem/dental-category#dental "Dental"
+* category[planType] = https://fhir.cognovis.de/dental/CodeSystem/dental-care-plan-type#hkp "Heil- und Kostenplan (HKP)"
 
 * subject = Reference(Patient/pat-gkv-dental-01)
 
