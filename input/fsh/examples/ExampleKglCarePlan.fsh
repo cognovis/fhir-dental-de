@@ -13,7 +13,7 @@ Description: "Behandlungsplan für Kiefergelenk-Erkrankung (CMD) nach BEMA U-Ser
 * status = #active
 * intent = #plan
 
-* category[dental] = https://fhir.cognovis.de/dental/CodeSystem/dental-category#dental "Dental"
+* category[dental] = DentalCategoryCS#dental "Dental"
 * category[planType] = https://fhir.cognovis.de/dental/CodeSystem/dental-care-plan-type#kgl "Kiefergelenk-Behandlung (KGL)"
 
 * subject = Reference(Patient/pat-gkv-01)
