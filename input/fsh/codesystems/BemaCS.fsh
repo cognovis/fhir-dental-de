@@ -144,16 +144,17 @@ Description: "Gebührenverzeichnis für zahnärztliche Leistungen im Rahmen der 
 * #128 "KFO Nachsorge"
 
 // PAR-Leistungen nach PAR-Richtlinie 2021
-* #PAR1 "Systematische Parodontitisbehandlung: Anamnese und Befund"
-* #PAR2 "PAR-Vorbehandlung"
-* #PAR3 "Subgingivale Instrumentierung"
-* #PAR4 "Antiinfektiöse Therapie"
-* #PAR5 "Reevaluation nach antiinfektiöser Therapie"
-* #PAR6 "Parodontalchirurgische Maßnahme"
-* #PAR7 "Unterstützende Parodontitistherapie (UPT)"
-* #PAR8 "UPT Mundhygiene"
-* #PAR9 "UPT Subgingivale Instrumentierung"
-* #PAR10 "UPT Abschluss"
+* #ATG "Parodontologisches Aufklärungs- und Therapiegespräch (28 Punkte)"
+* #MHU "Patientenindividuelle Mundhygieneunterweisung (45 Punkte)"
+* #AIT-a "Antiinfektiöse Therapie geschlossen (pro Zahn) (7 Punkte)"
+* #AIT-b "Antiinfektiöse Therapie offen (pro Zahn) (7 Punkte)"
+* #BEV "Befundevaluation (40 Punkte)"
+* #CPT-a "Chirurgische PAR-Therapie Lappenoperation (pro Zahn) (30 Punkte)"
+* #CPT-b "Chirurgische PAR-Therapie regenerativ (pro Zahn) (55 Punkte)"
+* #UPT-a "Unterstützende Parodontitistherapie bis 6. Monat (200 Punkte)"
+* #UPT-b "Unterstützende Parodontitistherapie 7.-12. Monat (160 Punkte)"
+* #UPT-c "Unterstützende Parodontitistherapie 13.-18. Monat (120 Punkte)"
+* #UPT-d "Unterstützende Parodontitistherapie 19.-24. Monat (120 Punkte)"
 
 // Röntgenleistungen (Ä-Positionen, von GOÄ übernommen)
 * #Ae925 "Panoramaschichtaufnahme"
