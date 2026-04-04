@@ -55,8 +55,8 @@ jobs:
           fi
           echo "Downloading praxis dependency from: $ASSET_URL"
           curl -L -o /tmp/praxis.tgz "$ASSET_URL"
-          mkdir -p ~/.fhir/packages/de.cognovis.fhir.praxis#current
-          tar xzf /tmp/praxis.tgz -C ~/.fhir/packages/de.cognovis.fhir.praxis#current/
+          mkdir -p ~/.fhir/packages/de.cognovis.fhir.praxis#0.13.0
+          tar xzf /tmp/praxis.tgz -C ~/.fhir/packages/de.cognovis.fhir.praxis#0.13.0/
 
       - name: Run SUSHI
         run: sushi .
