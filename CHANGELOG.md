@@ -6,6 +6,16 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
+- Set experimental=false on all resources, pin ICD-10-GM version, suppress external binding warning
+
+### Miscellaneous
+
+- Bump version to 0.8.6
+
+## [0.8.6] - 2026-04-03
+
+### Bug Fixes
+
 - **fdde-b9n**: Reduce IG Publisher warnings via special-url, CS fixes, and ignoreWarnings
 - **fdde-b9n**: Fix pin-canonicals error and add ICD-10-GM version warning to ignoreWarnings
 - **fdde-b9n**: Fix display names and expand ignoreWarnings for localization
@@ -18,6 +28,11 @@ All notable changes to this project will be documented in this file.
 ### Miscellaneous
 
 - Bump version to 0.8.5
+- Update changelog
+
+### Merge
+
+- Worktree-bead-fdde-b9n
 
 ## [0.8.5] - 2026-04-03
 
