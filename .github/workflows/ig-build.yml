@@ -70,6 +70,13 @@ jobs:
       - name: Run IG Publisher
         run: java -jar input-cache/publisher.jar -ig .
 
+      - name: Copy root files to output
+        run: |
+          # package-list.json and publication-request.json must be served at the canonical URL
+          for f in package-list.json publication-request.json; do
+            [ -f "$f" ] && cp "$f" output/
+          done
+
       - name: Build release package
         run: |
           VERSION=$(tr -d '[:space:]' < VERSION)
