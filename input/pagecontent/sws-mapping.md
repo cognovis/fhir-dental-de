@@ -35,6 +35,8 @@ SWS 2.0 organizes dental practice data into 14 record types (Satzarten, numbered
 | **12** | Röntgendiagnostik | Radiological imaging |
 | **13** | Labordaten / ZTL-Daten | Dental laboratory data |
 
+**Note:** KBR (Kieferbruch, BEMA W-Serie) and KGL (Kiefergelenk, BEMA U-Serie) do not have separate SWS Satzarten. Their treatment plans are documented as `CarePlan` resources with `category[planType]` from `DentalCarePlanTypeCS` and their BEMA services are recorded as `ChargeItem` resources under Satzart 6.
+
 ---
 
 ## 2. Satzart → FHIR Resource Mapping
@@ -51,10 +53,12 @@ SWS 2.0 organizes dental practice data into 14 record types (Satzarten, numbered
 | **5** Zahnschema | `Observation` (Odontogram) | `BodyStructure` |
 | **6** BEMA-Leistungen | `ChargeItem` | `ChargeItemDefinition`, `Claim` |
 | **7** GOZ-/GOÄ-Leistungen | `ChargeItem` | `ChargeItemDefinition`, `Invoice` |
-| **8** HKP / KV | `CarePlan` | `RequestGroup`, `Claim`, `ClaimResponse` |
-| **9** PAR-Plan | `CarePlan` | `ServiceRequest`, `Observation` |
-| **10** KFO | `CarePlan` | `ServiceRequest`, `Claim` |
-| **11** ZE / Festzuschüsse | `CarePlan` | `Claim`, `ClaimResponse`, `ChargeItem` |
+| **8** HKP / KV | `CarePlan` (`DentalCarePlanDE`, planType=#hkp) | `RequestGroup`, `Claim`, `ClaimResponse` |
+| **9** PAR-Plan | `CarePlan` (`DentalCarePlanDE`, planType=#par) | `ServiceRequest`, `Observation` |
+| **10** KFO | `CarePlan` (`DentalCarePlanDE`, planType=#kfo) | `ServiceRequest`, `Claim` |
+| **11** ZE / Festzuschüsse | `CarePlan` (`DentalCarePlanDE`, planType=#ze) | `Claim`, `ClaimResponse`, `ChargeItem` |
+| **KBR** (BEMA W-Serie) | `CarePlan` (`DentalCarePlanDE`, planType=#kbr) | `ChargeItem` (W10–W25), `Condition` |
+| **KGL** (BEMA U-Serie) | `CarePlan` (`DentalCarePlanDE`, planType=#kgl) | `ChargeItem` (U10–U15), `Condition` |
 | **12** Röntgendiagnostik | `ImagingStudy` | `Observation`, `DiagnosticReport` |
 | **13** Labordaten / ZTL | `ServiceRequest` + `ChargeItem` | `Organization` (Lab) |
 
@@ -516,11 +520,13 @@ Extension URLs (base: https://fhir.cognovis.de/dental/StructureDefinition/):
 
 ## 4. Design Decisions
 
-### CarePlan for HKP/KV/PAR/KFO
+### CarePlan for HKP/KV/PAR/KFO/KBR/KGL/PMB
 
 `CarePlan` is the correct FHIR resource for treatment plans — it represents the clinical plan that drives care delivery. The billing aspects (authorization submission, insurer response) are handled by `Claim` and `ClaimResponse` as companions. This keeps the clinical and financial concerns separated while allowing navigation between them.
 
-Alternatives considered: `RequestGroup` alone (too coarse, loses plan lifecycle), `ServiceRequest` alone (single service, not a multi-step plan).
+All dental treatment plans are modelled as `DentalCarePlanDE` instances. The plan type is distinguished via `category[planType]` with a required binding to `DentalCarePlanTypeVS` (codes: ze, hkp, par, kfo, kbr, kgl, pmb). This replaces the earlier approach of separate profiles per plan type (ZeCarePlanDE, HkpCarePlanDE, ParCarePlanDE, KfoCarePlanDE) and avoids code duplication when new plan types (KBR, KGL, PMB) are added.
+
+Alternatives considered: `RequestGroup` alone (too coarse, loses plan lifecycle), `ServiceRequest` alone (single service, not a multi-step plan), separate profile per plan type (95% code duplication, rejected).
 
 ### ChargeItem Instead of Procedure for Billing
 
