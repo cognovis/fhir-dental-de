@@ -38,6 +38,8 @@ pages:
     title: Value Sets
   usecases.md:
     title: Use Cases
+  lab-orders.md:
+    title: Clinical Lab Orders
   sws-mapping.md:
     title: SWS 2.0 Mapping
   international-interoperability.md:
@@ -75,6 +77,12 @@ parameters:
     - https://fhir.cognovis.de/dental/CodeSystem/par-stadium
     - https://fhir.cognovis.de/dental/CodeSystem/kfo-apparatus-type
     - https://fhir.cognovis.de/dental/CodeSystem/tooth-identification-fdi
+    - https://fhir.cognovis.de/dental/CodeSystem/restoration-type
+    - https://fhir.cognovis.de/dental/CodeSystem/vita-classical
+    - https://fhir.cognovis.de/dental/CodeSystem/dental-material
+    - https://fhir.cognovis.de/dental/CodeSystem/preparation-type
+    - https://fhir.cognovis.de/dental/CodeSystem/dental-lab-order-type
+    - https://fhir.cognovis.de/dental/CodeSystem/occlusion-concept
   path-suppressed-warnings: input/ignoreWarnings.txt
 
 menu:
