@@ -133,11 +133,6 @@ Canonical URL 'http://fhir.org/packages/kbv.basis/ImplementationGuide/kbv.basis'
 Canonical URL 'http://fhir.org/packages/kbv.ita.for/ImplementationGuide/kbv.ita.for' kann nicht aufgelöst werden
 Canonical URL 'http://fhir.org/packages/de.gematik.fhir.atf/ImplementationGuide/de.gematik.fhir.atf' kann nicht aufgelöst werden
 
-# de.cognovis.fhir.praxis — self-hosted IG, canonical URL does not serve FHIR IG resource directly
-The canonical URL https://fhir.cognovis.de/praxis doesn't point to an actual ImplementationGuide resource
-The URL should refer directly to the ImplementationGuide resource (e.g. include '/ImplementationGuide/')
-%fhir.cognovis.de/praxis%
-
 The canonical URL http://fhir.org/packages/de.basisprofil.r4/ImplementationGuide/de.basisprofil.r4 doesn't point to an actual ImplementationGuide resource
 The canonical URL http://fhir.org/packages/kbv.basis/ImplementationGuide/kbv.basis doesn't point to an actual ImplementationGuide resource
 The canonical URL http://fhir.org/packages/kbv.ita.for/ImplementationGuide/kbv.ita.for doesn't point to an actual ImplementationGuide resource
