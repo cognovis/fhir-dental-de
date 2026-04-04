@@ -18,10 +18,7 @@ This implementation guide defines the following profiles for German dental pract
 - [DentalEncounterDE](StructureDefinition-de-mira-dental-encounter.html) — Abrechnungsfall (Encounter)
 
 #### Treatment Plans
-- [HkpCarePlanDE](StructureDefinition-de-mira-hkp-care-plan.html) — Heil- und Kostenplan (CarePlan)
-- [ParCarePlanDE](StructureDefinition-de-mira-par-care-plan.html) — PAR-Behandlungsplan (CarePlan)
-- [KfoCarePlanDE](StructureDefinition-de-mira-kfo-care-plan.html) — KFO-Behandlungsplan (CarePlan)
-- [ZeCarePlanDE](StructureDefinition-de-mira-ze-care-plan.html) — ZE-Behandlungsplan (CarePlan)
+- [DentalCarePlanDE](StructureDefinition-de-mira-dental-care-plan.html) — Dental Behandlungsplan: HKP, PAR, KFO, ZE, KBR, KGL, PMB (CarePlan, via category[planType])
 
 #### Supporting Profiles
 - [DentalOrganizationDE](StructureDefinition-de-mira-dental-organization.html) — Zahnarztpraxis (Organization)
