@@ -4,6 +4,9 @@ This implementation guide defines the following profiles for German dental pract
 
 #### Clinical Profiles
 - [DentalFindingDE](StructureDefinition-de-mira-dental-finding.html) — Zahnärztlicher Befund (Observation)
+- [PeriodontalObservationDE](StructureDefinition-de-mira-periodontal-observation.html) — Parodontalbefund (Observation)
+- [ProphylaxisObservationDE](StructureDefinition-de-mira-prophylaxis-observation.html) — Prophylaxe-Befund (Observation)
+- [OralHealthScreeningDE](StructureDefinition-de-mira-oral-health-screening.html) — Oral Health Screening: parafunktionale Habits, orale Risikofaktoren, systemische Screening-Befunde (Observation)
 - [DentalConditionDE](StructureDefinition-de-mira-dental-condition.html) — Zahnärztliche Diagnose (Condition)
 - [DentalProcedureDE](StructureDefinition-de-mira-dental-procedure.html) — Zahnärztliche Behandlung (Procedure)
 - [DentalCommunicationDE](StructureDefinition-de-mira-dental-communication.html) — Zahnärztliche Kommunikation (Communication)
