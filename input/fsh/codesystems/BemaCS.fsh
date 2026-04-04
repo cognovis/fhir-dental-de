@@ -144,16 +144,17 @@ Description: "Gebührenverzeichnis für zahnärztliche Leistungen im Rahmen der 
 * #128 ""
 
 // PAR-Leistungen nach PAR-Richtlinie 2021
-* #PAR1 "Systematische Parodontitisbehandlung: Anamnese und Befund"
-* #PAR2 ""
-* #PAR3 "Subgingivale Instrumentierung"
-* #PAR4 "Antiinfektiöse Therapie"
-* #PAR5 "Reevaluation nach antiinfektiöser Therapie"
-* #PAR6 "Parodontalchirurgische Maßnahme"
-* #PAR7 "Unterstützende Parodontitistherapie (UPT)"
-* #PAR8 "UPT Mundhygiene"
-* #PAR9 "UPT Subgingivale Instrumentierung"
-* #PAR10 "UPT Abschluss"
+* #ATG ""
+* #MHU ""
+* #AIT-a ""
+* #AIT-b ""
+* #BEV ""
+* #CPT-a ""
+* #CPT-b ""
+* #UPT-a ""
+* #UPT-b ""
+* #UPT-c ""
+* #UPT-d ""
 
 // Röntgenleistungen (Ä-Positionen, von GOÄ übernommen)
 * #Ae925 ""
