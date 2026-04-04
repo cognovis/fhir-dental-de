@@ -8,6 +8,10 @@ Description: "Gebührenverzeichnis für zahnärztliche Leistungen im Rahmen der 
 * ^caseSensitive = true
 * ^content = #fragment
 * ^publisher = "cognovis GmbH (Vorschlag)"
+* ^property[0].code = #punkte
+* ^property[0].uri = "https://fhir.cognovis.de/dental/CodeSystem/property#punkte"
+* ^property[0].description = "BEMA-Punktzahl"
+* ^property[0].type = #integer
 
 // Konservierende Behandlung (01-39)
 * #01 "Eingehende Untersuchung"
@@ -145,16 +149,38 @@ Description: "Gebührenverzeichnis für zahnärztliche Leistungen im Rahmen der 
 
 // PAR-Leistungen nach PAR-Richtlinie 2021
 * #ATG "Parodontologisches Aufklärungs- und Therapiegespräch (28 Punkte)"
+  * ^property[0].code = #punkte
+  * ^property[0].valueInteger = 28
 * #MHU "Patientenindividuelle Mundhygieneunterweisung (45 Punkte)"
+  * ^property[0].code = #punkte
+  * ^property[0].valueInteger = 45
 * #AIT-a "Antiinfektiöse Therapie geschlossen (pro Zahn) (7 Punkte)"
+  * ^property[0].code = #punkte
+  * ^property[0].valueInteger = 7
 * #AIT-b "Antiinfektiöse Therapie offen (pro Zahn) (7 Punkte)"
+  * ^property[0].code = #punkte
+  * ^property[0].valueInteger = 7
 * #BEV "Befundevaluation (40 Punkte)"
+  * ^property[0].code = #punkte
+  * ^property[0].valueInteger = 40
 * #CPT-a "Chirurgische PAR-Therapie Lappenoperation (pro Zahn) (30 Punkte)"
+  * ^property[0].code = #punkte
+  * ^property[0].valueInteger = 30
 * #CPT-b "Chirurgische PAR-Therapie regenerativ (pro Zahn) (55 Punkte)"
+  * ^property[0].code = #punkte
+  * ^property[0].valueInteger = 55
 * #UPT-a "Unterstützende Parodontitistherapie bis 6. Monat (200 Punkte)"
+  * ^property[0].code = #punkte
+  * ^property[0].valueInteger = 200
 * #UPT-b "Unterstützende Parodontitistherapie 7.-12. Monat (160 Punkte)"
+  * ^property[0].code = #punkte
+  * ^property[0].valueInteger = 160
 * #UPT-c "Unterstützende Parodontitistherapie 13.-18. Monat (120 Punkte)"
+  * ^property[0].code = #punkte
+  * ^property[0].valueInteger = 120
 * #UPT-d "Unterstützende Parodontitistherapie 19.-24. Monat (120 Punkte)"
+  * ^property[0].code = #punkte
+  * ^property[0].valueInteger = 120
 
 // Röntgenleistungen (Ä-Positionen, von GOÄ übernommen)
 * #Ae925 "Panoramaschichtaufnahme"
