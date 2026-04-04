@@ -21,3 +21,8 @@ Description: "LOINC- und SNOMED-CT-Codes fuer parodontale Befunde: Sondierungsti
 * $sct#86276007 "Bleeding on probing"
 * $sct#109728009 "Furcation involvement"
 * $sct#2556008 "Periodontal disease"
+
+// SNOMED-CT bone resorption concepts
+* $sct#95570007 "Alveolar bone loss"
+* $sct#427936003 "Localized alveolar bone loss"
+* $sct#428245007 "Generalized alveolar bone loss"
