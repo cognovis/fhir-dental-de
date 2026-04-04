@@ -119,12 +119,23 @@ See [SWS 2.0 Mapping](sws-mapping.html) for the complete field-level mapping.
 
 #### 7. Dental Imaging and Lab Orders
 
-**Problem:** Dental imaging (OPG, Einzelzahnaufnahmen, DVT) and lab work (Kronen, Brücken, Prothesen) require structured data exchange between practice, lab, and insurer.
+**Problem:** Dental imaging (OPG, Einzelzahnaufnahmen, DVT) and lab work (Kronen, Brücken, Prothesen) require structured data exchange between practice, lab, and insurer. Internationally, no FHIR standard exists for **clinical** dental lab orders — existing standards (VDDS Laborschnittstelle, eLABZ) cover only billing data, while clinical information (shade, material, preparation type) is still communicated via free-text or paper.
 
 **Solution:**
 
 - [**DentalImagingStudyDE**](StructureDefinition-de-mira-dental-imaging-study.html) — Dental radiograph metadata with modality (OPG/intraoral/DVT), tooth region (FDI), and findings reference
-- [**DentalLabServiceRequestDE**](StructureDefinition-de-mira-dental-lab-service-request.html) — Lab order with BEL II (GKV) or beb'97 (PKV) material/work codes, tooth references, and material specifications (ZTL-Material CodeSystem)
+- [**DentalLabServiceRequestDE**](StructureDefinition-de-mira-dental-lab-service-request.html) — Complete lab order combining:
+  - **Administrative:** BEL II / beb'97 billing positions (via ChargeItem), lab and patient references
+  - **Clinical:** Restoration type, tooth shade (VITA Classical), material specification, preparation form, occlusion concept, implant/abutment details, antagonist situation
+  - **Digital assets:** References to intraoral scans (STL), photos, bite registrations via `supportingInfo`
+
+This is analogous to FHIR's **VisionPrescription** for optometry — structured clinical parameters for a custom-manufactured medical device. See the dedicated [Clinical Lab Orders](lab-orders.html) page for full documentation.
+
+**Workflow:**
+1. Dentist prepares the tooth and documents clinical specifications (shade, material, preparation)
+2. PVS generates a DentalLabServiceRequestDE with clinical extensions and references to digital impressions
+3. Lab receives structured order — no ambiguity about shade (A3 not "yellowish"), material (Zirkon not "white ceramic"), or preparation (Stufe not "normal")
+4. Lab delivers restoration with BEL II / beb'97 billing data linked to the same ServiceRequest
 
 ---
 

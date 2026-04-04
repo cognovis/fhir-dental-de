@@ -12,15 +12,26 @@
 //
 // Note: These extensions are already defined and are applied on ChargeItem resources,
 //       not on this ServiceRequest directly.
+//
+// Klinischer Block:
+//   Ueber Extensions werden klinische Informationen fuer das Dentallabor abgebildet,
+//   die ueber die reine Abrechnung hinausgehen: Restaurationstyp, Zahnfarbe (VITA),
+//   Materialvorgabe, Praaparationsform, Okklusionskonzept, Implantatsystem.
+//   International existiert kein vergleichbarer FHIR-Standard fuer klinische
+//   Zahntechnik-Auftraege (analog zu VisionPrescription fuer Optik).
 
 Profile: DentalLabServiceRequestDE
 Parent: ServiceRequest
 Id: de-mira-dental-lab-service-request
 Title: "Zahntechnischer Laborauftrag (DE)"
-Description: "Profil für zahntechnische Laboraufträge (BEL II / beb'97). Bildet SWS 2.0 Satzart 13 ab. Verknüpft den Laborauftrag mit dem Patienten, dem zugehörigen ZE-Behandlungsplan (CarePlan) und dem ausführenden Dentallabor. Einzelne BEL-II- und beb'97-Leistungspositionen werden als ChargeItem-Ressourcen mit den Extensions bel-punkte und ztl-material erfasst."
+Description: "Profil fuer zahntechnische Laborauftraege — verbindet administrative Daten (BEL II / beb'97, SWS 2.0 Satzart 13) mit klinischen Informationen fuer das Dentallabor. Klinische Extensions erfassen Restaurationstyp, Zahnfarbe (VITA), Materialvorgabe, Praaparationsform, Okklusionskonzept und Implantatsystem. International existiert kein vergleichbarer Standard — dieses Profil schliesst eine Luecke analog zu FHIR VisionPrescription fuer die Optik."
 * ^status = #active
 * ^experimental = false
 * ^publisher = "cognovis GmbH"
+
+// =====================================================================
+// Administrativer Block (SWS 2.0 Satzart 13) — bestehend
+// =====================================================================
 
 // --- Status + Intent (required by FHIR R4 base) ---
 * status MS
@@ -29,6 +40,15 @@ Description: "Profil für zahntechnische Laboraufträge (BEL II / beb'97). Bilde
 // --- Identifier: Labor-ID ---
 * identifier MS
 * identifier ^short = "Laborauftrag-ID (SWS: Labor-ID)"
+
+// --- Category: Auftragstyp ---
+* category MS
+* category ^short = "Art des Laborauftrags (festsitzend, herausnehmbar, kombiniert, etc.)"
+* category from DentalLabOrderTypeVS (extensible)
+
+// --- Code: Hauptleistung ---
+* code MS
+* code ^short = "Beschreibung der beauftragten Leistung"
 
 // --- Subject: Patient ---
 * subject MS
@@ -39,10 +59,52 @@ Description: "Profil für zahntechnische Laboraufträge (BEL II / beb'97). Bilde
 * basedOn MS
 * basedOn only Reference(CarePlan)
 * basedOn ^short = "Verweis auf ZE-Behandlungsplan (SWS: Bezug ZE-Plan → CarePlan Satzart 11)"
-* basedOn ^definition = "Verknüpfung mit dem Heil- und Kostenplan (HKP / ZE-CarePlan, Satzart 11), für den der Laborauftrag erteilt wurde."
+* basedOn ^definition = "Verknuepfung mit dem Heil- und Kostenplan (HKP / ZE-CarePlan, Satzart 11), fuer den der Laborauftrag erteilt wurde."
 
 // --- Performer: Dentallabor (Organization) ---
 * performer MS
 * performer only Reference(Organization)
-* performer ^short = "Ausführendes Dentallabor (SWS: Labor-Name → Organization)"
+* performer ^short = "Ausfuehrendes Dentallabor (SWS: Labor-Name → Organization)"
 * performer ^definition = "Referenz auf das Dentallabor als FHIR Organization-Ressource. Das Labor kann mit DentalOrganizationDE profiliert werden."
+
+// =====================================================================
+// Klinischer Block — zahntechnische Spezifikationen
+// =====================================================================
+
+// --- Betroffene Zaehne (FDI) ---
+* bodySite MS
+* bodySite from ToothIdentificationFDI_VS (extensible)
+* bodySite ^short = "Betroffene Zaehne nach FDI-Schema (ISO 3950)"
+
+// --- Klinische Extensions ---
+* extension contains
+    RestorationTypeExt named restorationType 0..*
+    and ToothColorVitaExt named toothColor 0..1
+    and MaterialSpecificationExt named material 0..*
+    and PreparationTypeExt named preparation 0..1
+    and AntagonistSituationExt named antagonist 0..1
+    and OcclusionConceptExt named occlusion 0..1
+    and ImplantAbutmentExt named implantAbutment 0..1
+
+* extension[restorationType] MS
+* extension[restorationType] ^short = "Restaurationstyp (Krone, Bruecke, Prothese, etc.)"
+* extension[toothColor] MS
+* extension[toothColor] ^short = "Zahnfarbe nach VITA Classical (A1-D4)"
+* extension[material] MS
+* extension[material] ^short = "Materialvorgabe (Zirkon, NEM, Keramik, etc.)"
+* extension[preparation] ^short = "Praaparationsform (Stufe, Hohlkehle, etc.)"
+* extension[antagonist] ^short = "Beschreibung der Antagonistensituation"
+* extension[occlusion] ^short = "Gewuenschtes Okklusionskonzept"
+* extension[implantAbutment] ^short = "Implantatsystem und Abutment-Angaben"
+
+// --- Digitale Unterlagen (Scans, Fotos, Bissregistrat) ---
+* supportingInfo MS
+* supportingInfo ^short = "Digitale Abformung, Fotos, Bissregistrat, Modellscans"
+
+// --- Freitext-Anweisungen ans Labor ---
+* note MS
+* note ^short = "Zusaetzliche Anweisungen an das Labor (Freitext)"
+
+// --- Terminvorgabe ---
+* occurrencePeriod MS
+* occurrencePeriod ^short = "Gewuenschter Fertigstellungszeitraum"

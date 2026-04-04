@@ -203,7 +203,7 @@
         <div style="font-size:0.8em; color:var(--accent)">FHIR Standard</div>
         <strong>fhir-praxis-de</strong><br>
         <strong>fhir-dental-de</strong><br>
-        <span style="font-size:0.85em">16 Profiles &middot; 22 Extensions</span>
+        <span style="font-size:0.85em">16 Profiles &middot; 29 Extensions</span>
       </div>
       <div class="arch-arrow">&rarr;</div>
       <div class="arch-box consumer">
@@ -253,7 +253,7 @@
       <h3>Supporting (5 Profiles)</h3>
       <ul>
         <li><strong>DentalImagingStudyDE</strong> &mdash; OPG, DVT, EZA (DICOM)</li>
-        <li><strong>DentalLabServiceRequestDE</strong> &mdash; Lab orders (BEL II / beb'97)</li>
+        <li><strong>DentalLabServiceRequestDE</strong> &mdash; Lab orders: billing (BEL II) <em>+ clinical</em> (shade, material, preparation)</li>
         <li><strong>DentalCommunicationDE</strong> &mdash; KIM/TIM messages</li>
         <li><strong>DentalOrganizationDE</strong> &mdash; Practice identifiers</li>
         <li><strong>DentalAtfBundleDE</strong> &mdash; Transport bundle</li>
@@ -263,7 +263,46 @@
   <span class="slide-number">5</span>
 </div>
 
-<!-- SLIDE 6: Treatment Plan Architecture -->
+<!-- SLIDE 6: Clinical Lab Orders — International First -->
+<div class="slide">
+  <span class="logo">cognovis</span>
+  <h2>World First: Clinical Dental Lab Orders in FHIR</h2>
+  <div class="content">
+    <p style="text-align:center; font-size:1.2em; margin-bottom:25px">
+      <strong>DentalLabServiceRequestDE</strong> &mdash; the first FHIR profile combining billing <em>and</em> clinical specifications for dental lab orders.
+      <br>Analogous to <span class="highlight">VisionPrescription</span> for optometry &mdash; but for dental prosthetics.
+    </p>
+    <div class="two-col">
+      <div class="card red">
+        <h3>The Gap (globally)</h3>
+        <ul>
+          <li>VDDS Laborschnittstelle &amp; eLABZ: <strong>billing only</strong> (BEL II / beb&rsquo;97)</li>
+          <li>ISO 18618: CAD/CAM file transfer (technical, not clinical)</li>
+          <li>HL7 Dental Data Exchange (US): no lab order profile</li>
+          <li>Clinical specs (shade, material, preparation): <strong>paper slips &amp; free text</strong></li>
+        </ul>
+      </div>
+      <div class="card green-border">
+        <h3>What We Model</h3>
+        <ul>
+          <li><strong>Restoration type</strong> &mdash; 23 codes (Krone, Br&uuml;cke, Teleskop, Schiene&hellip;)</li>
+          <li><strong>Tooth shade</strong> &mdash; VITA Classical A1-D4 (20 shades incl. Bleach)</li>
+          <li><strong>Material</strong> &mdash; 15 codes (Zirkon, NEM, Lithiumdisilikat, PEEK&hellip;)</li>
+          <li><strong>Preparation form</strong> &mdash; Stufe, Hohlkehle, Tangential&hellip;</li>
+          <li><strong>Occlusion concept</strong> &mdash; Canine guidance, group function&hellip;</li>
+          <li><strong>Implant system</strong> &mdash; Manufacturer, abutment, platform &oslash;</li>
+          <li><strong>Digital assets</strong> &mdash; STL scans, photos, bite registration</li>
+        </ul>
+      </div>
+    </div>
+    <p style="text-align:center; margin-top:20px; font-size:1.1em; color:#666">
+      6 new CodeSystems &middot; 7 clinical Extensions &middot; FDI tooth identification &middot; extensible bindings for international use
+    </p>
+  </div>
+  <span class="slide-number">6</span>
+</div>
+
+<!-- SLIDE 7: Treatment Plan Architecture -->
 <div class="slide">
   <span class="logo">cognovis</span>
   <h2>Unified Treatment Plan Architecture</h2>
@@ -368,7 +407,7 @@
       <tr><td>Care plans</td><td class="green">7-type unified CarePlan</td><td>Generic Goal</td><td>US Core Goal</td></tr>
       <tr><td>Billing</td><td class="green">ChargeItem (GKV + PKV)</td><td>&mdash;</td><td>&mdash;</td></tr>
       <tr><td>Imaging</td><td class="green">DICOM ImagingStudy</td><td>&mdash;</td><td>Narrative reference</td></tr>
-      <tr><td>Lab orders</td><td class="green">ServiceRequest</td><td>&mdash;</td><td>&mdash;</td></tr>
+      <tr><td>Lab orders</td><td class="green">ServiceRequest + clinical extensions (shade, material, preparation)</td><td>&mdash;</td><td>&mdash;</td></tr>
       <tr><td>Communication</td><td class="green">Communication profile</td><td>&mdash;</td><td>Communication profile</td></tr>
     </table>
   </div>
@@ -595,11 +634,11 @@
       <div style="font-size:1.1em; color:rgba(255,255,255,0.8)">FHIR Profiles</div>
     </div>
     <div>
-      <div class="big-number" style="color:white">22</div>
+      <div class="big-number" style="color:white">29</div>
       <div style="font-size:1.1em; color:rgba(255,255,255,0.8)">Extensions</div>
     </div>
     <div>
-      <div class="big-number" style="color:white">26</div>
+      <div class="big-number" style="color:white">32</div>
       <div style="font-size:1.1em; color:rgba(255,255,255,0.8)">Value Sets</div>
     </div>
     <div>
