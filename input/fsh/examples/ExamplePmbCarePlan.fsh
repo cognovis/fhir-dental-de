@@ -13,7 +13,7 @@ Description: "Präventionsplan für professionelle Mundgesundheitsberatung mit P
 * status = #active
 * intent = #plan
 
-* category[dental] = https://fhir.cognovis.de/dental/CodeSystem/dental-category#dental "Dental"
+* category[dental] = DentalCategoryCS#dental "Dental"
 * category[planType] = https://fhir.cognovis.de/dental/CodeSystem/dental-care-plan-type#pmb "Professionelle Mundgesundheitsberatung (PMB)"
 
 * subject = Reference(Patient/pat-gkv-dental-01)
