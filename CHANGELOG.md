@@ -4,6 +4,20 @@ All notable changes to this project will be documented in this file.
 
 ## [unreleased]
 
+### Bug Fixes
+
+- **fdde-82z**: Address review findings iteration 1 — use planType: convention
+
+### Documentation
+
+- **fdde-82z**: Update pagecontent refs to DentalCarePlanDE
+
+### Miscellaneous
+
+- Bump version to 0.13.0
+
+## [0.13.0] - 2026-04-04
+
 ### Features
 
 - Add OralHealthScreeningDE profile, European IG comparison, and workshop presentation
@@ -11,6 +25,7 @@ All notable changes to this project will be documented in this file.
 ### Miscellaneous
 
 - Bump version to 0.12.1
+- Update changelog
 
 ## [0.12.1] - 2026-04-04
 

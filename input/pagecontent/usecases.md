@@ -15,10 +15,10 @@ This page describes the primary workflows that this Implementation Guide support
 | Satzart 5 | Zahnschema / Odontogramm | [DentalFindingDE](StructureDefinition-de-mira-dental-finding.html) |
 | Satzart 6 | BEMA-Leistungen (GKV) | [BemaChargeItemDE](StructureDefinition-de-mira-bema-charge-item.html) |
 | Satzart 7 | GOZ/GOÄ-Leistungen (PKV) | [GozChargeItemDE](StructureDefinition-de-mira-goz-charge-item.html) |
-| Satzart 8 | HKP / KV | [HkpCarePlanDE](StructureDefinition-de-mira-hkp-care-plan.html) |
-| Satzart 9 | PAR-Plan | [ParCarePlanDE](StructureDefinition-de-mira-par-care-plan.html) |
-| Satzart 10 | KFO-Plan | [KfoCarePlanDE](StructureDefinition-de-mira-kfo-care-plan.html) |
-| Satzart 11 | ZE / Festzuschüsse | [ZeCarePlanDE](StructureDefinition-de-mira-ze-care-plan.html) |
+| Satzart 8 | HKP / KV | [DentalCarePlanDE (planType: hkp)](StructureDefinition-de-mira-dental-care-plan.html) |
+| Satzart 9 | PAR-Plan | [DentalCarePlanDE (planType: par)](StructureDefinition-de-mira-dental-care-plan.html) |
+| Satzart 10 | KFO-Plan | [DentalCarePlanDE (planType: kfo)](StructureDefinition-de-mira-dental-care-plan.html) |
+| Satzart 11 | ZE / Festzuschüsse | [DentalCarePlanDE (planType: ze)](StructureDefinition-de-mira-dental-care-plan.html) |
 | Satzart 12 | Röntgendiagnostik | [DentalImagingStudyDE](StructureDefinition-de-mira-dental-imaging-study.html) |
 | Satzart 13 | Labordaten (BEL II / beb'97) | [DentalLabServiceRequestDE](StructureDefinition-de-mira-dental-lab-service-request.html) |
 
@@ -59,7 +59,7 @@ See [SWS 2.0 Mapping](sws-mapping.html) for the complete field-level mapping.
 
 **Problem:** Before major dental work (Zahnersatz), the dentist must create an HKP with planned procedures and costs. Since 2022, the E-HKP is submitted digitally to the insurer via the EBZ-Verfahren. The plan includes KZBV Befundkürzel, Therapiekürzel, Festzuschuss calculations, and Eigenanteil estimates.
 
-**Solution:** The [HkpCarePlanDE](StructureDefinition-de-mira-hkp-care-plan.html) profile models the complete HKP lifecycle:
+**Solution:** The [DentalCarePlanDE (planType: hkp)](StructureDefinition-de-mira-dental-care-plan.html) profile models the complete HKP lifecycle:
 
 - **Befund:** Per-tooth findings using KZBV DPF Befundkürzel (e.g. "f" = fehlend, "k" = Krone, "ww" = erhaltenswürdiger Zahn)
 - **Therapie:** Planned restorations using KZBV Therapiekürzel (e.g. "K" = Krone, "B" = Brückenglied, "TV" = Teleskop-Versorgung)
@@ -80,7 +80,7 @@ See [SWS 2.0 Mapping](sws-mapping.html) for the complete field-level mapping.
 
 **Problem:** Since the PAR-Richtlinie reform (July 2021), parodontal treatment requires a structured PAR-Status with documented pocket depths, BOP (Bleeding on Probing), and furcation involvement. The treatment plan covers antiinfektive Therapie, chirurgische Therapie, and UPT (Unterstützende Parodontitistherapie) over up to 2 years.
 
-**Solution:** The [ParCarePlanDE](StructureDefinition-de-mira-par-care-plan.html) profile covers:
+**Solution:** The [DentalCarePlanDE (planType: par)](StructureDefinition-de-mira-dental-care-plan.html) profile covers:
 
 - **PAR-Status:** Pocket depths (6 measurements per tooth), BOP, furcation grades (I-III)
 - **PAR-Grading:** Stadium (I-IV) and Grad (A/B/C) per current classification
@@ -93,7 +93,7 @@ See [SWS 2.0 Mapping](sws-mapping.html) for the complete field-level mapping.
 
 **Problem:** Orthodontic treatment in Germany requires KIG (Kieferorthopädische Indikationsgruppen) classification for GKV coverage approval. Treatment spans multiple years with distinct phases (aktive Behandlung, Retention).
 
-**Solution:** The [KfoCarePlanDE](StructureDefinition-de-mira-kfo-care-plan.html) profile models:
+**Solution:** The [DentalCarePlanDE (planType: kfo)](StructureDefinition-de-mira-dental-care-plan.html) profile models:
 
 - **KIG classification:** Points 1-5 (GKV covers only KIG 3-5)
 - **Angle classification:** Class I, II/1, II/2, III
@@ -107,7 +107,7 @@ See [SWS 2.0 Mapping](sws-mapping.html) for the complete field-level mapping.
 
 **Problem:** Zahnersatz (dental prosthetics) in Germany follows a unique Festzuschuss system where the insurer pays a fixed subsidy per Befund regardless of the chosen therapy. The Regelversorgung defines the standard treatment; patients may choose gleichartige or andersartige Versorgung with private co-payment.
 
-**Solution:** The [ZeCarePlanDE](StructureDefinition-de-mira-ze-care-plan.html) profile covers:
+**Solution:** The [DentalCarePlanDE (planType: ze)](StructureDefinition-de-mira-dental-care-plan.html) profile covers:
 
 - **Befundkürzel:** Standardized KZBV codes for the clinical finding per tooth
 - **Therapiekürzel:** Planned restoration type per tooth
