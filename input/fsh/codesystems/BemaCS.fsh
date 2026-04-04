@@ -8,6 +8,10 @@ Description: "Gebührenverzeichnis für zahnärztliche Leistungen im Rahmen der 
 * ^caseSensitive = true
 * ^content = #fragment
 * ^publisher = "cognovis GmbH (Vorschlag)"
+* ^property[0].code = #punkte
+* ^property[0].uri = "https://fhir.cognovis.de/dental/CodeSystem/property#punkte"
+* ^property[0].description = "BEMA-Punktzahl"
+* ^property[0].type = #integer
 
 // Konservierende Behandlung (01-39)
 * #01 ""
@@ -144,16 +148,39 @@ Description: "Gebührenverzeichnis für zahnärztliche Leistungen im Rahmen der 
 * #128 ""
 
 // PAR-Leistungen nach PAR-Richtlinie 2021
-* #PAR1 "Systematische Parodontitisbehandlung: Anamnese und Befund"
-* #PAR2 ""
-* #PAR3 "Subgingivale Instrumentierung"
-* #PAR4 "Antiinfektiöse Therapie"
-* #PAR5 "Reevaluation nach antiinfektiöser Therapie"
-* #PAR6 "Parodontalchirurgische Maßnahme"
-* #PAR7 "Unterstützende Parodontitistherapie (UPT)"
-* #PAR8 "UPT Mundhygiene"
-* #PAR9 "UPT Subgingivale Instrumentierung"
-* #PAR10 "UPT Abschluss"
+* #ATG ""
+  * ^property[0].code = #punkte
+  * ^property[0].valueInteger = 28
+* #MHU ""
+  * ^property[0].code = #punkte
+  * ^property[0].valueInteger = 45
+* #AIT-a ""
+  * ^property[0].code = #punkte
+  * ^property[0].valueInteger = 7
+* #AIT-b ""
+  * ^property[0].code = #punkte
+  * ^property[0].valueInteger = 7
+* #BEV ""
+  * ^property[0].code = #punkte
+  * ^property[0].valueInteger = 40
+* #CPT-a ""
+  * ^property[0].code = #punkte
+  * ^property[0].valueInteger = 30
+* #CPT-b ""
+  * ^property[0].code = #punkte
+  * ^property[0].valueInteger = 55
+* #UPT-a ""
+  * ^property[0].code = #punkte
+  * ^property[0].valueInteger = 200
+* #UPT-b ""
+  * ^property[0].code = #punkte
+  * ^property[0].valueInteger = 160
+* #UPT-c ""
+  * ^property[0].code = #punkte
+  * ^property[0].valueInteger = 120
+* #UPT-d ""
+  * ^property[0].code = #punkte
+  * ^property[0].valueInteger = 120
 
 // Röntgenleistungen (Ä-Positionen, von GOÄ übernommen)
 * #Ae925 ""
