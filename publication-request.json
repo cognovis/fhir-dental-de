@@ -5,10 +5,10 @@
   "status": "trial-use",
   "sequence": "Trial Use",
   "desc": "First trial-use release of the German Dental FHIR Profiles (R4)",
-  "date": "2026-04-04",
   "category": "National Base",
   "title": "German Dental FHIR Profiles (R4)",
   "ci-build": "https://cognovis.github.io/fhir-dental-de/",
   "introduction": "FHIR R4 profiles for German dental practice — procedures (BEMA/GOZ), conditions (ICD-10-GM), findings (Zahnschema/FDI), communication, and treatment plans (HKP, PAR, KFO, ZE). Built on the German FHIR base profiles (de.basisprofil.r4, KBV).",
-  "canonical": "https://fhir.cognovis.de/dental"
+  "first": true,
+  "mode": "working"
 }
