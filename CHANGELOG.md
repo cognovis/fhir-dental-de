@@ -6,6 +6,12 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
+- **fdde-6qx**: Address cmux review findings — relax comments, full URL convention, meta.profile
+
+## [0.12.0] - 2026-04-04
+
+### Bug Fixes
+
 - **fdde-6qx**: Address review findings iteration 1 — use Unicode in new example files
 
 ### Documentation
@@ -20,6 +26,12 @@ All notable changes to this project will be documented in this file.
 ### Miscellaneous
 
 - Bump version to 0.11.0
+- Update changelog
+- Bump version to 0.12.0
+
+### Merge
+
+- Worktree-bead-fdde-6qx
 
 ### Style
 
