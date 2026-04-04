@@ -4,9 +4,23 @@ All notable changes to this project will be documented in this file.
 
 ## [unreleased]
 
+### Features
+
+- Add OralHealthScreeningDE profile, European IG comparison, and workshop presentation
+
+### Miscellaneous
+
+- Bump version to 0.12.1
+
+## [0.12.1] - 2026-04-04
+
 ### Bug Fixes
 
 - **fdde-6qx**: Address cmux review findings — relax comments, full URL convention, meta.profile
+
+### Miscellaneous
+
+- Update changelog
 
 ## [0.12.0] - 2026-04-04
 
