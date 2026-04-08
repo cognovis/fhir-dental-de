@@ -51,18 +51,21 @@ jobs:
 
       - name: Install fhir-praxis-de dependency
         run: |
-          # Read pinned version from sushi-config.yaml (single source of truth)
-          PRAXIS_VERSION=$(grep 'de.cognovis.fhir.praxis' sushi-config.yaml | awk -F': ' '{print $2}' | awk '{print $1}')
-          echo "Installing pinned praxis version: $PRAXIS_VERSION"
-          ASSET_URL=$(curl -s "https://api.github.com/repos/cognovis/fhir-praxis-de/releases/tags/v${PRAXIS_VERSION}" \
-            | jq -r '[.assets[] | select(.name | startswith("de.cognovis.fhir.praxis"))] | last | .browser_download_url')
+          # Always use latest praxis release from GitHub
+          RELEASE_JSON=$(curl -s https://api.github.com/repos/cognovis/fhir-praxis-de/releases/latest)
+          ASSET_URL=$(echo "$RELEASE_JSON" | jq -r '[.assets[] | select(.name | startswith("de.cognovis.fhir.praxis"))] | last | .browser_download_url')
           if [ -z "$ASSET_URL" ] || [ "$ASSET_URL" = "null" ]; then
-            echo "::error::Could not find fhir-praxis-de release asset for v${PRAXIS_VERSION}"
+            echo "::error::Could not find fhir-praxis-de release asset"
             exit 1
           fi
           echo "Downloading praxis dependency from: $ASSET_URL"
           curl -L -o /tmp/praxis.tgz "$ASSET_URL"
-          # Install under pinned version name and current (for backwards compat)
+          # Extract actual version from downloaded package
+          PRAXIS_VERSION=$(tar xzf /tmp/praxis.tgz -O package/package.json | jq -r '.version')
+          echo "Praxis version: $PRAXIS_VERSION"
+          # Update sushi-config.yaml to match (keeps SUSHI cache lookup in sync)
+          sed -i "s|de\.cognovis\.fhir\.praxis:.*|de.cognovis.fhir.praxis: $PRAXIS_VERSION    # Praxis-DE Foundation — auto-updated to latest|" sushi-config.yaml
+          # Install under versioned name and current (for backwards compat)
           for LABEL in "$PRAXIS_VERSION" "current"; do
             mkdir -p "$HOME/.fhir/packages/de.cognovis.fhir.praxis#${LABEL}"
             tar xzf /tmp/praxis.tgz -C "$HOME/.fhir/packages/de.cognovis.fhir.praxis#${LABEL}/"
