@@ -87,7 +87,7 @@ jobs:
       - name: Install fhir-praxis-de dependency
         run: |
           # Read pinned version from sushi-config.yaml (single source of truth)
-          PRAXIS_VERSION=$(grep 'de.cognovis.fhir.praxis' sushi-config.yaml | awk -F': ' '{print $2}' | tr -d ' ')
+          PRAXIS_VERSION=$(grep 'de.cognovis.fhir.praxis' sushi-config.yaml | awk -F': ' '{print $2}' | awk '{print $1}')
           echo "Installing pinned praxis version: $PRAXIS_VERSION"
           ASSET_URL=$(curl -s "https://api.github.com/repos/cognovis/fhir-praxis-de/releases/tags/v${PRAXIS_VERSION}" \
             | jq -r '[.assets[] | select(.name | startswith("de.cognovis.fhir.praxis"))] | last | .browser_download_url')
