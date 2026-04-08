@@ -69,17 +69,17 @@ jobs:
             tar xzf /tmp/praxis.tgz -C "$HOME/.fhir/packages/de.cognovis.fhir.praxis#${LABEL}/"
           done
 
-      - name: Build FHIR package
-        run: bash scripts/build-package.sh
+      - name: Run SUSHI
+        run: sushi .
+
+      - name: Install Jekyll
+        run: sudo gem install jekyll
 
       - name: Download IG Publisher
         run: |
           mkdir -p input-cache
           curl -L https://github.com/HL7/fhir-ig-publisher/releases/latest/download/publisher.jar \
             -o input-cache/publisher.jar
-
-      - name: Install Jekyll
-        run: sudo gem install jekyll
 
       - name: Run IG Publisher
         run: java -jar input-cache/publisher.jar -ig . -no-sushi
@@ -88,6 +88,9 @@ jobs:
         run: |
           [ -f ".package-list.json" ] && cp .package-list.json output/package-list.json
           [ -f "publication-request.json" ] && cp publication-request.json output/
+
+      - name: Build FHIR package
+        run: bash scripts/build-package.sh --skip-sushi
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
@@ -104,19 +107,20 @@ jobs:
         env:
           VERDACCIO_TOKEN: ${{ secrets.VERDACCIO_TOKEN }}
         run: |
-          # Configure npm for cognovis FHIR registry
-          # VERDACCIO_TOKEN must be a Base64-encoded password (as stored in GitHub Secrets)
+          # FHIR packages have non-npm dependencies that confuse npm publish.
+          # Use --ignore-scripts to skip dependency resolution.
           echo "//npm.cognovis.de/:_password=${VERDACCIO_TOKEN}" >> ~/.npmrc
           echo "//npm.cognovis.de/:username=cognovis" >> ~/.npmrc
           echo "//npm.cognovis.de/:email=info@cognovis.de" >> ~/.npmrc
 
-          # Find the built package
           PKG=$(ls dist/*.tgz | head -1)
           echo "Publishing ${PKG} to npm.cognovis.de..."
-          npm publish "${PKG}" --registry https://npm.cognovis.de 2>&1 | tee /tmp/npm-publish.log
+          # Use absolute path — npm can misinterpret relative paths as package specs
+          ABSPKG="$(pwd)/${PKG}"
+          npm publish "${ABSPKG}" --registry https://npm.cognovis.de --ignore-scripts 2>&1 | tee /tmp/npm-publish.log
           EXIT=${PIPESTATUS[0]}
           if [ "$EXIT" -ne 0 ]; then
-            if grep -q "EPUBLISHCONFLICT\|already_published\|409" /tmp/npm-publish.log; then
+            if grep -q "EPUBLISHCONFLICT\|already_published\|409\|cannot publish over" /tmp/npm-publish.log; then
               echo "::warning::Package version already exists in registry — skipping"
             else
               cat /tmp/npm-publish.log
@@ -145,3 +149,25 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+  dispatch:
+    needs: build-and-release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Read version
+        id: version
+        env:
+          TAG_NAME: ${{ github.ref_name }}
+        run: echo "version=$(echo "$TAG_NAME" | sed 's/^v//')" >> "$GITHUB_OUTPUT"
+
+      - name: Send repository_dispatch to mira-adapters
+        env:
+          MIRA_DISPATCH_TOKEN: ${{ secrets.MIRA_DISPATCH_TOKEN }}
+          IG_VERSION: ${{ steps.version.outputs.version }}
+        run: |
+          curl -sf -X POST \
+            -H "Authorization: token ${MIRA_DISPATCH_TOKEN}" \
+            -H "Accept: application/vnd.github.v3+json" \
+            https://api.github.com/repos/cognovis/mira-adapters/dispatches \
+            -d "{\"event_type\": \"ig-published\", \"client_payload\": {\"version\": \"${IG_VERSION}\", \"package_id\": \"de.cognovis.fhir.dental\"}}"
+          echo "repository_dispatch sent to mira-adapters"
