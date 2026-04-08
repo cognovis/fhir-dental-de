@@ -4,9 +4,32 @@ All notable changes to this project will be documented in this file.
 
 ## [unreleased]
 
+### Bug Fixes
+
+- Pin praxis dependency to 0.19.0 instead of 'current'
+- **ci**: Install praxis package under versioned name for pinned deps
+- **fdde-aji**: Add copy root files step to ig-ci.yml for Pages deployment
+- **fdde-apw**: Build-package.sh robustness fixes
+
+### CI/CD
+
+- Publish FHIR package to npm.cognovis.de on release
+
+### Features
+
+- Add clinical dental lab order extensions, CodeSystems, and documentation
+- **fdde-aji**: Split CI/CD into ig-ci.yml + ig-release.yml with Aidbox validation
+- **fdde-apw**: Auto-tag + snapshot packages + mira-adapters dispatch
+
 ### Miscellaneous
 
 - Bump version to 0.13.1
+- Update changelog
+- Bump version to 0.14.0
+- Add IHE dental white paper draft to gitignore
+- **deps**: Bump fhir-praxis-de dependency 0.19.0 → 0.30.0
+- Remove dental presentation slide deck
+- **deps**: Bump fhir-praxis-de dependency 0.32.0 → 0.32.2
 
 ## [0.13.1] - 2026-04-04
 
