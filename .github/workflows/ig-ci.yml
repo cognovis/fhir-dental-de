@@ -200,6 +200,12 @@ jobs:
       - name: Run IG Publisher
         run: java -jar input-cache/publisher.jar -ig . -no-sushi
 
+      - name: Copy root files to output
+        run: |
+          # package-list.json must be served at the canonical URL but not in root during build
+          [ -f ".package-list.json" ] && cp .package-list.json output/package-list.json
+          [ -f "publication-request.json" ] && cp publication-request.json output/
+
       - name: Upload QA Report artifact
         if: always()
         uses: actions/upload-artifact@v4
