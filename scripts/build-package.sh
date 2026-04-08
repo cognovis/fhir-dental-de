@@ -19,7 +19,13 @@ fi
 VERSION=$(tr -d '[:space:]' < "$ROOT/VERSION")
 PACKAGE_ID=$(grep '^id:' "$ROOT/sushi-config.yaml" | awk '{print $2}')
 
-# 2. (Intentionally skipped — version sync enforced by CI step before SUSHI runs)
+# 2. Sync version into sushi-config.yaml before SUSHI runs
+#    (CI also enforces this via "Verify version sync" step, but local builds need it too)
+if [[ "$(uname)" == "Darwin" ]]; then
+  sed -i '' "s/^version: .*/version: $VERSION/" "$ROOT/sushi-config.yaml"
+else
+  sed -i "s/^version: .*/version: $VERSION/" "$ROOT/sushi-config.yaml"
+fi
 
 # 3. Run SUSHI (unless --skip-sushi, e.g. when called after IG Publisher)
 if [ "$SKIP_SUSHI" = false ]; then
@@ -32,11 +38,32 @@ else
 fi
 echo "Building $PACKAGE_ID@$VERSION"
 
-# 3. Create dist/package/ directory
+# 4. Create dist/package/ directory
 rm -rf "$DIST"
 mkdir -p "$DIST"
 
-# 4. Create package.json (FHIR package format)
+# 5. Create package.json (FHIR package format) — deps derived from sushi-config.yaml
+DEPS_JSON=$(python3 - "$ROOT" <<'PYEOF'
+import re, json, sys
+
+root = sys.argv[1]
+with open(f"{root}/sushi-config.yaml") as f:
+    content = f.read()
+
+match = re.search(r'^dependencies:\s*\n((?:  \S.*\n)*)', content, re.MULTILINE)
+deps = {"hl7.fhir.r4.core": "4.0.1"}
+if match:
+    for line in match.group(1).splitlines():
+        line = line.strip().split("#")[0].strip()
+        if ":" in line:
+            k, v = line.split(":", 1)
+            deps[k.strip()] = v.strip()
+if len(deps) <= 1:
+    print("WARNING: No dependencies extracted from sushi-config.yaml — check indentation", file=sys.stderr)
+print(json.dumps(deps, indent=4))
+PYEOF
+)
+
 cat > "$DIST/package.json" <<EOF
 {
   "name": "$PACKAGE_ID",
@@ -47,17 +74,11 @@ cat > "$DIST/package.json" <<EOF
   "jurisdiction": "urn:iso:std:iso:3166#DE",
   "canonical": "https://fhir.cognovis.de/dental",
   "url": "https://fhir.cognovis.de/dental/ImplementationGuide/de.cognovis.fhir.dental",
-  "dependencies": {
-    "hl7.fhir.r4.core": "4.0.1",
-    "de.basisprofil.r4": "1.5.0",
-    "kbv.basis": "1.7.0",
-    "kbv.ita.for": "1.3.1",
-    "de.gematik.fhir.atf": "1.4.1"
-  }
+  "dependencies": $DEPS_JSON
 }
 EOF
 
-# 5. Copy all StructureDefinition, CodeSystem, ValueSet JSONs (flat, like KBV packages)
+# 6. Copy all StructureDefinition, CodeSystem, ValueSet JSONs (flat, like KBV packages)
 #    Prefer IG Publisher output (has snapshots) over raw SUSHI output (differentials only).
 #    Downstream consumers (e.g. mira-adapters) need snapshots for import.
 if [ -d "$ROOT/output" ] && ls "$ROOT/output/"StructureDefinition-*.json &>/dev/null; then
@@ -70,14 +91,15 @@ fi
 
 for f in "$RESOURCE_DIR/"*.json; do
   basename=$(basename "$f")
-  # Skip ImplementationGuide resource itself
-  if [[ "$basename" == ImplementationGuide-* ]]; then
-    continue
-  fi
-  cp "$f" "$DIST/$basename"
+  # Only include conformance resources (skip ImplementationGuide, examples, CapabilityStatements, etc.)
+  case "$basename" in
+    StructureDefinition-*|CodeSystem-*|ValueSet-*|NamingSystem-*|SearchParameter-*)
+      cp "$f" "$DIST/$basename"
+      ;;
+  esac
 done
 
-# 5b. Copy pre-built JSON resources from input/resources/ (e.g., external CodeSystems)
+# 6b. Copy pre-built JSON resources from input/resources/ (e.g., external CodeSystems)
 # Note: Aidbox $fhir-package-install skips resources with external canonical URLs.
 # External CodeSystems (e.g., ex-tooth) must be PUT directly after package install.
 if [ -d "$ROOT/input/resources" ]; then
@@ -90,7 +112,7 @@ fi
 COUNT=$(ls "$DIST"/*.json | wc -l | tr -d ' ')
 echo "Package dir: $DIST ($COUNT resources)"
 
-# 6. Create tgz
+# 7. Create tgz
 cd "$DIST"
 npm pack --pack-destination "$ROOT/dist"
 cd "$ROOT"
