@@ -31,7 +31,7 @@ fi
 if [ "$SKIP_SUSHI" = false ]; then
   echo "Running SUSHI..."
   cd "$ROOT"
-  npx sushi . 2>&1 | tail -5
+  npx sushi . 2>&1
 else
   echo "Skipping SUSHI (--skip-sushi)"
   cd "$ROOT"
