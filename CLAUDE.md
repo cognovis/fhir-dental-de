@@ -1,5 +1,12 @@
 # fhir-dental-de — German Dental FHIR Profiles (R4)
 
+## Session Start
+
+Always load these skills at the beginning of every session:
+
+- `/samurai-skills:aidbox-ig-development` — FHIR IG development lifecycle (install, test, validate, publish)
+- `/samurai-skills:aidbox` — Aidbox FHIR platform (REST API, search, validation, terminology)
+
 ## Overview
 
 FHIR R4 Implementation Guide for German dental practice — procedures (BEMA/GOZ),
