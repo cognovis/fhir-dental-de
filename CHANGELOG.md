@@ -4,12 +4,21 @@ All notable changes to this project will be documented in this file.
 
 ## [unreleased]
 
+### Documentation
+
+- **claude**: Require aidbox-ig-development and aidbox skills at session start
+
+## [0.15.0] - 2026-04-08
+
 ### Bug Fixes
 
 - Pin praxis dependency to 0.19.0 instead of 'current'
 - **ci**: Install praxis package under versioned name for pinned deps
 - **fdde-aji**: Add copy root files step to ig-ci.yml for Pages deployment
 - **fdde-apw**: Build-package.sh robustness fixes
+- **ci**: Install pinned praxis version from sushi-config.yaml instead of latest
+- **ci**: Strip YAML comment from praxis version extraction
+- **ci**: Auto-track latest praxis release + restore tail -5
 
 ### CI/CD
 
@@ -30,6 +39,12 @@ All notable changes to this project will be documented in this file.
 - **deps**: Bump fhir-praxis-de dependency 0.19.0 → 0.30.0
 - Remove dental presentation slide deck
 - **deps**: Bump fhir-praxis-de dependency 0.32.0 → 0.32.2
+- Update changelog
+- Bump version to 0.15.0
+
+### Temp
+
+- Show full SUSHI output for CI debugging
 
 ## [0.13.1] - 2026-04-04
 
