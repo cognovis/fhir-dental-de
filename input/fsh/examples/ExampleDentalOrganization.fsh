@@ -10,7 +10,7 @@ Description: "MIRA Demo-Zahnarztpraxis (MVZ) in Nürnberg mit BSNR und KZV-Stemp
 * identifier[bsnr].system = "https://fhir.kbv.de/NamingSystem/KBV_NS_Base_BSNR"
 * identifier[bsnr].value = "721234500"
 
-* identifier[kzv].system = "https://mira.cognovis.de/fhir/identifier/kzv-stempelnummer"
+* identifier[kzv].system = "https://fhir.cognovis.de/dental/identifier/kzv-stempelnummer"
 * identifier[kzv].value = "K720001234"
 
 * name = "MIRA Demo-Zahnarztpraxis"

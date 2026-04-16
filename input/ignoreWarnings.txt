@@ -50,14 +50,12 @@ Patient.name[0]: matches more than one slice
 # ---------------------------------------------------------------------------
 # Identifier system URLs that don't resolve publicly
 #
-# mira.cognovis.de/fhir/identifier/* are internal MIRA application identifier
+# fhir.cognovis.de/dental/identifier/* are cognovis dental identifier
 # namespaces. They are used in DentalOrganizationDE (kzv slice) and example
-# instances. These are valid NamingSystem-style URLs that intentionally do not
-# resolve as public web pages. Suppress the "URL does not resolve" warnings.
+# instances. These are valid NamingSystem-style URLs under the dental canonical.
+# The URL fhir.cognovis.de resolves publicly; suppress only if the validator
+# still warns about the specific identifier path.
 # ---------------------------------------------------------------------------
-
-# KZV-Stempelnummer identifier system — internal MIRA namespace, not publicly resolvable
-%mira.cognovis.de/fhir/identifier/kzv-stempelnummer%
 
 # MIRA demo practice identifiers — example-only, not publicly resolvable
 %mira-demo-mvz.de/%

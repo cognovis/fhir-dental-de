@@ -5,7 +5,7 @@
 // Identifier slicing:
 //   - bsnr  : Betriebsstättennummer  (System: https://fhir.kbv.de/NamingSystem/KBV_NS_Base_BSNR)
 //   - kzv   : KZV-Stempelnummer (Abrechnungsnummer)
-//             (System: https://mira.cognovis.de/fhir/identifier/kzv-stempelnummer)
+//             (System: https://fhir.cognovis.de/dental/identifier/kzv-stempelnummer)
 
 Profile: DentalOrganizationDE
 Parent: Organization
@@ -34,7 +34,7 @@ Description: "Profil für Zahnarztpraxen und beteiligte Organisationen (z.B. Den
 * identifier[bsnr] ^definition = "Neunstellige Betriebsstättennummer der Zahnarztpraxis, vergeben von der KZV."
 
 * identifier[kzv].system 1..1 MS
-* identifier[kzv].system = "https://mira.cognovis.de/fhir/identifier/kzv-stempelnummer"
+* identifier[kzv].system = "https://fhir.cognovis.de/dental/identifier/kzv-stempelnummer"
 * identifier[kzv].value 1..1 MS
 * identifier[kzv] ^short = "KZV-Stempelnummer (Abrechnungsnummer)"
 * identifier[kzv] ^definition = "KZV-Abrechnungsnummer der Praxis (SWS: Stempelnummer). Wird als Dateinamensuffix in SWS_DATA.nnn verwendet."
