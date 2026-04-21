@@ -231,6 +231,6 @@ jobs:
           curl -sf -X POST \
             -H "Authorization: token ${MIRA_DISPATCH_TOKEN}" \
             -H "Accept: application/vnd.github.v3+json" \
-            https://api.github.com/repos/cognovis/mira-adapters/dispatches \
+            https://api.github.com/repos/cognovis/polaris/dispatches \
             -d "{\"event_type\": \"ig-published\", \"client_payload\": {\"version\": \"${IG_VERSION}\", \"package_id\": \"de.cognovis.fhir.dental\"}}"
-          echo "repository_dispatch sent to mira-adapters"
+          echo "repository_dispatch sent to polaris"
