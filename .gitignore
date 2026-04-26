@@ -29,3 +29,7 @@ Requirements-fromNarrative.json
 
 # Draft documents (not ready for publication)
 docs/white-paper-ihe-dental-europe.md
+
+# session-close transient artifacts (per-worktree IPC files)
+.session-close.lock
+.worktree-handoff.json
