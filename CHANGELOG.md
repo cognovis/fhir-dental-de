@@ -9,6 +9,10 @@ All notable changes to this project will be documented in this file.
 - Revert praxis dependency 0.40.3 → 0.38.0 (package not yet published)
 - **deps**: Re-bump praxis 0.38.0 → 0.40.3 with local prefetch helper
 
+### Changed
+
+- **License guardrails**: Pre-push hook and CI workflow to prevent accidental reintroduction of copyrighted KZBV/BEB catalog display texts (BEMA, BEL-II, beb'97)
+
 ### Features
 
 - **fdde-zof**: Add PABefundType CodeSystem and update PeriodontalFindingCodesVS
@@ -16,7 +20,6 @@ All notable changes to this project will be documented in this file.
 - **fdde-enn**: Add KariesrisikoLevel CodeSystem for caries risk levels
 - **fdde-nok**: Add ze-haerte-fall Extension for Härtefall §55 SGB V
 - **fdde-px0**: Add PSISextantCS and PSISextantVS for psi-sextant identifier
-- **fdde-b1m**: Add copyright guardrail — pre-push hook and CI workflow block reintroduction of copyrighted KZBV/BEB catalog display texts (BEMA 133 entries, BEL II 193 entries, beb'97 201 entries); warn-only mode until fdde-4wi merges
 
 ## [0.19.0] - 2026-04-27
 
