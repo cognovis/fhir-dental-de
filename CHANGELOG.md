@@ -11,6 +11,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
+- **fdde-zof**: Add PABefundType CodeSystem and update PeriodontalFindingCodesVS
 - **fdde-3q3**: Add KfoDiagnoseRegion CodeSystem for kfo-diagnose-region
 - **fdde-enn**: Add KariesrisikoLevel CodeSystem for caries risk levels
 
