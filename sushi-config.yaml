@@ -24,7 +24,7 @@ dependencies:
   kbv.basis: 1.8.0                  # KBV Basisprofile — Condition/Diagnosis, Patient base
   kbv.ita.for: 1.3.1                # KBV Formular-Anforderungen — KBV_PR_FOR_Patient for dental
   de.gematik.fhir.atf: 1.4.1        # ATF MessageHeader for KIM/TIM transport
-  de.cognovis.fhir.praxis: 0.38.0    # Praxis-DE Foundation — Abrechnungsquartal, Scheintyp etc.
+  de.cognovis.fhir.praxis: 0.40.3    # Praxis-DE Foundation — Abrechnungsquartal, Scheintyp etc.
   hl7.fhir.uv.tools.r4: 1.1.2       # R4-specific version required; 1.1.2 has snapshot-base-version extension
 
 pages:

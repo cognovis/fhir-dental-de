@@ -90,7 +90,24 @@ fi
 SUSHI_LOG="$(mktemp)"
 trap 'rm -f "$SUSHI_LOG"' EXIT
 
-if sushi . >"$SUSHI_LOG" 2>&1; then
+# Helper: detect a missing-praxis-cache failure and try to auto-fix once.
+maybe_prefetch_praxis() {
+  if grep -qE 'Failed to (download|load) de\.cognovis\.fhir\.praxis' "$SUSHI_LOG"; then
+    if [ -x "$REPO_ROOT/scripts/prefetch-praxis.sh" ]; then
+      echo "ℹ️  pre-push: praxis dep missing from local FHIR cache — running prefetch-praxis.sh"
+      if "$REPO_ROOT/scripts/prefetch-praxis.sh" >/dev/null 2>&1; then
+        return 0
+      fi
+    fi
+  fi
+  return 1
+}
+
+run_sushi() {
+  sushi . >"$SUSHI_LOG" 2>&1
+}
+
+if run_sushi || (maybe_prefetch_praxis && run_sushi); then
   # Check the result line ("X Errors  Y Warnings")
   ERRORS="$(grep -oE '[0-9]+ Errors' "$SUSHI_LOG" | head -1 | awk '{print $1}')"
   WARNINGS="$(grep -oE '[0-9]+ Warnings' "$SUSHI_LOG" | head -1 | awk '{print $1}')"
