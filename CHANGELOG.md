@@ -4,9 +4,50 @@ All notable changes to this project will be documented in this file.
 
 ## [unreleased]
 
+### Miscellaneous
+
+- Bump de.cognovis.fhir.praxis 0.38.0 → 0.40.3
+
+## [0.18.0] - 2026-04-26
+
+### Features
+
+- **scripts**: Add pre-push sushi build check
+
+### Miscellaneous
+
+- Update repository_dispatch target mira-adapters → polaris
+- **fdde-qzb**: Add dental imaging epic — DentalImagingDiagnosticReport, BemaGozMapping, reuse praxis-de CodeSystems
+- Bump praxis dependency 0.32.5 → 0.38.0, version 0.17.0 → 0.18.0
+- **gitignore**: Exclude session-close transient artifacts
+
+## [0.17.0] - 2026-04-16
+
+### Bug Fixes
+
+- Update praxis dependency to 0.32.5 (fixes empty version-spec in Aidbox)
+- **ci**: Switch Aidbox terminology engine from legacy to hybrid mode
+- Migrate kzv-stempelnummer identifier URL to fhir.cognovis.de/dental canonical
+
+## [0.16.0] - 2026-04-09
+
+### Features
+
+- Add update-package-list job to release workflow + bump to 0.16.0
+
+### Miscellaneous
+
+- Bump version to 0.15.1
+
+## [0.15.1] - 2026-04-09
+
 ### Documentation
 
 - **claude**: Require aidbox-ig-development and aidbox skills at session start
+
+### Miscellaneous
+
+- Update changelog
 
 ## [0.15.0] - 2026-04-08
 
@@ -26,15 +67,11 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-- Add clinical dental lab order extensions, CodeSystems, and documentation
 - **fdde-aji**: Split CI/CD into ig-ci.yml + ig-release.yml with Aidbox validation
 - **fdde-apw**: Auto-tag + snapshot packages + mira-adapters dispatch
 
 ### Miscellaneous
 
-- Bump version to 0.13.1
-- Update changelog
-- Bump version to 0.14.0
 - Add IHE dental white paper draft to gitignore
 - **deps**: Bump fhir-praxis-de dependency 0.19.0 → 0.30.0
 - Remove dental presentation slide deck
@@ -45,6 +82,18 @@ All notable changes to this project will be documented in this file.
 ### Temp
 
 - Show full SUSHI output for CI debugging
+
+## [0.14.0] - 2026-04-04
+
+### Features
+
+- Add clinical dental lab order extensions, CodeSystems, and documentation
+
+### Miscellaneous
+
+- Bump version to 0.13.1
+- Update changelog
+- Bump version to 0.14.0
 
 ## [0.13.1] - 2026-04-04
 

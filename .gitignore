@@ -23,6 +23,7 @@ logs/
 
 # Beads context files
 .beads/PRIME.md
+.beads/export-state.json
 
 # IG Publisher artifacts in root
 Requirements-fromNarrative.json
