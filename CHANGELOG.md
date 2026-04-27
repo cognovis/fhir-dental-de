@@ -4,9 +4,25 @@ All notable changes to this project will be documented in this file.
 
 ## [unreleased]
 
+### Bug Fixes
+
+- Revert praxis dependency 0.40.3 → 0.38.0 (package not yet published)
+- **deps**: Re-bump praxis 0.38.0 → 0.40.3 with local prefetch helper
+
+### Features
+
+- **fdde-3q3**: Add KfoDiagnoseRegion CodeSystem for kfo-diagnose-region
+
+## [0.19.0] - 2026-04-27
+
+### Features
+
+- **fdde-rrl**: Add ZeVersorgungsteilCS and FestzuschussBefundCS CodeSystems
+
 ### Miscellaneous
 
 - Bump de.cognovis.fhir.praxis 0.38.0 → 0.40.3
+- Bump version to 0.19.0
 
 ## [0.18.0] - 2026-04-26
 
