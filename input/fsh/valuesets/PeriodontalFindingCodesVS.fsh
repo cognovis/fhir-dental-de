@@ -1,5 +1,6 @@
 Alias: $loinc = http://loinc.org
 Alias: $sct = http://snomed.info/sct
+Alias: $paBefundCS = https://fhir.cognovis.de/dental/CodeSystem/pa-befund-type
 
 ValueSet: PeriodontalFindingCodesVS
 Id: periodontal-finding-codes
@@ -26,3 +27,6 @@ Description: "LOINC- und SNOMED-CT-Codes fuer parodontale Befunde: Sondierungsti
 * $sct#95570007 "Alveolar bone loss"
 * $sct#427936003 "Localized alveolar bone loss"
 * $sct#428245007 "Generalized alveolar bone loss"
+
+// IG-conformant PA observation type codes (replaces pvs-charly interim system)
+* include codes from system $paBefundCS
