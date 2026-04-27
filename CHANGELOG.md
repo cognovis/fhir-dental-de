@@ -12,6 +12,7 @@ All notable changes to this project will be documented in this file.
 ### Features
 
 - **fdde-zof**: Add PABefundType CodeSystem and update PeriodontalFindingCodesVS
+- **fdde-3q3**: Add KfoDiagnoseRegion CodeSystem for kfo-diagnose-region
 
 ## [0.19.0] - 2026-04-27
 
