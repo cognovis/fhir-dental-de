@@ -4,6 +4,48 @@ All notable changes to this project will be documented in this file.
 
 ## [unreleased]
 
+### Features
+
+- **fdde-4wi**: Neutralize KZBV/BEB display strings for license-cleanness
+
+## [0.22.0] - 2026-04-27
+
+### Features
+
+- **fdde-nok**: Add ze-haerte-fall Extension for Härtefall §55 SGB V
+- **fdde-enn**: Add KariesrisikoLevel CodeSystem for caries risk levels
+
+### Miscellaneous
+
+- Close bead fdde-px0 (PSISextantCS/VS released as v0.21.0)
+- Update changelog and bead state for fdde-nok
+- Merge origin/main into worktree-bead-fdde-nok (second merge)
+- Merge origin/main into worktree-bead-fdde-nok (third merge, concurrent beads)
+- Update changelog for fdde-enn KariesrisikoLevel CodeSystem
+
+## [0.21.0] - 2026-04-27
+
+### Features
+
+- **fdde-zof**: Add PABefundType CodeSystem and update PeriodontalFindingCodesVS
+- **fdde-px0**: Add PSISextantCS and PSISextantVS for psi-sextant identifier
+
+### Miscellaneous
+
+- Close bead fdde-3q3 (kfo-diagnose-region CodeSystem)
+- Stage changelog entry for fdde-enn (KariesrisikoLevel)
+- Update changelog for fdde-zof PABefundType CodeSystem
+- **fdde-px0**: Update changelog for PSISextantCS/VS addition
+- Merge main into worktree-bead-fdde-px0, resolve changelog conflict
+- Merge main into worktree-bead-fdde-px0, resolve changelog conflict (2)
+- Bump version to 0.21.0
+
+### Merge
+
+- Worktree-bead-fdde-zof
+
+## [0.20.0] - 2026-04-27
+
 ### Bug Fixes
 
 - **fdde-b1m**: Address review findings — tests, CI warn-only, dead code, flag handling
