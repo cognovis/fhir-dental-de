@@ -14,6 +14,7 @@ All notable changes to this project will be documented in this file.
 - **fdde-zof**: Add PABefundType CodeSystem and update PeriodontalFindingCodesVS
 - **fdde-3q3**: Add KfoDiagnoseRegion CodeSystem for kfo-diagnose-region
 - **fdde-enn**: Add KariesrisikoLevel CodeSystem for caries risk levels
+- **fdde-nok**: Add ze-haerte-fall Extension for Härtefall §55 SGB V
 - **fdde-px0**: Add PSISextantCS and PSISextantVS for psi-sextant identifier
 
 ## [0.19.0] - 2026-04-27

@@ -11,6 +11,7 @@
 // kfo-behandlungsphase  → https://fhir.cognovis.de/dental/StructureDefinition/kfo-behandlungsphase
 // kfo-apparatus-type    → https://fhir.cognovis.de/dental/StructureDefinition/kfo-apparatus-type
 // par-upt-intervall     → https://fhir.cognovis.de/dental/StructureDefinition/par-upt-intervall
+// ze-haerte-fall       → https://fhir.cognovis.de/dental/StructureDefinition/ze-haerte-fall
 
 Profile: DentalCarePlanDE
 Parent: CarePlan
@@ -81,7 +82,8 @@ Description: "Generisches Profil fuer Dental-Behandlungsplaene. Unterscheidet Pl
     EhkpIdExt named ehkpId 0..1 MS and
     KfoBehandlungsphaseExt named kfoBehandlungsphase 0..1 MS and
     KfoApparatusTypeExt named kfoApparatusType 0..1 MS and
-    ParUptIntervallExt named parUptIntervall 0..1 MS
+    ParUptIntervallExt named parUptIntervall 0..1 MS and
+    ZeHaerteFallExt named zeHaerteFall 0..1 MS
 
 * extension[zeBefundkuerzel] ^short = "ZE-Befundkuerzel nach KZBV DPF (Ist-Zustand je Zahn)"
 * extension[zeTherapiekuerzel] ^short = "ZE-Therapiekuerzel nach KZBV DPF (geplante Soll-Versorgung)"
@@ -91,3 +93,4 @@ Description: "Generisches Profil fuer Dental-Behandlungsplaene. Unterscheidet Pl
 * extension[kfoBehandlungsphase] ^short = "KFO-Behandlungsphase: aktiv | retention | abschluss"
 * extension[kfoApparatusType] ^short = "KFO-Apparaturtyp: festsitzend | herausnehmbar"
 * extension[parUptIntervall] ^short = "UPT-Recall-Intervall in Monaten (typisch 3/6/12)"
+* extension[zeHaerteFall] ^short = "Härtefall nach § 55 SGB V: erhöhter Festzuschuss"
