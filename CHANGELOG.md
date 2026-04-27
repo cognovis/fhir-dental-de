@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-## [unreleased]
+## [0.23.0] - 2026-04-27
 
 ### Bug Fixes
 
@@ -25,6 +25,18 @@ All notable changes to this project will be documented in this file.
 ### Features
 
 - **fdde-4wi**: Neutralize KZBV/BEB display strings for license-cleanness
+- **fdde-b1m**: Add copyright guardrail — blocklist (527 patterns), check-copyright.sh, CI workflow, pre-push hook, README section
+
+### Bug Fixes
+
+- **fdde-b1m**: Address review findings — tests, CI warn-only, dead code, flag handling
+- **fdde-b1m**: Address codex adversarial findings — self-scan exclusions, SKIP env var
+
+## [0.22.1] - 2026-04-27
+
+### Features
+
+- **fdde-4wi**: Neutralize KZBV/BEB display strings for license-cleanness (patch release)
 
 ### Miscellaneous
 
@@ -693,5 +705,3 @@ All notable changes to this project will be documented in this file.
 ### Merge
 
 - Worktree-bead-fhir-dental-de-o4t
-
-
