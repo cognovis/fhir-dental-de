@@ -11,6 +11,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
+- **fdde-3q3**: Add KfoDiagnoseRegion CodeSystem for kfo-diagnose-region
 - **fdde-px0**: Add PSISextantCS and PSISextantVS for psi-sextant identifier
 
 ## [0.19.0] - 2026-04-27
