@@ -11,6 +11,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
+- **fdde-3q3**: Add KfoDiagnoseRegion CodeSystem for kfo-diagnose-region
 - **fdde-nok**: Add ze-haerte-fall Extension for Härtefall §55 SGB V
 
 ## [0.19.0] - 2026-04-27
