@@ -19,6 +19,11 @@
 
 set -euo pipefail
 
+# Bypass: SKIP_COPYRIGHT_CHECK=1 git push (or direct script invocation)
+if [ -n "${SKIP_COPYRIGHT_CHECK:-}" ]; then
+  exit 0
+fi
+
 REPO_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$REPO_ROOT"
 
@@ -29,6 +34,14 @@ BLOCKLIST="$REPO_ROOT/scripts/copyright-blocklist.txt"
 ALLOWLIST_PATHS=(
   "docs/"
   "test/"
+  ".beads/"
+)
+
+# --- Allowlisted specific files (exact match, not prefix) ---
+# The blocklist and test script intentionally contain the blocked patterns.
+ALLOWLIST_FILES=(
+  "scripts/copyright-blocklist.txt"
+  "scripts/test-check-copyright.sh"
 )
 
 # --- Parse flags and optional file list ---
@@ -137,7 +150,7 @@ if [ "${#FILES_TO_SCAN[@]}" -eq 0 ]; then
   exit 0
 fi
 
-# --- Filter out allowlisted paths ---
+# --- Filter out allowlisted paths and files ---
 FILTERED_FILES=()
 for f in "${FILES_TO_SCAN[@]}"; do
   skip=0
@@ -146,6 +159,13 @@ for f in "${FILES_TO_SCAN[@]}"; do
       "$prefix"*) skip=1; break ;;
     esac
   done
+  if [ "$skip" -eq 0 ]; then
+    for exact in "${ALLOWLIST_FILES[@]}"; do
+      if [ "$f" = "$exact" ]; then
+        skip=1; break
+      fi
+    done
+  fi
   [ "$skip" -eq 0 ] && FILTERED_FILES+=("$f")
 done
 
