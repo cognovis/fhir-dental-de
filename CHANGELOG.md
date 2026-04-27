@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 
 ## [unreleased]
 
+### Miscellaneous
+
+- **fdde-4wi**: Neutralize KZBV/BEB display strings in BemaCS, BelIICS, Beb97CS for license-cleanness; replace verbatim catalog texts with neutral CATALOG-CODE identifiers
+
 ### Bug Fixes
 
 - Revert praxis dependency 0.40.3 → 0.38.0 (package not yet published)
