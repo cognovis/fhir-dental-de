@@ -15,9 +15,9 @@ three dental-billing catalogs into the fhir-dental-de repository:
 - **BEL-II** (Bewertungsliste für zahntechnische Leistungen) — KZBV
 - **beb97** (BEB beb'97) — Bundesverband der Deutschen Zahntechniker-Innungen (BDZI)
 
-The display strings were the catalog's verbatim German descriptions (e.g.
-"Eingehende Untersuchung", "Vollgusskrone NEM") embedded as FSH `display` literals in
-CodeSystem resources.
+The display strings were the catalog's verbatim German descriptions (catalog wording
+redacted — see `git show 9148aff -- input/fsh/codesystems/BemaCS.fsh`) embedded as FSH
+`display` literals in CodeSystem resources.
 
 On 2026-04-27 (commit `69ba436`), all display strings were neutralized: every concept now
 uses a code-derived label such as "BEMA-01" rather than the original catalog wording.
@@ -59,23 +59,19 @@ to prevent future regressions, but it does not affect already-committed history.
 ### Copyrighted Phrases Found in History
 
 **BEMA (BemaCS.fsh):**
-- "Eingehende Untersuchung"
-- "Vitalitätsprüfung"
-- "Notfallbehandlung"
-- "Lokalanästhesie"
-- (plus all other BEMA display strings from the full catalog)
+- BEMA-01 wording (redacted — see `git show 9148aff -- input/fsh/codesystems/BemaCS.fsh`)
+- BEMA-07 wording (redacted — see above)
+- BEMA-41 wording (redacted — see above)
+- BEMA-40 wording (redacted — see above)
+- (plus all other BEMA display strings — full list in `scripts/copyright-blocklist.txt`)
 
 **BEL-II (BelIICS.fsh):**
-- "Vollgusskrone NEM"
-- "Vollgusskrone NEM mit Schulter"
-- "Vollgusskrone Edelmetall"
-- (plus all other BEL-II display strings)
+- BEL-II display strings (redacted — see `git show 9148aff -- input/fsh/codesystems/BelIICS.fsh`)
+- (plus all other BEL-II display strings — full list in `scripts/copyright-blocklist.txt`)
 
 **beb97 (Beb97CS.fsh):**
-- "Vollgusskrone NEM"
-- "CAD/CAM-Krone NEM"
-- "CAD/CAM-Krone Zirkonoxid"
-- (plus all other beb97 display strings)
+- Beb97 display strings including crown/implant variants (redacted — see `git show 9148aff -- input/fsh/codesystems/Beb97CS.fsh`)
+- (plus all other beb97 display strings — full list in `scripts/copyright-blocklist.txt`)
 
 ### Repository Exposure
 
@@ -83,7 +79,7 @@ to prevent future regressions, but it does not affect already-committed history.
 |-----------|--------------|
 | GitHub forks | **0** — no external forks exist |
 | Open pull requests | **0** — no open PRs will be broken by a rewrite |
-| Open branches | 2 active: `chore/bump-praxis-0.38.0` (44 commits behind main, likely abandoned); `feat/fhir-dental-de-nfg/cross-repo-cleanup` (behind main, old branch) |
+| Open branches | 2 active: `chore/bump-praxis-0.38.0` (44 commits behind main as of 2026-04-27, likely abandoned — verify at Phase-B time: `git rev-list --count origin/chore/bump-praxis-0.38.0..main`); `feat/fhir-dental-de-nfg/cross-repo-cleanup` (behind main, old branch) |
 | Repository visibility | Not confirmed public; if private, risk is significantly lower |
 | Remote | `dolt.cognovis.de` (internal Dolt remote, not DoltHub) — no public mirror known |
 
@@ -167,7 +163,8 @@ identified commits; all other files and commits are untouched.
 3. All commit SHAs from `9148aff` onward are rewritten (new SHAs); the commit *messages*
    and *metadata* (author, date) are preserved.
 4. The rewritten history is force-pushed to origin (Git remote) and to the Dolt remote.
-5. All local checkouts must be re-cloned or rebased onto the new history.
+5. All local checkouts must be re-cloned or hard-reset onto the new history (git rebase
+   is NOT safe after a history rewrite — see Step 8).
 
 **Pros:**
 - Fully eliminates all copyrighted text from every reachable Git object.
@@ -199,8 +196,8 @@ Rationale:
 - beb97 carries a HIGH copyright risk that cannot be mitigated by any working-tree-only fix.
 - The repository currently has 0 external forks, making this the optimal moment for a
   force-push rewrite with minimal external impact.
-- The two open branches are old and behind main; they will need rebasing onto the new
-  history, which is a trivial operation.
+- The two open branches are old and behind main; they will need to be hard-reset or
+  abandoned (git rebase is not safe after a history rewrite — see Step 8).
 - Deferring the rewrite increases future blast radius without reducing legal exposure.
 
 The rewrite must be executed as a coordinated single-maintainer operation with a brief
@@ -237,32 +234,35 @@ git push origin backup/pre-history-sanitize
 
 ```bash
 # git filter-repo requires a fresh clone (no local modifications)
-cd /tmp
-git clone --no-local /Users/malte/code/fhir-dental-de fhir-dental-de-rewrite
-cd fhir-dental-de-rewrite
+# Run from inside your existing local clone:
+git clone --no-local "$(git rev-parse --show-toplevel)" /tmp/fhir-dental-de-rewrite
+cd /tmp/fhir-dental-de-rewrite
 ```
 
 ### Step 3: Prepare replacement expressions
 
-Create a file `/tmp/replacements.txt` with literal → replacement pairs:
+The full replacement list **must** be derived from `scripts/copyright-blocklist.txt` (the
+source of truth established by bead fdde-b1m). Any phrases found in the audit that are not
+yet in the blocklist must be added there first.
 
-```text
-# BEMA display strings (representative examples — expand to full list from 9148aff diff)
-"Eingehende Untersuchung"==>"BEMA-01"
-"Vitalitätsprüfung"==>"BEMA-07"
-"Notfallbehandlung"==>"BEMA-41"
-"Lokalanästhesie"==>"BEMA-40"
-# BEL-II display strings
-"Vollgusskrone NEM"==>"BEL-5010"
-"Vollgusskrone NEM mit Schulter"==>"BEL-5011"
-"Vollgusskrone Edelmetall"==>"BEL-5020"
-# beb97 display strings
-"CAD/CAM-Krone NEM"==>"BEB-5015"
-"CAD/CAM-Krone Zirkonoxid"==>"BEB-5016"
-# ... (complete list extracted from `git show 9148aff -- input/fsh/codesystems/`)
+```bash
+# Review the blocklist — this is the source of truth for all replacement patterns
+cat scripts/copyright-blocklist.txt
 ```
 
-> The complete list must be extracted from the diff of commit `9148aff` before execution.
+Create `/tmp/replacements.txt` from the blocklist. Use generic placeholders as the pattern;
+the actual copyrighted strings come from the blocklist file (not reproduced here):
+
+```text
+# Format: "<BEMA display string>" ==> "BEMA-XX"
+# Format: "<BEL-II display string>" ==> "BEL-XXXX"
+# Format: "<Beb97 display string>" ==> "BEB-XXXX"
+# Full list: derive every entry from scripts/copyright-blocklist.txt
+# Phrases not yet in blocklist: add them to copyright-blocklist.txt first
+```
+
+> The complete replacement list must be extracted from `scripts/copyright-blocklist.txt`
+> and the diff of commit `9148aff` (`git show 9148aff -- input/fsh/codesystems/`) before execution.
 
 ### Step 4: Execute the rewrite
 
@@ -283,20 +283,21 @@ git filter-repo \
 ### Step 5: Verify the rewrite
 
 ```bash
-# Confirm no copyrighted strings remain in any commit
-git log --all -p -- input/fsh/codesystems/BemaCS.fsh \
-  input/fsh/codesystems/BelIICS.fsh \
-  input/fsh/codesystems/Beb97CS.fsh \
-  | grep -E "Eingehende Untersuchung|Vollgusskrone|Vitalitätsprüfung|CAD/CAM-Krone" \
-  && echo "FAIL: copyrighted strings still present" \
-  || echo "PASS: no copyrighted strings found"
+# Confirm no copyrighted strings remain in any commit.
+# Run with actual blocklist patterns from scripts/copyright-blocklist.txt.
+# Replace <pattern> below with a grep-alternation built from that file.
+! git log --all -p | grep -qE "<pattern-from-copyright-blocklist.txt>" \
+  && echo "PASS: no copyrighted strings found" \
+  || echo "FAIL: copyrighted strings still present"
 ```
 
 ### Step 6: Push rewritten history — Git remote
 
 ```bash
+# The --no-local clone already has origin pointing at the local source path.
+# Update it to the real remote:
+git remote set-url origin git@github.com:cognovis/fhir-dental-de.git
 # Force-push all branches and tags
-git remote add origin git@github.com:cognovis/fhir-dental-de.git
 git push --force --all origin
 git push --force --tags origin
 ```
@@ -311,7 +312,7 @@ bd dolt push --force
 
 ### Step 8: Update local checkouts
 
-All contributors must re-clone:
+All contributors must re-clone (the safest and recommended approach):
 
 ```bash
 cd ..
@@ -319,22 +320,34 @@ rm -rf fhir-dental-de
 git clone git@github.com:cognovis/fhir-dental-de.git
 ```
 
-Or rebase existing clones:
+> **WARNING: `git rebase` is NOT safe after a history rewrite.** After a force-push with
+> rewritten history, `git rebase` replays commits against unrelated parents, which can
+> silently re-introduce the removed content or produce corrupt history.
+
+For branches with **no local-only work** (branches that track origin exactly):
 
 ```bash
-git fetch origin
-git rebase origin/main
+git fetch origin && git reset --hard origin/main
 ```
+
+For branches with **local-only commits**: cherry-pick those commits manually onto the new
+history — do NOT use `git rebase`.
 
 ### Step 9: Re-enable pre-push hook
 
 ```bash
-# In the new local clone
-cp scripts/check-copyright.sh .git/hooks/pre-push
-chmod +x .git/hooks/pre-push
+# In the rewrite clone: restore the hook from the backup made in Step 4
+# (mv, not cp — preserves the wrapper hook that was backed up, not just the script)
+mv .git/hooks/pre-push.disabled .git/hooks/pre-push
 ```
 
-### Step 10: Remove the pre-rewrite backup tag (optional, after verification)
+### Step 10: Backup tag retention
+
+The pre-rewrite backup tag `backup/pre-history-sanitize` is cheap to keep and serves as an
+audit trail. **Retain the tag for a minimum of 90 days after the rewrite.**
+
+Deletion requires explicit maintainer approval documented via a git-note or bead comment.
+If deletion is approved after the retention period:
 
 ```bash
 git push origin --delete backup/pre-history-sanitize
@@ -348,7 +361,11 @@ After Phase B execution, the following checks must all pass:
 
 1. **No copyrighted strings in any reachable commit:**
    ```bash
-   git log --all -p | grep -cE "Eingehende Untersuchung|Vollgusskrone NEM|CAD/CAM-Krone" | grep -q "^0$"
+   # Use actual blocklist patterns from scripts/copyright-blocklist.txt.
+   # Build a grep alternation from that file, then:
+   ! git log --all -p | grep -qE "<pattern-from-copyright-blocklist.txt>" \
+     && echo "PASS: no copyrighted strings found" \
+     || echo "FAIL: copyrighted strings still present"
    ```
 
 2. **Working tree matches expected neutralized form** (spot-check):
@@ -359,7 +376,9 @@ After Phase B execution, the following checks must all pass:
 
 3. **Pre-push copyright hook fires correctly on a test commit:**
    ```bash
-   echo '* #display = "Eingehende Untersuchung"' >> input/fsh/codesystems/BemaCS.fsh
+   # Use a known-blocked pattern from scripts/copyright-blocklist.txt for the test string.
+   # Do not reproduce the actual string here; substitute <blocked-pattern> at run time.
+   echo '* #display = "<blocked-pattern>"' >> input/fsh/codesystems/BemaCS.fsh
    git add -p && git commit -m "test" && git push
    # Expected: hook rejects push with copyright warning
    git reset HEAD~1 && git checkout -- input/fsh/codesystems/BemaCS.fsh
@@ -385,7 +404,9 @@ After Phase B execution, the following checks must all pass:
 - CHANGELOG.md entries that reference affected SHAs should be updated to new SHAs or
   removed (minor editorial task, separate commit after rewrite).
 - The two open branches (`chore/bump-praxis-0.38.0`, `feat/fhir-dental-de-nfg/cross-repo-cleanup`)
-  must be rebased or abandoned after the rewrite.
+  must be re-cloned or hard-reset (or abandoned) after the rewrite. Git rebase is NOT safe
+  after a history rewrite — use `git reset --hard origin/<branch>` for branches with no
+  local-only commits, or cherry-pick local-only commits manually.
 - Future Git operations (bisect, blame) on the rewritten range will show the sanitized
   content; the original content will no longer be accessible via standard Git commands.
 
