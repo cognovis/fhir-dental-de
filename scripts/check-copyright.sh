@@ -29,7 +29,6 @@ BLOCKLIST="$REPO_ROOT/scripts/copyright-blocklist.txt"
 ALLOWLIST_PATHS=(
   "docs/"
   "test/"
-  ".github/"
 )
 
 # --- Parse flags and optional file list ---
@@ -44,6 +43,9 @@ for arg in "$@"; do
     WARN_ONLY=1
   elif [ "$arg" = "--" ]; then
     PARSE_FILES=1
+  else
+    echo "Error: unknown argument: $arg" >&2
+    exit 2
   fi
 done
 
@@ -170,8 +172,6 @@ if [ "$SCANNER" = "rg" ]; then
     || true
   )
 else
-  # Build alternation regex from all patterns (escape special chars for ERE)
-  GREP_PATTERN="$(paste -sd '|' "$PATTERNS_FILE" | sed 's/[.[\*^$(){}+?|\\]/\\&/g' | sed 's/\\|/|/g')"
   mapfile -t RAW_MATCHES < <(
     grep --fixed-strings --file "$PATTERNS_FILE" \
          --with-filename --line-number \
@@ -216,8 +216,10 @@ echo ""
 
 if [ "$WARN_ONLY" -eq 1 ]; then
   echo "⚠️  check-copyright: running in warn-only mode (--warn-only) — push allowed."
-  echo "   These strings must be removed before fdde-4wi merges (warn-only mode ends then)."
-  echo "   To suppress: add '# copyright-allowlist: <reason>' at the end of the line."
+  echo "   Warn-only mode is active until fdde-4wi merges and removes existing violations."
+  echo "   After that, this check becomes blocking. To suppress a finding, use:"
+  echo "     - inline marker: # copyright-allowlist: <reason>"
+  echo "     - or remove the flagged string"
   echo ""
   exit 0
 fi

@@ -5,10 +5,9 @@ name: Copyright Guardrail
 # See README.md "License Guardrails" section for allowlisting options.
 
 on:
-  push:
-    branches: ['**']
-    tags-ignore: ['v*']
   pull_request:
+    branches: [main]
+  push:
     branches: [main]
 
 jobs:
@@ -23,5 +22,9 @@ jobs:
       - name: Install ripgrep
         run: sudo apt-get install -y ripgrep
 
-      - name: Run copyright check (blocking)
-        run: bash scripts/check-copyright.sh
+      - name: Run self-tests for copyright check script
+        run: bash scripts/test-check-copyright.sh
+
+      # TODO(fdde-4wi): remove --warn-only after fdde-4wi merges (removes existing violations from main)
+      - name: Run copyright check (warn-only until fdde-4wi merges)
+        run: bash scripts/check-copyright.sh --warn-only
