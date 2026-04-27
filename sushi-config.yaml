@@ -7,7 +7,7 @@ description: >-
   conditions (ICD-10-GM), findings (Zahnschema/FDI), and communication.
   Built on German base profiles (de.basisprofil.r4, KBV).
 status: active
-version: 0.23.1
+version: 0.24.0
 fhirVersion: 4.0.1
 copyrightYear: 2026+
 copyright: Copyright 2026+ cognovis GmbH. Licensed under CC-BY-4.0.
