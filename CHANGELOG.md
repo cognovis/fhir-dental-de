@@ -2,7 +2,25 @@
 
 All notable changes to this project will be documented in this file.
 
-## [0.23.0] - 2026-04-27
+## [0.23.1] - 2026-04-27
+
+### Bug Fixes
+
+- **fdde-4o7**: Address review findings — redact copyright phrases, fix execution plan
+
+### Documentation
+
+- **fdde-4o7**: ADR-001 git-history sanitize — risk assessment and recommendation
+
+### Miscellaneous
+
+- Sync VERSION file to 0.22.1 (matches sushi-config.yaml)
+
+## [0.22.1] - 2026-04-27
+
+### Bug Fixes
+
+- **fdde-zof**: Rename pocket-depth→pocket-depth-encoded, reflect Charly string format
 
 ### Features
 
@@ -19,6 +37,11 @@ All notable changes to this project will be documented in this file.
 ### Features
 
 - **fdde-4wi**: Neutralize KZBV/BEB display strings for license-cleanness (patch release)
+
+### Miscellaneous
+
+- Commit staged bead state updates on main
+- **fdde-4wi**: Session close — update changelog and bead state
 
 ## [0.22.0] - 2026-04-27
 
