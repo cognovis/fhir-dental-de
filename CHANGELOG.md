@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [unreleased]
+
+### Miscellaneous
+
+- Close fdde-4o7 — history sanitize complete (Phase B executed)
+
 ## [0.23.1] - 2026-04-27
 
 ### Bug Fixes
@@ -14,32 +20,35 @@ All notable changes to this project will be documented in this file.
 
 ### Miscellaneous
 
+- Commit staged bead state updates on main
+- Commit staged bead state updates on worktree-bead-fdde-4o7
+- **fdde-4o7**: Session close — git history sanitize ADR
+
+## [0.23.0] - 2026-04-27
+
+### Miscellaneous
+
 - Sync VERSION file to 0.22.1 (matches sushi-config.yaml)
+- Merge origin/main into worktree-bead-fdde-b1m (second merge, session close)
+- Bump version to 0.23.0 — copyright guardrail release
 
 ## [0.22.1] - 2026-04-27
-
-### Bug Fixes
-
-- **fdde-zof**: Rename pocket-depth→pocket-depth-encoded, reflect Charly string format
-
-### Features
-
-- **fdde-4wi**: Neutralize KZBV/BEB display strings for license-cleanness
-- **fdde-b1m**: Add copyright guardrail — blocklist (527 patterns), check-copyright.sh, CI workflow, pre-push hook, README section
 
 ### Bug Fixes
 
 - **fdde-b1m**: Address review findings — tests, CI warn-only, dead code, flag handling
 - **fdde-b1m**: Address codex adversarial findings — self-scan exclusions, SKIP env var
-
-## [0.22.1] - 2026-04-27
+- **fdde-zof**: Rename pocket-depth→pocket-depth-encoded, reflect Charly string format
 
 ### Features
 
-- **fdde-4wi**: Neutralize KZBV/BEB display strings for license-cleanness (patch release)
+- **fdde-b1m**: Add copyright guardrail script and blocklist
+- **fdde-4wi**: Neutralize KZBV/BEB display strings for license-cleanness
 
 ### Miscellaneous
 
+- **fdde-b1m**: Update changelog entry
+- **fdde-b1m**: Session close — copyright guardrail complete
 - Commit staged bead state updates on main
 - **fdde-4wi**: Session close — update changelog and bead state
 
@@ -705,3 +714,5 @@ All notable changes to this project will be documented in this file.
 ### Merge
 
 - Worktree-bead-fhir-dental-de-o4t
+
+
