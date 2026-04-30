@@ -1,0 +1,26 @@
+### ValueSet: ZeTherapiekuerzelVS - Expand
+# VS URL: https://fhir.cognovis.de/dental/ValueSet/ze-therapiekuerzel
+# Expected: expansion.contains has 50 entries
+GET http://localhost:8080/ValueSet/ze-therapiekuerzel/$expand
+Authorization: Basic basic:secret
+
+### ValueSet: ZeTherapiekuerzelVS - Validate Valid Code (K)
+# System: https://fhir.cognovis.de/dental/CodeSystem/ze-therapiekuerzel
+# Expected: result=true
+# Actual: result=True
+GET http://localhost:8080/ValueSet/$validate-code?url=https://fhir.cognovis.de/dental/ValueSet/ze-therapiekuerzel&system=https://fhir.cognovis.de/dental/CodeSystem/ze-therapiekuerzel&code=K
+Authorization: Basic basic:secret
+
+### ValueSet: ZeTherapiekuerzelVS - Validate Valid Code (TK)
+# System: https://fhir.cognovis.de/dental/CodeSystem/ze-therapiekuerzel
+# Expected: result=true
+# Actual: result=True
+GET http://localhost:8080/ValueSet/$validate-code?url=https://fhir.cognovis.de/dental/ValueSet/ze-therapiekuerzel&system=https://fhir.cognovis.de/dental/CodeSystem/ze-therapiekuerzel&code=TK
+Authorization: Basic basic:secret
+
+### ValueSet: ZeTherapiekuerzelVS - Validate Invalid Code
+# System: https://fhir.cognovis.de/dental/CodeSystem/ze-therapiekuerzel
+# Expected: result=false
+# Actual: result=False
+GET http://localhost:8080/ValueSet/$validate-code?url=https://fhir.cognovis.de/dental/ValueSet/ze-therapiekuerzel&system=https://fhir.cognovis.de/dental/CodeSystem/ze-therapiekuerzel&code=INVALID_XYZ
+Authorization: Basic basic:secret

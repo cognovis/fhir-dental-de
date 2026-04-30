@@ -1,0 +1,11 @@
+### CodeSystem: Privatgebühr Begründungskategorie - Valid Code 'erschwernis-anatomisch'
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/privatgebuehr-begruendungskategorie&code=erschwernis-anatomisch
+Authorization: Basic basic:secret
+
+### CodeSystem: Privatgebühr Begründungskategorie - Valid Code 'erschwernis-kooperativ'
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/privatgebuehr-begruendungskategorie&code=erschwernis-kooperativ
+Authorization: Basic basic:secret
+
+### CodeSystem: Privatgebühr Begründungskategorie - Invalid Code
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/privatgebuehr-begruendungskategorie&code=INVALID_CODE_XYZ
+Authorization: Basic basic:secret

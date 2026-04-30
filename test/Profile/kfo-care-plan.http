@@ -1,0 +1,113 @@
+### Validate valid kfo-care-plan
+POST http://localhost:8080/fhir/CarePlan/$validate?profile=https://fhir.cognovis.de/dental/StructureDefinition/dental-care-plan
+Authorization: Basic YWRtaW46YVZyeFA1TkJyZlRLZWlpdDBxRnpLVzNL
+Content-Type: application/fhir+json
+
+{
+  "resourceType": "CarePlan",
+  "id": "ExampleKfoCarePlan",
+  "meta": {
+    "profile": [
+      "https://fhir.cognovis.de/dental/StructureDefinition/dental-care-plan"
+    ]
+  },
+  "intent": "plan",
+  "category": [
+    {
+      "coding": [
+        {
+          "code": "dental",
+          "system": "https://fhir.cognovis.de/dental/CodeSystem/dental-category",
+          "display": "Dental"
+        }
+      ]
+    }
+  ],
+  "extension": [
+    {
+      "url": "https://fhir.cognovis.de/dental/StructureDefinition/kfo-behandlungsphase",
+      "valueCode": "aktiv"
+    },
+    {
+      "url": "https://fhir.cognovis.de/dental/StructureDefinition/kfo-apparatus-type",
+      "valueCode": "festsitzend"
+    }
+  ],
+  "identifier": [
+    {
+      "system": "https://example-dental-practice.de/fhir/identifier/kfo-plan-id",
+      "value": "KFO-2026-000003"
+    }
+  ],
+  "status": "active",
+  "subject": {
+    "reference": "Patient/ExamplePatient"
+  },
+  "created": "2026-02-01",
+  "period": {
+    "start": "2026-04-01",
+    "end": "2028-03-31"
+  },
+  "title": "KFO-Behandlungsplan: Angle Klasse II/1, KIG 4, Festsitzende Apparatur",
+  "description": "KFO-Behandlung nach §28 Abs. 2 SGB V. Indikation: Angle-Klasse II/1 mit vergrößertem Overjet (>9mm), KIG-Stufe 4 (kassenärztlich genehmigungspflichtig ab KIG 3). Geplante Behandlung: Multiband-Apparatur Ober- und Unterkiefer, voraussichtliche Behandlungsdauer 24 Monate. Retentionsphase nicht in diesem Plan enthalten.",
+  "addresses": [
+    {
+      "reference": "Condition/ExampleKfoDiagnose"
+    }
+  ]
+}
+
+### Validate invalid kfo-care-plan
+POST http://localhost:8080/fhir/CarePlan/$validate?profile=https://fhir.cognovis.de/dental/StructureDefinition/dental-care-plan
+Authorization: Basic YWRtaW46YVZyeFA1TkJyZlRLZWlpdDBxRnpLVzNL
+Content-Type: application/fhir+json
+
+{
+  "resourceType": "CarePlan",
+  "id": "ExampleKfoCarePlan",
+  "meta": {
+    "profile": [
+      "https://fhir.cognovis.de/dental/StructureDefinition/dental-care-plan"
+    ]
+  },
+  "intent": "plan",
+  "category": [
+    {
+      "coding": [
+        {
+          "code": "dental",
+          "system": "https://fhir.cognovis.de/dental/CodeSystem/dental-category",
+          "display": "Dental"
+        }
+      ]
+    }
+  ],
+  "extension": [
+    {
+      "url": "https://fhir.cognovis.de/dental/StructureDefinition/kfo-behandlungsphase",
+      "valueCode": "aktiv"
+    },
+    {
+      "url": "https://fhir.cognovis.de/dental/StructureDefinition/kfo-apparatus-type",
+      "valueCode": "festsitzend"
+    }
+  ],
+  "identifier": [
+    {
+      "system": "https://example-dental-practice.de/fhir/identifier/kfo-plan-id",
+      "value": "KFO-2026-000003"
+    }
+  ],
+  "created": "2026-02-01",
+  "period": {
+    "start": "2026-04-01",
+    "end": "2028-03-31"
+  },
+  "title": "KFO-Behandlungsplan: Angle Klasse II/1, KIG 4, Festsitzende Apparatur",
+  "description": "KFO-Behandlung nach §28 Abs. 2 SGB V. Indikation: Angle-Klasse II/1 mit vergrößertem Overjet (>9mm), KIG-Stufe 4 (kassenärztlich genehmigungspflichtig ab KIG 3). Geplante Behandlung: Multiband-Apparatur Ober- und Unterkiefer, voraussichtliche Behandlungsdauer 24 Monate. Retentionsphase nicht in diesem Plan enthalten.",
+  "addresses": [
+    {
+      "reference": "Condition/ExampleKfoDiagnose"
+    }
+  ]
+}

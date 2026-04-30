@@ -1,0 +1,107 @@
+### Validate valid dental-clinical-impression
+POST http://localhost:8080/fhir/ClinicalImpression/$validate?profile=https://fhir.cognovis.de/dental/StructureDefinition/dental-clinical-impression
+Authorization: Basic YWRtaW46YVZyeFA1TkJyZlRLZWlpdDBxRnpLVzNL
+Content-Type: application/fhir+json
+
+{
+  "resourceType": "ClinicalImpression",
+  "id": "ExampleDentalClinicalImpression",
+  "meta": {
+    "profile": [
+      "https://fhir.cognovis.de/dental/StructureDefinition/dental-clinical-impression"
+    ]
+  },
+  "status": "completed",
+  "date": "2026-01-15T10:30:00+01:00",
+  "subject": {
+    "reference": "Patient/ExamplePatient"
+  },
+  "encounter": {
+    "reference": "Encounter/ExampleDentalEncounter"
+  },
+  "assessor": {
+    "reference": "Practitioner/ExamplePractitioner"
+  },
+  "note": [
+    {
+      "text": "Anamnese: Keine Einnahme von Antikoagulanzien. Keine Allergien bekannt. Patient beschwerdefrei, Routine-Kontrolltermin + Behandlung.",
+      "time": "2026-01-15T09:00:00+01:00"
+    },
+    {
+      "text": "Befund: Zahn 36 — Dentinkaries K02.1 MOD (mesial-okklusal-distal), Sondierungstiefe 4 mm bukkal. Vitalität positiv. Zahn 46 — Dentinkaries K02.1 fortgeschritten, Planung HKP Krone.",
+      "time": "2026-01-15T09:30:00+01:00"
+    },
+    {
+      "text": "Behandlung: Lokalanästhesie BEMA 09 (Infiltrationsanästhesie Regio 36). Kariesexkavation Zahn 36. Kompositfüllung dreiflächig MOD BEMA 13c, Material: Tetric PowerFill (Ivoclar), Schichtfüllung, lichthärtend. Okklusionskontrolle mit Artikulationspapier, Feinpolitur. Behandlungsdauer 45 min. Patient toleriert Behandlung gut.",
+      "time": "2026-01-15T10:00:00+01:00"
+    },
+    {
+      "text": "Nachsorge: Patient angewiesen, für 2 Stunden keine farbstoffreichen Speisen/Getränke. Nächster Termin: Zahn 46 HKP-Präparation nach Genehmigung.",
+      "time": "2026-01-15T10:30:00+01:00"
+    }
+  ],
+  "finding": [
+    {
+      "itemReference": {
+        "reference": "Observation/ExampleDentalFinding"
+      }
+    },
+    {
+      "itemReference": {
+        "reference": "Condition/ExampleDentalCondition"
+      }
+    }
+  ]
+}
+
+### Validate invalid dental-clinical-impression
+POST http://localhost:8080/fhir/ClinicalImpression/$validate?profile=https://fhir.cognovis.de/dental/StructureDefinition/dental-clinical-impression
+Authorization: Basic YWRtaW46YVZyeFA1TkJyZlRLZWlpdDBxRnpLVzNL
+Content-Type: application/fhir+json
+
+{
+  "resourceType": "ClinicalImpression",
+  "id": "ExampleDentalClinicalImpression",
+  "meta": {
+    "profile": [
+      "https://fhir.cognovis.de/dental/StructureDefinition/dental-clinical-impression"
+    ]
+  },
+  "date": "2026-01-15T10:30:00+01:00",
+  "encounter": {
+    "reference": "Encounter/ExampleDentalEncounter"
+  },
+  "assessor": {
+    "reference": "Practitioner/ExamplePractitioner"
+  },
+  "note": [
+    {
+      "text": "Anamnese: Keine Einnahme von Antikoagulanzien. Keine Allergien bekannt. Patient beschwerdefrei, Routine-Kontrolltermin + Behandlung.",
+      "time": "2026-01-15T09:00:00+01:00"
+    },
+    {
+      "text": "Befund: Zahn 36 — Dentinkaries K02.1 MOD (mesial-okklusal-distal), Sondierungstiefe 4 mm bukkal. Vitalität positiv. Zahn 46 — Dentinkaries K02.1 fortgeschritten, Planung HKP Krone.",
+      "time": "2026-01-15T09:30:00+01:00"
+    },
+    {
+      "text": "Behandlung: Lokalanästhesie BEMA 09 (Infiltrationsanästhesie Regio 36). Kariesexkavation Zahn 36. Kompositfüllung dreiflächig MOD BEMA 13c, Material: Tetric PowerFill (Ivoclar), Schichtfüllung, lichthärtend. Okklusionskontrolle mit Artikulationspapier, Feinpolitur. Behandlungsdauer 45 min. Patient toleriert Behandlung gut.",
+      "time": "2026-01-15T10:00:00+01:00"
+    },
+    {
+      "text": "Nachsorge: Patient angewiesen, für 2 Stunden keine farbstoffreichen Speisen/Getränke. Nächster Termin: Zahn 46 HKP-Präparation nach Genehmigung.",
+      "time": "2026-01-15T10:30:00+01:00"
+    }
+  ],
+  "finding": [
+    {
+      "itemReference": {
+        "reference": "Observation/ExampleDentalFinding"
+      }
+    },
+    {
+      "itemReference": {
+        "reference": "Condition/ExampleDentalCondition"
+      }
+    }
+  ]
+}

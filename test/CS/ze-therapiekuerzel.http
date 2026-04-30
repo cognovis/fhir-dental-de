@@ -1,0 +1,11 @@
+### CodeSystem: ZE Therapiekürzel - Valid Code 'TK'
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/ze-therapiekuerzel&code=TK
+Authorization: Basic basic:secret
+
+### CodeSystem: ZE Therapiekürzel - Valid Code 'B'
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/ze-therapiekuerzel&code=B
+Authorization: Basic basic:secret
+
+### CodeSystem: ZE Therapiekürzel - Invalid Code
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/ze-therapiekuerzel&code=INVALID_CODE_XYZ
+Authorization: Basic basic:secret

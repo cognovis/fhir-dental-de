@@ -1,0 +1,229 @@
+== Suppressed Messages ==
+
+# ---------------------------------------------------------------------------
+# Fragment CodeSystem "unknown code" warnings
+#
+# BemaCS, BelIICS, and GozCS are defined with content = #fragment (they contain
+# only a representative subset of codes). The IG Publisher validator warns when
+# a code is used that is not in the fragment, but notes it "may be valid in some
+# other fragment". These warnings are expected for fragment CodeSystems and do
+# not indicate real errors.
+# ---------------------------------------------------------------------------
+
+# Fragment CS warnings — codes not in our fragment but valid in the full BEMA/BEL/GOZ
+%note that the code system is labeled as a fragment, so the code may be valid in some other fragment%
+
+# ---------------------------------------------------------------------------
+# KBV_PR_FOR_Patient suppressions (scope: ALL Patient resources in this IG)
+#
+# Background: ExamplePatient declares conformance to KBV_PR_FOR_Patient via
+# meta.profile. That profile enforces the following constraints that conflict
+# with IG Publisher tooling behaviour:
+#
+# 1. Patient.text (max=0): KBV_PR_FOR_Patient forbids narrative text on
+#    Patient resources. However, the IG Publisher automatically generates
+#    narrative text for all example resources. This suppression silences the
+#    resulting "max allowed is 0 but found 1" validation error.
+#
+# 2. Patient.identifier / Patient.name slice-matching: KBV_PR_FOR_Patient
+#    uses closed slicing on identifier and name elements. The basic KVID-10
+#    identifier structure and standard HumanName used in ExamplePatient match
+#    more than one discriminator slice, producing expected "matches more than
+#    one slice" warnings that do not indicate a real data error.
+#
+# These suppressions apply broadly to all Patient instances validated in this
+# IG because the IG Publisher does not support per-instance suppression.
+# They are intentional and should only be removed if KBV_PR_FOR_Patient
+# conformance is dropped from ExamplePatient or if the upstream constraints
+# change.
+# ---------------------------------------------------------------------------
+
+# KBV_PR_FOR_Patient: IG Publisher auto-generates Patient.text narrative
+# but KBV disallows it (max=0). Suppress the resulting validation error.
+Patient.text: max allowed is 0 but found 1
+
+# Suppress KBV_PR_FOR_Patient validation errors for ExamplePatient
+# (slice matching issues due to open/closed slicing on identifier/name)
+Patient.identifier[0]: matches more than one slice
+Patient.name[0]: matches more than one slice
+
+# ---------------------------------------------------------------------------
+# Identifier system URLs that don't resolve publicly
+#
+# fhir.cognovis.de/dental/identifier/* are cognovis dental identifier
+# namespaces. They are used in DentalOrganizationDE (kzv slice) and example
+# instances. These are valid NamingSystem-style URLs under the dental canonical.
+# The URL fhir.cognovis.de resolves publicly; suppress only if the validator
+# still warns about the specific identifier path.
+# ---------------------------------------------------------------------------
+
+# Example demo-practice identifiers — example-only, not publicly resolvable
+%example-dental-practice.de/%
+
+# ---------------------------------------------------------------------------
+# External CodeSystem / ValueSet not found locally
+#
+# ICD-10-GM (BfArM) is a proprietary German terminology that cannot be bundled
+# in this IG. The canonical URL http://fhir.de/CodeSystem/bfarm/icd-10-gm is
+# defined by the German base profiles (de.basisprofil.r4) but is not available
+# in the local build environment. Suppress related CodeSystem-not-found warnings.
+# ---------------------------------------------------------------------------
+
+# ICD-10-GM (BfArM) is an external German terminology not bundled in this IG
+CodeSystem http://fhir.de/CodeSystem/bfarm/icd-10-gm not found
+
+# ICD-10-GM CodeSystem not available for code validation (offline/local builds)
+%fhir.de/codesystem/bfarm/icd-10-gm%
+
+# ICD-10-GM ValueSet from bfarm not resolvable in offline build
+The valueSet reference http://fhir.de/ValueSet/bfarm/icd-10-gm
+
+# ICD-10-GM ValueSet exists in multiple de.basisprofil.r4 versions in the local package cache.
+# The IG Publisher auto-selects the version matching our declared dependency (1.6.0-ballot2).
+# This warning is expected in environments with multiple cached versions and is harmless.
+%fhir.de/valueset/bfarm/icd-10-gm%
+
+# OPS (German operation codes) — external BfArM terminology
+%bfarm/ops%
+
+# ---------------------------------------------------------------------------
+# IG dependency canonical URL resolution failures (offline build)
+#
+# The IG Publisher cannot resolve canonical URLs from de.basisprofil.r4,
+# kbv.basis, and kbv.ita.for during local/offline builds. These dependencies
+# are resolved correctly in CI via the package registry. Suppress warnings
+# about unresolvable canonical URLs from these packages.
+# ---------------------------------------------------------------------------
+
+# de.basisprofil.r4 canonical URLs — resolved in CI, not in local builds.
+# Specific URLs referenced from our FSH files that cannot be resolved offline.
+# Review this list when updating de.basisprofil.r4 or kbv.* dependency versions.
+URL value 'http://fhir.de/CodeSystem/bzaek/goz'
+URL value 'http://fhir.de/CodeSystem/kzbv/bema'
+URL value 'http://fhir.de/sid/gkv/kvid-10'
+URL value 'http://fhir.de/StructureDefinition/normgroesse'
+URL value 'http://fhir.de/StructureDefinition/humanname-namenszusatz'
+URL value 'http://fhir.de/StructureDefinition/humanname-own-name'
+URL value 'http://fhir.de/StructureDefinition/humanname-own-prefix'
+
+# kbv.basis / kbv.ita.for canonical URLs — resolved in CI, not in local builds
+URL value 'https://fhir.kbv.de/NamingSystem/KBV_NS_FOR_Patient'
+URL value 'https://fhir.kbv.de/StructureDefinition/KBV_PR_FOR_Patient'
+URL value 'https://fhir.kbv.de/ValueSet/KBV_VS_SFHIR_KBV_STATUSKENNZEICHEN'
+
+# LANR (Lebenslange Arztnummer) identifier system — German base profile namespace
+# http://fhir.de/sid/kbv/lanr is defined by de.basisprofil.r4 but does not resolve publicly
+%fhir.de/sid/kbv/lanr%
+
+# ---------------------------------------------------------------------------
+# IG dependency canonical URL resolution failures (unfixable)
+#
+# ImplementationGuide.dependsOn canonical URLs for de.basisprofil.r4, kbv.basis,
+# kbv.ita.for, and de.gematik.fhir.atf use the fhir.org package registry format
+# which does not resolve to real ImplementationGuide resources. These are
+# automatically generated by SUSHI from the dependency declarations and cannot
+# be changed. They are valid package references even without a resolvable canonical.
+# ---------------------------------------------------------------------------
+
+# IG dependency canonical URLs — generated by SUSHI, not resolvable as IG resources
+Canonical URL 'http://fhir.org/packages/de.basisprofil.r4/ImplementationGuide/de.basisprofil.r4' kann nicht aufgelöst werden
+Canonical URL 'http://fhir.org/packages/kbv.basis/ImplementationGuide/kbv.basis' kann nicht aufgelöst werden
+Canonical URL 'http://fhir.org/packages/kbv.ita.for/ImplementationGuide/kbv.ita.for' kann nicht aufgelöst werden
+Canonical URL 'http://fhir.org/packages/de.gematik.fhir.atf/ImplementationGuide/de.gematik.fhir.atf' kann nicht aufgelöst werden
+
+The canonical URL http://fhir.org/packages/de.basisprofil.r4/ImplementationGuide/de.basisprofil.r4 doesn't point to an actual ImplementationGuide resource
+The canonical URL http://fhir.org/packages/kbv.basis/ImplementationGuide/kbv.basis doesn't point to an actual ImplementationGuide resource
+The canonical URL http://fhir.org/packages/kbv.ita.for/ImplementationGuide/kbv.ita.for doesn't point to an actual ImplementationGuide resource
+The canonical URL http://fhir.org/packages/de.gematik.fhir.atf/ImplementationGuide/de.gematik.fhir.atf doesn't point to an actual ImplementationGuide resource
+
+# ---------------------------------------------------------------------------
+# HTML fragment warnings — standard IG Publisher behavior
+#
+# The IG Publisher generates standard "The HTML fragment ..." warnings for
+# references to core FHIR and extension packages. These are expected and
+# do not indicate errors in this IG.
+# ---------------------------------------------------------------------------
+
+# Standard IG Publisher HTML fragment warnings
+The HTML fragment 'hl7.fhir.r4.core
+The HTML fragment 'hl7.fhir.uv.extensions
+
+# Standard IG Publisher HTML fragments for IG infrastructure pages
+# These fragments are referenced in the standard IG template but may not be
+# included in the IG's page structure if the corresponding template pages are omitted.
+%ip-statements.xhtml%
+%cross-version-analysis%
+%dependency-table%
+%globals-table.xhtml%
+
+# ---------------------------------------------------------------------------
+# External URLs that do not resolve (third-party registries)
+#
+# RadLex Playbook and DICOM registry URLs are referenced indirectly via
+# inherited bindings from ImagingStudy and related resources. These external
+# URLs are outside our control and are not expected to be resolvable during
+# validation. Suppress these warnings.
+# ---------------------------------------------------------------------------
+
+# RadLex Playbook URL — external registry, not resolvable (used in ImagingStudy bindings)
+%radlex_playbook.aspx%
+
+# DICOM registry table URL — external registry, not resolvable (used in ImagingStudy bindings)
+%dicom.nema.org/medical/dicom/%
+
+# ---------------------------------------------------------------------------
+# Extension examples missing
+#
+# ALL 22 extensions defined in this IG (as of v0.6.0) are intentionally
+# suppressed here. None have dedicated standalone example instances; they are
+# all demonstrated indirectly through profile examples (e.g., ExampleBemaChargeItem
+# uses BemaBefundklasseExt, ExampleDentalFinding uses FdiToothNumberExt, etc.).
+# Creating standalone extension examples would add little value for implementers.
+#
+# NOTE: This suppression must be reviewed when new extensions are added to the IG.
+# Do NOT rely on it to silently hide missing examples for new extensions.
+# ---------------------------------------------------------------------------
+
+# All extensions in this IG are demonstrated via profile examples — no standalone examples needed
+No example found for this extension
+
+# ---------------------------------------------------------------------------
+# BEMA Punkte system URL not recognized
+#
+# http://fhir.de/CodeSystem/kzbv/bema-punkte-je-land is a custom CodeSystem
+# URL for regional BEMA point values. It is not registered in standard
+# terminology servers but is valid as a locally-defined CodeSystem.
+# ---------------------------------------------------------------------------
+
+# BEMA punkte je Land — locally defined, not in standard registries
+http://fhir.de/CodeSystem/kzbv/bema-punkte-je-land
+
+# ---------------------------------------------------------------------------
+# ig-parameters: suppressed-messages is a valid IG Publisher parameter
+# but is not formally listed in the ig-parameters CodeSystem.
+# This is a known gap in hl7.fhir.uv.tools.r4.
+# ---------------------------------------------------------------------------
+# suppressed-messages is a valid IG Publisher parameter — not in formal VS
+The value provided ('suppressed-messages') is not in the value set 'ig-parameters Codes ValueSet'
+The system URI could not be determined for the code suppressed-messages in the value set http://hl7.org/fhir/tools/ValueSet/ig-parameters
+value.ofType(string): Die System-URI konnte für den Code suppressed-messages
+value.ofType(string): Der angegebene Wert ('suppressed-messages') ist nicht im ValueSet 'ig-parameters Codes ValueSet'
+value.ofType(code): Die System-URI konnte für den Code suppressed-messages
+value.ofType(code): Der angegebene Wert ('suppressed-messages') ist nicht im ValueSet 'ig-parameters Codes ValueSet'
+
+# ---------------------------------------------------------------------------
+# ATF service-identifier-vs: no dental application code exists in the
+# Gematik ATF service-identifier-vs ValueSet. The cognovis dental service URI
+# is intentionally outside this VS — dental KIM transport is not yet
+# standardized in the ATF service identifier registry.
+# ---------------------------------------------------------------------------
+# Dental service URI is not in ATF service-identifier-vs — no dental code available yet
+dental-befund-transport') ist nicht im ValueSet 'Anwendungskennzeichen (VS)'
+dental-befund-transport im ValueSet https://gematik.de/fhir/atf/ValueSet/service-identifier-vs
+
+# Dental service URI used as eventUri in MessageHeader — intentional custom URI, not publicly resolvable
+%dental-befund-transport%
+
+
+# External experimental HL7 ValueSet binding (not under our control)
+%which is experimental, but this structure is not labeled as experimental%

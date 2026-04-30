@@ -1,0 +1,549 @@
+# Copyright Blocklist for fhir-dental-de
+# Format: pattern|source-reference
+# Lines starting with '#' are comments. Blank lines are ignored.
+# Patterns are matched case-sensitively via ripgrep/grep.
+#
+# IMPORTANT: These display strings are copyrighted by their respective publishers.
+# Do NOT commit these strings into non-allowlisted paths.
+
+# ============================================================================
+# BEMA (KZBV/GKV-Spitzenverband) — MEDIUM risk (GKV Bewertungsmaßstab)
+# Source: Bewertungsmaßstab zahnärztlicher Leistungen
+# ============================================================================
+Eingehende Untersuchung|BEMA-#01
+Zuschlag Untersuchung bei FLA|BEMA-#01a
+Vitalitätsprüfung|BEMA-#04
+Besondere Untersuchung|BEMA-#05
+Notfallbehandlung|BEMA-#06
+Beratung|BEMA-#07
+Sensibilitätsprüfung|BEMA-#08
+Lokalanästhesie|BEMA-#09
+Leitungsanästhesie|BEMA-#10
+Intraligamentäre Anästhesie|BEMA-#11
+Kompositfüllung einflächig (Milchzahn)|BEMA-#12
+Kompositfüllung einflächig|BEMA-#13a
+Kompositfüllung zweiflächig|BEMA-#13b
+Kompositfüllung dreiflächig|BEMA-#13c
+Kompositfüllung mehr als dreiflächig|BEMA-#13d
+Amalgamfüllung einflächig|BEMA-#17
+Amalgamfüllung zweiflächig|BEMA-#18
+Amalgamfüllung dreiflächig|BEMA-#19
+Amalgamfüllung mehr als dreiflächig|BEMA-#20
+Zementfüllung|BEMA-#21
+Glasionomerfüllung|BEMA-#22
+Provisorische Füllung|BEMA-#23
+Sedative Einlage|BEMA-#24
+Unterfüllung|BEMA-#25
+Überkappung direkt|BEMA-#26
+Überkappung indirekt|BEMA-#27
+Wurzelkanalbehandlung Frontzahn|BEMA-#28
+Wurzelkanalbehandlung Prämolar|BEMA-#29
+Wurzelkanalbehandlung Molar|BEMA-#30
+Wurzelkanalaufbereitung je Kanal|BEMA-#31
+Wurzelkanalfüllung je Kanal|BEMA-#32
+Replantation|BEMA-#33
+Revision Wurzelkanalbehandlung|BEMA-#34
+Wurzelspitzenresektion Frontzahn|BEMA-#35
+Wurzelspitzenresektion Prämolar|BEMA-#36
+Wurzelspitzenresektion Molar|BEMA-#37
+Stiftverankerung|BEMA-#38
+Aufbaufüllung|BEMA-#39
+Inzision|BEMA-#40
+Trepanation|BEMA-#41
+Alveolitis-Behandlung|BEMA-#42
+Wundbehandlung|BEMA-#43
+Extraktion|BEMA-#44
+Operative Zahnentfernung|BEMA-#45
+Osteotomie|BEMA-#46
+Stillung einer Blutung|BEMA-#47
+Wundrevision|BEMA-#48
+Naht|BEMA-#49
+Nahtentfernung|BEMA-#50
+Lappenbildung|BEMA-#51
+Zystenoperation|BEMA-#52
+PAR-Vorbehandlung|BEMA-#100
+PSI-Screening|BEMA-#101
+Parodontalstatus|BEMA-#102
+Subgingivale Instrumentierung je Zahn|BEMA-#103
+Parodontalchirurgie|BEMA-#104
+Lappenoperation|BEMA-#105
+Gingivektomie je Zahn|BEMA-#106
+Subgingivale Instrumentierung je Zahn (PAR-Richtlinie)|BEMA-#107
+Instrumentierung Frontzahn|BEMA-#107a
+Instrumentierung Seitenzahn|BEMA-#107b
+Nachsorge parodontal|BEMA-#108
+Früherkennungsuntersuchung 6-9 Monate|BEMA-#FU1
+Früherkennungsuntersuchung 10-20 Monate|BEMA-#FU2
+Früherkennungsuntersuchung 21-33 Monate|BEMA-#FU3
+Früherkennungsuntersuchung 34-48 Monate|BEMA-#FU4
+Früherkennungsuntersuchung 49-60 Monate|BEMA-#FU5
+Früherkennungsuntersuchung 61-72 Monate|BEMA-#FU6
+Früherkennungsuntersuchung Kleinkind|BEMA-#FU7
+Früherkennungsuntersuchung Vorschulkind|BEMA-#FU8
+Früherkennungsuntersuchung Schulkind|BEMA-#FU9
+Mundhygienestatus|BEMA-#IP1
+Aufklärung Mundhygiene|BEMA-#IP2
+Mundgesundheitserziehung|BEMA-#IP3
+Fluoridierung|BEMA-#IP4
+Fissurenversiegelung|BEMA-#IP5
+Intensivprophylaxe|BEMA-#IP6
+Abformung Zahnersatz|BEMA-#75
+Registrierung Kiefer|BEMA-#76
+Vollprothese|BEMA-#77
+Teilprothese|BEMA-#78
+Reparatur Prothese|BEMA-#79
+Prothesenbasis erneuern|BEMA-#80
+Prothesenzahn ersetzen|BEMA-#81
+Prothesenunterfütterung|BEMA-#82
+Implantologischer Befund|BEMA-#84
+Stiftaufbau|BEMA-#87a
+Stiftaufbau komplex|BEMA-#87b
+Provisorische Krone|BEMA-#89a
+Langzeitprovisorium|BEMA-#89b
+Kronenversorgung|BEMA-#91a
+Kronenversorgung mit Verblendung|BEMA-#91b
+Teilkrone|BEMA-#92
+Brückenglied|BEMA-#93a
+Brückenglied mit Verblendung|BEMA-#93b
+Brückenpfeiler Krone|BEMA-#94a
+Brückenpfeiler Krone mit Verblendung|BEMA-#94b
+Teleskopkrone|BEMA-#95a
+Teleskopkrone mit Verblendung|BEMA-#95b
+Abnehmbare Teilprothese|BEMA-#96a
+Abnehmbare Teilprothese erweitertes Heil- und Kostenplan|BEMA-#96b
+Totalprothese|BEMA-#97a
+Totalprothese Oberkiefer und Unterkiefer|BEMA-#97b
+Reparatur Zahnersatz|BEMA-#98a
+Unterfütterung Prothese|BEMA-#98b
+Diagnostik KFO Einfach|BEMA-#119a
+Diagnostik KFO Aufwendig|BEMA-#119b
+KFO Behandlungsplanung|BEMA-#119c
+KFO Behandlungsplan schriftlich|BEMA-#119d
+Aktivator|BEMA-#120
+Funktionskieferorthopädisches Gerät|BEMA-#121
+Herausnehmbare Zahnspange einfach|BEMA-#122
+Herausnehmbare Zahnspange aufwendig|BEMA-#123
+Festsitzende Klammer|BEMA-#124
+Multiband-Apparatur|BEMA-#125
+KFO Retention|BEMA-#126
+KFO Abschlussuntersuchung|BEMA-#127
+KFO Nachsorge|BEMA-#128
+Parodontologisches Aufklärungs- und Therapiegespräch (28 Punkte)|BEMA-#ATG
+Patientenindividuelle Mundhygieneunterweisung (45 Punkte)|BEMA-#MHU
+Antiinfektiöse Therapie geschlossen (pro Zahn) (7 Punkte)|BEMA-#AIT-a
+Antiinfektiöse Therapie offen (pro Zahn) (7 Punkte)|BEMA-#AIT-b
+Befundevaluation (40 Punkte)|BEMA-#BEV
+Chirurgische PAR-Therapie Lappenoperation (pro Zahn) (30 Punkte)|BEMA-#CPT-a
+Chirurgische PAR-Therapie regenerativ (pro Zahn) (55 Punkte)|BEMA-#CPT-b
+Unterstützende Parodontitistherapie bis 6. Monat (200 Punkte)|BEMA-#UPT-a
+Unterstützende Parodontitistherapie 7.-12. Monat (160 Punkte)|BEMA-#UPT-b
+Unterstützende Parodontitistherapie 13.-18. Monat (120 Punkte)|BEMA-#UPT-c
+Unterstützende Parodontitistherapie 19.-24. Monat (120 Punkte)|BEMA-#UPT-d
+Panoramaschichtaufnahme|BEMA-#Ae925
+Intraorale Röntgenaufnahme|BEMA-#Ae5000
+Intraorale Röntgenaufnahme (zweite)|BEMA-#Ae5002
+Intraorale Röntgenaufnahme (weitere)|BEMA-#Ae5004
+
+# ============================================================================
+# BEL II (KZBV) — MEDIUM risk (GKV Zahntechnik)
+# Source: Bundeseinheitliche Leistungsbeschreibung für zahntechnische Leistungen
+# ============================================================================
+Vollgusskrone NEM|BEL-II-#001
+Vollgusskrone NEM mit Schulter|BEL-II-#002
+Vollgusskrone Edelmetall|BEL-II-#003
+Vollgusskrone EM mit Schulter|BEL-II-#004
+Teleskopkrone NEM Primärteil|BEL-II-#005
+Teleskopkrone NEM Sekundärteil|BEL-II-#006
+Teleskopkrone EM Primärteil|BEL-II-#007
+Teleskopkrone EM Sekundärteil|BEL-II-#008
+Konuskrone NEM|BEL-II-#009
+Konuskrone EM|BEL-II-#010
+Verblendkrone NEM Kunststoff|BEL-II-#011
+Verblendkrone NEM Keramik|BEL-II-#012
+Verblendkrone EM Kunststoff|BEL-II-#013
+Verblendkrone EM Keramik|BEL-II-#014
+Vollkeramikkrone|BEL-II-#015
+Zirkonoxidkrone|BEL-II-#016
+Presskeramikkrone|BEL-II-#017
+Teilkrone NEM|BEL-II-#031
+Teilkrone EM|BEL-II-#032
+Metallgusskrone Molar NEM|BEL-II-#033
+Inlay NEM einflächig|BEL-II-#034
+Inlay NEM zweiflächig|BEL-II-#035
+Inlay NEM dreiflächig|BEL-II-#036
+Inlay EM einflächig|BEL-II-#037
+Inlay EM zweiflächig|BEL-II-#038
+Inlay EM dreiflächig|BEL-II-#039
+Keramikinlay einflächig|BEL-II-#040
+Keramikinlay zweiflächig|BEL-II-#041
+Keramikinlay dreiflächig|BEL-II-#042
+Kompositinlay einflächig|BEL-II-#043
+Kompositinlay zweiflächig|BEL-II-#044
+Kompositinlay dreiflächig|BEL-II-#045
+Brückengerüst NEM je Glied|BEL-II-#061
+Brückengerüst EM je Glied|BEL-II-#062
+Brückenglied NEM|BEL-II-#063
+Brückenglied NEM verblendet|BEL-II-#064
+Brückenglied EM|BEL-II-#065
+Brückenglied EM verblendet|BEL-II-#066
+Brückenglied Vollkeramik|BEL-II-#067
+Klebebrücke (Maryland) NEM|BEL-II-#068
+Klebebrücke (Maryland) EM|BEL-II-#069
+Implantatbrücke NEM|BEL-II-#070
+Modellgussprothese Metallbasis|BEL-II-#091
+Modellgussprothese Klammer|BEL-II-#092
+Kunststoffteilprothese Basis|BEL-II-#093
+Kunststoffteilprothese Zahn|BEL-II-#094
+Totalprothese Oberkiefer|BEL-II-#095
+Totalprothese Unterkiefer|BEL-II-#096
+Totalprothese Oberkiefer Funktionsabdruck|BEL-II-#097
+Totalprothese Unterkiefer Funktionsabdruck|BEL-II-#098
+Prothese Aufstellung je Zahn|BEL-II-#099
+Prothesenbasis Kunststoff|BEL-II-#100
+Prothesenbasis PMMA|BEL-II-#101
+Deckprothese|BEL-II-#102
+Implantatgetragene Deckprothese|BEL-II-#103
+Stegprothese|BEL-II-#104
+Teleskopprothese|BEL-II-#105
+Hybridprothese|BEL-II-#106
+Implantataufbau konfektioniert|BEL-II-#131
+Implantataufbau individuell NEM|BEL-II-#132
+Implantataufbau individuell EM|BEL-II-#133
+Implantatkrone verschraubt|BEL-II-#134
+Implantatkrone zementiert|BEL-II-#135
+Implantatbrückengerüst|BEL-II-#136
+Locator-Attachment Matrize|BEL-II-#137
+Kugelkopf-Matrize|BEL-II-#138
+Steg auf Implantaten|BEL-II-#139
+Teleskopkrone auf Implantat|BEL-II-#140
+Okklusionsschiene Hart|BEL-II-#151
+Okklusionsschiene Weich|BEL-II-#152
+Aufbissschiene Michigan|BEL-II-#153
+Protrusionsschiene|BEL-II-#154
+Knirscherschiene|BEL-II-#155
+Repositionierungsschiene|BEL-II-#156
+Herausnehmbare KFO-Apparatur|BEL-II-#161
+Aktivator|BEL-II-#162
+Funktionskieferorthopädisches Gerät|BEL-II-#163
+Retainer herausnehmbar|BEL-II-#164
+Retainer festsitzend|BEL-II-#165
+Gaumennahterweiterungsgerät|BEL-II-#166
+Reparatur Bruch Prothesenbasis|BEL-II-#176
+Reparatur Zahnfraktur|BEL-II-#177
+Reparatur Klammer|BEL-II-#178
+Unterfütterung Prothese direkt|BEL-II-#179
+Unterfütterung Prothese indirekt|BEL-II-#180
+Verblendung Reparatur|BEL-II-#181
+Krone Reparatur Verblendung|BEL-II-#182
+Prothese reinigen polieren|BEL-II-#183
+Prothesenreparatur einfach|BEL-II-#184
+Prothesenreparatur komplex|BEL-II-#185
+Implantataufbau Wechsel|BEL-II-#186
+Schraubenlockerung beheben|BEL-II-#187
+Zahnersatz anpassen|BEL-II-#188
+Zahnersatz erweitern je Zahn|BEL-II-#189
+Zahnersatz umarbeiten|BEL-II-#190
+Modell Gips|BEL-II-#201
+Modell Superhartgips|BEL-II-#202
+Sägemodell|BEL-II-#203
+Situationsabdruck|BEL-II-#204
+Funktionsabdruck|BEL-II-#205
+Registrierung|BEL-II-#206
+Gesichtsbogen-Übertragung|BEL-II-#207
+Bisssplint|BEL-II-#208
+Okklusionsanalyse|BEL-II-#209
+Metallkeramikkrone (Vollverblendung)|BEL-II-#K021
+Zirkonkrone (vollständig)|BEL-II-#K022
+Presskeramikkrone (Lithiumdisilikat)|BEL-II-#K023
+Krone mit Stiftverankerung|BEL-II-#K024
+Krone auf Implantat-Abutment|BEL-II-#K025
+Teleskopkrone (Primärkrone)|BEL-II-#K026
+Teleskopkrone (Sekundärkrone)|BEL-II-#K027
+Galvanokrone|BEL-II-#K028
+Krone mit Mesostruktur|BEL-II-#K029
+Zirkon-Krone mit Verblendung|BEL-II-#K030
+Brückengerüst (Vollguß)|BEL-II-#B021
+Brückengerüst (Metallkeramik)|BEL-II-#B022
+Brückengerüst (Zirkon)|BEL-II-#B023
+Brückenglied mit Verblendung (Keramik)|BEL-II-#B024
+Brückenglied (Vollkeramik)|BEL-II-#B025
+Klebebrücke (Maryland)|BEL-II-#B026
+Anhänger (Pontic)|BEL-II-#B027
+Inlay (Goldguß, 3-flächig)|BEL-II-#I021
+Inlay (Goldguß, > 3-flächig)|BEL-II-#I022
+Onlay (Goldguß)|BEL-II-#I023
+Overlay (Goldguß)|BEL-II-#I024
+Inlay (Vollkeramik, Presskeramik)|BEL-II-#I025
+Inlay (Vollkeramik, CAD/CAM)|BEL-II-#I026
+Onlay (Vollkeramik)|BEL-II-#I027
+Oberkiefertotalprothese|BEL-II-#P021
+Unterkiefertotalprothese|BEL-II-#P022
+Modellgussprothese OK|BEL-II-#P023
+Modellgussprothese UK|BEL-II-#P024
+Prothese mit Klammern (Komb)|BEL-II-#P025
+Prothese mit Teleskopen|BEL-II-#P026
+Prothese mit Stegen|BEL-II-#P027
+Totalprothese auf Implantaten|BEL-II-#P028
+Teilprothese ohne Metallbasis|BEL-II-#P029
+Kunststoffbasisprothese|BEL-II-#P030
+Implantatkrone (vollkeramisch)|BEL-II-#IK021
+Implantatkrone (metallkeramisch)|BEL-II-#IK022
+Implantat-Abutment (individuell)|BEL-II-#IK023
+Implantat-Abutment (CAD/CAM)|BEL-II-#IK024
+Implantatbrücke (3-gliedrig)|BEL-II-#IK025
+Implantatprothetik Steg|BEL-II-#IK026
+Okklusionsschiene (hart)|BEL-II-#S021
+Knirscherschiene (weich)|BEL-II-#S022
+Repositionierungsschiene|BEL-II-#S023
+Distraktionsschiene|BEL-II-#S024
+Sportschutzschiene|BEL-II-#S025
+Aufbissschiene (Nacht)|BEL-II-#S026
+Reparatur Prothesenbase|BEL-II-#R021
+Prothesenzahn einarbeiten|BEL-II-#R022
+Klammer reparieren|BEL-II-#R023
+Bruchreparatur Krone|BEL-II-#R024
+Abformung Reparatur|BEL-II-#R025
+Arbeitsstumpf aus Modell|BEL-II-#M001
+Modell nach Abformung trimmen|BEL-II-#M002
+Sägemodell herstellen|BEL-II-#M003
+Dubliermasse auftragen|BEL-II-#M004
+Spezialgips-Modell|BEL-II-#M005
+Okklusal-Registrat auswerten|BEL-II-#M006
+Gelenk-Simulation am Artikulator|BEL-II-#M007
+Zirkon-Gerüst fräsen (1-Glied)|BEL-II-#G001
+Zirkon-Gerüst fräsen (Brücke 3-Gl)|BEL-II-#G002
+Titangerüst fräsen|BEL-II-#G003
+PMMA-Gerüst fräsen|BEL-II-#G004
+Wachsmodellation Krone|BEL-II-#G005
+Wachsmodellation Brücke|BEL-II-#G006
+Opaker auftragen|BEL-II-#AK001
+Dentinkern aufbauen|BEL-II-#AK002
+Schmelzmasse auftragen|BEL-II-#AK003
+Glanzbrand durchführen|BEL-II-#AK004
+Charakterisierungen|BEL-II-#AK005
+Korrekturbrand|BEL-II-#AK006
+Qualitätskontrolle Krone|BEL-II-#QP001
+Qualitätskontrolle Brücke|BEL-II-#QP002
+Qualitätskontrolle Prothese|BEL-II-#QP003
+Dokumentationsfoto|BEL-II-#QP004
+Zahnkranz reparieren|BEL-II-#SR001
+Implantataufbau reparieren|BEL-II-#SR002
+Prothesensteg reparieren|BEL-II-#SR003
+Geschiebe reparieren|BEL-II-#SR004
+Magnethalter austauschen|BEL-II-#SR005
+Galvano-Primärstruktur|BEL-II-#EP001
+Sekundärstruktur (Teleskop)|BEL-II-#EP002
+Verbindungselement (Riegel)|BEL-II-#EP003
+Geschiebe einarbeiten|BEL-II-#EP004
+Druckknopf-Attachment|BEL-II-#EP005
+Locator-Attachment einarbeiten|BEL-II-#EP006
+Kugelkopf-Retainer einarbeiten|BEL-II-#EP007
+Bar-Clip-System (Implantat)|BEL-II-#EP008
+Teleskop-Brücke|BEL-II-#EP009
+Kombinierter Zahnersatz (Komb.)|BEL-II-#EP010
+
+# ============================================================================
+# beb'97 (BEB) — HIGH risk (private catalog)
+# Source: Bundeseinheitliche Benennungsliste für zahntechnische Leistungen (privat)
+# ============================================================================
+Vollgusskrone NEM|beb97-#B0001
+Vollgusskrone NEM Schultergusskrone|beb97-#B0002
+Vollgusskrone Edelmetall|beb97-#B0003
+Vollgusskrone EM Schultergusskrone|beb97-#B0004
+Galvano-Krone|beb97-#B0005
+CAD/CAM-Krone NEM|beb97-#B0006
+CAD/CAM-Krone Zirkonoxid|beb97-#B0007
+CAD/CAM-Krone Titan|beb97-#B0008
+Verblendkrone NEM Kunststoff|beb97-#B0011
+Verblendkrone NEM Keramik|beb97-#B0012
+Verblendkrone EM Kunststoff|beb97-#B0013
+Verblendkrone EM Keramik|beb97-#B0014
+Vollkeramikkrone Glaskeramik|beb97-#B0015
+Vollkeramikkrone Zirkonoxid|beb97-#B0016
+Vollkeramikkrone Presskeramik (IPS e.max)|beb97-#B0017
+Monolithische Zirkonkrone|beb97-#B0018
+Verblendete Zirkonkrone|beb97-#B0019
+Lithium-Disilikat-Krone|beb97-#B0020
+Teleskopkrone NEM Primärteil|beb97-#B0021
+Teleskopkrone NEM Sekundärteil|beb97-#B0022
+Teleskopkrone EM Primärteil|beb97-#B0023
+Teleskopkrone EM Sekundärteil|beb97-#B0024
+Konuskrone NEM Primärteil|beb97-#B0025
+Konuskrone NEM Sekundärteil|beb97-#B0026
+Konuskrone EM Primärteil|beb97-#B0027
+Konuskrone EM Sekundärteil|beb97-#B0028
+Galvano-Teleskop|beb97-#B0029
+CAD/CAM-Teleskop Zirkon|beb97-#B0030
+Teilkrone NEM|beb97-#B0031
+Teilkrone EM|beb97-#B0032
+Inlay NEM einflächig|beb97-#B0033
+Inlay NEM zweiflächig|beb97-#B0034
+Inlay NEM dreiflächig|beb97-#B0035
+Inlay EM einflächig|beb97-#B0036
+Inlay EM zweiflächig|beb97-#B0037
+Inlay EM dreiflächig|beb97-#B0038
+Keramikinlay einflächig|beb97-#B0039
+Keramikinlay zweiflächig|beb97-#B0040
+Keramikinlay dreiflächig|beb97-#B0041
+Onlay Keramik|beb97-#B0042
+Onlay EM|beb97-#B0043
+Overlay Keramik|beb97-#B0044
+Veneer Keramik|beb97-#B0045
+Veneer Komposit|beb97-#B0046
+Brückengerüst NEM je Glied|beb97-#B0061
+Brückengerüst EM je Glied|beb97-#B0062
+Brückengerüst Zirkon je Glied|beb97-#B0063
+Brückenglied NEM|beb97-#B0064
+Brückenglied NEM verblendet Kunststoff|beb97-#B0065
+Brückenglied NEM verblendet Keramik|beb97-#B0066
+Brückenglied EM|beb97-#B0067
+Brückenglied EM verblendet Keramik|beb97-#B0068
+Brückenglied Vollkeramik|beb97-#B0069
+Brückenglied Zirkon verblendet|beb97-#B0070
+Klebebrücke NEM|beb97-#B0071
+Klebebrücke EM|beb97-#B0072
+Klebebrücke Keramik|beb97-#B0073
+Implantatbrückengerüst|beb97-#B0074
+Implantatbrücke vollverblendet|beb97-#B0075
+Modellgussprothese Basis NEM|beb97-#B0091
+Modellgussprothese Klammer NEM|beb97-#B0092
+Modellgussprothese Klammer EM|beb97-#B0093
+Kunststoffteilprothese Basis|beb97-#B0094
+Kunststoffteilprothese je Zahn|beb97-#B0095
+Totalprothese OK Kunststoff|beb97-#B0096
+Totalprothese UK Kunststoff|beb97-#B0097
+Totalprothese OK Funktionsrandgestaltung|beb97-#B0098
+Totalprothese UK Funktionsrandgestaltung|beb97-#B0099
+Deckprothese|beb97-#B0100
+Hybridprothese|beb97-#B0101
+Stegprothese|beb97-#B0102
+Teleskopprothese|beb97-#B0103
+Implantatgetragene Deckprothese|beb97-#B0104
+Obturatorprothese|beb97-#B0105
+Epithese|beb97-#B0106
+Prothese Aufstellung je Zahn|beb97-#B0107
+Prothesenbasis Heiß-Polymerisiert|beb97-#B0108
+Prothesenbasis Injektionspressung|beb97-#B0109
+Implantataufbau konfektioniert|beb97-#B0131
+Implantataufbau CAD/CAM NEM|beb97-#B0132
+Implantataufbau CAD/CAM Zirkon|beb97-#B0133
+Implantataufbau gegossen EM|beb97-#B0134
+Implantatkrone verschraubt|beb97-#B0135
+Implantatkrone zementiert|beb97-#B0136
+Implantatbrücke|beb97-#B0137
+Locator-Attachment Matrize|beb97-#B0138
+Kugelkopf-Matrize|beb97-#B0139
+Steg auf Implantaten CAD/CAM|beb97-#B0140
+Steg auf Implantaten gegossen|beb97-#B0141
+Magnetanker|beb97-#B0142
+Teleskopkrone auf Implantat|beb97-#B0143
+Okklusionsschiene Hart PMMA|beb97-#B0156
+Okklusionsschiene Weich|beb97-#B0157
+Michigan-Schiene|beb97-#B0158
+Protrusionsschiene|beb97-#B0159
+Knirscherschiene individuell|beb97-#B0160
+Repositionierungsschiene|beb97-#B0161
+Bleaching-Schiene|beb97-#B0162
+Fluoridierungsschiene|beb97-#B0163
+Herausnehmbare KFO-Apparatur|beb97-#B0171
+Aktivator|beb97-#B0172
+Funktionskieferorthopädisches Gerät|beb97-#B0173
+Retainer herausnehmbar|beb97-#B0174
+Retainer festsitzend|beb97-#B0175
+Aligner-Schiene|beb97-#B0176
+Gaumennahterweiterungsgerät|beb97-#B0177
+Reparatur Bruch Prothesenbasis|beb97-#B0186
+Reparatur Zahnfraktur Prothesenzahn|beb97-#B0187
+Reparatur Klammer|beb97-#B0188
+Unterfütterung indirekt|beb97-#B0189
+Unterfütterung direkt|beb97-#B0190
+Verblendung Reparatur Kunststoff|beb97-#B0191
+Verblendung Reparatur Keramik|beb97-#B0192
+Krone Reparatur|beb97-#B0193
+Prothesenreparatur einfach|beb97-#B0194
+Prothesenreparatur komplex|beb97-#B0195
+Implantataufbau Wechsel|beb97-#B0196
+Zahnersatz polieren|beb97-#B0197
+Zahnersatz erweitern|beb97-#B0198
+Zahnersatz umarbeiten|beb97-#B0199
+Implantat-Schraube Wechsel|beb97-#B0200
+Keramikinlay (2-flächig)|beb97-#B0121
+Keramikinlay (3-flächig)|beb97-#B0122
+Keramikonlay|beb97-#B0123
+Keramikoverlay|beb97-#B0124
+E-Max-Krone (Presskeramik)|beb97-#B0125
+Zirkon-Vollkrone (monolithisch)|beb97-#B0126
+Zirkon-Krone (verblendet)|beb97-#B0127
+Zirkon-Brücke|beb97-#B0128
+Zirkon-Brückengerüst|beb97-#B0129
+CAD/CAM-Krone (Kunststoff)|beb97-#B0130
+CAD/CAM-Krone (Zirkon)|beb97-#B0201
+PMMA-Langzeitprovisorium|beb97-#B0202
+PEEK-Krone|beb97-#B0203
+Hybrid-Keramik-Krone|beb97-#B0204
+Implantat-Abutment (individuell gefräst)|beb97-#B0205
+Titan-Abutment (CAD/CAM)|beb97-#B0206
+Zirkon-Abutment|beb97-#B0207
+Hybrid-Abutment|beb97-#B0208
+Galvano-Krone|beb97-#B0209
+Galvano-Brückengerüst|beb97-#B0210
+Veneer (Feldspat)|beb97-#B0211
+Veneer (Presskeramik)|beb97-#B0212
+Veneer (Zirkon)|beb97-#B0213
+Veneer (Komposit)|beb97-#B0214
+Diastema-Veneers|beb97-#B0215
+Kompositschale|beb97-#B0216
+Glasfaserstift|beb97-#B0217
+Keramikstift|beb97-#B0218
+Metallstift individuell|beb97-#B0219
+Teleskopprothese (OK+UK)|beb97-#B0220
+Stegprothese Oberkiefer|beb97-#B0221
+Stegprothese Unterkiefer|beb97-#B0222
+Totalprothese mit Implantaten (OK)|beb97-#B0223
+Totalprothese mit Implantaten (UK)|beb97-#B0224
+Hybridprothese|beb97-#B0225
+Coverdenture|beb97-#B0226
+All-on-4 Versorgung|beb97-#B0227
+All-on-6 Versorgung|beb97-#B0228
+Modellgussprothese komplex|beb97-#B0229
+Zahntechnisches Modell (Spezialgips)|beb97-#B0230
+Kieferrelationsbestimmung (komplex)|beb97-#B0231
+Wachseinprobe (aufwendig)|beb97-#B0232
+Scharniergelenk-Okklusionstest|beb97-#B0233
+Charakterisierungen/Bemalung|beb97-#B0234
+Färben und Glanzbrand|beb97-#B0235
+Individualisierter Aufbiss|beb97-#B0236
+Kieferorthopädisches Gerät (festsitzend)|beb97-#B0237
+Kieferorthopädisches Gerät (herausnehmbar)|beb97-#B0238
+KFO-Retainer (festsitzend)|beb97-#B0239
+KFO-Retainer (herausnehmbar)|beb97-#B0240
+Okklusionsschiene (komplex)|beb97-#B0241
+Repositionierungsschiene (Keramik)|beb97-#B0242
+Knirscherschiene (thermoplastisch)|beb97-#B0243
+Sportschutz individuell|beb97-#B0244
+Bleaching-Schiene|beb97-#B0245
+Schnarchschutzschiene|beb97-#B0246
+Sonderprovision|beb97-#B0247
+Reparatur Keramikverblendung|beb97-#B0248
+Reparatur Zirkon|beb97-#B0249
+Klammerfußreparatur|beb97-#B0250
+Vollkeramik-Inlay (E-Max, 4-fl)|beb97-#B0251
+Vollkeramik-Inlay (Zirkon)|beb97-#B0252
+Keramik-Overlay (E-Max)|beb97-#B0253
+Keramik-Onlay (CAD/CAM)|beb97-#B0254
+Vollgusskrone (aufwendig)|beb97-#B0255
+Krone mit individuellem Stumpfaufbau|beb97-#B0256
+Implantatbrücke (5-gliedrig)|beb97-#B0257
+Implantatbrücke (4-gliedrig)|beb97-#B0258
+Knochengeschiebe (CAD/CAM)|beb97-#B0259
+Individuelles Abutment (Titan+ZrO2)|beb97-#B0260
+Aufwendige Charakterisierung|beb97-#B0261
+Natürliche Lichteffekte (painting)|beb97-#B0262
+Monolithisches Zirkon (aufwändig)|beb97-#B0263
+Hybrid-CAD-Krone|beb97-#B0264
+Digitaler Wax-up (aufwendig)|beb97-#B0265
+Silikonschlüssel (Mock-up)|beb97-#B0266
+Prothetik-Fotodokumentation|beb97-#B0267
+Nachsorge Implantatprothetik|beb97-#B0268
+Revision Zahnersatz komplex|beb97-#B0269
+Abschlusskontrolle Gesamtversorgung|beb97-#B0270

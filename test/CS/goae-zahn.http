@@ -1,0 +1,11 @@
+### CodeSystem: GOÄ Zahnärztlich relevante Positionen - Valid Code '1'
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/goae-zahn&code=1
+Authorization: Basic basic:secret
+
+### CodeSystem: GOÄ Zahnärztlich relevante Positionen - Valid Code '3'
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/goae-zahn&code=3
+Authorization: Basic basic:secret
+
+### CodeSystem: GOÄ Zahnärztlich relevante Positionen - Invalid Code
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/goae-zahn&code=INVALID_CODE_XYZ
+Authorization: Basic basic:secret

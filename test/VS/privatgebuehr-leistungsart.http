@@ -1,0 +1,26 @@
+### ValueSet: PrivatgebuehrLeistungsartVS - Expand
+# VS URL: https://fhir.cognovis.de/dental/ValueSet/privatgebuehr-leistungsart
+# Expected: expansion.contains has 2 entries
+GET http://localhost:8080/ValueSet/privatgebuehr-leistungsart/$expand
+Authorization: Basic basic:secret
+
+### ValueSet: PrivatgebuehrLeistungsartVS - Validate Valid Code (persoenlich)
+# System: https://fhir.cognovis.de/dental/CodeSystem/privatgebuehr-leistungsart
+# Expected: result=true
+# Actual: result=True
+GET http://localhost:8080/ValueSet/$validate-code?url=https://fhir.cognovis.de/dental/ValueSet/privatgebuehr-leistungsart&system=https://fhir.cognovis.de/dental/CodeSystem/privatgebuehr-leistungsart&code=persoenlich
+Authorization: Basic basic:secret
+
+### ValueSet: PrivatgebuehrLeistungsartVS - Validate Valid Code (technisch)
+# System: https://fhir.cognovis.de/dental/CodeSystem/privatgebuehr-leistungsart
+# Expected: result=true
+# Actual: result=True
+GET http://localhost:8080/ValueSet/$validate-code?url=https://fhir.cognovis.de/dental/ValueSet/privatgebuehr-leistungsart&system=https://fhir.cognovis.de/dental/CodeSystem/privatgebuehr-leistungsart&code=technisch
+Authorization: Basic basic:secret
+
+### ValueSet: PrivatgebuehrLeistungsartVS - Validate Invalid Code
+# System: https://fhir.cognovis.de/dental/CodeSystem/privatgebuehr-leistungsart
+# Expected: result=false
+# Actual: result=False
+GET http://localhost:8080/ValueSet/$validate-code?url=https://fhir.cognovis.de/dental/ValueSet/privatgebuehr-leistungsart&system=https://fhir.cognovis.de/dental/CodeSystem/privatgebuehr-leistungsart&code=INVALID_XYZ
+Authorization: Basic basic:secret

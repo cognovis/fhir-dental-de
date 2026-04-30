@@ -1,0 +1,11 @@
+### CodeSystem: KFO Angle-Klasse - Valid Code 'II-1'
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/kfo-angle-klasse&code=II-1
+Authorization: Basic basic:secret
+
+### CodeSystem: KFO Angle-Klasse - Valid Code 'II-2'
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/kfo-angle-klasse&code=II-2
+Authorization: Basic basic:secret
+
+### CodeSystem: KFO Angle-Klasse - Invalid Code
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/kfo-angle-klasse&code=INVALID_CODE_XYZ
+Authorization: Basic basic:secret

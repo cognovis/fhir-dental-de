@@ -1,0 +1,26 @@
+### ValueSet: KfoApparatusTypeVS - Expand
+# VS URL: https://fhir.cognovis.de/dental/ValueSet/kfo-apparatus-type
+# Expected: expansion.contains has 2 entries
+GET http://localhost:8080/ValueSet/kfo-apparatus-type/$expand
+Authorization: Basic basic:secret
+
+### ValueSet: KfoApparatusTypeVS - Validate Valid Code (festsitzend)
+# System: https://fhir.cognovis.de/dental/CodeSystem/kfo-apparatus-type
+# Expected: result=true
+# Actual: result=True
+GET http://localhost:8080/ValueSet/$validate-code?url=https://fhir.cognovis.de/dental/ValueSet/kfo-apparatus-type&system=https://fhir.cognovis.de/dental/CodeSystem/kfo-apparatus-type&code=festsitzend
+Authorization: Basic basic:secret
+
+### ValueSet: KfoApparatusTypeVS - Validate Valid Code (herausnehmbar)
+# System: https://fhir.cognovis.de/dental/CodeSystem/kfo-apparatus-type
+# Expected: result=true
+# Actual: result=True
+GET http://localhost:8080/ValueSet/$validate-code?url=https://fhir.cognovis.de/dental/ValueSet/kfo-apparatus-type&system=https://fhir.cognovis.de/dental/CodeSystem/kfo-apparatus-type&code=herausnehmbar
+Authorization: Basic basic:secret
+
+### ValueSet: KfoApparatusTypeVS - Validate Invalid Code
+# System: https://fhir.cognovis.de/dental/CodeSystem/kfo-apparatus-type
+# Expected: result=false
+# Actual: result=False
+GET http://localhost:8080/ValueSet/$validate-code?url=https://fhir.cognovis.de/dental/ValueSet/kfo-apparatus-type&system=https://fhir.cognovis.de/dental/CodeSystem/kfo-apparatus-type&code=INVALID_XYZ
+Authorization: Basic basic:secret

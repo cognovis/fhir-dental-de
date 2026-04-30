@@ -1,0 +1,11 @@
+### CodeSystem: Scheintyp - Valid Code 'kassenschein'
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/scheintyp&code=kassenschein
+Authorization: Basic basic:secret
+
+### CodeSystem: Scheintyp - Valid Code 'ueberweisungsschein'
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/scheintyp&code=ueberweisungsschein
+Authorization: Basic basic:secret
+
+### CodeSystem: Scheintyp - Invalid Code
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/scheintyp&code=INVALID_CODE_XYZ
+Authorization: Basic basic:secret

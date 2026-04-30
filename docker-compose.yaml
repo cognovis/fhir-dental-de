@@ -1,0 +1,44 @@
+services:
+  aidbox:
+    image: healthsamurai/aidboxone:edge
+    depends_on:
+      postgres:
+        condition: service_healthy
+    ports:
+      - "8080:8080"
+    environment:
+      AIDBOX_PORT: 8080
+      AIDBOX_FHIR_VERSION: 4.0.1
+      PGHOST: postgres
+      PGPORT: 5432
+      PGDATABASE: aidbox
+      PGUSER: aidbox
+      PGPASSWORD: aidbox
+      AIDBOX_CLIENT_ID: basic
+      AIDBOX_CLIENT_SECRET: secret
+      AIDBOX_ADMIN_ID: admin
+      AIDBOX_ADMIN_PASSWORD: password
+      AIDBOX_COMPLIANCE: enabled
+      AIDBOX_CORRECT_AIDBOX_FORMAT: true
+      BOX_FHIR_TERMINOLOGY_ENGINE: hybrid
+      BOX_FHIR_TERMINOLOGY_ENGINE_HYBRID_EXTERNAL_TX_SERVER: https://tx.health-samurai.io/fhir
+      BOX_BOOTSTRAP_FHIR_PACKAGES: hl7.fhir.r4.core#4.0.1:hl7.terminology.r4#6.4.0
+    volumes:
+      - ./init-bundle.json:/var/config/init-bundle.json:ro
+
+  postgres:
+    image: postgres:17
+    environment:
+      POSTGRES_DB: aidbox
+      POSTGRES_USER: aidbox
+      POSTGRES_PASSWORD: aidbox
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U aidbox"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  pgdata:

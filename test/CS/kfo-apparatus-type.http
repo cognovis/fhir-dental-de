@@ -1,0 +1,11 @@
+### CodeSystem: KFO Apparatur-Typ - Valid Code 'festsitzend'
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/kfo-apparatus-type&code=festsitzend
+Authorization: Basic basic:secret
+
+### CodeSystem: KFO Apparatur-Typ - Valid Code 'herausnehmbar'
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/kfo-apparatus-type&code=herausnehmbar
+Authorization: Basic basic:secret
+
+### CodeSystem: KFO Apparatur-Typ - Invalid Code
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/kfo-apparatus-type&code=INVALID_CODE_XYZ
+Authorization: Basic basic:secret

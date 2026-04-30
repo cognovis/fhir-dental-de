@@ -1,0 +1,82 @@
+// Example: PSI-Screening Befund, Zahn 36, Sondierungstiefe 4 mm
+// SWS 2.0 Satzart 3 — Zahnärztlicher Befund (Observation)
+
+Alias: $loinc   = http://loinc.org
+Alias: $sct     = http://snomed.info/sct
+Alias: $icd10gm = http://fhir.de/CodeSystem/bfarm/icd-10-gm
+Alias: $fdiCS   = https://fhir.cognovis.de/dental/CodeSystem/tooth-identification-fdi
+
+Instance: ExampleDentalFinding
+InstanceOf: DentalFindingDE
+Usage: #example
+Title: "Beispiel PSI-Befund Zahn 36"
+Description: "Parodontaler Screening-Index (PSI) Befund für Zahn 36 (erster unterer linker Molar). Sondierungstiefe 4 mm, PSI-Code 2. Patient Klaus Bergmann (AOK Bayern)."
+
+* extension[0].url = "https://fhir.cognovis.de/dental/StructureDefinition/fdi-tooth-number"
+* extension[0].valueCode = #36
+
+* status = #final
+
+* category[dental] = https://fhir.cognovis.de/dental/CodeSystem/dental-category#dental "Dental"
+
+// LOINC 8704-9 "Physical findings of Mouth and Throat and Teeth" — official display per CSIRO/LOINC 2.82
+// Used as parent code to satisfy obs-7 constraint (Observation.code must differ from component.code).
+// Components use LOINC 32884-9 "Identification {Tooth}" — official LOINC display (not "Periodontal pocket depth").
+* code = $loinc#8704-9 "Physical findings of Mouth and Throat and Teeth"
+
+* subject = Reference(Patient/pat-gkv-01)
+
+* performer[0] = Reference(Organization/org-dental-mvz)
+
+* effectiveDateTime = "2026-01-10T09:30:00+01:00"
+
+// PSI-Code 2: Sondierungstiefe 3,5–5,5 mm (Tasche vorhanden)
+* valueCodeableConcept = $icd10gm#K05.3 "Chronische Parodontitis"
+* valueCodeableConcept.text = "PSI-Code 2: Sondierungstiefe 4 mm, Tasche vorhanden"
+
+// Tooth: FDI 36 (lower-left first molar) — cognovis CodeSystem
+* bodySite = $fdiCS#36 "36"
+* bodySite.text = "Zahn 36 — erster unterer linker Molar"
+
+// Components: six probing depths (mesio-bukkal, bukkal, disto-bukkal, mesio-lingual, lingual, disto-lingual)
+* component[0].code = $loinc#32884-9 "Identification {Tooth}"
+* component[0].code.text = "Sondierungstiefe mesio-bukkal"
+* component[0].valueQuantity.value = 4
+* component[0].valueQuantity.unit = "mm"
+* component[0].valueQuantity.system = "http://unitsofmeasure.org"
+* component[0].valueQuantity.code = #mm
+
+* component[1].code = $loinc#32884-9 "Identification {Tooth}"
+* component[1].code.text = "Sondierungstiefe bukkal"
+* component[1].valueQuantity.value = 3
+* component[1].valueQuantity.unit = "mm"
+* component[1].valueQuantity.system = "http://unitsofmeasure.org"
+* component[1].valueQuantity.code = #mm
+
+* component[2].code = $loinc#32884-9 "Identification {Tooth}"
+* component[2].code.text = "Sondierungstiefe disto-bukkal"
+* component[2].valueQuantity.value = 4
+* component[2].valueQuantity.unit = "mm"
+* component[2].valueQuantity.system = "http://unitsofmeasure.org"
+* component[2].valueQuantity.code = #mm
+
+* component[3].code = $loinc#32884-9 "Identification {Tooth}"
+* component[3].code.text = "Sondierungstiefe mesio-lingual"
+* component[3].valueQuantity.value = 3
+* component[3].valueQuantity.unit = "mm"
+* component[3].valueQuantity.system = "http://unitsofmeasure.org"
+* component[3].valueQuantity.code = #mm
+
+* component[4].code = $loinc#32884-9 "Identification {Tooth}"
+* component[4].code.text = "Sondierungstiefe lingual"
+* component[4].valueQuantity.value = 3
+* component[4].valueQuantity.unit = "mm"
+* component[4].valueQuantity.system = "http://unitsofmeasure.org"
+* component[4].valueQuantity.code = #mm
+
+* component[5].code = $loinc#32884-9 "Identification {Tooth}"
+* component[5].code.text = "Sondierungstiefe disto-lingual"
+* component[5].valueQuantity.value = 2
+* component[5].valueQuantity.unit = "mm"
+* component[5].valueQuantity.system = "http://unitsofmeasure.org"
+* component[5].valueQuantity.code = #mm

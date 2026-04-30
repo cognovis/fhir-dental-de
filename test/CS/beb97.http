@@ -1,0 +1,11 @@
+### CodeSystem: BEB 97 (Bewertungsmaßstab) - Valid Code 'B0001'
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/beb97&code=B0001
+Authorization: Basic basic:secret
+
+### CodeSystem: BEB 97 (Bewertungsmaßstab) - Valid Code 'B0002'
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/beb97&code=B0002
+Authorization: Basic basic:secret
+
+### CodeSystem: BEB 97 (Bewertungsmaßstab) - Invalid Code
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/beb97&code=INVALID_CODE_XYZ
+Authorization: Basic basic:secret

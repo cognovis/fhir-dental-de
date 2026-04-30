@@ -1,0 +1,95 @@
+### Validate valid dental-communication
+POST http://localhost:8080/fhir/Communication/$validate?profile=https://fhir.cognovis.de/dental/StructureDefinition/dental-communication
+Authorization: Basic YWRtaW46YVZyeFA1TkJyZlRLZWlpdDBxRnpLVzNL
+Content-Type: application/fhir+json
+
+{
+  "resourceType": "Communication",
+  "id": "ExampleDentalCommunication",
+  "meta": {
+    "profile": [
+      "https://fhir.cognovis.de/dental/StructureDefinition/dental-communication"
+    ]
+  },
+  "category": [
+    {
+      "coding": [
+        {
+          "code": "dental",
+          "system": "https://fhir.cognovis.de/dental/CodeSystem/dental-category",
+          "display": "Dental"
+        }
+      ]
+    }
+  ],
+  "status": "completed",
+  "subject": {
+    "reference": "Patient/ExamplePatient"
+  },
+  "sender": {
+    "reference": "Practitioner/ExamplePractitioner"
+  },
+  "recipient": [
+    {
+      "reference": "Patient/ExamplePatient"
+    }
+  ],
+  "encounter": {
+    "reference": "Encounter/ExampleDentalEncounter"
+  },
+  "sent": "2026-01-15T09:15:00+01:00",
+  "payload": [
+    {
+      "contentString": "Patient wurde über geplante dreiflächige Kompositfüllung (MOD) an Zahn 36 aufgeklärt. Erläutert: Behandlungsablauf, Verwendung von Komposit als GKV-Leistung (BEMA 13c), Lokalanästhesie, postoperative Beschwerden möglich (Sensitivität), Alternativen (Amalgamfüllung, Keramikinlay). Patient hat Einwilligung erteilt. Fragen beantwortet."
+    },
+    {
+      "contentString": "Befund: Dentinkaries K02.1 mesio-okklusal-distal, Sondierungstiefe 4 mm. Behandlungsbedarf dringend empfohlen."
+    }
+  ]
+}
+
+### Validate invalid dental-communication
+POST http://localhost:8080/fhir/Communication/$validate?profile=https://fhir.cognovis.de/dental/StructureDefinition/dental-communication
+Authorization: Basic YWRtaW46YVZyeFA1TkJyZlRLZWlpdDBxRnpLVzNL
+Content-Type: application/fhir+json
+
+{
+  "resourceType": "Communication",
+  "id": "ExampleDentalCommunication",
+  "meta": {
+    "profile": [
+      "https://fhir.cognovis.de/dental/StructureDefinition/dental-communication"
+    ]
+  },
+  "category": [
+    {
+      "coding": [
+        {
+          "code": "dental",
+          "system": "https://fhir.cognovis.de/dental/CodeSystem/dental-category",
+          "display": "Dental"
+        }
+      ]
+    }
+  ],
+  "sender": {
+    "reference": "Practitioner/ExamplePractitioner"
+  },
+  "recipient": [
+    {
+      "reference": "Patient/ExamplePatient"
+    }
+  ],
+  "encounter": {
+    "reference": "Encounter/ExampleDentalEncounter"
+  },
+  "sent": "2026-01-15T09:15:00+01:00",
+  "payload": [
+    {
+      "contentString": "Patient wurde über geplante dreiflächige Kompositfüllung (MOD) an Zahn 36 aufgeklärt. Erläutert: Behandlungsablauf, Verwendung von Komposit als GKV-Leistung (BEMA 13c), Lokalanästhesie, postoperative Beschwerden möglich (Sensitivität), Alternativen (Amalgamfüllung, Keramikinlay). Patient hat Einwilligung erteilt. Fragen beantwortet."
+    },
+    {
+      "contentString": "Befund: Dentinkaries K02.1 mesio-okklusal-distal, Sondierungstiefe 4 mm. Behandlungsbedarf dringend empfohlen."
+    }
+  ]
+}

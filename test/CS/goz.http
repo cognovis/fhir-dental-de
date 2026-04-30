@@ -1,0 +1,11 @@
+### CodeSystem: GOZ (Gebührenordnung für Zahnärzte) - Valid Code '0010'
+GET http://localhost:8080/Concept?system=http://fhir.de/CodeSystem/bzaek/goz&code=0010
+Authorization: Basic basic:secret
+
+### CodeSystem: GOZ (Gebührenordnung für Zahnärzte) - Valid Code '0020'
+GET http://localhost:8080/Concept?system=http://fhir.de/CodeSystem/bzaek/goz&code=0020
+Authorization: Basic basic:secret
+
+### CodeSystem: GOZ (Gebührenordnung für Zahnärzte) - Invalid Code
+GET http://localhost:8080/Concept?system=http://fhir.de/CodeSystem/bzaek/goz&code=INVALID_CODE_XYZ
+Authorization: Basic basic:secret

@@ -1,0 +1,33 @@
+node_modules/
+output/
+fsh-generated/
+temp/
+template/
+*.tgz
+dist/
+.DS_Store
+input-cache/
+txCache/
+
+# Beads / Dolt files (added by bd init)
+.beads/
+.dolt/
+*.db
+.beads-credential-key
+
+# Claude session logs
+logs/
+
+# Claude Code project config (keep commands/ tracked)
+.claude/*
+!.claude/commands/
+
+# IG Publisher artifacts in root
+Requirements-fromNarrative.json
+
+# Draft documents (not ready for publication)
+docs/white-paper-ihe-dental-europe.md
+
+# session-close transient artifacts (per-worktree IPC files)
+.session-close.lock
+.worktree-handoff.json

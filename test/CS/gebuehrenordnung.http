@@ -1,0 +1,11 @@
+### CodeSystem: Gebührenordnung - Valid Code 'goae'
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/gebuehrenordnung&code=goae
+Authorization: Basic basic:secret
+
+### CodeSystem: Gebührenordnung - Valid Code 'goz'
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/gebuehrenordnung&code=goz
+Authorization: Basic basic:secret
+
+### CodeSystem: Gebührenordnung - Invalid Code
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/gebuehrenordnung&code=INVALID_CODE_XYZ
+Authorization: Basic basic:secret

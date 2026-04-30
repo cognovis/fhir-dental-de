@@ -1,0 +1,7 @@
+### CodeSystem: Dental Category - Valid Code 'dental'
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/dental-category&code=dental
+Authorization: Basic basic:secret
+
+### CodeSystem: Dental Category - Invalid Code
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/dental-category&code=INVALID_CODE_XYZ
+Authorization: Basic basic:secret

@@ -1,0 +1,11 @@
+### CodeSystem: PAR Stadium - Valid Code 'A'
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/par-stadium&code=A
+Authorization: Basic basic:secret
+
+### CodeSystem: PAR Stadium - Valid Code 'B'
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/par-stadium&code=B
+Authorization: Basic basic:secret
+
+### CodeSystem: PAR Stadium - Invalid Code
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/par-stadium&code=INVALID_CODE_XYZ
+Authorization: Basic basic:secret

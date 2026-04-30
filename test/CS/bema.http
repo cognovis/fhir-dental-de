@@ -1,0 +1,19 @@
+### CodeSystem: BEMA (Einheitlicher Bewertungsmaßstab Zahnärzte) - Valid Code '01'
+GET http://localhost:8080/Concept?system=http://fhir.de/CodeSystem/kzbv/bema&code=01
+Authorization: Basic basic:secret
+
+### CodeSystem: BEMA (Einheitlicher Bewertungsmaßstab Zahnärzte) - Valid Code '04'
+GET http://localhost:8080/Concept?system=http://fhir.de/CodeSystem/kzbv/bema&code=04
+Authorization: Basic basic:secret
+
+### CodeSystem: BEMA (Einheitlicher Bewertungsmaßstab Zahnärzte) - Invalid Code
+GET http://localhost:8080/Concept?system=http://fhir.de/CodeSystem/kzbv/bema&code=INVALID_CODE_XYZ
+Authorization: Basic basic:secret
+
+### CodeSystem: BEMA PAR-Richtlinie 2021 - Valid Code 'ATG'
+GET http://localhost:8080/Concept?system=http://fhir.de/CodeSystem/kzbv/bema&code=ATG
+Authorization: Basic basic:secret
+
+### CodeSystem: BEMA PAR-Richtlinie 2021 - Valid Code 'AIT-a' (hyphenated)
+GET http://localhost:8080/Concept?system=http://fhir.de/CodeSystem/kzbv/bema&code=AIT-a
+Authorization: Basic basic:secret

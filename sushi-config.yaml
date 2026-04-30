@@ -1,0 +1,97 @@
+id: de.cognovis.fhir.dental
+canonical: https://fhir.cognovis.de/dental
+name: GermanDentalProfiles
+title: German Dental FHIR Profiles (R4)
+description: >-
+  FHIR R4 profiles for German dental practice — procedures (BEMA/GOZ),
+  conditions (ICD-10-GM), findings (Zahnschema/FDI), and communication.
+  Built on German base profiles (de.basisprofil.r4, KBV).
+status: active
+version: 0.25.0
+fhirVersion: 4.0.1
+copyrightYear: 2026+
+copyright: Copyright 2026+ cognovis GmbH. Licensed under CC-BY-4.0.
+releaseLabel: trial-use
+license: CC-BY-4.0
+publisher:
+  name: cognovis GmbH
+  url: https://www.cognovis.de
+  email: info@cognovis.de
+jurisdiction: urn:iso:std:iso:3166#DE "Germany"
+
+dependencies:
+  de.basisprofil.r4: 1.6.0-ballot2
+  kbv.basis: 1.8.0                  # KBV Basisprofile — Condition/Diagnosis, Patient base
+  kbv.ita.for: 1.3.1                # KBV Formular-Anforderungen — KBV_PR_FOR_Patient for dental
+  de.gematik.fhir.atf: 1.4.1        # ATF MessageHeader for KIM/TIM transport
+  de.cognovis.fhir.praxis: 0.40.3    # Praxis-DE Foundation — Abrechnungsquartal, Scheintyp etc.
+  hl7.fhir.uv.tools.r4: 1.1.2       # R4-specific version required; 1.1.2 has snapshot-base-version extension
+
+pages:
+  index.md:
+    title: Home
+  profiles.md:
+    title: Profiles
+  codesystems.md:
+    title: Code Systems
+  valuesets.md:
+    title: Value Sets
+  usecases.md:
+    title: Use Cases
+  lab-orders.md:
+    title: Clinical Lab Orders
+  sws-mapping.md:
+    title: SWS 2.0 Mapping
+  international-interoperability.md:
+    title: International Interoperability
+
+parameters:
+  special-url:
+    # External CodeSystems from German base profiles (not in standard registries)
+    - http://fhir.de/CodeSystem/kzbv/bema
+    - http://fhir.de/CodeSystem/bzaek/goz
+    - http://terminology.hl7.org/CodeSystem/ex-tooth
+    - http://fhir.de/CodeSystem/bfarm/icd-10-gm
+    - http://fhir.de/CodeSystem/bfarm/ops
+    # Own CodeSystems defined in this IG (under https://fhir.cognovis.de/dental/CodeSystem/)
+    - https://fhir.cognovis.de/dental/CodeSystem/ze-befundkuerzel
+    - https://fhir.cognovis.de/dental/CodeSystem/kfo-behandlungsphase
+    - https://fhir.cognovis.de/dental/CodeSystem/bema-befundklasse
+    - https://fhir.cognovis.de/dental/CodeSystem/privatgebuehr-begruendungskategorie
+    - https://fhir.cognovis.de/dental/CodeSystem/beb97
+    - https://fhir.cognovis.de/dental/CodeSystem/privatgebuehr-leistungsart
+    - https://fhir.cognovis.de/dental/CodeSystem/ze-therapiekuerzel
+    - https://fhir.cognovis.de/dental/CodeSystem/tooth-surfaces
+    - https://fhir.cognovis.de/dental/CodeSystem/kfo-angle-klasse
+    - https://fhir.cognovis.de/dental/CodeSystem/ze-versorgungsart
+    - https://fhir.cognovis.de/dental/CodeSystem/dental-befund-status
+    - https://fhir.cognovis.de/dental/CodeSystem/hkp-genehmigungsstatus
+    - https://fhir.cognovis.de/dental/CodeSystem/ztl-material
+    - https://fhir.cognovis.de/dental/CodeSystem/gebuehrenordnung
+    - https://fhir.cognovis.de/dental/CodeSystem/goae-zahn
+    - https://fhir.cognovis.de/dental/CodeSystem/dental-category
+    - https://fhir.cognovis.de/dental/CodeSystem/scheintyp
+    - https://fhir.cognovis.de/dental/CodeSystem/bel-ii
+    - https://fhir.cognovis.de/dental/CodeSystem/ze-bonus-prozent
+    - https://fhir.cognovis.de/dental/CodeSystem/kzv-regionen
+    - https://fhir.cognovis.de/dental/CodeSystem/par-stadium
+    - https://fhir.cognovis.de/dental/CodeSystem/kfo-apparatus-type
+    - https://fhir.cognovis.de/dental/CodeSystem/tooth-identification-fdi
+    - https://fhir.cognovis.de/dental/CodeSystem/restoration-type
+    - https://fhir.cognovis.de/dental/CodeSystem/vita-classical
+    - https://fhir.cognovis.de/dental/CodeSystem/dental-material
+    - https://fhir.cognovis.de/dental/CodeSystem/preparation-type
+    - https://fhir.cognovis.de/dental/CodeSystem/dental-lab-order-type
+    - https://fhir.cognovis.de/dental/CodeSystem/occlusion-concept
+  path-suppressed-warnings: input/ignoreWarnings.txt
+
+menu:
+  Home: index.html
+  Profiles: profiles.html
+  Terminology:
+    Code Systems: codesystems.html
+    Value Sets: valuesets.html
+  Use Cases: usecases.html
+  SWS 2.0 Mapping: sws-mapping.html
+  International Interoperability: international-interoperability.html
+  Artifacts: artifacts.html

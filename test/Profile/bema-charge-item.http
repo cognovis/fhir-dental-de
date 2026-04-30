@@ -1,0 +1,195 @@
+### Validate valid bema-charge-item
+POST http://localhost:8080/fhir/ChargeItem/$validate?profile=https://fhir.cognovis.de/dental/StructureDefinition/bema-charge-item
+Authorization: Basic YWRtaW46YVZyeFA1TkJyZlRLZWlpdDBxRnpLVzNL
+Content-Type: application/fhir+json
+
+{
+  "resourceType": "ChargeItem",
+  "id": "ExampleBemaChargeItem",
+  "meta": {
+    "profile": [
+      "https://fhir.cognovis.de/dental/StructureDefinition/bema-charge-item"
+    ]
+  },
+  "extension": [
+    {
+      "url": "https://fhir.cognovis.de/dental/StructureDefinition/fdi-tooth-number",
+      "valueCode": "36"
+    },
+    {
+      "url": "https://fhir.cognovis.de/dental/StructureDefinition/tooth-surfaces",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "code": "M",
+            "system": "http://terminology.hl7.org/CodeSystem/FDI-surface",
+            "display": "Mesial"
+          }
+        ]
+      }
+    },
+    {
+      "url": "https://fhir.cognovis.de/dental/StructureDefinition/tooth-surfaces",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "code": "O",
+            "system": "http://terminology.hl7.org/CodeSystem/FDI-surface",
+            "display": "Occlusal"
+          }
+        ]
+      }
+    },
+    {
+      "url": "https://fhir.cognovis.de/dental/StructureDefinition/tooth-surfaces",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "code": "D",
+            "system": "http://terminology.hl7.org/CodeSystem/FDI-surface",
+            "display": "Distal"
+          }
+        ]
+      }
+    },
+    {
+      "url": "https://fhir.cognovis.de/dental/StructureDefinition/bema-befundklasse",
+      "valueCode": "c"
+    }
+  ],
+  "status": "billable",
+  "code": {
+    "coding": [
+      {
+        "system": "http://fhir.de/CodeSystem/kzbv/bema",
+        "code": "13c",
+        "display": "Kompositfüllung dreiflächig"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/ExamplePatient"
+  },
+  "context": {
+    "reference": "Encounter/ExampleDentalEncounter"
+  },
+  "occurrenceDateTime": "2026-01-15",
+  "quantity": {
+    "value": 25,
+    "unit": "Punkte",
+    "system": "http://fhir.de/CodeSystem/kzbv/bema-punkte",
+    "code": "Punkte"
+  },
+  "priceOverride": {
+    "value": 26.65,
+    "currency": "EUR"
+  },
+  "bodysite": [
+    {
+      "coding": [
+        {
+          "code": "36",
+          "system": "http://terminology.hl7.org/CodeSystem/ex-tooth",
+          "display": "36"
+        }
+      ],
+      "text": "Zahn 36"
+    }
+  ]
+}
+
+### Validate invalid bema-charge-item
+POST http://localhost:8080/fhir/ChargeItem/$validate?profile=https://fhir.cognovis.de/dental/StructureDefinition/bema-charge-item
+Authorization: Basic YWRtaW46YVZyeFA1TkJyZlRLZWlpdDBxRnpLVzNL
+Content-Type: application/fhir+json
+
+{
+  "resourceType": "ChargeItem",
+  "id": "ExampleBemaChargeItem",
+  "meta": {
+    "profile": [
+      "https://fhir.cognovis.de/dental/StructureDefinition/bema-charge-item"
+    ]
+  },
+  "extension": [
+    {
+      "url": "https://fhir.cognovis.de/dental/StructureDefinition/fdi-tooth-number",
+      "valueCode": "36"
+    },
+    {
+      "url": "https://fhir.cognovis.de/dental/StructureDefinition/tooth-surfaces",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "code": "M",
+            "system": "http://terminology.hl7.org/CodeSystem/FDI-surface",
+            "display": "Mesial"
+          }
+        ]
+      }
+    },
+    {
+      "url": "https://fhir.cognovis.de/dental/StructureDefinition/tooth-surfaces",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "code": "O",
+            "system": "http://terminology.hl7.org/CodeSystem/FDI-surface",
+            "display": "Occlusal"
+          }
+        ]
+      }
+    },
+    {
+      "url": "https://fhir.cognovis.de/dental/StructureDefinition/tooth-surfaces",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "code": "D",
+            "system": "http://terminology.hl7.org/CodeSystem/FDI-surface",
+            "display": "Distal"
+          }
+        ]
+      }
+    },
+    {
+      "url": "https://fhir.cognovis.de/dental/StructureDefinition/bema-befundklasse",
+      "valueCode": "c"
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "http://fhir.de/CodeSystem/kzbv/bema",
+        "code": "13c",
+        "display": "Kompositfüllung dreiflächig"
+      }
+    ]
+  },
+  "context": {
+    "reference": "Encounter/ExampleDentalEncounter"
+  },
+  "occurrenceDateTime": "2026-01-15",
+  "quantity": {
+    "value": 25,
+    "unit": "Punkte",
+    "system": "http://fhir.de/CodeSystem/kzbv/bema-punkte",
+    "code": "Punkte"
+  },
+  "priceOverride": {
+    "value": 26.65,
+    "currency": "EUR"
+  },
+  "bodysite": [
+    {
+      "coding": [
+        {
+          "code": "36",
+          "system": "http://terminology.hl7.org/CodeSystem/ex-tooth",
+          "display": "36"
+        }
+      ],
+      "text": "Zahn 36"
+    }
+  ]
+}

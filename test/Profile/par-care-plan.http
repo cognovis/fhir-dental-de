@@ -1,0 +1,163 @@
+### Validate valid par-care-plan
+POST http://localhost:8080/fhir/CarePlan/$validate?profile=https://fhir.cognovis.de/dental/StructureDefinition/dental-care-plan
+Authorization: Basic YWRtaW46YVZyeFA1TkJyZlRLZWlpdDBxRnpLVzNL
+Content-Type: application/fhir+json
+
+{
+  "resourceType": "CarePlan",
+  "id": "ExampleParCarePlan",
+  "meta": {
+    "profile": [
+      "https://fhir.cognovis.de/dental/StructureDefinition/dental-care-plan"
+    ]
+  },
+  "intent": "plan",
+  "category": [
+    {
+      "coding": [
+        {
+          "code": "dental",
+          "system": "https://fhir.cognovis.de/dental/CodeSystem/dental-category",
+          "display": "Dental"
+        }
+      ]
+    }
+  ],
+  "extension": [
+    {
+      "url": "https://fhir.cognovis.de/dental/StructureDefinition/par-upt-intervall",
+      "valueInteger": 3
+    }
+  ],
+  "activity": [
+    {
+      "detail": {
+        "scheduledTiming": {
+          "repeat": {
+            "periodUnit": "mo",
+            "period": 3
+          }
+        },
+        "status": "scheduled",
+        "code": {
+          "coding": [
+            {
+              "code": "229067004",
+              "system": "http://snomed.info/sct",
+              "display": "Periodontal debridement"
+            }
+          ],
+          "text": "UPT — Unterstützende Parodontitistherapie"
+        },
+        "description": "UPT-Recall alle 3 Monate: subgingivales Reinstrumentieren, Remotivation, Dokumentation."
+      }
+    }
+  ],
+  "identifier": [
+    {
+      "system": "https://example-dental-practice.de/fhir/identifier/par-plan-id",
+      "value": "PAR-2026-000005"
+    }
+  ],
+  "status": "active",
+  "subject": {
+    "reference": "Patient/ExamplePatient"
+  },
+  "created": "2026-01-15",
+  "period": {
+    "start": "2026-02-01",
+    "end": "2027-12-31"
+  },
+  "title": "PAR-Behandlungsplan: Parodontitis generalisiert, Stadium II, Grad B",
+  "description": "PAR-Behandlung nach PAR-Richtlinie (07/2021). Diagnose: Generalisierte Parodontitis Stadium II, Grad B. Aktive Phase: Mundhygieneunterweisung, subgingivales Debridement, Reevaluation nach 8–12 Wochen. UPT: 3-Monats-Intervall für 2 Jahre. Antibiotikatherapie nicht indiziert.",
+  "addresses": [
+    {
+      "reference": "Condition/ExampleParodontitisCondition"
+    }
+  ],
+  "supportingInfo": [
+    {
+      "reference": "Observation/ExampleDentalFinding"
+    }
+  ]
+}
+
+### Validate invalid par-care-plan
+POST http://localhost:8080/fhir/CarePlan/$validate?profile=https://fhir.cognovis.de/dental/StructureDefinition/dental-care-plan
+Authorization: Basic YWRtaW46YVZyeFA1TkJyZlRLZWlpdDBxRnpLVzNL
+Content-Type: application/fhir+json
+
+{
+  "resourceType": "CarePlan",
+  "id": "ExampleParCarePlan",
+  "meta": {
+    "profile": [
+      "https://fhir.cognovis.de/dental/StructureDefinition/dental-care-plan"
+    ]
+  },
+  "intent": "plan",
+  "category": [
+    {
+      "coding": [
+        {
+          "code": "dental",
+          "system": "https://fhir.cognovis.de/dental/CodeSystem/dental-category",
+          "display": "Dental"
+        }
+      ]
+    }
+  ],
+  "extension": [
+    {
+      "url": "https://fhir.cognovis.de/dental/StructureDefinition/par-upt-intervall",
+      "valueInteger": 3
+    }
+  ],
+  "activity": [
+    {
+      "detail": {
+        "scheduledTiming": {
+          "repeat": {
+            "periodUnit": "mo",
+            "period": 3
+          }
+        },
+        "status": "scheduled",
+        "code": {
+          "coding": [
+            {
+              "code": "229067004",
+              "system": "http://snomed.info/sct",
+              "display": "Periodontal debridement"
+            }
+          ],
+          "text": "UPT — Unterstützende Parodontitistherapie"
+        },
+        "description": "UPT-Recall alle 3 Monate: subgingivales Reinstrumentieren, Remotivation, Dokumentation."
+      }
+    }
+  ],
+  "identifier": [
+    {
+      "system": "https://example-dental-practice.de/fhir/identifier/par-plan-id",
+      "value": "PAR-2026-000005"
+    }
+  ],
+  "created": "2026-01-15",
+  "period": {
+    "start": "2026-02-01",
+    "end": "2027-12-31"
+  },
+  "title": "PAR-Behandlungsplan: Parodontitis generalisiert, Stadium II, Grad B",
+  "description": "PAR-Behandlung nach PAR-Richtlinie (07/2021). Diagnose: Generalisierte Parodontitis Stadium II, Grad B. Aktive Phase: Mundhygieneunterweisung, subgingivales Debridement, Reevaluation nach 8–12 Wochen. UPT: 3-Monats-Intervall für 2 Jahre. Antibiotikatherapie nicht indiziert.",
+  "addresses": [
+    {
+      "reference": "Condition/ExampleParodontitisCondition"
+    }
+  ],
+  "supportingInfo": [
+    {
+      "reference": "Observation/ExampleDentalFinding"
+    }
+  ]
+}

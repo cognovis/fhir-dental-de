@@ -1,0 +1,11 @@
+### CodeSystem: BEL II (Bewertungsmaßstab Eigenlabor) - Valid Code '001'
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/bel-ii&code=001
+Authorization: Basic basic:secret
+
+### CodeSystem: BEL II (Bewertungsmaßstab Eigenlabor) - Valid Code '002'
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/bel-ii&code=002
+Authorization: Basic basic:secret
+
+### CodeSystem: BEL II (Bewertungsmaßstab Eigenlabor) - Invalid Code
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/bel-ii&code=INVALID_CODE_XYZ
+Authorization: Basic basic:secret

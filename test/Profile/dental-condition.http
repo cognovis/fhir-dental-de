@@ -1,0 +1,192 @@
+### Validate valid dental-condition
+POST http://localhost:8080/fhir/Condition/$validate?profile=https://fhir.cognovis.de/dental/StructureDefinition/dental-condition
+Authorization: Basic YWRtaW46YVZyeFA1TkJyZlRLZWlpdDBxRnpLVzNL
+Content-Type: application/fhir+json
+
+{
+  "resourceType": "Condition",
+  "id": "ExampleDentalCondition",
+  "meta": {
+    "profile": [
+      "https://fhir.cognovis.de/dental/StructureDefinition/dental-condition"
+    ]
+  },
+  "extension": [
+    {
+      "url": "https://fhir.cognovis.de/dental/StructureDefinition/fdi-tooth-number",
+      "valueCode": "46"
+    }
+  ],
+  "clinicalStatus": {
+    "coding": [
+      {
+        "code": "active",
+        "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+        "display": "Active"
+      }
+    ]
+  },
+  "verificationStatus": {
+    "coding": [
+      {
+        "code": "confirmed",
+        "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+        "display": "Confirmed"
+      }
+    ]
+  },
+  "category": [
+    {
+      "coding": [
+        {
+          "code": "dental",
+          "system": "https://fhir.cognovis.de/dental/CodeSystem/dental-category",
+          "display": "Dental"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "code": "K02.1",
+        "system": "http://fhir.de/CodeSystem/bfarm/icd-10-gm",
+        "display": "Karies des Dentins"
+      }
+    ],
+    "text": "Dentinkaries, Zahn 46"
+  },
+  "subject": {
+    "reference": "Patient/ExamplePatient"
+  },
+  "onsetDateTime": "2026-01-15",
+  "recordedDate": "2026-01-15",
+  "bodySite": [
+    {
+      "coding": [
+        {
+          "code": "46",
+          "system": "http://terminology.hl7.org/CodeSystem/ex-tooth",
+          "display": "46"
+        }
+      ]
+    }
+  ],
+  "stage": [
+    {
+      "summary": {
+        "coding": [
+          {
+            "code": "c",
+            "system": "https://fhir.cognovis.de/dental/CodeSystem/dental-befund-status",
+            "display": "kariös"
+          }
+        ]
+      }
+    }
+  ],
+  "evidence": [
+    {
+      "detail": [
+        {
+          "reference": "Observation/ExampleDentalFinding"
+        }
+      ]
+    }
+  ]
+}
+
+### Validate invalid dental-condition
+POST http://localhost:8080/fhir/Condition/$validate?profile=https://fhir.cognovis.de/dental/StructureDefinition/dental-condition
+Authorization: Basic YWRtaW46YVZyeFA1TkJyZlRLZWlpdDBxRnpLVzNL
+Content-Type: application/fhir+json
+
+{
+  "resourceType": "Condition",
+  "id": "ExampleDentalCondition",
+  "meta": {
+    "profile": [
+      "https://fhir.cognovis.de/dental/StructureDefinition/dental-condition"
+    ]
+  },
+  "extension": [
+    {
+      "url": "https://fhir.cognovis.de/dental/StructureDefinition/fdi-tooth-number",
+      "valueCode": "46"
+    }
+  ],
+  "clinicalStatus": {
+    "coding": [
+      {
+        "code": "active",
+        "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+        "display": "Active"
+      }
+    ]
+  },
+  "verificationStatus": {
+    "coding": [
+      {
+        "code": "confirmed",
+        "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+        "display": "Confirmed"
+      }
+    ]
+  },
+  "category": [
+    {
+      "coding": [
+        {
+          "code": "dental",
+          "system": "https://fhir.cognovis.de/dental/CodeSystem/dental-category",
+          "display": "Dental"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "code": "K02.1",
+        "system": "http://fhir.de/CodeSystem/bfarm/icd-10-gm",
+        "display": "Karies des Dentins"
+      }
+    ],
+    "text": "Dentinkaries, Zahn 46"
+  },
+  "onsetDateTime": "2026-01-15",
+  "recordedDate": "2026-01-15",
+  "bodySite": [
+    {
+      "coding": [
+        {
+          "code": "46",
+          "system": "http://terminology.hl7.org/CodeSystem/ex-tooth",
+          "display": "46"
+        }
+      ]
+    }
+  ],
+  "stage": [
+    {
+      "summary": {
+        "coding": [
+          {
+            "code": "c",
+            "system": "https://fhir.cognovis.de/dental/CodeSystem/dental-befund-status",
+            "display": "kariös"
+          }
+        ]
+      }
+    }
+  ],
+  "evidence": [
+    {
+      "detail": [
+        {
+          "reference": "Observation/ExampleDentalFinding"
+        }
+      ]
+    }
+  ]
+}

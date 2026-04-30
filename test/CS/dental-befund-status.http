@@ -1,0 +1,11 @@
+### CodeSystem: Dentaler Befundstatus - Valid Code 'f'
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/dental-befund-status&code=f
+Authorization: Basic basic:secret
+
+### CodeSystem: Dentaler Befundstatus - Valid Code 'z'
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/dental-befund-status&code=z
+Authorization: Basic basic:secret
+
+### CodeSystem: Dentaler Befundstatus - Invalid Code
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/dental-befund-status&code=INVALID_CODE_XYZ
+Authorization: Basic basic:secret

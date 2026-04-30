@@ -1,0 +1,11 @@
+### CodeSystem: Zahnflächen - Valid Code 'M'
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/tooth-surfaces&code=M
+Authorization: Basic basic:secret
+
+### CodeSystem: Zahnflächen - Valid Code 'D'
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/tooth-surfaces&code=D
+Authorization: Basic basic:secret
+
+### CodeSystem: Zahnflächen - Invalid Code
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/tooth-surfaces&code=INVALID_CODE_XYZ
+Authorization: Basic basic:secret

@@ -1,0 +1,26 @@
+### ValueSet: PrivatgebuehrBegruendungskategorieVS - Expand
+# VS URL: https://fhir.cognovis.de/dental/ValueSet/privatgebuehr-begruendungskategorie
+# Expected: expansion.contains has 6 entries
+GET http://localhost:8080/ValueSet/privatgebuehr-begruendungskategorie/$expand
+Authorization: Basic basic:secret
+
+### ValueSet: PrivatgebuehrBegruendungskategorieVS - Validate Valid Code (erschwernis-anatomisch)
+# System: https://fhir.cognovis.de/dental/CodeSystem/privatgebuehr-begruendungskategorie
+# Expected: result=true
+# Actual: result=True
+GET http://localhost:8080/ValueSet/$validate-code?url=https://fhir.cognovis.de/dental/ValueSet/privatgebuehr-begruendungskategorie&system=https://fhir.cognovis.de/dental/CodeSystem/privatgebuehr-begruendungskategorie&code=erschwernis-anatomisch
+Authorization: Basic basic:secret
+
+### ValueSet: PrivatgebuehrBegruendungskategorieVS - Validate Valid Code (erschwernis-kooperativ)
+# System: https://fhir.cognovis.de/dental/CodeSystem/privatgebuehr-begruendungskategorie
+# Expected: result=true
+# Actual: result=True
+GET http://localhost:8080/ValueSet/$validate-code?url=https://fhir.cognovis.de/dental/ValueSet/privatgebuehr-begruendungskategorie&system=https://fhir.cognovis.de/dental/CodeSystem/privatgebuehr-begruendungskategorie&code=erschwernis-kooperativ
+Authorization: Basic basic:secret
+
+### ValueSet: PrivatgebuehrBegruendungskategorieVS - Validate Invalid Code
+# System: https://fhir.cognovis.de/dental/CodeSystem/privatgebuehr-begruendungskategorie
+# Expected: result=false
+# Actual: result=False
+GET http://localhost:8080/ValueSet/$validate-code?url=https://fhir.cognovis.de/dental/ValueSet/privatgebuehr-begruendungskategorie&system=https://fhir.cognovis.de/dental/CodeSystem/privatgebuehr-begruendungskategorie&code=INVALID_XYZ
+Authorization: Basic basic:secret

@@ -1,0 +1,11 @@
+### CodeSystem: BEMA Befundklasse - Valid Code 'c'
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/bema-befundklasse&code=c
+Authorization: Basic basic:secret
+
+### CodeSystem: BEMA Befundklasse - Valid Code 'k'
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/bema-befundklasse&code=k
+Authorization: Basic basic:secret
+
+### CodeSystem: BEMA Befundklasse - Invalid Code
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/bema-befundklasse&code=INVALID_CODE_XYZ
+Authorization: Basic basic:secret

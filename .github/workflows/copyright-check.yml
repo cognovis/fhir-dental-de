@@ -1,0 +1,29 @@
+name: Copyright Guardrail
+
+# Blocks pushes and PRs that introduce copyrighted KZBV/BEB catalog display texts.
+# See scripts/copyright-blocklist.txt for the list of blocked patterns.
+# See README.md "License Guardrails" section for allowlisting options.
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+jobs:
+  copyright-check:
+    name: Check for copyrighted catalog texts
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install ripgrep
+        run: sudo apt-get install -y ripgrep
+
+      - name: Run self-tests for copyright check script
+        run: bash scripts/test-check-copyright.sh
+
+      - name: Run copyright check
+        run: bash scripts/check-copyright.sh

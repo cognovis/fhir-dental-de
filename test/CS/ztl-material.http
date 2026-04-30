@@ -1,0 +1,11 @@
+### CodeSystem: ZTL Material - Valid Code 'nem'
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/ztl-material&code=nem
+Authorization: Basic basic:secret
+
+### CodeSystem: ZTL Material - Valid Code 'em'
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/ztl-material&code=em
+Authorization: Basic basic:secret
+
+### CodeSystem: ZTL Material - Invalid Code
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/ztl-material&code=INVALID_CODE_XYZ
+Authorization: Basic basic:secret

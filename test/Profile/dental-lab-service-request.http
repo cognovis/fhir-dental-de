@@ -1,0 +1,85 @@
+### Validate valid dental-lab-service-request
+POST http://localhost:8080/fhir/ServiceRequest/$validate?profile=https://fhir.cognovis.de/dental/StructureDefinition/dental-lab-service-request
+Authorization: Basic YWRtaW46YVZyeFA1TkJyZlRLZWlpdDBxRnpLVzNL
+Content-Type: application/fhir+json
+
+{
+  "resourceType": "ServiceRequest",
+  "id": "ExampleDentalLabServiceRequest",
+  "meta": {
+    "profile": [
+      "https://fhir.cognovis.de/dental/StructureDefinition/dental-lab-service-request"
+    ]
+  },
+  "identifier": [
+    {
+      "system": "https://example-dental-practice.de/fhir/identifier/labor-id",
+      "value": "LAB-2026-000046"
+    }
+  ],
+  "status": "active",
+  "intent": "order",
+  "subject": {
+    "reference": "Patient/ExamplePatient"
+  },
+  "basedOn": [
+    {
+      "reference": "CarePlan/ExampleZeCarePlan"
+    }
+  ],
+  "performer": [
+    {
+      "reference": "Organization/ExampleDentallabor"
+    }
+  ],
+  "authoredOn": "2026-02-16",
+  "code": {
+    "text": "VMK-Krone Zahn 46 (Verblendmetallkeramik). Farbe: VITA A3. Präparation: Hohlkehlpräparation. Modell: Gipsmodell aus Abformung vom 2026-02-15."
+  },
+  "note": [
+    {
+      "text": "Bitte Zahnfarbe VITA A3 einhalten. Okklusale Keramikverblendung. Kontaktpunkte nach Wachsmodell. Rückgabe bis 2026-03-01."
+    }
+  ]
+}
+
+### Validate invalid dental-lab-service-request
+POST http://localhost:8080/fhir/ServiceRequest/$validate?profile=https://fhir.cognovis.de/dental/StructureDefinition/dental-lab-service-request
+Authorization: Basic YWRtaW46YVZyeFA1TkJyZlRLZWlpdDBxRnpLVzNL
+Content-Type: application/fhir+json
+
+{
+  "resourceType": "ServiceRequest",
+  "id": "ExampleDentalLabServiceRequest",
+  "meta": {
+    "profile": [
+      "https://fhir.cognovis.de/dental/StructureDefinition/dental-lab-service-request"
+    ]
+  },
+  "identifier": [
+    {
+      "system": "https://example-dental-practice.de/fhir/identifier/labor-id",
+      "value": "LAB-2026-000046"
+    }
+  ],
+  "intent": "order",
+  "basedOn": [
+    {
+      "reference": "CarePlan/ExampleZeCarePlan"
+    }
+  ],
+  "performer": [
+    {
+      "reference": "Organization/ExampleDentallabor"
+    }
+  ],
+  "authoredOn": "2026-02-16",
+  "code": {
+    "text": "VMK-Krone Zahn 46 (Verblendmetallkeramik). Farbe: VITA A3. Präparation: Hohlkehlpräparation. Modell: Gipsmodell aus Abformung vom 2026-02-15."
+  },
+  "note": [
+    {
+      "text": "Bitte Zahnfarbe VITA A3 einhalten. Okklusale Keramikverblendung. Kontaktpunkte nach Wachsmodell. Rückgabe bis 2026-03-01."
+    }
+  ]
+}

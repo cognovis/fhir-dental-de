@@ -1,0 +1,26 @@
+### ValueSet: GebuehrenordnungVS - Expand
+# VS URL: https://fhir.cognovis.de/dental/ValueSet/gebuehrenordnung
+# Expected: expansion.contains has 2 entries
+GET http://localhost:8080/ValueSet/gebuehrenordnung/$expand
+Authorization: Basic basic:secret
+
+### ValueSet: GebuehrenordnungVS - Validate Valid Code (goae)
+# System: https://fhir.cognovis.de/dental/CodeSystem/gebuehrenordnung
+# Expected: result=true
+# Actual: result=True
+GET http://localhost:8080/ValueSet/$validate-code?url=https://fhir.cognovis.de/dental/ValueSet/gebuehrenordnung&system=https://fhir.cognovis.de/dental/CodeSystem/gebuehrenordnung&code=goae
+Authorization: Basic basic:secret
+
+### ValueSet: GebuehrenordnungVS - Validate Valid Code (goz)
+# System: https://fhir.cognovis.de/dental/CodeSystem/gebuehrenordnung
+# Expected: result=true
+# Actual: result=True
+GET http://localhost:8080/ValueSet/$validate-code?url=https://fhir.cognovis.de/dental/ValueSet/gebuehrenordnung&system=https://fhir.cognovis.de/dental/CodeSystem/gebuehrenordnung&code=goz
+Authorization: Basic basic:secret
+
+### ValueSet: GebuehrenordnungVS - Validate Invalid Code
+# System: https://fhir.cognovis.de/dental/CodeSystem/gebuehrenordnung
+# Expected: result=false
+# Actual: result=False
+GET http://localhost:8080/ValueSet/$validate-code?url=https://fhir.cognovis.de/dental/ValueSet/gebuehrenordnung&system=https://fhir.cognovis.de/dental/CodeSystem/gebuehrenordnung&code=INVALID_XYZ
+Authorization: Basic basic:secret

@@ -1,0 +1,11 @@
+### CodeSystem: KZV Regionen - Valid Code '01'
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/kzv-regionen&code=01
+Authorization: Basic basic:secret
+
+### CodeSystem: KZV Regionen - Valid Code '02'
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/kzv-regionen&code=02
+Authorization: Basic basic:secret
+
+### CodeSystem: KZV Regionen - Invalid Code
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/kzv-regionen&code=INVALID_CODE_XYZ
+Authorization: Basic basic:secret

@@ -1,0 +1,26 @@
+### ValueSet: BemaCodesVS - Expand
+# VS URL: https://fhir.cognovis.de/dental/ValueSet/bema-codes
+# Expected: expansion.contains has 132 entries
+GET http://localhost:8080/ValueSet/bema-codes/$expand
+Authorization: Basic basic:secret
+
+### ValueSet: BemaCodesVS - Validate Valid Code (01)
+# System: http://fhir.de/CodeSystem/kzbv/bema
+# Expected: result=true
+# Actual: result=True
+GET http://localhost:8080/ValueSet/$validate-code?url=https://fhir.cognovis.de/dental/ValueSet/bema-codes&system=http://fhir.de/CodeSystem/kzbv/bema&code=01
+Authorization: Basic basic:secret
+
+### ValueSet: BemaCodesVS - Validate Valid Code (01a)
+# System: http://fhir.de/CodeSystem/kzbv/bema
+# Expected: result=true
+# Actual: result=True
+GET http://localhost:8080/ValueSet/$validate-code?url=https://fhir.cognovis.de/dental/ValueSet/bema-codes&system=http://fhir.de/CodeSystem/kzbv/bema&code=01a
+Authorization: Basic basic:secret
+
+### ValueSet: BemaCodesVS - Validate Invalid Code
+# System: http://fhir.de/CodeSystem/kzbv/bema
+# Expected: result=false
+# Actual: result=False
+GET http://localhost:8080/ValueSet/$validate-code?url=https://fhir.cognovis.de/dental/ValueSet/bema-codes&system=http://fhir.de/CodeSystem/kzbv/bema&code=INVALID_XYZ
+Authorization: Basic basic:secret

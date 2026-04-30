@@ -1,0 +1,319 @@
+### Validate valid prophylaxis-observation
+POST http://localhost:8080/fhir/Observation/$validate?profile=https://fhir.cognovis.de/dental/StructureDefinition/prophylaxis-observation
+Authorization: Basic YWRtaW46YVZyeFA1TkJyZlRLZWlpdDBxRnpLVzNL
+Content-Type: application/fhir+json
+
+{
+  "resourceType": "Observation",
+  "id": "ExampleProphylaxisObservation",
+  "meta": {
+    "profile": [
+      "https://fhir.cognovis.de/dental/StructureDefinition/prophylaxis-observation"
+    ]
+  },
+  "category": [
+    {
+      "coding": [
+        {
+          "code": "dental",
+          "system": "https://fhir.cognovis.de/dental/CodeSystem/dental-category",
+          "display": "Dental"
+        }
+      ]
+    }
+  ],
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "code": "18949003",
+            "system": "http://snomed.info/sct"
+          }
+        ],
+        "text": "Approximalraum-Plaque-Index (API)"
+      },
+      "valueQuantity": {
+        "system": "http://unitsofmeasure.org",
+        "code": "%",
+        "value": 45,
+        "unit": "%"
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "code": "37397005",
+            "system": "http://snomed.info/sct"
+          }
+        ],
+        "text": "Sulcus-Blutungs-Index (SBI)"
+      },
+      "valueQuantity": {
+        "system": "http://unitsofmeasure.org",
+        "code": "%",
+        "value": 30,
+        "unit": "%"
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "code": "427182008",
+            "system": "http://snomed.info/sct"
+          }
+        ],
+        "text": "PSI Sextant 1 (oben rechts)"
+      },
+      "valueInteger": 2
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "code": "427182008",
+            "system": "http://snomed.info/sct"
+          }
+        ],
+        "text": "PSI Sextant 2 (oben frontal)"
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "code": "427182008",
+            "system": "http://snomed.info/sct"
+          }
+        ],
+        "text": "PSI Sextant 3 (oben links)"
+      },
+      "valueInteger": 2
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "code": "427182008",
+            "system": "http://snomed.info/sct"
+          }
+        ],
+        "text": "PSI Sextant 4 (unten links)"
+      },
+      "valueInteger": 3
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "code": "427182008",
+            "system": "http://snomed.info/sct"
+          }
+        ],
+        "text": "PSI Sextant 5 (unten frontal)"
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "code": "427182008",
+            "system": "http://snomed.info/sct"
+          }
+        ],
+        "text": "PSI Sextant 6 (unten rechts)"
+      },
+      "valueInteger": 2
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "code": "129851006",
+            "system": "http://snomed.info/sct"
+          }
+        ],
+        "text": "Mundhygienestatus"
+      },
+      "valueCodeableConcept": {
+        "text": "Maessig — regelmaessige Prophylaxe empfohlen, API >35%"
+      }
+    }
+  ],
+  "status": "final",
+  "code": {
+    "coding": [
+      {
+        "code": "129851006",
+        "system": "http://snomed.info/sct",
+        "display": "Oral hygiene assessment"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/ExamplePatient"
+  },
+  "effectiveDateTime": "2026-03-15T09:30:00+01:00"
+}
+
+### Validate invalid prophylaxis-observation
+POST http://localhost:8080/fhir/Observation/$validate?profile=https://fhir.cognovis.de/dental/StructureDefinition/prophylaxis-observation
+Authorization: Basic YWRtaW46YVZyeFA1TkJyZlRLZWlpdDBxRnpLVzNL
+Content-Type: application/fhir+json
+
+{
+  "resourceType": "Observation",
+  "id": "ExampleProphylaxisObservation",
+  "meta": {
+    "profile": [
+      "https://fhir.cognovis.de/dental/StructureDefinition/prophylaxis-observation"
+    ]
+  },
+  "category": [
+    {
+      "coding": [
+        {
+          "code": "dental",
+          "system": "https://fhir.cognovis.de/dental/CodeSystem/dental-category",
+          "display": "Dental"
+        }
+      ]
+    }
+  ],
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "code": "18949003",
+            "system": "http://snomed.info/sct"
+          }
+        ],
+        "text": "Approximalraum-Plaque-Index (API)"
+      },
+      "valueQuantity": {
+        "system": "http://unitsofmeasure.org",
+        "code": "%",
+        "value": 45,
+        "unit": "%"
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "code": "37397005",
+            "system": "http://snomed.info/sct"
+          }
+        ],
+        "text": "Sulcus-Blutungs-Index (SBI)"
+      },
+      "valueQuantity": {
+        "system": "http://unitsofmeasure.org",
+        "code": "%",
+        "value": 30,
+        "unit": "%"
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "code": "427182008",
+            "system": "http://snomed.info/sct"
+          }
+        ],
+        "text": "PSI Sextant 1 (oben rechts)"
+      },
+      "valueInteger": 2
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "code": "427182008",
+            "system": "http://snomed.info/sct"
+          }
+        ],
+        "text": "PSI Sextant 2 (oben frontal)"
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "code": "427182008",
+            "system": "http://snomed.info/sct"
+          }
+        ],
+        "text": "PSI Sextant 3 (oben links)"
+      },
+      "valueInteger": 2
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "code": "427182008",
+            "system": "http://snomed.info/sct"
+          }
+        ],
+        "text": "PSI Sextant 4 (unten links)"
+      },
+      "valueInteger": 3
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "code": "427182008",
+            "system": "http://snomed.info/sct"
+          }
+        ],
+        "text": "PSI Sextant 5 (unten frontal)"
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "code": "427182008",
+            "system": "http://snomed.info/sct"
+          }
+        ],
+        "text": "PSI Sextant 6 (unten rechts)"
+      },
+      "valueInteger": 2
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "code": "129851006",
+            "system": "http://snomed.info/sct"
+          }
+        ],
+        "text": "Mundhygienestatus"
+      },
+      "valueCodeableConcept": {
+        "text": "Maessig — regelmaessige Prophylaxe empfohlen, API >35%"
+      }
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "code": "129851006",
+        "system": "http://snomed.info/sct",
+        "display": "Oral hygiene assessment"
+      }
+    ]
+  },
+  "effectiveDateTime": "2026-03-15T09:30:00+01:00"
+}

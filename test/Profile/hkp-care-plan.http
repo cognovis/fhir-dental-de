@@ -1,0 +1,137 @@
+### Validate valid hkp-care-plan
+POST http://localhost:8080/fhir/CarePlan/$validate?profile=https://fhir.cognovis.de/dental/StructureDefinition/dental-care-plan
+Authorization: Basic YWRtaW46YVZyeFA1TkJyZlRLZWlpdDBxRnpLVzNL
+Content-Type: application/fhir+json
+
+{
+  "resourceType": "CarePlan",
+  "id": "ExampleHkpCarePlan",
+  "meta": {
+    "profile": [
+      "https://fhir.cognovis.de/dental/StructureDefinition/dental-care-plan"
+    ]
+  },
+  "intent": "plan",
+  "category": [
+    {
+      "coding": [
+        {
+          "code": "dental",
+          "system": "https://fhir.cognovis.de/dental/CodeSystem/dental-category",
+          "display": "Dental"
+        }
+      ]
+    }
+  ],
+  "extension": [
+    {
+      "extension": [
+        {
+          "url": "status",
+          "valueCode": "genehmigt"
+        },
+        {
+          "url": "eingereicht-am",
+          "valueDateTime": "2026-01-10T10:00:00+01:00"
+        },
+        {
+          "url": "genehmigt-am",
+          "valueDateTime": "2026-01-20T14:30:00+01:00"
+        }
+      ],
+      "url": "https://fhir.cognovis.de/dental/StructureDefinition/hkp-genehmigungsstatus"
+    },
+    {
+      "url": "https://fhir.cognovis.de/dental/StructureDefinition/ehkp-id",
+      "valueString": "EBZ-2026-HKP-00099234"
+    },
+    {
+      "url": "https://fhir.cognovis.de/dental/StructureDefinition/ze-befundkuerzel",
+      "valueCode": "pw"
+    }
+  ],
+  "identifier": [
+    {
+      "system": "https://example-dental-practice.de/fhir/identifier/hkp-id",
+      "value": "HKP-2026-000099"
+    }
+  ],
+  "status": "active",
+  "subject": {
+    "reference": "Patient/ExamplePatient"
+  },
+  "created": "2026-01-10",
+  "period": {
+    "start": "2026-01-20",
+    "end": "2026-06-30"
+  },
+  "title": "HKP: Kronenversorgung Zahn 46",
+  "description": "Kronenversorgung für stark zerstörten Zahn 46 (Dentinkaries K02.1 MOD, Restsubstanz für Aufbaufüllung ausreichend). Geplant: BEMA 99a (Aufbaufüllung) + BEMA Krone VMK. Kostenvoranschlag wurde bei AOK Bayern eingereicht und genehmigt."
+}
+
+### Validate invalid hkp-care-plan
+POST http://localhost:8080/fhir/CarePlan/$validate?profile=https://fhir.cognovis.de/dental/StructureDefinition/dental-care-plan
+Authorization: Basic YWRtaW46YVZyeFA1TkJyZlRLZWlpdDBxRnpLVzNL
+Content-Type: application/fhir+json
+
+{
+  "resourceType": "CarePlan",
+  "id": "ExampleHkpCarePlan",
+  "meta": {
+    "profile": [
+      "https://fhir.cognovis.de/dental/StructureDefinition/dental-care-plan"
+    ]
+  },
+  "intent": "plan",
+  "category": [
+    {
+      "coding": [
+        {
+          "code": "dental",
+          "system": "https://fhir.cognovis.de/dental/CodeSystem/dental-category",
+          "display": "Dental"
+        }
+      ]
+    }
+  ],
+  "extension": [
+    {
+      "extension": [
+        {
+          "url": "status",
+          "valueCode": "genehmigt"
+        },
+        {
+          "url": "eingereicht-am",
+          "valueDateTime": "2026-01-10T10:00:00+01:00"
+        },
+        {
+          "url": "genehmigt-am",
+          "valueDateTime": "2026-01-20T14:30:00+01:00"
+        }
+      ],
+      "url": "https://fhir.cognovis.de/dental/StructureDefinition/hkp-genehmigungsstatus"
+    },
+    {
+      "url": "https://fhir.cognovis.de/dental/StructureDefinition/ehkp-id",
+      "valueString": "EBZ-2026-HKP-00099234"
+    },
+    {
+      "url": "https://fhir.cognovis.de/dental/StructureDefinition/ze-befundkuerzel",
+      "valueCode": "pw"
+    }
+  ],
+  "identifier": [
+    {
+      "system": "https://example-dental-practice.de/fhir/identifier/hkp-id",
+      "value": "HKP-2026-000099"
+    }
+  ],
+  "created": "2026-01-10",
+  "period": {
+    "start": "2026-01-20",
+    "end": "2026-06-30"
+  },
+  "title": "HKP: Kronenversorgung Zahn 46",
+  "description": "Kronenversorgung für stark zerstörten Zahn 46 (Dentinkaries K02.1 MOD, Restsubstanz für Aufbaufüllung ausreichend). Geplant: BEMA 99a (Aufbaufüllung) + BEMA Krone VMK. Kostenvoranschlag wurde bei AOK Bayern eingereicht und genehmigt."
+}

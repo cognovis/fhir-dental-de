@@ -1,0 +1,11 @@
+### CodeSystem: HKP Genehmigungsstatus - Valid Code 'eingereicht'
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/hkp-genehmigungsstatus&code=eingereicht
+Authorization: Basic basic:secret
+
+### CodeSystem: HKP Genehmigungsstatus - Valid Code 'genehmigt'
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/hkp-genehmigungsstatus&code=genehmigt
+Authorization: Basic basic:secret
+
+### CodeSystem: HKP Genehmigungsstatus - Invalid Code
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/hkp-genehmigungsstatus&code=INVALID_CODE_XYZ
+Authorization: Basic basic:secret

@@ -1,0 +1,11 @@
+### CodeSystem: ZE Versorgungsart - Valid Code 'regelversorgung'
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/ze-versorgungsart&code=regelversorgung
+Authorization: Basic basic:secret
+
+### CodeSystem: ZE Versorgungsart - Valid Code 'gleichartig'
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/ze-versorgungsart&code=gleichartig
+Authorization: Basic basic:secret
+
+### CodeSystem: ZE Versorgungsart - Invalid Code
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/ze-versorgungsart&code=INVALID_CODE_XYZ
+Authorization: Basic basic:secret

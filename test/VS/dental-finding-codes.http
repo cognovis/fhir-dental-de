@@ -1,0 +1,26 @@
+### ValueSet: DentalFindingCodesVS - Expand
+# VS URL: https://fhir.cognovis.de/dental/ValueSet/dental-finding-codes
+# Expected: expansion.contains has 4 entries
+GET http://localhost:8080/ValueSet/dental-finding-codes/$expand
+Authorization: Basic basic:secret
+
+### ValueSet: DentalFindingCodesVS - Validate Valid Code (34552-0)
+# System: http://loinc.org
+# Expected: result=true
+# Actual: result=True
+GET http://localhost:8080/ValueSet/$validate-code?url=https://fhir.cognovis.de/dental/ValueSet/dental-finding-codes&system=http://loinc.org&code=34552-0
+Authorization: Basic basic:secret
+
+### ValueSet: DentalFindingCodesVS - Validate Valid Code (32884-9)
+# System: http://loinc.org
+# Expected: result=true
+# Actual: result=True
+GET http://localhost:8080/ValueSet/$validate-code?url=https://fhir.cognovis.de/dental/ValueSet/dental-finding-codes&system=http://loinc.org&code=32884-9
+Authorization: Basic basic:secret
+
+### ValueSet: DentalFindingCodesVS - Validate Invalid Code
+# System: http://loinc.org
+# Expected: result=false
+# Actual: result=False
+GET http://localhost:8080/ValueSet/$validate-code?url=https://fhir.cognovis.de/dental/ValueSet/dental-finding-codes&system=http://loinc.org&code=INVALID_XYZ
+Authorization: Basic basic:secret

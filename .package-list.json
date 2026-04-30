@@ -1,0 +1,16 @@
+{
+  "package-id": "de.cognovis.fhir.dental",
+  "title": "German Dental FHIR Profiles (R4)",
+  "canonical": "https://fhir.cognovis.de/dental",
+  "introduction": "FHIR R4 profiles for German dental practice — procedures (BEMA/GOZ), conditions (ICD-10-GM), findings (Zahnschema/FDI), communication, and treatment plans (HKP, PAR, KFO, ZE).",
+  "category": "National Base",
+  "list": [
+    {
+      "version": "current",
+      "desc": "Continuous Integration Build (latest in development branch)",
+      "path": "https://cognovis.github.io/fhir-dental-de/",
+      "status": "ci-build",
+      "current": true
+    }
+  ]
+}

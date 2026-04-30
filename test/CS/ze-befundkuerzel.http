@@ -1,0 +1,11 @@
+### CodeSystem: ZE Befundkürzel - Valid Code 'xb'
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/ze-befundkuerzel&code=xb
+Authorization: Basic basic:secret
+
+### CodeSystem: ZE Befundkürzel - Valid Code 'xw'
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/ze-befundkuerzel&code=xw
+Authorization: Basic basic:secret
+
+### CodeSystem: ZE Befundkürzel - Invalid Code
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/ze-befundkuerzel&code=INVALID_CODE_XYZ
+Authorization: Basic basic:secret
