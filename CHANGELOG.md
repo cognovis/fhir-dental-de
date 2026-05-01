@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+## [Unreleased]
+
+### Added
+
+- **DentalImagingDiagnosticReportDE** profile for structured dental X-ray and imaging reports (OPG, DVT, EZA) referencing imaging studies and clinical findings.
+- **DentalCbctImagingStudyDE** subprofile specializing DentalImagingStudyDE for CBCT/DVT imaging studies.
+- **BemaToGozSuggestion** ConceptMap linking BEMA dental billing codes to GOZ fee-schedule suggestions.
+- **ProcedureToBemaSuggestion** ConceptMap mapping SNOMED radiology procedures to BEMA first-line billing suggestions.
+- **KfoRoentgenLinkFromStudyExt** and **KfoRoentgenLinkFromCarePlanExt** extensions enabling bidirectional linking between KFO care plans and imaging studies.
+
+### Changed
+
+- Updated dependency: `de.cognovis.fhir.praxis` 0.40.3 → 0.43.1 (adds ReportSubstatusCS, ImagingDiagnosticReport pattern).
+
 ## [0.25.0] - 2026-04-30
 
 ### Public Root Release
