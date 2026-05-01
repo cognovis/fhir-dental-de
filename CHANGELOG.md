@@ -2,24 +2,28 @@
 
 All notable changes to this project will be documented in this file.
 
-## [Unreleased]
+## [unreleased]
 
-### Added
+### Bug Fixes
 
-- **DentalImagingDiagnosticReportDE** profile for structured dental X-ray and imaging reports (OPG, DVT, EZA) referencing imaging studies and clinical findings.
-- **DentalCbctImagingStudyDE** subprofile specializing DentalImagingStudyDE for CBCT/DVT imaging studies.
-- **BemaToGozSuggestion** ConceptMap linking BEMA dental billing codes to GOZ fee-schedule suggestions.
-- **ProcedureToBemaSuggestion** ConceptMap mapping SNOMED radiology procedures to BEMA first-line billing suggestions.
-- **KfoRoentgenLinkFromStudyExt** and **KfoRoentgenLinkFromCarePlanExt** extensions enabling bidirectional linking between KFO care plans and imaging studies.
+- **fdde-qzb**: Address review findings iteration 1
 
-### Changed
+### Documentation
 
-- Updated dependency: `de.cognovis.fhir.praxis` 0.40.3 → 0.43.1 (adds ReportSubstatusCS, ImagingDiagnosticReport pattern).
+- **fdde-qzb**: Update CHANGELOG with Unreleased section for imaging profile + ConceptMaps
+
+### Features
+
+- **fdde-qzb**: Add DentalImagingDiagnosticReportDE, BemaToGozSuggestion, ProcedureToBemaSuggestion, KfoRoentgenLink
+
+### Miscellaneous
+
+- **fdde-qzb**: Update praxis dep 0.41.1 → 0.43.1, remove duplicate ReportSubstatus from dental IG
 
 ## [0.25.0] - 2026-04-30
 
-### Public Root Release
+### Miscellaneous
 
-- Public German Dental FHIR IG release with vendor-neutral canonical URLs.
-- Includes copyright and vendor-leak guardrails for future changes.
-- Publishes package `de.cognovis.fhir.dental#0.25.0`.
+- Public root release 0.25.0
+
+
