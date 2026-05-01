@@ -148,20 +148,20 @@ jobs:
       - name: Build FHIR package
         run: bash scripts/build-package.sh
 
-      - name: Verify no "current" version strings in dist/package.json
+      - name: Verify no "current" version strings in dist/package/package.json
         run: |
-          if [ ! -f dist/package.json ]; then
-            echo "::error::dist/package.json not found — build may have failed"
+          if [ ! -f dist/package/package.json ]; then
+            echo "::error::dist/package/package.json not found — build may have failed"
             exit 1
           fi
-          CURRENT_DEPS=$(jq -r '.dependencies // {} | to_entries[] | select(.value | test("^\\s*current\\s*$")) | "\(.key): \(.value)"' dist/package.json)
+          CURRENT_DEPS=$(jq -r '.dependencies // {} | to_entries[] | select(.value | test("^\\s*current\\s*$")) | "\(.key): \(.value)"' dist/package/package.json)
           if [ -n "$CURRENT_DEPS" ]; then
-            echo "::error::dist/package.json contains 'current' version strings in dependencies:"
+            echo "::error::dist/package/package.json contains 'current' version strings in dependencies:"
             echo "$CURRENT_DEPS"
             exit 1
           fi
           echo "All dependency versions are pinned:"
-          jq -r '.dependencies // {} | to_entries[] | "  \(.key): \(.value)"' dist/package.json
+          jq -r '.dependencies // {} | to_entries[] | "  \(.key): \(.value)"' dist/package/package.json
 
       - name: Install StructureDefinitions into Aidbox
         run: |
