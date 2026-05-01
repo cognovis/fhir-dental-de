@@ -54,6 +54,7 @@ jobs:
           BOX_FHIR_TERMINOLOGY_ENGINE: hybrid
           BOX_FHIR_TERMINOLOGY_ENGINE_HYBRID_EXTERNAL_TX_SERVER: https://tx.health-samurai.io/fhir
           BOX_BOOTSTRAP_FHIR_PACKAGES: hl7.fhir.r4.core#4.0.1:hl7.terminology.r4#6.4.0
+          BOX_FHIR_NPM_PACKAGE_REGISTRY: https://npm.cognovis.de
           AIDBOX_LICENSE_KEY: ${{ secrets.AIDBOX_LICENSE_KEY }}
 
     steps:
@@ -146,6 +147,21 @@ jobs:
 
       - name: Build FHIR package
         run: bash scripts/build-package.sh
+
+      - name: Verify no "current" version strings in dist/package/package.json
+        run: |
+          if [ ! -f dist/package/package.json ]; then
+            echo "::error::dist/package/package.json not found — build may have failed"
+            exit 1
+          fi
+          CURRENT_DEPS=$(jq -r '.dependencies // {} | to_entries[] | select(.value | test("^\\s*current\\s*$")) | "\(.key): \(.value)"' dist/package/package.json)
+          if [ -n "$CURRENT_DEPS" ]; then
+            echo "::error::dist/package/package.json contains 'current' version strings in dependencies:"
+            echo "$CURRENT_DEPS"
+            exit 1
+          fi
+          echo "All dependency versions are pinned:"
+          jq -r '.dependencies // {} | to_entries[] | "  \(.key): \(.value)"' dist/package/package.json
 
       - name: Install StructureDefinitions into Aidbox
         run: |
