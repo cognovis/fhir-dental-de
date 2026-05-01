@@ -1,8 +1,6 @@
 // Example: OPG-Aufnahme (Panoramaschichtaufnahme)
 // SWS 2.0 Satzart 12 — Röntgendiagnostik
-
-Alias: $dicom  = http://dicom.nema.org/resources/ontology/DCM
-Alias: $fdiCS  = https://fhir.cognovis.de/dental/CodeSystem/tooth-identification-fdi
+// Note: $dicom and $fdiCS aliases are defined globally in aliases.fsh
 
 Instance: ExampleDentalImagingStudy
 InstanceOf: DentalImagingStudyDE

@@ -7,3 +7,11 @@ Alias: $fdiCS      = https://fhir.cognovis.de/dental/CodeSystem/tooth-identifica
 Alias: $sct        = http://snomed.info/sct
 Alias: $fdi-tooth  = http://terminology.hl7.org/CodeSystem/ex-tooth
 Alias: $fdi-surface = http://terminology.hl7.org/CodeSystem/FDI-surface
+
+// DICOM
+Alias: $dicom = http://dicom.nema.org/resources/ontology/DCM
+
+// Praxis-DE CodeSystem aliases (de.cognovis.fhir.praxis 0.41.1)
+Alias: $RadiologyRoleCS            = https://fhir.cognovis.de/praxis/CodeSystem/radiology-role
+Alias: $ReportSubstatusCS          = https://fhir.cognovis.de/praxis/CodeSystem/report-substatus
+Alias: $ReportDistributionChannelCS = https://fhir.cognovis.de/praxis/CodeSystem/report-distribution-channel
