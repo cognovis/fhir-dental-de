@@ -88,7 +88,8 @@ parameters:
     - https://fhir.cognovis.de/praxis/CodeSystem/report-substatus
     - https://fhir.cognovis.de/praxis/CodeSystem/report-distribution-channel
     # New dental IG extensions (this release)
-    - https://fhir.cognovis.de/dental/StructureDefinition/kfo-roentgen-link
+    - https://fhir.cognovis.de/dental/StructureDefinition/kfo-roentgen-link-from-study
+    - https://fhir.cognovis.de/dental/StructureDefinition/kfo-roentgen-link-from-care-plan
   path-suppressed-warnings: input/ignoreWarnings.txt
 
 menu:

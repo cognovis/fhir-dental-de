@@ -27,10 +27,14 @@ Description: "Befundbericht zu einem Orthopantomogramm (OPG) bei Patient Friedri
 * issued = "2026-02-05T14:30:00+01:00"
 
 // Performer: befundender Zahnarzt
+// display-only: no standalone Practitioner example in this IG; a real implementation would use Reference(Practitioner/...)
 * performer[0].display = "Dr. Max Mustermann, Zahnarzt"
 
 // ImagingStudy: Referenz auf die OPG-Aufnahme
 * imagingStudy[0] = Reference(ImagingStudy/ExampleDentalImagingStudy)
+
+// Result: Referenz auf zahnärztlichen Befund (DentalFindingDE)
+* result[0] = Reference(Observation/ExampleDentalFindingKnochenresorption)
 
 // Conclusion: Freitext-Befundtext
 * conclusion = "OPG vom 05.02.2026: Generalisierte chronische Parodontitis mit horizontalem Knochenabbau bis 1/3 der Wurzellänge im Seitenzahnbereich bilateral. Keine apikalen Aufhellungen sichtbar. Kieferhöhlen regelrecht dargestellt. Empfehlung: PAR-Behandlung einleiten."

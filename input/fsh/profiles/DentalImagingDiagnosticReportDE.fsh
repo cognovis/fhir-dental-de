@@ -6,7 +6,7 @@ Profile: DentalImagingDiagnosticReportDE
 Parent: DiagnosticReport
 Id: dental-imaging-diagnostic-report
 Title: "Zahnärztlicher Röntgenbefundbericht (DE)"
-Description: "Profil für zahnärztliche Röntgenbefundberichte. Verbindet eine oder mehrere Röntgenaufnahmen (DentalImagingStudyDE) mit den erstellten Befunden (DentalFindingDE) und dem befundenden Zahnarzt."
+Description: "Profil für zahnärztliche Röntgenbefundberichte. Verbindet eine oder mehrere Röntgenaufnahmen (DentalImagingStudyDE) mit optionalen DentalFindingDE-Einzelbefunden und dem befundenden Zahnarzt."
 * ^status = #active
 * ^experimental = false
 * ^publisher = "cognovis GmbH"
@@ -45,6 +45,7 @@ Description: "Profil für zahnärztliche Röntgenbefundberichte. Verbindet eine 
 * performer ^short = "Befundender Zahnarzt / Radiologischer Dienst"
 
 // --- ImagingStudy: only DentalImagingStudyDE ---
+// Note: DentalCbctImagingStudyDE (child profile) is also accepted via FHIR profile inheritance semantics
 * imagingStudy only Reference(DentalImagingStudyDE)
 * imagingStudy MS
 * imagingStudy ^short = "Zugehörige Röntgenaufnahme(n) (DentalImagingStudyDE)"
