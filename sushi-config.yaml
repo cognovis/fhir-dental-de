@@ -24,7 +24,7 @@ dependencies:
   kbv.basis: 1.8.0                  # KBV Basisprofile — Condition/Diagnosis, Patient base
   kbv.ita.for: 1.3.1                # KBV Formular-Anforderungen — KBV_PR_FOR_Patient for dental
   de.gematik.fhir.atf: 1.4.1        # ATF MessageHeader for KIM/TIM transport
-  de.cognovis.fhir.praxis: 0.43.0    # Praxis-DE Foundation — Abrechnungsquartal, Scheintyp etc.; v0.43 adds full Imaging/Radiologie suite
+  de.cognovis.fhir.praxis: 0.43.1    # Praxis-DE Foundation — Abrechnungsquartal, Scheintyp etc.; v0.43 adds full Imaging/Radiologie suite
   hl7.fhir.uv.tools.r4: 1.1.2       # R4-specific version required; 1.1.2 has snapshot-base-version extension
 
 pages:
@@ -83,6 +83,13 @@ parameters:
     - https://fhir.cognovis.de/dental/CodeSystem/preparation-type
     - https://fhir.cognovis.de/dental/CodeSystem/dental-lab-order-type
     - https://fhir.cognovis.de/dental/CodeSystem/occlusion-concept
+    # Praxis-DE CodeSystems (not in standard FHIR registry, referenced via aliases)
+    - https://fhir.cognovis.de/praxis/CodeSystem/radiology-role
+    - https://fhir.cognovis.de/praxis/CodeSystem/report-substatus
+    - https://fhir.cognovis.de/praxis/CodeSystem/report-distribution-channel
+    # New dental IG extensions (this release)
+    - https://fhir.cognovis.de/dental/StructureDefinition/kfo-roentgen-link-from-study
+    - https://fhir.cognovis.de/dental/StructureDefinition/kfo-roentgen-link-from-care-plan
   path-suppressed-warnings: input/ignoreWarnings.txt
 
 menu:
