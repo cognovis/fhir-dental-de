@@ -58,6 +58,6 @@ Description: "Profil für zahnärztliche Röntgenbefundberichte. Verbindet eine 
 * conclusion MS
 * conclusion ^short = "Befundtext (Freitext-Zusammenfassung des Röntgenbefunds)"
 
-// --- Extension: ReportSubstatus from praxis 0.41.1 ---
-* extension contains ReportSubstatusExt named reportSubstatus 0..1 MS
+// --- Extension: ReportSubstatus from praxis 0.43.1 (defined in praxis, reused here) ---
+* extension contains $ReportSubstatusExt named reportSubstatus 0..1 MS
 * extension[reportSubstatus] ^short = "Erweiterter Substatus des Befundberichts (praxis: ReportSubstatusCS)"
