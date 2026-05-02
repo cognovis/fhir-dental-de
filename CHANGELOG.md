@@ -15,6 +15,7 @@ All notable changes to this project will be documented in this file.
 ### Miscellaneous
 
 - **deps**: Bump de.cognovis.fhir.praxis to 0.45.1
+- **fdde-a5j**: Add changelog entry for pre-push copyright hook documentation
 
 ### Merge
 
