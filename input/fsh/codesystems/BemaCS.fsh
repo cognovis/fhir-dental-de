@@ -55,9 +55,34 @@ Description: "Gebührenverzeichnis für zahnärztliche Leistungen im Rahmen der 
 * #39 "Entfernung Füllungsmaterial"
 
 // Chirurgische Leistungen (40-52)
-// Hinweis: Die Codenummern 40-52 entsprechen nicht den offiziellen BEMA-Z-Nummern
-// (BEMA-Z verwendet 40/41a/41b für Anästhesie, 43-48 für Extraktionen, 54a-c für WSR).
-// Dieses Fragment verwendet vereinfachte numerische Bezeichner für diese Leistungsgruppe.
+//
+// Hinweis (Vereinfachtes Nummernschema): Die Codenummern #40-52 dieses Fragments
+// entsprechen NICHT den offiziellen BEMA-Z-Nummern des KZBV-Katalogs.
+//
+// Begründung: Der offizielle BEMA-Z-Katalog belegt die Nummern 40–41b für
+// Leitungs- und Infiltrationsanästhesie (in diesem Fragment durch #04 abgedeckt)
+// sowie 43–48 für Zahnentfernungen in verschiedenen Schwierigkeitsgraden.
+// Dieses Fragment verwendet sequentielle vereinfachte Bezeichner #40–52, um
+// Kollisionen mit den offiziellen Anästhesie-Positionen zu vermeiden und eine
+// konsistente Nummerierung innerhalb der chirurgischen Leistungsgruppe zu gewährleisten.
+//
+// Näherungsweise Zuordnung zu offiziellen BEMA-Z-Positionen (Abschnitt III):
+//   #40 (Zahnentfernung einwurzelig)          → BEMA-Z 43      (Entfernen einwurzelig)
+//   #41 (Zahnentfernung mehrwurzelig)          → BEMA-Z 44/45   (Entfernen mehrwurzelig / tieffrakturiert)
+//   #42 (Zahnentfernung durch Osteotomie)      → BEMA-Z 47a     (Osteotomie standard, Ost1)
+//   #43 (Wurzelspitzenresektion einwurzelig)   → BEMA-Z 54a     (WSR einwurzelig)
+//   #44 (Wurzelspitzenresektion mehrwurzelig)  → BEMA-Z 54b/54c (WSR zwei-/mehrwurzelig)
+//   #45 (Behandlung einer Alveolitis)          → BEMA-Z Abschn. III (Alveolitis-Behandlung)
+//   #46 (Inzision eines Abszesses)             → BEMA-Z Abschn. III (Inzision)
+//   #47 (Naht zur Wundversorgung)              → BEMA-Z 46      (Chirurgische Wundrevision, als selbständige Leistung)
+//   #48 (Exzision von Mundschleimhaut)         → BEMA-Z 49/50   (Exzision Mundschleimhaut/Granulationsgewebe, Exz1/Exz2)
+//   #49 (Entfernung einer Zyste)               → BEMA-Z 56/56a-d (Zystenoperation, Zy1-Zy4)
+//   #50 (Entfernung eines retinierten Zahnes)  → BEMA-Z 48      (Osteotomie verlagert/retiniert, Ost2)
+//   #51 (Frenektomie)                          → BEMA-Z 57      (Beseitigen Schleimhautbänder/Muskelansätze)
+//   #52 (Sequestrotomie)                       → BEMA-Z Abschn. III (Sequestrotomie)
+//
+// ConceptMap-Impact: Keine. Die Codes #40–52 werden in keiner der ConceptMaps
+// (DicomModalityToBemaSuggestion, SidexisLogicalNameToBemaGoz) referenziert.
 * #40 "Zahnentfernung einwurzelig"
 * #41 "Zahnentfernung mehrwurzelig"
 * #42 "Zahnentfernung durch Osteotomie" // copyright-allowlist: BEMA-Z Leistungstext
