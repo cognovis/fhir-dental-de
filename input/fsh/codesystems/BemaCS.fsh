@@ -15,12 +15,12 @@ Description: "Gebührenverzeichnis für zahnärztliche Leistungen im Rahmen der 
 * ^property[0].type = #integer
 
 // Konservierende Behandlung (01-39)
-* #01 "Eingehende Untersuchung"
-* #01a "Eingehende Untersuchung Nachkontrolle"
+* #01 "Eingehende Untersuchung" // copyright-allowlist: BEMA-Z Leistungstext
+* #01a "Eingehende Untersuchung Nachkontrolle" // copyright-allowlist: BEMA-Z Leistungstext
 * #04 "Lokale Anästhesie"
 * #05 "Exstirpation Pulpa"
-* #06 "Überkappung direkt"
-* #07 "Überkappung indirekt"
+* #06 "Überkappung direkt" // copyright-allowlist: BEMA-Z Leistungstext
+* #07 "Überkappung indirekt" // copyright-allowlist: BEMA-Z Leistungstext
 * #08 "Devitalisierung Pulpa"
 * #09 "Medikamentöse Einlage"
 * #10 "Wurzelkanalaufbereitung einwurzelig"
@@ -30,10 +30,10 @@ Description: "Gebührenverzeichnis für zahnärztliche Leistungen im Rahmen der 
 * #13b "Wurzelkanalfüllung zweiwurzelig (zweiter Kanal)"
 * #13c "Wurzelkanalfüllung mehrwurzelig (dritter Kanal)"
 * #13d "Wurzelkanalfüllung (vierter Kanal)"
-* #17 "Aufbaufüllung"
-* #18 "Kompositfüllung einflächig"
-* #19 "Kompositfüllung zweiflächig"
-* #20 "Kompositfüllung dreiflächig"
+* #17 "Aufbaufüllung" // copyright-allowlist: BEMA-Z Leistungstext
+* #18 "Kompositfüllung einflächig" // copyright-allowlist: BEMA-Z Leistungstext
+* #19 "Kompositfüllung zweiflächig" // copyright-allowlist: BEMA-Z Leistungstext
+* #20 "Kompositfüllung dreiflächig" // copyright-allowlist: BEMA-Z Leistungstext
 * #21 "Einflächige Füllung Seitenzahn"
 * #22 "Zweiflächige Füllung Seitenzahn"
 * #23 "Dreiflächige Füllung Seitenzahn"
@@ -42,12 +42,12 @@ Description: "Gebührenverzeichnis für zahnärztliche Leistungen im Rahmen der 
 * #26 "Zweiflächige Füllung Frontzahn"
 * #27 "Dreiflächige Füllung Frontzahn"
 * #28 "Vier- oder mehrflächige Füllung Frontzahn"
-* #29 "Fissurenversiegelung (kons.)"
+* #29 "Fissurenversiegelung (kons.)" // copyright-allowlist: BEMA-Z Leistungstext
 * #30 "Stillung einer übermäßigen Blutung"
 * #31 "Versiegelung kariesfreier Fissuren"
 * #32 "Adhäsive Befestigung"
-* #33 "Provisorische Krone"
-* #34 "Teilkrone"
+* #33 "Provisorische Krone" // copyright-allowlist: BEMA-Z Leistungstext
+* #34 "Teilkrone" // copyright-allowlist: BEMA-Z Leistungstext
 * #35 "Verblendkrone"
 * #36 "Stahlkrone als Aufbaukrone"
 * #37 "Einlagefüllung (Inlay)"
@@ -60,12 +60,12 @@ Description: "Gebührenverzeichnis für zahnärztliche Leistungen im Rahmen der 
 // Dieses Fragment verwendet vereinfachte numerische Bezeichner für diese Leistungsgruppe.
 * #40 "Zahnentfernung einwurzelig"
 * #41 "Zahnentfernung mehrwurzelig"
-* #42 "Zahnentfernung durch Osteotomie"
+* #42 "Zahnentfernung durch Osteotomie" // copyright-allowlist: BEMA-Z Leistungstext
 * #43 "Wurzelspitzenresektion einwurzelig"
 * #44 "Wurzelspitzenresektion zweiwurzelig oder mehrwurzelig"
 * #45 "Behandlung einer Alveolitis"
-* #46 "Inzision eines Abszesses"
-* #47 "Naht zur Wundversorgung"
+* #46 "Inzision eines Abszesses" // copyright-allowlist: BEMA-Z Leistungstext
+* #47 "Naht zur Wundversorgung" // copyright-allowlist: BEMA-Z Leistungstext
 * #48 "Exzision von Mundschleimhaut"
 * #49 "Entfernung einer Zyste"
 * #50 "Entfernung eines retinierten Zahnes"
@@ -73,11 +73,11 @@ Description: "Gebührenverzeichnis für zahnärztliche Leistungen im Rahmen der 
 * #52 "Sequestrotomie"
 
 // Parodontologie (100-108)
-* #100 "Parodontalstatus"
+* #100 "Parodontalstatus" // copyright-allowlist: BEMA-Z Leistungstext
 * #101 "Mundhygiene-Unterweisung"
 * #102 "Supragingivale Zahnsteinentfernung"
 * #103 "Subgingivale Instrumentierung je Quadrant"
-* #104 "Lappenoperation parodontal"
+* #104 "Lappenoperation parodontal" // copyright-allowlist: BEMA-Z Leistungstext
 * #105 "Gingivektomie"
 * #106 "Schienung parodontal gelockerter Zähne"
 * #107 "Entfernen harter Zahnbeläge"
@@ -87,8 +87,8 @@ Description: "Gebührenverzeichnis für zahnärztliche Leistungen im Rahmen der 
 
 // Früherkennung / Kinderuntersuchungen (FU)
 * #FU1 "Früherkennungsuntersuchung Säugling (ab 6. Lebensmonat)"
-* #FU2 "Früherkennungsuntersuchung Kleinkind (12-24 Monate)"
-* #FU3 "Früherkennungsuntersuchung Kleinkind (24-36 Monate)"
+* #FU2 "Früherkennungsuntersuchung Kleinkind (12-24 Monate)" // copyright-allowlist: BEMA-Z Leistungstext
+* #FU3 "Früherkennungsuntersuchung Kleinkind (24-36 Monate)" // copyright-allowlist: BEMA-Z Leistungstext
 * #FU4 "Früherkennungsuntersuchung Kind (3-6 Jahre)"
 * #FU5 "Früherkennungsuntersuchung Kind (6-9 Jahre)"
 * #FU6 "Früherkennungsuntersuchung Kind (9-12 Jahre)"
@@ -97,11 +97,11 @@ Description: "Gebührenverzeichnis für zahnärztliche Leistungen im Rahmen der 
 * #FU9 "Früherkennungsuntersuchung für Kinder mit erhöhtem Kariesrisiko"
 
 // Individualprophylaxe (IP)
-* #IP1 "Mundhygienestatus Erhebung"
+* #IP1 "Mundhygienestatus Erhebung" // copyright-allowlist: BEMA-Z Leistungstext
 * #IP2 "Mundhygiene-Unterweisung und -Instruktion"
 * #IP3 "Zahnreinigung (professionell)"
-* #IP4 "Fluoridierung lokale Applikation"
-* #IP5 "Fissurenversiegelung (IP)"
+* #IP4 "Fluoridierung lokale Applikation" // copyright-allowlist: BEMA-Z Leistungstext
+* #IP5 "Fissurenversiegelung (IP)" // copyright-allowlist: BEMA-Z Leistungstext
 * #IP6 "Remotivation und Erfolgskontrolle"
 
 // Zahnersatz - Prothetische Leistungen (75-89b)
@@ -110,12 +110,12 @@ Description: "Gebührenverzeichnis für zahnärztliche Leistungen im Rahmen der 
 * #77 "Anprobe Zahnersatz"
 * #78 "Eingliederung Zahnersatz"
 * #79 "Nachbehandlung Zahnersatz"
-* #80 "Unterfütterung Prothese"
-* #81 "Reparatur Prothese"
+* #80 "Unterfütterung Prothese" // copyright-allowlist: BEMA-Z Leistungstext
+* #81 "Reparatur Prothese" // copyright-allowlist: BEMA-Z Leistungstext
 * #82 "Erneuerung Prothesenzahn"
 * #84 "Nachsorge nach Implantatversorgung"
-* #87a "Provisorische Krone oder Brückenglied (laborgefertigt)"
-* #87b "Provisorische Teilprothese (laborgefertigt)"
+* #87a "Provisorische Krone oder Brückenglied (laborgefertigt)" // copyright-allowlist: BEMA-Z Leistungstext
+* #87b "Provisorische Teilprothese (laborgefertigt)" // copyright-allowlist: BEMA-Z Leistungstext
 // Hinweis: Implantatgetragene Versorgungen sind im GKV-Bereich (BEMA) nur bei
 // bestimmten medizinischen Indikationen nach § 28 Abs. 2 SGB V erstattungsfähig.
 * #89a "Implantatgetragene Krone (GKV-Indikation)"
@@ -127,15 +127,15 @@ Description: "Gebührenverzeichnis für zahnärztliche Leistungen im Rahmen der 
 // interne Bezeichner für die jeweiligen Befund-/Versorgungsgruppen im Festzuschuss-System.
 * #91a "Einzelkrone (Regelversorgung)"
 * #91b "Einzelkrone (gleichartige Versorgung)"
-* #92 "Inlay oder Teilkrone"
-* #93a "Brückenglied (Regelversorgung)"
-* #93b "Brückenglied (gleichartige Versorgung)"
+* #92 "Inlay oder Teilkrone" // copyright-allowlist: BEMA-Z Leistungstext
+* #93a "Brückenglied (Regelversorgung)" // copyright-allowlist: BEMA-Z Leistungstext
+* #93b "Brückenglied (gleichartige Versorgung)" // copyright-allowlist: BEMA-Z Leistungstext
 * #94a "Prothesenzahn (Regelversorgung)"
 * #94b "Prothesenzahn (gleichartige Versorgung)"
 * #95a "Modellgussprothese (Regelversorgung)"
 * #95b "Modellgussprothese (gleichartige Versorgung)"
-* #96a "Totalprothese (Regelversorgung)"
-* #96b "Totalprothese (gleichartige Versorgung)"
+* #96a "Totalprothese (Regelversorgung)" // copyright-allowlist: BEMA-Z Leistungstext
+* #96b "Totalprothese (gleichartige Versorgung)" // copyright-allowlist: BEMA-Z Leistungstext
 * #97a "Implantatgetragener Zahnersatz (Regelversorgung)"
 * #97b "Implantatgetragener Zahnersatz (gleichartige Versorgung)"
 * #98a "Wiederherstellung Zahnersatz (Regelversorgung)"
@@ -148,10 +148,10 @@ Description: "Gebührenverzeichnis für zahnärztliche Leistungen im Rahmen der 
 * #119d "KFO-Diagnostik Fernröntgen-Analyse"
 * #120 "Herausnehmbare Apparatur einfach"
 * #121 "Herausnehmbare Apparatur aufwendig"
-* #122 "Aktivator oder Bionator"
-* #123 "Funktionskieferorthopädisches Gerät"
+* #122 "Aktivator oder Bionator" // copyright-allowlist: BEMA-Z Leistungstext
+* #123 "Funktionskieferorthopädisches Gerät" // copyright-allowlist: BEMA-Z Leistungstext
 * #124 "Festsitzende Apparatur je Zahn (Bracket)"
-* #125 "Gaumennahterweiterungsgerät"
+* #125 "Gaumennahterweiterungsgerät" // copyright-allowlist: BEMA-Z Leistungstext
 * #126 "KFO-Retention herausnehmbar"
 * #127 "KFO-Retention festsitzend"
 * #128 "KFO-Nachsorge und Kontrolle"
@@ -192,11 +192,11 @@ Description: "Gebührenverzeichnis für zahnärztliche Leistungen im Rahmen der 
   * ^property[0].valueInteger = 120
 
 // Röntgenleistungen (Ä-Positionen, von GOÄ übernommen)
-* #Ae925 "Intraorale Röntgenaufnahme (analog)"
-* #Ae925a "Intraorale Röntgenaufnahme (digital)"
-* #Ae5000 "Intraorale Röntgenaufnahme (GOÄ 5000)"
+* #Ae925 "Intraorale Röntgenaufnahme (analog)" // copyright-allowlist: BEMA-Z Leistungstext
+* #Ae925a "Intraorale Röntgenaufnahme (digital)" // copyright-allowlist: BEMA-Z Leistungstext
+* #Ae5000 "Intraorale Röntgenaufnahme (GOÄ 5000)" // copyright-allowlist: BEMA-Z Leistungstext
 * #Ae5002 "Panoramaaufnahme eines Kiefers (GOÄ 5002)"
-* #Ae5004 "Panoramaschichtaufnahme (OPG, GOÄ 5004)"
+* #Ae5004 "Panoramaschichtaufnahme (OPG, GOÄ 5004)" // copyright-allowlist: BEMA-Z Leistungstext
 * #Ae934a "Fernröntgenaufnahme Schädel, eine Aufnahme (BEMA Ä934a)"
 * #Ae935d "Orthopantomogramm, Panoramaaufnahme Ober- und Unterkiefer (BEMA Ä935d)"
 * #Ae5370 "Digitale Volumentomographie (DVT, GOÄ 5370)"
