@@ -10,6 +10,7 @@ All notable changes to this project will be documented in this file.
 
 ### Documentation
 
+- **fdde-o84**: Add BEMA-Z mapping hints to BemaCS surgical code comments for clarity
 - **fdde-a5j**: Document pre-push copyright hook setup in CLAUDE.md
 
 ### Miscellaneous
