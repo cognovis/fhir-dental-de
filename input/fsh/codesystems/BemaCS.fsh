@@ -22,13 +22,13 @@ Description: "Gebührenverzeichnis für zahnärztliche Leistungen im Rahmen der 
 * #06 "Überkappung direkt"
 * #07 "Überkappung indirekt"
 * #08 "Devitalisierung Pulpa"
-* #09 "Einlage Medikament (Einlage)"
+* #09 "Medikamentöse Einlage"
 * #10 "Wurzelkanalaufbereitung einwurzelig"
-* #11 "Wurzelkanalaufbereitung zweiw. (zweiter Kanal)"
-* #12 "Wurzelkanalaufbereitung mehrw. (dritter Kanal)"
+* #11 "Wurzelkanalaufbereitung zweiwurzelig (zweiter Kanal)"
+* #12 "Wurzelkanalaufbereitung mehrwurzelig (dritter Kanal)"
 * #13a "Wurzelkanalfüllung einwurzelig"
-* #13b "Wurzelkanalfüllung zweiw. (zweiter Kanal)"
-* #13c "Wurzelkanalfüllung mehrw. (dritter Kanal)"
+* #13b "Wurzelkanalfüllung zweiwurzelig (zweiter Kanal)"
+* #13c "Wurzelkanalfüllung mehrwurzelig (dritter Kanal)"
 * #13d "Wurzelkanalfüllung (vierter Kanal)"
 * #17 "Aufbaufüllung"
 * #18 "Kompositfüllung einflächig"
@@ -42,8 +42,8 @@ Description: "Gebührenverzeichnis für zahnärztliche Leistungen im Rahmen der 
 * #26 "Zweiflächige Füllung Frontzahn"
 * #27 "Dreiflächige Füllung Frontzahn"
 * #28 "Vier- oder mehrflächige Füllung Frontzahn"
-* #29 "Fissurenversiegelung"
-* #30 "Nachbehandlung nach Extraktion"
+* #29 "Fissurenversiegelung (kons.)"
+* #30 "Stillung einer übermäßigen Blutung"
 * #31 "Versiegelung kariesfreier Fissuren"
 * #32 "Adhäsive Befestigung"
 * #33 "Provisorische Krone"
@@ -55,17 +55,20 @@ Description: "Gebührenverzeichnis für zahnärztliche Leistungen im Rahmen der 
 * #39 "Entfernung Füllungsmaterial"
 
 // Chirurgische Leistungen (40-52)
-* #40 "Einfache Extraktion"
-* #41 "Operative Zahnentfernung"
-* #42 "Wurzelspitzenresektion einwurzelig"
-* #43 "Wurzelspitzenresektion zweiw. oder mehrw."
-* #44 "Alveolitis-Behandlung"
-* #45 "Inzision Abszess"
-* #46 "Naht Wundversorgung"
-* #47 "Exzision Schleimhaut"
-* #48 "Entfernung Zyste"
-* #49 "Entfernung retinierten Zahnes (Osteotomie)"
-* #50 "Plastische Deckung Alveole"
+// Hinweis: Die Codenummern 40-52 entsprechen nicht den offiziellen BEMA-Z-Nummern
+// (BEMA-Z verwendet 40/41a/41b für Anästhesie, 43-48 für Extraktionen, 54a-c für WSR).
+// Dieses Fragment verwendet vereinfachte numerische Bezeichner für diese Leistungsgruppe.
+* #40 "Zahnentfernung einwurzelig"
+* #41 "Zahnentfernung mehrwurzelig"
+* #42 "Zahnentfernung durch Osteotomie"
+* #43 "Wurzelspitzenresektion einwurzelig"
+* #44 "Wurzelspitzenresektion zweiwurzelig oder mehrwurzelig"
+* #45 "Behandlung einer Alveolitis"
+* #46 "Inzision eines Abszesses"
+* #47 "Naht zur Wundversorgung"
+* #48 "Exzision von Mundschleimhaut"
+* #49 "Entfernung einer Zyste"
+* #50 "Entfernung eines retinierten Zahnes"
 * #51 "Frenektomie"
 * #52 "Sequestrotomie"
 
@@ -98,7 +101,7 @@ Description: "Gebührenverzeichnis für zahnärztliche Leistungen im Rahmen der 
 * #IP2 "Mundhygiene-Unterweisung und -Instruktion"
 * #IP3 "Zahnreinigung (professionell)"
 * #IP4 "Fluoridierung lokale Applikation"
-* #IP5 "Fissurenversiegelung"
+* #IP5 "Fissurenversiegelung (IP)"
 * #IP6 "Remotivation und Erfolgskontrolle"
 
 // Zahnersatz - Prothetische Leistungen (75-89b)
@@ -110,28 +113,33 @@ Description: "Gebührenverzeichnis für zahnärztliche Leistungen im Rahmen der 
 * #80 "Unterfütterung Prothese"
 * #81 "Reparatur Prothese"
 * #82 "Erneuerung Prothesenzahn"
-* #84 "Implantologische Nachsorge"
+* #84 "Nachsorge nach Implantatversorgung"
 * #87a "Provisorische Krone oder Brückenglied (laborgefertigt)"
 * #87b "Provisorische Teilprothese (laborgefertigt)"
-* #89a "Implantatgetragene Krone"
-* #89b "Implantatgetragene Brücke"
+// Hinweis: Implantatgetragene Versorgungen sind im GKV-Bereich (BEMA) nur bei
+// bestimmten medizinischen Indikationen nach § 28 Abs. 2 SGB V erstattungsfähig.
+* #89a "Implantatgetragene Krone (GKV-Indikation)"
+* #89b "Implantatgetragene Brücke (GKV-Indikation)"
 
 // Zahnersatz - Festzuschüsse (91a-98b)
-* #91a "Festzuschuss: Einzelkrone (Standardversorgung)"
-* #91b "Festzuschuss: Einzelkrone (gleichartige Versorgung)"
-* #92 "Festzuschuss: Inlay oder Teilkrone"
-* #93a "Festzuschuss: Brückenglied (Standardversorgung)"
-* #93b "Festzuschuss: Brückenglied (gleichartige Versorgung)"
-* #94a "Festzuschuss: Prothesenzahn (Standardversorgung)"
-* #94b "Festzuschuss: Prothesenzahn (gleichartige Versorgung)"
-* #95a "Festzuschuss: Modellgussprothese (Standardversorgung)"
-* #95b "Festzuschuss: Modellgussprothese (gleichartige Versorgung)"
-* #96a "Festzuschuss: Totalprothese (Standardversorgung)"
-* #96b "Festzuschuss: Totalprothese (gleichartige Versorgung)"
-* #97a "Festzuschuss: Implantatgetragener Zahnersatz (Standardversorgung)"
-* #97b "Festzuschuss: Implantatgetragener Zahnersatz (gleichartige Versorgung)"
-* #98a "Festzuschuss: Wiederherstellung (Standardversorgung)"
-* #98b "Festzuschuss: Wiederherstellung (gleichartige Versorgung)"
+// Hinweis: Der Festzuschuss nach § 55 SGB V basiert auf Befundklassen (z. B. 1.1, 2.1).
+// Die Codes 91a-98b entsprechen keinen offiziellen BEMA-Z-Codenummern, sondern sind
+// interne Bezeichner für die jeweiligen Befund-/Versorgungsgruppen im Festzuschuss-System.
+* #91a "Einzelkrone (Regelversorgung)"
+* #91b "Einzelkrone (gleichartige Versorgung)"
+* #92 "Inlay oder Teilkrone"
+* #93a "Brückenglied (Regelversorgung)"
+* #93b "Brückenglied (gleichartige Versorgung)"
+* #94a "Prothesenzahn (Regelversorgung)"
+* #94b "Prothesenzahn (gleichartige Versorgung)"
+* #95a "Modellgussprothese (Regelversorgung)"
+* #95b "Modellgussprothese (gleichartige Versorgung)"
+* #96a "Totalprothese (Regelversorgung)"
+* #96b "Totalprothese (gleichartige Versorgung)"
+* #97a "Implantatgetragener Zahnersatz (Regelversorgung)"
+* #97b "Implantatgetragener Zahnersatz (gleichartige Versorgung)"
+* #98a "Wiederherstellung Zahnersatz (Regelversorgung)"
+* #98b "Wiederherstellung Zahnersatz (gleichartige Versorgung)"
 
 // Kieferorthopädie (119a-128)
 * #119a "KFO-Untersuchung und Planung (Erstuntersuchung)"
@@ -152,7 +160,7 @@ Description: "Gebührenverzeichnis für zahnärztliche Leistungen im Rahmen der 
 * #ATG "Antiinfektiöse Therapie, subgingival, Full-Mouth"
   * ^property[0].code = #punkte
   * ^property[0].valueInteger = 28
-* #MHU "Mund- und Hygieneunterweisung"
+* #MHU "Mundhygieneunterweisung"
   * ^property[0].code = #punkte
   * ^property[0].valueInteger = 45
 * #AIT-a "Antiinfektiöse Therapie 1-3 Zähne"
