@@ -327,6 +327,14 @@ Description: "Gebührenordnung für zahnärztliche Leistungen im Privatbereich (
 * #5085 "Provisorium Langzeit"
 * #5095 "Sofortimplantat-Krone provisorisch"
 
+// GOÄ-Referenzcodes für Röntgenleistungen (GOZ-Anlage, Ae-Präfix)
+// Diese Codes werden im Kontext der zahnärztlichen Radiologie-Abrechnung
+// über den Sidexis-LogicalName-Mapping verwendet.
+* #Ae5000 "Ae5000 (GOÄ-Position, intraorale Röntgenaufnahme)"
+* #Ae5004 "Ae5004 (GOÄ-Position, Panoramaschichtaufnahme/OPG)"
+* #Ae5090 "Ae5090 (GOÄ-Position, Fernröntgenaufnahme des Schädels)"
+* #Ae5370 "Ae5370 (GOÄ-Position, Digitale Volumentomographie/DVT)"
+
 // Ergänzende funktionsanalytische Leistungen
 * #7005 "Schiene einfach"
 * #7015 "Schiene komplex"
