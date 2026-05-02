@@ -15,7 +15,7 @@ Content-Type: application/fhir+json
 }
 
 ### ConceptMap: SidexisLogicalNameToBemaGoz - $translate DVT (XRay3D.Volume.Standard) → GOZ
-# Expected: match.concept.code=Ae5370, equivalence=relatedto
+# Expected: match.concept.code=Ae5370, equivalence=equivalent
 POST http://localhost:8080/fhir/ConceptMap/$translate
 Authorization: Basic basic:secret
 Content-Type: application/fhir+json
