@@ -2,7 +2,7 @@
 // Bildet Sidexis 4 LogicalName-Aufnahmetypen auf GKV-BEMA- und GOZ-Privatpositionen ab.
 //
 // Mapping:
-//   XRay3D.Volume.Standard             → DVT      → BEMA #Ae5370 (equivalent); GOZ #Ae5370 (relatedto)
+//   XRay3D.Volume.Standard             → DVT      → BEMA #Ae5370 (equivalent); GOZ #Ae5370 (equivalent)
 //                                                  comment: "DVT additionally maps to OPG codes (Ae935d/Ae5004) when practice config flag DvtAcceptsOpg is enabled; see zahnrad/tools/Roentgen-Review/README.md"
 //   XRay2D.Extraoral.Panorama.Standard → OPG      → BEMA #Ae935d (equivalent); GOZ #Ae5004 (equivalent)
 //   XRay2D.Extraoral.Ceph.Standard     → SCHÄDEL  → BEMA #Ae934a (equivalent); GOZ #Ae5090 (equivalent)
@@ -26,7 +26,7 @@ Description: "Mapping von Sidexis 4 LogicalName-Aufnahmetypen auf GKV-BEMA- und 
 * status = #active
 * experimental = false
 * publisher = "cognovis GmbH"
-* purpose = "Bridges Sidexis 4 imaging metadata (LogicalName) to German dental billing codes (BEMA/GOZ) so that radiology workflows can produce billing-ready procedure resources without hardcoded mapping tables."
+* purpose = "Bridges Sidexis 4 imaging metadata (LogicalName) to German dental billing codes (BEMA/GOZ) so that radiology workflows can produce billing-ready procedure resources without hardcoded mapping tables. Sources: GOZ-Katalog (BZÄK), BEMA-Z (KZBV), zahnrad/tools/Roentgen-Review/README.md (Praxis-validiertes Mapping), polaris-7os (Strahlen-Code-Whitelist-Spezifikation)."
 * sourceCanonical = "https://www.dentsplysirona.com/sidexis/logical-name"
 
 // Group 0: Sidexis LogicalName → BEMA
@@ -65,12 +65,12 @@ Description: "Mapping von Sidexis 4 LogicalName-Aufnahmetypen auf GKV-BEMA- und 
 * group[1].source = "https://www.dentsplysirona.com/sidexis/logical-name"
 * group[1].target = "http://fhir.de/CodeSystem/bzaek/goz"
 
-// XRay3D.Volume.Standard → GOZ Ae5370 (DVT) — relatedto because Ae935d/Ae5004 may apply when DvtAcceptsOpg
+// XRay3D.Volume.Standard → GOZ Ae5370 (DVT) — equivalent; OPG fallback (Ae935d/Ae5004) applies only when DvtAcceptsOpg is enabled
 * group[1].element[0].code = #"XRay3D.Volume.Standard"
 * group[1].element[0].display = "DVT (Digitale Volumentomographie)"
 * group[1].element[0].target[0].code = #Ae5370
 * group[1].element[0].target[0].display = "Ae5370 (GOÄ-Position, Digitale Volumentomographie/DVT)"
-* group[1].element[0].target[0].equivalence = #relatedto
+* group[1].element[0].target[0].equivalence = #equivalent
 * group[1].element[0].target[0].comment = "DVT additionally maps to OPG codes (Ae935d/Ae5004) when practice config flag DvtAcceptsOpg is enabled; see zahnrad/tools/Roentgen-Review/README.md"
 
 // XRay2D.Extraoral.Panorama.Standard → GOZ Ae5004 (OPG)
