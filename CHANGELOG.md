@@ -2,31 +2,54 @@
 
 All notable changes to this project will be documented in this file.
 
+## [unreleased]
+
+### Documentation
+
+- **fdde-4kk**: Add changelog entry for DicomModalityToBemaSuggestion ConceptMap
+
+### Features
+
+- **fdde-4kk**: Add DicomModalityToBemaSuggestion ConceptMap and DX example
+
 ## [0.26.0] - 2026-05-01
-
-### Added
-
-- **DentalImagingDiagnosticReportDE** profile for structured dental X-ray and imaging reports (OPG, DVT, EZA) referencing imaging studies and clinical findings.
-- **DentalCbctImagingStudyDE** subprofile specializing DentalImagingStudyDE for CBCT/DVT imaging studies.
-- **BemaToGozSuggestion** ConceptMap linking BEMA dental billing codes to GOZ fee-schedule suggestions.
-- **ProcedureToBemaSuggestion** ConceptMap mapping SNOMED radiology procedures to BEMA first-line billing suggestions.
-- **KfoRoentgenLinkFromStudyExt** and **KfoRoentgenLinkFromCarePlanExt** extensions enabling bidirectional linking between KFO care plans and imaging studies.
-
-### Changed
-
-- Updated dependency: `de.cognovis.fhir.praxis` 0.40.3 → 0.43.1 (adds ReportSubstatusCS, ImagingDiagnosticReport pattern).
-
-## [0.25.1] - 2026-04-30
 
 ### Bug Fixes
 
-- CI publish pipeline fixes (registry config, dep-version validation step, dist/package path)
+- **fdde-qzb**: Address review findings iteration 1
+
+### Documentation
+
+- Add Unreleased section for fdde-qzb imaging profile additions
+- **fdde-qzb**: Update CHANGELOG with Unreleased section for imaging profile + ConceptMaps
+
+### Features
+
+- **fdde-qzb**: Add DentalImagingDiagnosticReportDE, BemaToGozSuggestion, ProcedureToBemaSuggestion, KfoRoentgenLink
+
+### Miscellaneous
+
+- **fdde-qzb**: Update praxis dep 0.41.1 → 0.43.1, remove duplicate ReportSubstatus from dental IG
+- **fdde-qzb**: Update changelog via git-cliff
+- Bump version to 0.26.0
+
+## [0.25.1] - 2026-05-01
+
+### Bug Fixes
+
+- **fdde-2fg**: CI registry config and dep-version validation step
+- **fdde-2fg**: Correct dist/package/package.json path in validation step
+- **fdde-2fg**: Merge CI publish pipeline fixes into main
+
+### Miscellaneous
+
 - Bump de.cognovis.fhir.praxis pin to 0.43.0
+- Bump version to 0.25.1
 
 ## [0.25.0] - 2026-04-30
 
-### Public Root Release
+### Miscellaneous
 
-- Public German Dental FHIR IG release with vendor-neutral canonical URLs.
-- Includes copyright and vendor-leak guardrails for future changes.
-- Publishes package `de.cognovis.fhir.dental#0.25.0`.
+- Public root release 0.25.0
+
+
