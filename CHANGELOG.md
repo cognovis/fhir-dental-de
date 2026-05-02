@@ -2,29 +2,47 @@
 
 All notable changes to this project will be documented in this file.
 
+## [unreleased]
+
+### Bug Fixes
+
+- **ci**: Vendor de.cognovis.terminology.imaging for CI FHIR cache
+- **ci**: Fetch terminology.imaging from Verdaccio with VERDACCIO_TOKEN
+- **fdde-511**: Address review findings — correct BemaCS descriptions from BEMA-Z catalog
+- **fdde-511**: Address codex adversarial findings — correct BEMA descriptions from catalog
+
+### Features
+
+- **fdde-511**: Add meaningful descriptions to BemaCS and GozCS CodeSystems
+
 ## [0.27.0] - 2026-05-02
 
 ### Bug Fixes
 
 - **fdde-6rt**: Address review findings iteration 1
 - **fdde-6rt**: Address codex adversarial findings
+- **fdde-6rt**: Remove vendor string references from ConceptMap
 
 ### Documentation
 
 - **fdde-4kk**: Add changelog entry for DicomModalityToBemaSuggestion ConceptMap
+- **fdde-6rt**: Add changelog entry for SidexisLogicalNameToBemaGoz ConceptMap
 
 ### Features
 
-- **fdde-6rt**: Add SidexisLogicalNameToBemaGoz ConceptMap for Sidexis imaging type to billing code mapping (DVT/OPG/Cephalometric/Intraoral)
 - **fdde-4kk**: Add DicomModalityToBemaSuggestion ConceptMap and DX example
+- **fdde-6rt**: Green — SidexisLogicalNameToBemaGoz ConceptMap + RadiationRelevantBillingCodeVS + SidexisLogicalNameCS
+- **fdde-6rt**: Add SidexisLogicalNameToBemaGoz ConceptMap
 
 ### Miscellaneous
 
 - **fdde-4kk**: Session close — DicomModalityToBemaSuggestion ConceptMap
+- Bump version to 0.27.0
 
 ### Merge
 
 - Worktree-bead-fdde-4kk
+- Worktree-bead-fdde-6rt
 
 ### Test
 
