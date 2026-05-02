@@ -1,0 +1,79 @@
+### ConceptMap: DicomModalityToBemaSuggestion - $translate DX → BEMA
+# Expected: match.concept.code=Ae5000, relationship=equivalent
+POST http://localhost:8080/fhir/ConceptMap/$translate
+Authorization: Basic basic:secret
+Content-Type: application/fhir+json
+
+{
+  "resourceType": "Parameters",
+  "parameter": [
+    { "name": "url", "valueUri": "https://fhir.cognovis.de/dental/ConceptMap/dicom-modality-to-bema-suggestion" },
+    { "name": "system", "valueUri": "http://dicom.nema.org/resources/ontology/DCM" },
+    { "name": "code", "valueCode": "DX" },
+    { "name": "target", "valueUri": "http://fhir.de/CodeSystem/kzbv/bema" }
+  ]
+}
+
+### ConceptMap: DicomModalityToBemaSuggestion - $translate IO → BEMA
+# Expected: match.concept.code=Ae5000, relationship=equivalent
+POST http://localhost:8080/fhir/ConceptMap/$translate
+Authorization: Basic basic:secret
+Content-Type: application/fhir+json
+
+{
+  "resourceType": "Parameters",
+  "parameter": [
+    { "name": "url", "valueUri": "https://fhir.cognovis.de/dental/ConceptMap/dicom-modality-to-bema-suggestion" },
+    { "name": "system", "valueUri": "http://dicom.nema.org/resources/ontology/DCM" },
+    { "name": "code", "valueCode": "IO" },
+    { "name": "target", "valueUri": "http://fhir.de/CodeSystem/kzbv/bema" }
+  ]
+}
+
+### ConceptMap: DicomModalityToBemaSuggestion - $translate PX → BEMA
+# Expected: match.concept.code=Ae5002, relationship=equivalent
+POST http://localhost:8080/fhir/ConceptMap/$translate
+Authorization: Basic basic:secret
+Content-Type: application/fhir+json
+
+{
+  "resourceType": "Parameters",
+  "parameter": [
+    { "name": "url", "valueUri": "https://fhir.cognovis.de/dental/ConceptMap/dicom-modality-to-bema-suggestion" },
+    { "name": "system", "valueUri": "http://dicom.nema.org/resources/ontology/DCM" },
+    { "name": "code", "valueCode": "PX" },
+    { "name": "target", "valueUri": "http://fhir.de/CodeSystem/kzbv/bema" }
+  ]
+}
+
+### ConceptMap: DicomModalityToBemaSuggestion - $translate CT → BEMA
+# Expected: match.concept.code=Ae5370, relationship=equivalent (CT = CBCT/DVT in Dental-PACS context)
+POST http://localhost:8080/fhir/ConceptMap/$translate
+Authorization: Basic basic:secret
+Content-Type: application/fhir+json
+
+{
+  "resourceType": "Parameters",
+  "parameter": [
+    { "name": "url", "valueUri": "https://fhir.cognovis.de/dental/ConceptMap/dicom-modality-to-bema-suggestion" },
+    { "name": "system", "valueUri": "http://dicom.nema.org/resources/ontology/DCM" },
+    { "name": "code", "valueCode": "CT" },
+    { "name": "target", "valueUri": "http://fhir.de/CodeSystem/kzbv/bema" }
+  ]
+}
+
+### ConceptMap: DicomModalityToBemaSuggestion - $translate RG → BEMA
+# Expected: match.concept.code=Ae925, relationship=wider (fallback/general radiograph)
+POST http://localhost:8080/fhir/ConceptMap/$translate
+Authorization: Basic basic:secret
+Content-Type: application/fhir+json
+
+{
+  "resourceType": "Parameters",
+  "parameter": [
+    { "name": "url", "valueUri": "https://fhir.cognovis.de/dental/ConceptMap/dicom-modality-to-bema-suggestion" },
+    { "name": "system", "valueUri": "http://dicom.nema.org/resources/ontology/DCM" },
+    { "name": "code", "valueCode": "RG" },
+    { "name": "target", "valueUri": "http://fhir.de/CodeSystem/kzbv/bema" }
+  ]
+}
