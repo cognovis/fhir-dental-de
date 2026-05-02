@@ -6,6 +6,36 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
+- **fdde-wzv**: Add copyright-allowlist markers to BemaCS display texts
+
+### Documentation
+
+- **fdde-a5j**: Document pre-push copyright hook setup in CLAUDE.md
+
+### Miscellaneous
+
+- **deps**: Bump de.cognovis.fhir.praxis to 0.45.1
+
+### Merge
+
+- Resolve CHANGELOG conflict from concurrent worktree sessions
+- Worktree-bead-fdde-511
+
+## [0.28.0] - 2026-05-02
+
+### Miscellaneous
+
+- Bump version to 0.28.0
+
+### Merge
+
+- Origin/main into worktree-bead-fdde-fi9 (resolve CHANGELOG conflict)
+- Worktree-bead-fdde-fi9
+
+## [0.27.1] - 2026-05-02
+
+### Bug Fixes
+
 - **ci**: Vendor de.cognovis.terminology.imaging for CI FHIR cache
 - **ci**: Fetch terminology.imaging from Verdaccio with VERDACCIO_TOKEN
 - **fdde-511**: Address review findings — correct BemaCS descriptions from BEMA-Z catalog
@@ -18,9 +48,20 @@ All notable changes to this project will be documented in this file.
 - **fdde-511**: Add meaningful descriptions to BemaCS and GozCS CodeSystems
 - **fdde-fi9**: Green — document ConceptMap $translate test setup and add DICOM test file
 
+### Miscellaneous
+
+- **fdde-511**: Update changelog for BemaCS/GozCS description refactor
+- Update changelog for fdde-r8r fix
+- Bump version to 0.27.1
+
+### Merge
+
+- Worktree-bead-fdde-r8r
+
 ### Test
 
 - **fdde-fi9**: Red — add httpyac $translate tests for DicomModalityToBemaSuggestion
+- **fdde-fi9**: Add httpyac integration tests for ConceptMap $translate against live Aidbox
 
 ## [0.27.0] - 2026-05-02
 
