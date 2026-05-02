@@ -10,6 +10,7 @@ All notable changes to this project will be documented in this file.
 - **DentalCbctImagingStudyDE** subprofile specializing DentalImagingStudyDE for CBCT/DVT imaging studies.
 - **BemaToGozSuggestion** ConceptMap linking BEMA dental billing codes to GOZ fee-schedule suggestions.
 - **ProcedureToBemaSuggestion** ConceptMap mapping SNOMED radiology procedures to BEMA first-line billing suggestions.
+- **DicomModalityToBemaSuggestion** ConceptMap for DICOMweb adapters mapping DICOM modality codes (DX, PX, CT, RG) to BEMA X-ray billing positions.
 - **KfoRoentgenLinkFromStudyExt** and **KfoRoentgenLinkFromCarePlanExt** extensions enabling bidirectional linking between KFO care plans and imaging studies.
 
 ### Changed
