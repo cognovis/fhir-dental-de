@@ -67,18 +67,18 @@ Description: "Gebührenverzeichnis für zahnärztliche Leistungen im Rahmen der 
 // konsistente Nummerierung innerhalb der chirurgischen Leistungsgruppe zu gewährleisten.
 //
 // Näherungsweise Zuordnung zu offiziellen BEMA-Z-Positionen (Abschnitt III):
-//   #40 (Zahnentfernung einwurzelig)          → BEMA-Z 43/44   (Extraktion einfach/erschwert)
-//   #41 (Zahnentfernung mehrwurzelig)          → BEMA-Z 45/47   (Extraktion besonders erschwert, mehrwurzelig)
-//   #42 (Zahnentfernung durch Osteotomie)      → BEMA-Z 46/48   (Operative Zahnentfernung mit Osteotomie)
+//   #40 (Zahnentfernung einwurzelig)          → BEMA-Z 43      (Entfernen einwurzelig)
+//   #41 (Zahnentfernung mehrwurzelig)          → BEMA-Z 44/45   (Entfernen mehrwurzelig / tieffrakturiert)
+//   #42 (Zahnentfernung durch Osteotomie)      → BEMA-Z 47a     (Osteotomie standard, Ost1)
 //   #43 (Wurzelspitzenresektion einwurzelig)   → BEMA-Z 54a     (WSR einwurzelig)
 //   #44 (Wurzelspitzenresektion mehrwurzelig)  → BEMA-Z 54b/54c (WSR zwei-/mehrwurzelig)
 //   #45 (Behandlung einer Alveolitis)          → BEMA-Z Abschn. III (Alveolitis-Behandlung)
 //   #46 (Inzision eines Abszesses)             → BEMA-Z Abschn. III (Inzision)
-//   #47 (Naht zur Wundversorgung)              → BEMA-Z Abschn. III (Wundversorgung)
-//   #48 (Exzision von Mundschleimhaut)         → BEMA-Z Abschn. III (Exzision Mundschleimhaut)
-//   #49 (Entfernung einer Zyste)               → BEMA-Z Abschn. III (Zystenoperation)
-//   #50 (Entfernung eines retinierten Zahnes)  → BEMA-Z Abschn. III (Retinierter/verlagerter Zahn)
-//   #51 (Frenektomie)                          → BEMA-Z Abschn. III (Frenektomie)
+//   #47 (Naht zur Wundversorgung)              → BEMA-Z 46      (Chirurgische Wundrevision, als selbständige Leistung)
+//   #48 (Exzision von Mundschleimhaut)         → BEMA-Z 49/50   (Exzision Mundschleimhaut/Granulationsgewebe, Exz1/Exz2)
+//   #49 (Entfernung einer Zyste)               → BEMA-Z 56/56a-d (Zystenoperation, Zy1-Zy4)
+//   #50 (Entfernung eines retinierten Zahnes)  → BEMA-Z 48      (Osteotomie verlagert/retiniert, Ost2)
+//   #51 (Frenektomie)                          → BEMA-Z 57      (Beseitigen Schleimhautbänder/Muskelansätze)
 //   #52 (Sequestrotomie)                       → BEMA-Z Abschn. III (Sequestrotomie)
 //
 // ConceptMap-Impact: Keine. Die Codes #40–52 werden in keiner der ConceptMaps
