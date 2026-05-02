@@ -38,6 +38,34 @@ Use `$validate` with an explicit profile parameter.
 All IG testing (install, test-cs, test-vs, test-profile, review-qa) is handled by the global `/aidbox` skill (`references/ig-testing.md`).
 Always invoke `/aidbox` before manually curl-debugging — it contains learnings that prevent common errors.
 
+### ConceptMap $translate Tests
+
+Integration tests for ConceptMap $translate operations live in `test/CM/`.
+
+**Prerequisites:**
+1. Aidbox running at localhost:8080 (see docker-compose.yaml)
+2. Run SUSHI: `npx sushi .` (generates `fsh-generated/resources/`)
+3. Upload ConceptMaps to Aidbox:
+   ```bash
+   curl -s -u basic:secret -X PUT "http://localhost:8080/fhir/ConceptMap/DicomModalityToBemaSuggestion" \
+     -H "Content-Type: application/fhir+json" \
+     -d @fsh-generated/resources/ConceptMap-DicomModalityToBemaSuggestion.json
+   curl -s -u basic:secret -X PUT "http://localhost:8080/fhir/ConceptMap/SidexisLogicalNameToBemaGoz" \
+     -H "Content-Type: application/fhir+json" \
+     -d @fsh-generated/resources/ConceptMap-SidexisLogicalNameToBemaGoz.json
+   ```
+4. Run tests:
+   ```bash
+   httpyac run test/CM/dicom-modality-to-bema-suggestion.http --all
+   httpyac run test/CM/sidexis-logical-name-to-bema-goz.http --all
+   ```
+
+**Note:** The `basic` client (`basic:secret`) must be registered in Aidbox with `grant_types: ["basic"]` and an allow-all AccessPolicy. This is handled by `init-bundle.json` when running the project-local docker-compose. If using a shared Aidbox instance, register the client manually or use Bearer token auth.
+
+**ConceptMaps tested:**
+- `dicom-modality-to-bema-suggestion.http` — 5 DICOM modality → BEMA mappings (DX, IO, PX, CT, RG)
+- `sidexis-logical-name-to-bema-goz.http` — 8 Sidexis → BEMA+GOZ mappings (DVT, OPG, Ceph, Intraoral)
+
 ### Aidbox Access
 
 - **URL:** http://localhost:8080
