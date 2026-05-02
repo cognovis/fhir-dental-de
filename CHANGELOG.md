@@ -7,6 +7,7 @@ All notable changes to this project will be documented in this file.
 ### Bug Fixes
 
 - **fdde-wzv**: Add copyright-allowlist markers to BemaCS display texts
+- **fdde-o84**: Correct BEMA-Z mapping numbers from official 2026 catalog
 
 ### Documentation
 
@@ -17,6 +18,10 @@ All notable changes to this project will be documented in this file.
 
 - **deps**: Bump de.cognovis.fhir.praxis to 0.45.1
 - **fdde-a5j**: Add changelog entry for pre-push copyright hook documentation
+
+### Refactoring
+
+- **fdde-o84**: Expand BemaCS surgical codes comment with BEMA-Z mapping hints
 
 ### Merge
 
