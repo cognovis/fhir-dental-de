@@ -8,7 +8,16 @@ All notable changes to this project will be documented in this file.
 
 - **ci**: Vendor de.cognovis.terminology.imaging for CI FHIR cache
 - **ci**: Fetch terminology.imaging from Verdaccio with VERDACCIO_TOKEN
+- **fdde-fi9**: Address review findings iteration 1 — R4 equivalence terminology in comments
 - **fdde-r8r**: Correct equivalence comment from relatedto to equivalent in DVT/GOZ test
+
+### Features
+
+- **fdde-fi9**: Green — document ConceptMap $translate test setup and add DICOM test file
+
+### Test
+
+- **fdde-fi9**: Red — add httpyac $translate tests for DicomModalityToBemaSuggestion
 
 ## [0.27.0] - 2026-05-02
 
