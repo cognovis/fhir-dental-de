@@ -82,3 +82,13 @@ Integration tests for ConceptMap $translate operations live in `test/CM/`.
 - Do NOT edit files in `fsh-generated/` or `output/` — they are auto-generated
 - Test files use `.http` format (httpyac compatible)
 - On test errors: report first, don't auto-fix immediately
+
+## License Guardrails
+
+The pre-push hook blocks accidental commits of copyrighted KZBV/BEB catalog texts (BEMA, BEL II, beb'97).
+
+**Fresh clone setup:** run `bd hooks install` to install the pre-push hook locally.
+
+**Bypass (emergency only):** `SKIP_COPYRIGHT_CHECK=1 git push`
+
+See `scripts/check-copyright.sh` and the README "License Guardrails" section for full details on the blocklist, allowlist marker (`# copyright-allowlist: <reason>`), and CI workflow.
