@@ -1,0 +1,127 @@
+### ConceptMap: SidexisLogicalNameToBemaGoz - $translate DVT (XRay3D.Volume.Standard) → BEMA
+# Expected: match.code=Ae5370, equivalence=equivalent
+POST http://localhost:8080/fhir/ConceptMap/$translate
+Authorization: Basic basic:secret
+Content-Type: application/fhir+json
+
+{
+  "resourceType": "Parameters",
+  "parameter": [
+    { "name": "url", "valueUri": "https://fhir.cognovis.de/dental/ConceptMap/sidexis-logical-name-to-bema-goz" },
+    { "name": "system", "valueUri": "https://www.dentsplysirona.com/sidexis/logical-name" },
+    { "name": "code", "valueCode": "XRay3D.Volume.Standard" },
+    { "name": "target", "valueUri": "http://fhir.de/CodeSystem/kzbv/bema" }
+  ]
+}
+
+### ConceptMap: SidexisLogicalNameToBemaGoz - $translate DVT (XRay3D.Volume.Standard) → GOZ
+# Expected: match.code=Ae5370, equivalence=related
+POST http://localhost:8080/fhir/ConceptMap/$translate
+Authorization: Basic basic:secret
+Content-Type: application/fhir+json
+
+{
+  "resourceType": "Parameters",
+  "parameter": [
+    { "name": "url", "valueUri": "https://fhir.cognovis.de/dental/ConceptMap/sidexis-logical-name-to-bema-goz" },
+    { "name": "system", "valueUri": "https://www.dentsplysirona.com/sidexis/logical-name" },
+    { "name": "code", "valueCode": "XRay3D.Volume.Standard" },
+    { "name": "target", "valueUri": "http://fhir.de/CodeSystem/bzaek/goz" }
+  ]
+}
+
+### ConceptMap: SidexisLogicalNameToBemaGoz - $translate OPG (XRay2D.Extraoral.Panorama.Standard) → BEMA
+# Expected: match.code=Ae935d, equivalence=equivalent
+POST http://localhost:8080/fhir/ConceptMap/$translate
+Authorization: Basic basic:secret
+Content-Type: application/fhir+json
+
+{
+  "resourceType": "Parameters",
+  "parameter": [
+    { "name": "url", "valueUri": "https://fhir.cognovis.de/dental/ConceptMap/sidexis-logical-name-to-bema-goz" },
+    { "name": "system", "valueUri": "https://www.dentsplysirona.com/sidexis/logical-name" },
+    { "name": "code", "valueCode": "XRay2D.Extraoral.Panorama.Standard" },
+    { "name": "target", "valueUri": "http://fhir.de/CodeSystem/kzbv/bema" }
+  ]
+}
+
+### ConceptMap: SidexisLogicalNameToBemaGoz - $translate OPG (XRay2D.Extraoral.Panorama.Standard) → GOZ
+# Expected: match.code=Ae5004, equivalence=equivalent
+POST http://localhost:8080/fhir/ConceptMap/$translate
+Authorization: Basic basic:secret
+Content-Type: application/fhir+json
+
+{
+  "resourceType": "Parameters",
+  "parameter": [
+    { "name": "url", "valueUri": "https://fhir.cognovis.de/dental/ConceptMap/sidexis-logical-name-to-bema-goz" },
+    { "name": "system", "valueUri": "https://www.dentsplysirona.com/sidexis/logical-name" },
+    { "name": "code", "valueCode": "XRay2D.Extraoral.Panorama.Standard" },
+    { "name": "target", "valueUri": "http://fhir.de/CodeSystem/bzaek/goz" }
+  ]
+}
+
+### ConceptMap: SidexisLogicalNameToBemaGoz - $translate Ceph (XRay2D.Extraoral.Ceph.Standard) → BEMA
+# Expected: match.code=Ae934a, equivalence=equivalent
+POST http://localhost:8080/fhir/ConceptMap/$translate
+Authorization: Basic basic:secret
+Content-Type: application/fhir+json
+
+{
+  "resourceType": "Parameters",
+  "parameter": [
+    { "name": "url", "valueUri": "https://fhir.cognovis.de/dental/ConceptMap/sidexis-logical-name-to-bema-goz" },
+    { "name": "system", "valueUri": "https://www.dentsplysirona.com/sidexis/logical-name" },
+    { "name": "code", "valueCode": "XRay2D.Extraoral.Ceph.Standard" },
+    { "name": "target", "valueUri": "http://fhir.de/CodeSystem/kzbv/bema" }
+  ]
+}
+
+### ConceptMap: SidexisLogicalNameToBemaGoz - $translate Ceph (XRay2D.Extraoral.Ceph.Standard) → GOZ
+# Expected: match.code=Ae5090, equivalence=equivalent
+POST http://localhost:8080/fhir/ConceptMap/$translate
+Authorization: Basic basic:secret
+Content-Type: application/fhir+json
+
+{
+  "resourceType": "Parameters",
+  "parameter": [
+    { "name": "url", "valueUri": "https://fhir.cognovis.de/dental/ConceptMap/sidexis-logical-name-to-bema-goz" },
+    { "name": "system", "valueUri": "https://www.dentsplysirona.com/sidexis/logical-name" },
+    { "name": "code", "valueCode": "XRay2D.Extraoral.Ceph.Standard" },
+    { "name": "target", "valueUri": "http://fhir.de/CodeSystem/bzaek/goz" }
+  ]
+}
+
+### ConceptMap: SidexisLogicalNameToBemaGoz - $translate Intraoral (XRay2D.Intraoral.Standard) → BEMA
+# Expected: match.code=Ae925a, equivalence=equivalent
+POST http://localhost:8080/fhir/ConceptMap/$translate
+Authorization: Basic basic:secret
+Content-Type: application/fhir+json
+
+{
+  "resourceType": "Parameters",
+  "parameter": [
+    { "name": "url", "valueUri": "https://fhir.cognovis.de/dental/ConceptMap/sidexis-logical-name-to-bema-goz" },
+    { "name": "system", "valueUri": "https://www.dentsplysirona.com/sidexis/logical-name" },
+    { "name": "code", "valueCode": "XRay2D.Intraoral.Standard" },
+    { "name": "target", "valueUri": "http://fhir.de/CodeSystem/kzbv/bema" }
+  ]
+}
+
+### ConceptMap: SidexisLogicalNameToBemaGoz - $translate Intraoral (XRay2D.Intraoral.Standard) → GOZ
+# Expected: match.code=Ae5000, equivalence=equivalent
+POST http://localhost:8080/fhir/ConceptMap/$translate
+Authorization: Basic basic:secret
+Content-Type: application/fhir+json
+
+{
+  "resourceType": "Parameters",
+  "parameter": [
+    { "name": "url", "valueUri": "https://fhir.cognovis.de/dental/ConceptMap/sidexis-logical-name-to-bema-goz" },
+    { "name": "system", "valueUri": "https://www.dentsplysirona.com/sidexis/logical-name" },
+    { "name": "code", "valueCode": "XRay2D.Intraoral.Standard" },
+    { "name": "target", "valueUri": "http://fhir.de/CodeSystem/bzaek/goz" }
+  ]
+}
