@@ -1,5 +1,5 @@
 ### ConceptMap: DicomModalityToBemaSuggestion - $translate DX → BEMA
-# Expected: match.concept.code=Ae5000, relationship=equivalent
+# Expected: match.concept.code=Ae5000, equivalence=equivalent
 POST http://localhost:8080/fhir/ConceptMap/$translate
 Authorization: Basic basic:secret
 Content-Type: application/fhir+json
@@ -15,7 +15,7 @@ Content-Type: application/fhir+json
 }
 
 ### ConceptMap: DicomModalityToBemaSuggestion - $translate IO → BEMA
-# Expected: match.concept.code=Ae5000, relationship=equivalent
+# Expected: match.concept.code=Ae5000, equivalence=equivalent
 POST http://localhost:8080/fhir/ConceptMap/$translate
 Authorization: Basic basic:secret
 Content-Type: application/fhir+json
@@ -31,7 +31,7 @@ Content-Type: application/fhir+json
 }
 
 ### ConceptMap: DicomModalityToBemaSuggestion - $translate PX → BEMA
-# Expected: match.concept.code=Ae5002, relationship=equivalent
+# Expected: match.concept.code=Ae5002, equivalence=equivalent
 POST http://localhost:8080/fhir/ConceptMap/$translate
 Authorization: Basic basic:secret
 Content-Type: application/fhir+json
@@ -47,7 +47,7 @@ Content-Type: application/fhir+json
 }
 
 ### ConceptMap: DicomModalityToBemaSuggestion - $translate CT → BEMA
-# Expected: match.concept.code=Ae5370, relationship=equivalent (CT = CBCT/DVT in Dental-PACS context)
+# Expected: match.concept.code=Ae5370, equivalence=equivalent (CT = CBCT/DVT in Dental-PACS context)
 POST http://localhost:8080/fhir/ConceptMap/$translate
 Authorization: Basic basic:secret
 Content-Type: application/fhir+json
@@ -63,7 +63,7 @@ Content-Type: application/fhir+json
 }
 
 ### ConceptMap: DicomModalityToBemaSuggestion - $translate RG → BEMA
-# Expected: match.concept.code=Ae925, relationship=wider (fallback/general radiograph)
+# Expected: match.concept.code=Ae925, equivalence=wider (fallback/general radiograph)
 POST http://localhost:8080/fhir/ConceptMap/$translate
 Authorization: Basic basic:secret
 Content-Type: application/fhir+json
