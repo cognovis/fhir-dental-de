@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 
 ## [unreleased]
 
+### Bug Fixes
+
+- **fdde-6rt**: Address review findings iteration 1
+- **fdde-6rt**: Address codex adversarial findings
+
 ### Documentation
 
 - **fdde-4kk**: Add changelog entry for DicomModalityToBemaSuggestion ConceptMap
@@ -12,6 +17,18 @@ All notable changes to this project will be documented in this file.
 
 - **fdde-6rt**: Add SidexisLogicalNameToBemaGoz ConceptMap for Sidexis imaging type to billing code mapping (DVT/OPG/Cephalometric/Intraoral)
 - **fdde-4kk**: Add DicomModalityToBemaSuggestion ConceptMap and DX example
+
+### Miscellaneous
+
+- **fdde-4kk**: Session close — DicomModalityToBemaSuggestion ConceptMap
+
+### Merge
+
+- Worktree-bead-fdde-4kk
+
+### Test
+
+- **fdde-6rt**: Red — stub FSH and test files for Sidexis ConceptMap
 
 ## [0.26.0] - 2026-05-01
 

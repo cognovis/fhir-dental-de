@@ -185,6 +185,10 @@ Description: "Gebührenverzeichnis für zahnärztliche Leistungen im Rahmen der 
 
 // Röntgenleistungen (Ä-Positionen, von GOÄ übernommen)
 * #Ae925 "BEMA-Ae925"
+* #Ae925a "BEMA-Ae925a"
 * #Ae5000 "BEMA-Ae5000"
 * #Ae5002 "BEMA-Ae5002"
 * #Ae5004 "BEMA-Ae5004"
+* #Ae934a "BEMA-Ae934a"
+* #Ae935d "BEMA-Ae935d"
+* #Ae5370 "BEMA-Ae5370"
