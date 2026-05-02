@@ -108,6 +108,33 @@ jobs:
             tar xzf /tmp/praxis.tgz -C "$HOME/.fhir/packages/de.cognovis.fhir.praxis#${LABEL}/"
           done
 
+      - name: Pre-load private FHIR packages
+        run: |
+          # Pre-load private packages from vendored files in the repo into the FHIR
+          # package cache so SUSHI/IG Publisher resolve them without attempting a
+          # registry download. Praxis transitively depends on
+          # de.cognovis.terminology.imaging which is published only to npm.cognovis.de
+          # (Verdaccio, auth-required) — public mirrors return 404.
+          # Vendored under vendor/ so no auth is needed in CI.
+          pre_load_vendor() {
+            local pkg="$1" version="$2"
+            local vendor_dir="vendor/${pkg}"
+            local cache_dir="${HOME}/.fhir/packages/${pkg}#${version}"
+            if [ -d "$cache_dir" ]; then
+              echo "$pkg#$version already cached — skipping"
+              return
+            fi
+            if [ ! -d "$vendor_dir" ]; then
+              echo "WARNING: vendor/$pkg not found — $pkg#$version will be downloaded from registry"
+              return
+            fi
+            echo "Installing $pkg#$version from vendor/ into FHIR cache..."
+            mkdir -p "$cache_dir/package"
+            cp -r "$vendor_dir/"* "$cache_dir/package/"
+            echo "  Installed $(ls "$cache_dir/package/" | wc -l) files"
+          }
+          pre_load_vendor "de.cognovis.terminology.imaging" "2026.0.0"
+
       - name: Wait for Aidbox
         run: |
           echo "Waiting for Aidbox to be ready..."
