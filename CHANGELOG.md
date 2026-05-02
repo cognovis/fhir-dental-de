@@ -10,6 +10,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
+- **fdde-6rt**: Add SidexisLogicalNameToBemaGoz ConceptMap for Sidexis imaging type to billing code mapping (DVT/OPG/Cephalometric/Intraoral)
 - **fdde-4kk**: Add DicomModalityToBemaSuggestion ConceptMap and DX example
 
 ## [0.26.0] - 2026-05-01
