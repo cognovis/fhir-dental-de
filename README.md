@@ -30,6 +30,14 @@ sushi .
 To prevent accidental reintroduction of copyrighted catalog texts (KZBV BEMA, BEL II, beb'97),
 this repo runs an automated copyright check on every push and PR.
 
+### Local Setup
+
+After cloning, install the pre-push hook so the copyright check runs locally before every push:
+
+```bash
+bd hooks install
+```
+
 ### How it works
 
 - `scripts/copyright-blocklist.txt` — list of blocked phrases with source references (133 BEMA + 193 BEL II + 201 beb'97 entries)
