@@ -13,20 +13,20 @@
 //
 // Sources: GOZ-Katalog (BZAEK), BEMA-Z (KZBV),
 //   zahnrad/tools/Roentgen-Review/README.md (Praxis-Validierung),
-//   polaris-7os (Strahlen-Code-Whitelist)
+//   internal billing code whitelist specification
 
 Instance: SidexisLogicalNameToBemaGoz
 InstanceOf: ConceptMap
 Usage: #definition
 Title: "Sidexis LogicalName → BEMA + GOZ Vorschlag"
-Description: "Mapping von Sidexis 4 LogicalName-Aufnahmetypen auf GKV-BEMA- und GOZ-Privatpositionen für die zahnärztliche Röntgen-Review-Abrechnung. Quellen: GOZ-Katalog (BZAEK), BEMA-Z (KZBV), zahnrad/tools/Roentgen-Review/README.md (Praxis-Validierung), polaris-7os (Strahlen-Code-Whitelist)."
+Description: "Mapping von Sidexis 4 LogicalName-Aufnahmetypen auf GKV-BEMA- und GOZ-Privatpositionen für die zahnärztliche Röntgen-Review-Abrechnung. Quellen: GOZ-Katalog (BZAEK), BEMA-Z (KZBV), zahnrad/tools/Roentgen-Review/README.md (Praxis-Validierung)."
 
 * name = "SidexisLogicalNameToBemaGozCM"
 * url = "https://fhir.cognovis.de/dental/ConceptMap/sidexis-logical-name-to-bema-goz"
 * status = #active
 * experimental = false
 * publisher = "cognovis GmbH"
-* purpose = "Bridges Sidexis 4 imaging metadata (LogicalName) to German dental billing codes (BEMA/GOZ) so that radiology workflows can produce billing-ready procedure resources without hardcoded mapping tables. Sources: GOZ-Katalog (BZÄK), BEMA-Z (KZBV), zahnrad/tools/Roentgen-Review/README.md (Praxis-validiertes Mapping), polaris-7os (Strahlen-Code-Whitelist-Spezifikation)."
+* purpose = "Bridges Sidexis 4 imaging metadata (LogicalName) to German dental billing codes (BEMA/GOZ) so that radiology workflows can produce billing-ready procedure resources without hardcoded mapping tables. Sources: GOZ-Katalog (BZÄK), BEMA-Z (KZBV), zahnrad/tools/Roentgen-Review/README.md (Praxis-validiertes Mapping)."
 * sourceCanonical = "https://www.dentsplysirona.com/sidexis/logical-name"
 
 // Group 0: Sidexis LogicalName → BEMA
