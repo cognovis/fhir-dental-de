@@ -17,3 +17,9 @@ Description: "Interim-Fragment der Sidexis 4 LogicalName-Codes fuer radiologisch
 * ^caseSensitive = true
 * ^content = #fragment
 * ^publisher = "cognovis GmbH (Vorschlag)"
+
+// Four radiation-relevant standard modalities
+* #"XRay3D.Volume.Standard" "DVT (Digitale Volumentomographie)"
+* #"XRay2D.Extraoral.Panorama.Standard" "OPG (Panoramaschichtaufnahme)"
+* #"XRay2D.Extraoral.Ceph.Standard" "Schaedelaufnahme (Fernroentgenaufnahme)"
+* #"XRay2D.Intraoral.Standard" "Intraoral (Einzelzahnaufnahme)"
