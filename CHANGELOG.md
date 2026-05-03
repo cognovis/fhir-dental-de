@@ -17,6 +17,7 @@ All notable changes to this project will be documented in this file.
 
 ### Miscellaneous
 
+- **fdde-9ah**: Extract private FHIR package preload into composite GitHub Action; replace 38-line duplicated inline step in ig-ci.yml and ig-release.yml with 3-line uses: reference (76 lines removed, structural parity enforced)
 - **deps**: Bump de.cognovis.fhir.praxis to 0.45.1
 - **fdde-a5j**: Add changelog entry for pre-push copyright hook documentation
 
