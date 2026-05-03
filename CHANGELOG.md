@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
+- **fdde-4qi**: Fix ig-release.yml missing private FHIR package pre-load; unblocks releases from v0.26.0+ (all green on CI run 25279193047, de.cognovis.fhir.dental@0.29.1 live on npm.cognovis.de)
 - **fdde-wzv**: Add copyright-allowlist markers to BemaCS display texts
 - **fdde-o84**: Correct BEMA-Z mapping numbers from official 2026 catalog
 
