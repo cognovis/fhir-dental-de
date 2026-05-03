@@ -217,3 +217,31 @@ jobs:
 
           print(f"Updated package-list.json: version {version}, date {today}")
           REMOTE_SCRIPT
+
+  dispatch:
+    needs: build-and-release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Read version
+        id: version
+        env:
+          TAG_NAME: ${{ github.ref_name }}
+        run: echo "version=$(echo "$TAG_NAME" | sed 's/^v//')" >> "$GITHUB_OUTPUT"
+
+      - name: Send repository_dispatch to downstream consumer
+        env:
+          DOWNSTREAM_DISPATCH_TOKEN: ${{ secrets.DOWNSTREAM_DISPATCH_TOKEN }}
+          DOWNSTREAM_REPOSITORY: ${{ vars.DOWNSTREAM_REPOSITORY }}
+          IG_VERSION: ${{ steps.version.outputs.version }}
+        run: |
+          if [ -z "${DOWNSTREAM_REPOSITORY}" ] || [ -z "${DOWNSTREAM_DISPATCH_TOKEN}" ]; then
+            echo "::warning::Downstream dispatch not configured — skipping"
+            exit 0
+          fi
+
+          curl -sf -X POST \
+            -H "Authorization: token ${DOWNSTREAM_DISPATCH_TOKEN}" \
+            -H "Accept: application/vnd.github.v3+json" \
+            "https://api.github.com/repos/${DOWNSTREAM_REPOSITORY}/dispatches" \
+            -d "{\"event_type\": \"ig-published\", \"client_payload\": {\"version\": \"${IG_VERSION}\", \"package_id\": \"de.cognovis.fhir.dental\"}}"
+          echo "repository_dispatch sent to downstream consumer"
