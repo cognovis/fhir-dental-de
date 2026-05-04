@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.30.0] - 2026-05-04
+
+### Features
+
+- Bump de.cognovis.fhir.praxis dependency to 0.48.0 (adds PraxisComposition, PraxisCommunication, PraxisFlag, PraxisMedicationAdministration, PraxisAnamneseQuestionnaireResponse, PraxisImmunization with KBV-MIO-Impfpass vocabulary)
+
 ## [unreleased]
 
 ### Bug Fixes
