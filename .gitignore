@@ -10,7 +10,9 @@ input-cache/
 txCache/
 
 # Beads / Dolt files (added by bd init)
-.beads/
+# .beads/ as a whole is NOT ignored — issues.jsonl + config must be tracked
+# so collaborators can see the issue database. Dolt internals, sockets and
+# local-only files are excluded by .beads/.gitignore.
 .dolt/
 *.db
 .beads-credential-key
