@@ -47,8 +47,13 @@ beads.left.meta.json
 beads.right.jsonl
 beads.right.meta.json
 
+# Beads sync uses Dolt remote (https://dolt.cognovis.de/fhir_dental_de) as
+# the primary source of truth — see AGENTS.md for setup. The JSONL exports
+# are derivative artifacts, not committed to git. Use `bd dolt pull/push`
+# instead.
+issues.jsonl
+interactions.jsonl
+
 # NOTE: Do NOT add negation patterns (e.g., !issues.jsonl) here.
 # They would override fork protection in .git/info/exclude, allowing
 # contributors to accidentally commit upstream issue databases.
-# The JSONL files (issues.jsonl, interactions.jsonl) and config files
-# are tracked by git by default since no pattern above ignores them.
