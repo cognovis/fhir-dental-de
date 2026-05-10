@@ -2,6 +2,6 @@
   "database": "dolt",
   "jsonl_export": "issues.jsonl",
   "backend": "dolt",
-  "dolt_database": "beads_fdde",
+  "dolt_database": "fhir_dental_de",
   "dolt_mode": "server"
 }
