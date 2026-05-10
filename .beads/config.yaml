@@ -3,6 +3,12 @@
 # All settings can also be set via environment variables (BD_* prefix)
 # or overridden with command-line flags
 
+# Dolt sync mode: connects to the brew-managed Dolt server on localhost:3306
+# (instead of the legacy embedded mode). Required for `bd dolt pull/push` to
+# work via the SQL protocol with the remote https://dolt.cognovis.de/fhir_dental_de.
+dolt:
+  shared-server: true
+
 # Issue prefix for this repository (used by bd init)
 # If not set, bd init will auto-detect from directory name
 # Example: issue-prefix: "myproject" creates issues like "myproject-1", "myproject-2", etc.
@@ -40,3 +46,5 @@
 # - linear.api-key
 # - github.org
 # - github.repo
+
+sync.remote: "https://dolt.cognovis.de/fhir_dental_de"
