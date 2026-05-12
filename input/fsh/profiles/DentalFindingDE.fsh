@@ -2,7 +2,7 @@ Profile: DentalFindingDE
 Parent: Observation
 Id: dental-finding
 Title: "Zahnärztlicher Befund (DE)"
-Description: "Profil für zahnärztliche Einzelbefunde: Zahnschema-Einträge, Parodontalindices (PSI, BOP, Sondierungstiefe), Vitalitätsprüfungen, Mundschleimhautbefunde. Entspricht dem DentalFinding (Observation) im HL7 Dental Data Exchange IG."
+Description: "Base profile for dental findings (Observation). Covers tooth chart entries and serves as the parent for specialized finding profiles. Implemented specializations: periodontal indices (PSI, BOP, probing depth) via PeriodontalObservationDE, prophylaxis scores (API, QHI, gingivitis index) via ProphylaxisObservationDE. Not yet specialized: vitality testing, oral mucosal findings (planned as separate sister profiles). Corresponds to DentalFinding (Observation) in the HL7 Dental Data Exchange IG."
 * ^status = #active
 * ^experimental = false
 * ^publisher = "cognovis GmbH"
