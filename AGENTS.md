@@ -89,6 +89,25 @@ dolt --host 127.0.0.1 --port 3306 --no-tls sql \
   -q "USE fhir_dental_de; CALL DOLT_PUSH('--user', 'malte', '--force', 'origin', 'main')"
 ```
 
+### Troubleshooting: `.beads/issues.jsonl` shows up in VS Code / git
+
+Since commit `c75ca16` (2026-05-10) `issues.jsonl` and `interactions.jsonl` are **gitignored** — Dolt is the source of truth, the JSONL files are derivative artifacts that `bd dolt pull/push` rewrites on every sync.
+
+If VS Code's Source Control panel keeps flagging `.beads/issues.jsonl` as modified or untracked, or `git push` tries to ship it:
+
+```bash
+# 1. Untrack any stale copy left over from before the migration
+git rm --cached .beads/issues.jsonl .beads/interactions.jsonl 2>/dev/null || true
+
+# 2. Confirm gitignore is taking effect (should print nothing)
+git status --porcelain .beads/issues.jsonl .beads/interactions.jsonl
+
+# 3. (Optional) Hide the noise in VS Code — add to .vscode/settings.json:
+#    "files.exclude": { ".beads/issues.jsonl": true, ".beads/interactions.jsonl": true }
+```
+
+Reminder: **do NOT `git add .beads/issues.jsonl`** and do NOT try to resolve "conflicts" in it by hand. The file is regenerated from Dolt — sync via `bd dolt pull && bd dolt push` instead. New beads created locally (`bd create ...`) only reach the team after `bd dolt push`.
+
 ## Session Completion
 
 **When ending a work session**, you MUST complete ALL steps below. Work is NOT complete until both `bd dolt push` and `git push` succeed.
