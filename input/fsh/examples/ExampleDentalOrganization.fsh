@@ -1,19 +1,18 @@
-// Example: Zahnarztpraxis mit BSNR und KZV-Stempelnummer
+// Example: Zahnarztpraxis mit BSNR und KZV-Abrechnungsnummer (= Stempelnummer)
 // SWS 2.0 Satzart 0 — Praxisstammdaten
 
 Instance: org-dental-mvz
 InstanceOf: DentalOrganizationDE
 Usage: #example
 Title: "Beispiel Zahnarztpraxis MVZ Nürnberg"
-Description: "Demo-Zahnarztpraxis (MVZ) in Nürnberg mit BSNR und KZV-Stempelnummer (Bayern)."
+Description: "Demo-Zahnarztpraxis (MVZ) in Nürnberg mit BSNR und KZV-Abrechnungsnummer (Bayern)."
 
 // BSNR: use inherited KBV slice name (from KBV_PR_Base_Organization via PraxisOrganizationDE)
 * identifier[Betriebsstaettennummer].value = "721234500"
 
-// KZV-Stempelnummer: dental-specific slice
-* identifier[kzvStempelnummer].type = http://terminology.hl7.org/CodeSystem/v2-0203#KZVSNR "KZV-Stempelnummer"
-* identifier[kzvStempelnummer].system = "https://fhir.cognovis.de/dental/identifier/kzv-stempelnummer"
-* identifier[kzvStempelnummer].value = "K720001234"
+// KZV-Stempelnummer = KZV-Abrechnungsnummer: use inherited KBV slice (identifier-kzva profile)
+// The 9-digit KZV number doubles as the SWS Dateinamensuffix (Stempelnummer).
+* identifier[KZV-Abrechnungsnummer].value = "720001234"
 
 * name = "Demo-Zahnarztpraxis MVZ Nürnberg"
 
