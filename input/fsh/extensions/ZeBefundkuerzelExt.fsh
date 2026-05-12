@@ -1,7 +1,14 @@
 Extension: ZeBefundkuerzelExt
 Id: ze-befundkuerzel
 Title: "ZE Befundkürzel"
-Description: "Befundkürzel für den Zahnersatz-Ist-Zustand gemäß KZBV Digitaler Planungsbogen für Zahnersatz (DPF). Beschreibt die vorhandene Versorgung zum Zeitpunkt der Befunderhebung (z.B. 'k'=Krone, 'x'=fehlend)."
+Description: """
+Befundkürzel für den Zahnersatz-Ist-Zustand auf einem `CarePlan`. Codes können aus zwei sich ergänzenden Code-Systemen kommen:
+
+* **`http://fhir.de/CodeSystem/kzbv/dpf-befundkuerzel`** — Authoritative KZBV-DPF-Liste (EBZ Anlage 2, 33 Codes wie `a`, `b`, `e`, `k`, `pw`, `ww`, `x`). Verwende dies für eHKP-konforme HKP-Befund-Notation.
+* **`https://fhir.cognovis.de/dental/CodeSystem/ze-befundkuerzel`** — Cognovis-interner Ergänzungs-Status (z.B. `kd`=Krone defekt, `Atx`=Attachment, `MagA`=Magnetanker — Konzepte ausserhalb des EBZ-Workflows).
+
+Binding ist `extensible`: beide Code-Systeme sind valide. Achtung Semantik-Konflikte bei überlappenden Codes (`x`, `B`, `K`, `e`, `b`) — die `system`-URL der Coding/code ist entscheidend. Siehe `docs/adr/ADR-004` in fhir-terminology-de.
+"""
 * ^url = "https://fhir.cognovis.de/dental/StructureDefinition/ze-befundkuerzel"
 * ^status = #active
 * ^experimental = false
@@ -10,5 +17,5 @@ Description: "Befundkürzel für den Zahnersatz-Ist-Zustand gemäß KZBV Digital
 * ^context[=].expression = "CarePlan"
 
 * value[x] only code
-* value[x] from ZeBefundkuerzelVS (required)
-* value[x] ^short = "ZE-Befundkürzel nach KZBV DPF (z.B. k, x, e, bg, impl)"
+* value[x] from ZeBefundkuerzelVS (extensible)
+* value[x] ^short = "Befundkürzel (KZBV-DPF authoritativ, oder cognovis-Status-Ergänzung)"
