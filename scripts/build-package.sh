@@ -31,7 +31,18 @@ fi
 if [ "$SKIP_SUSHI" = false ]; then
   echo "Running SUSHI..."
   cd "$ROOT"
-  npx sushi . 2>&1 | tail -5
+  # Capture full SUSHI output so error context is visible in CI logs;
+  # always print the tail summary, but on failure show the full log so we can diagnose.
+  SUSHI_LOG=$(mktemp)
+  if npx sushi . > "$SUSHI_LOG" 2>&1; then
+    tail -15 "$SUSHI_LOG"
+  else
+    echo "SUSHI FAILED — full output below:"
+    cat "$SUSHI_LOG"
+    rm -f "$SUSHI_LOG"
+    exit 1
+  fi
+  rm -f "$SUSHI_LOG"
 else
   echo "Skipping SUSHI (--skip-sushi)"
   cd "$ROOT"
