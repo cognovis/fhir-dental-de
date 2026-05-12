@@ -1,18 +1,20 @@
-// Extensions used in this profile (already defined in input/fsh/extensions/)
+// 3-Layer-Chain: ChargeItem → ChargeItemPraxisDe → BemaChargeItemDE
+//
+// Extensions used in this profile (already defined in input/fsh/extensions/):
 // fdi-tooth-number   → https://fhir.cognovis.de/dental/StructureDefinition/fdi-tooth-number
 // tooth-surfaces     → https://fhir.cognovis.de/dental/StructureDefinition/tooth-surfaces
 // bema-befundklasse  → https://fhir.cognovis.de/dental/StructureDefinition/bema-befundklasse
 //
-// Tax-Pattern Note (fdde-pax.2 audit — no implementation required here):
-// BEMA charges are GKV (statutory) services and are generally exempt from VAT under
-// § 4 Nr. 14 UStG (Trennungsprinzip). The praxis-de Tax-Pattern extensions
-// (e.g. tax-rate, tax-category from de.cognovis.fhir.praxis) COULD be applied to
-// this profile if mixed-invoice scenarios arise (e.g. GOÄ/Zahn parallel billing or
-// ZE Mischrechnung including BEMA + GOZ + ZZV components). Evaluate when implementing
-// ZE Mischrechnung or § 19 UStG / Abfärbung use cases.
+// Tax-Pattern (via ChargeItemPraxisDe inheritance — praxis@0.61.0):
+// The praxis-de TaxCategoryExt and TaxExemptionReasonExt are now available via
+// inheritance. BEMA charges are GKV (statutory) services and are generally exempt
+// from VAT under § 4 Nr. 14a UStG (Trennungsprinzip). Concrete tax-pattern
+// application (default: TaxCategoryExt=E + TaxExemptionReasonExt=para4-nr14a) is
+// implemented in bead fdde-8vf. This profile only inherits the structural ability
+// to carry these extensions; no Tax slicing is added here.
 
 Profile: BemaChargeItemDE
-Parent: ChargeItem
+Parent: ChargeItemPraxisDe
 Id: bema-charge-item
 Title: "BEMA Leistungsposition (DE)"
 Description: "Profil für kassenzahnärztliche Leistungen nach BEMA (Bewertungsmaßstab Zahnärzte). Bildet SWS 2.0 Satzart 6 ab."

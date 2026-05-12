@@ -1,21 +1,24 @@
-// Extensions used in this profile (already defined in input/fsh/extensions/)
+// 3-Layer-Chain: ChargeItem → ChargeItemPraxisDe → GozChargeItemDE
+//
+// Extensions used in this profile (already defined in input/fsh/extensions/):
 // fdi-tooth-number                → https://fhir.cognovis.de/dental/StructureDefinition/fdi-tooth-number
 // tooth-surfaces                  → https://fhir.cognovis.de/dental/StructureDefinition/tooth-surfaces
 // privatgebuehr-steigerungsfaktor → https://fhir.cognovis.de/dental/StructureDefinition/privatgebuehr-steigerungsfaktor
 // privatgebuehr-analog-reference  → https://fhir.cognovis.de/dental/StructureDefinition/privatgebuehr-analog-reference
 //
-// Tax-Pattern Note (fdde-pax.2 audit — no implementation required here):
-// GOZ charges are private (PKV) services subject to VAT per UStG (typically 19% standard rate).
-// The praxis-de Tax-Pattern extensions (e.g. tax-rate, tax-category from de.cognovis.fhir.praxis)
-// COULD be applied to this profile to model:
-//   - Steuerpflicht per Leistungsposition (§ 19 UStG Kleinunternehmer: 0%)
-//   - Abfärbung: mixed practice (GKV+PKV) triggering full Umsatzsteuerpflicht
-//   - ZE Mischrechnung: BEMA-Festzuschuss + GOZ + ZZV in a single invoice
-// Evaluate when implementing the Tax-Compliance or ZE-Mischrechnung epics.
-// Reference: praxis-de Tax-Pattern extensions (Trennungsprinzip / § 19 / Abfärbung beads).
+// Tax-Pattern (via ChargeItemPraxisDe inheritance — praxis@0.61.0):
+// The praxis-de TaxCategoryExt and TaxExemptionReasonExt are now available via
+// inheritance. GOZ charges are private (PKV) services. Tax handling depends on
+// indication:
+//   - Medizinisch indizierte Heilbehandlung: TaxCategoryExt=E + TaxExemptionReasonExt=para4-nr14a
+//   - Verlangensleistung (privatgebuehr-leistungsart=#verlangensleistung): TaxCategoryExt=S (19%)
+//   - Zahntechnisches Eigenlabor-Werkstück (Anlage 2 Nr. 52 UStG): TaxCategoryExt=AA (7%)
+//   - Kleinunternehmerregelung § 19 UStG: inherited via DentalOrganizationDE.KleinunternehmerregelungExt
+// Concrete patterns + invariants implemented in bead fdde-8vf. This profile only
+// inherits the structural ability to carry the tax extensions.
 
 Profile: GozChargeItemDE
-Parent: ChargeItem
+Parent: ChargeItemPraxisDe
 Id: goz-charge-item
 Title: "GOZ Leistungsposition (DE)"
 Description: "Profil für privatzahnärztliche Leistungen nach GOZ 2012 (Gebührenordnung für Zahnärzte). Bildet SWS 2.0 Satzart 7 ab."

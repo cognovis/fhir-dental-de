@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.32.0] - 2026-05-12
+
+### Features
+
+- **fdde-n4q**: Migrate BemaChargeItemDE + GozChargeItemDE to `ChargeItemPraxisDe` parent (3-Layer-Chain pre-step for fdde-8vf)
+  - BemaChargeItemDE: Parent changed from `ChargeItem` to `ChargeItemPraxisDe`
+  - GozChargeItemDE: Parent changed from `ChargeItem` to `ChargeItemPraxisDe`
+  - Both profiles now inherit `TaxCategoryExt` and `TaxExemptionReasonExt` from praxis@0.61.0 — concrete tax-pattern application happens in fdde-8vf
+
+### Documentation
+
+- **fdde-n4q**: Tax-Pattern comments updated in BemaChargeItemDE.fsh + GozChargeItemDE.fsh — clarify which tax extensions are now available via inheritance and which use cases (Heilbehandlung E + para4-nr14a, Verlangens S, Eigenlabor AA) fdde-8vf will model
+- **fdde-n4q**: architecture-profile-audit.md rewritten — corrects factual claims about which praxis@0.61.0 wrappers exist (PraxisCarePlanDE, EncounterPraxis, ChargeItemPraxisDe, ImagingStudyPraxisDe, ImagingDiagnosticReportPraxisDe etc. are all present); classifies non-migrated profiles into "wrapper available — deferred", "wrapper exists but wrong fit", "no wrapper exists"
+
 ## [0.31.0] - 2026-05-12
 
 ### Features
