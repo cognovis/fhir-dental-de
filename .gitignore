@@ -29,6 +29,8 @@ Requirements-fromNarrative.json
 
 # Draft documents (not ready for publication)
 docs/white-paper-ihe-dental-europe.md
+docs/handover-dental-taxonomy.md
+docs/adr/ADR-004-companion-handover.md
 
 # session-close transient artifacts (per-worktree IPC files)
 .session-close.lock
