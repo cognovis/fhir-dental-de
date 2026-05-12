@@ -1,13 +1,31 @@
 CodeSystem: DentalBefundStatusCS
 Id: dental-befund-status
-Title: "Zahnärztlicher Befundstatus"
-Description: "Statuscodes für den zahnärztlichen Befund (B-Zeile im HKP). Kleinbuchstaben = Befund, Großbuchstaben = geplante Therapie. Nach KZBV-Befundschema."
+Title: "Zahnärztlicher Befundstatus (cognovis-intern; teilweise DIN-13910-konform)"
+Description: """
+Cognovis-redaktionelle Befund-/Therapiestatus-Codes für die HKP-B-Zeile. Kleinbuchstaben = Befund (in Anlehnung an DIN-13910 / SWS-2.0 L001-Notation), Großbuchstaben = geplante Therapie (cognovis-Eigenkreation).
+
+**Drei Vorbehalte — NICHT authoritativ:**
+
+1. **Keine vollständige DIN-13910-Liste.** Die Kleinbuchstaben-Codes folgen *im Geist* DIN-13910 / SWS L001 (`f`=fehlend, `c`=kariös, `z`=zerstört, `e`=ersetzt, `i`=Implantat, `t`=Teleskopkrone), aber die vollständige DIN-Liste (~40 Codes inkl. `g`/`j`/`A`/`U`/`B`/`F`/`V`) ist hier nicht abgebildet. Authoritative DIN-Extraktion in **`fhir-term-uzw`** in fhir-terminology-de geplant.
+
+2. **Therapie-Großbuchstaben kollidieren mit KZBV-DPF und DIN.** Z.B. dieses CS hat `K`="Krone geplant" (Therapie); KZBV-DPF `K`="Krone" (passiv, vorhandene Versorgung); DIN-13910 `K`="defective crown" (Befund). **Drei `K`s, drei Bedeutungen** — die `system`-URL einer `Coding` ist der einzig verlässliche Diskriminator.
+
+3. **Nicht identisch mit `ze-befundkuerzel`/`ze-therapiekuerzel`.** Dieses CS lebt parallel und überlappt teilweise mit den cognovis-Vorschlag-CSes. Siehe **ADR-004** in `fhir-terminology-de/docs/adr/` für die volle 5-Taxonomien-Übersicht.
+
+Für KZBV-EBZ-konforme HKP-Anträge verwende:
+- `http://fhir.de/CodeSystem/kzbv/dpf-befundkuerzel` (33 Befund-Codes)
+- `http://fhir.de/CodeSystem/kzbv/dpf-therapiekuerzel` (43 Therapie-Codes)
+
+Paket: `de.cognovis.terminology.dental.dpf-kuerzel@2022.0.0` auf `npm.cognovis.de`.
+
+Status `#draft` markiert dieses CS als "wird beim DIN-Cleanup (fhir-term-uzw) noch angefasst".
+"""
 * ^url = "https://fhir.cognovis.de/dental/CodeSystem/dental-befund-status"
-* ^status = #active
+* ^status = #draft
 * ^experimental = false
 * ^caseSensitive = true
 * ^content = #complete
-* ^publisher = "cognovis GmbH"
+* ^publisher = "cognovis GmbH (cognovis-internal — NOT authoritative DIN-13910)"
 
 // Befund (Kleinbuchstaben)
 * #f "fehlend" "Zahn fehlt"
