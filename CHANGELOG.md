@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.34.0] - 2026-05-12
+
+### Features
+
+- **fdde-8vf**: USt-Modellierung in dental ChargeItems via praxis@0.61.0 Tax-Pattern
+  - `BemaChargeItemDE`: TaxCategoryExt fix=`E` (steuerfrei) + TaxExemptionReasonExt fix=`para4-nr14a` (§ 4 Nr. 14a UStG — BEMA = GKV-Heilbehandlung)
+  - `GozChargeItemDE`: TaxCategoryExt + TaxExemptionReasonExt als MS mit zwei Invarianten
+    - `goz-tax-iff-e` (bi-direktional): TaxExemptionReason vorhanden wenn-und-nur-wenn TaxCategory=E
+    - `goz-tax-verlangens-s` (Trigger): VerlangensleistungExt=true → TaxCategory MUSS S sein
+  - Neues Sub-Profil `GozZahntechWerkstueckChargeItemDE` für Eigenlabor-Werkstücke: TaxCategory fix=`AA` (7% nach § 12 Abs. 2 Nr. 6 UStG / Anlage 2 Nr. 52), TaxExemptionReason 0..0 verboten
+  - Vier komplette Beispielinstanzen aktualisiert/neu: BEMA 13c (E+para4-nr14a), GOZ 2150 Aufbaufüllung (E+para4-nr14a), GOZ Bleaching Verlangens (S, kein Befreiungsgrund), GOZ 2200 Vollkeramik-Krone Eigenlabor (AA, kein Befreiungsgrund)
+
+### Documentation
+
+- **fdde-8vf**: Neue pagecontent `ust-modellierung.md` — steuerrechtliche Grundlagen, Modellierung via praxis-de Extensions, profil-spezifische Pattern (BEMA fix / GOZ Invarianten / Eigenlabor Sub-Profil), Ausblick auf ZE-Mischrechnung
+- **fdde-8vf**: Aliases `$TaxCategoryExt`, `$TaxExemptionReasonExt`, `$UnCefact5305`, `$UStBefreiungsgrundCS` in `input/fsh/aliases.fsh` zentral hinterlegt
+
 ## [0.33.0] - 2026-05-12
 
 ### Features
