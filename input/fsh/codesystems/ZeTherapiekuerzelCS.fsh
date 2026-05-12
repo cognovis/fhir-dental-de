@@ -1,13 +1,22 @@
 CodeSystem: ZeTherapiekuerzelCS
 Id: ze-therapiekuerzel
-Title: "ZE-Therapiekürzel (KZBV DPF)"
-Description: "Therapiekürzel für die Zahnersatz-Planung (Soll-Versorgung) gemäß KZBV Digitaler Planungsbogen für Zahnersatz (DPF)."
+Title: "ZE-Therapiekürzel (cognovis erweiterte Dental-Therapie-Taxonomie)"
+Description: """
+Cognovis-redaktionelle, **erweiterte** Therapiekürzel-Liste für die Zahnersatz-Soll-Versorgung. Verwendet im fhir-dental-de IG.
+
+**Dies ist NICHT die offizielle KZBV-DPF-Therapiekürzel-Liste.** Für KZBV-EBZ-konforme Workflows ist die authoritative Code-Liste:
+
+  - **`http://fhir.de/CodeSystem/kzbv/dpf-therapiekuerzel`** (43 Codes, EBZ Anlage 2 2022-05-25)
+  - distributed via `de.cognovis.terminology.dental.dpf-kuerzel@2022.0.0` auf `npm.cognovis.de`
+
+Anwendungs-Schicht muss explizit wählen welcher Namespace gemeint ist. Siehe ADR-004 in fhir-terminology-de.
+"""
 * ^url = "https://fhir.cognovis.de/dental/CodeSystem/ze-therapiekuerzel"
 * ^status = #active
 * ^experimental = false
 * ^caseSensitive = true
 * ^content = #fragment
-* ^publisher = "cognovis GmbH (Vorschlag)"
+* ^publisher = "cognovis GmbH (Vorschlag — erweitert KZBV DPF, nicht identisch)"
 
 // Kronen und Brücken
 * #K "Krone"

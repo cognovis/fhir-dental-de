@@ -1,13 +1,30 @@
 CodeSystem: ZeBefundkuerzelCS
 Id: ze-befundkuerzel
-Title: "ZE-Befundkürzel (KZBV DPF)"
-Description: "Befundkürzel für den Zahnersatz-Befund (Ist-Zustand) gemäß KZBV Digitaler Planungsbogen für Zahnersatz (DPF)."
+Title: "ZE-Befundkürzel (cognovis erweiterte Dental-Status-Taxonomie)"
+Description: """
+Cognovis-redaktionelle, **erweiterte** Befundkürzel-Liste für den Zahnersatz-Ist-Zustand. Verwendet im fhir-dental-de IG, wo eine breitere Differenzierung benötigt wird als die offizielle KZBV-DPF-Liste hergibt (z.B. "kr"=Kronreparatur nötig, "Atx"=Attachment, "MagA"=Magnetanker — Konzepte, die EBZ Anlage 2 nicht abbildet).
+
+**Dies ist NICHT die offizielle KZBV-DPF-Kürzel-Liste.** Für KZBV-EBZ-konforme Workflows (Anträge, Genehmigungsverfahren, Reconciliation) ist die authoritative Code-Liste:
+
+  - **`http://fhir.de/CodeSystem/kzbv/dpf-befundkuerzel`** (33 Codes, EBZ Anlage 2 2022-05-25)
+  - distributed via `de.cognovis.terminology.dental.dpf-kuerzel@2022.0.0` auf `npm.cognovis.de`
+
+Achtung **Semantik-Konflikt** zwischen den beiden CSes:
+
+| Code | KZBV DPF              | cognovis (dieses CS)      |
+|------|------------------------|----------------------------|
+| `e`  | ersetzter Zahn         | Eigener Zahn (Gegenteil!) |
+| `k`  | klinisch intakte Krone | Krone (allgemein)         |
+| `b`  | Brückenglied           | Brücke                    |
+
+Anwendungs-Schicht muss explizit wählen welcher Namespace gemeint ist. Siehe ADR-004 in fhir-terminology-de.
+"""
 * ^url = "https://fhir.cognovis.de/dental/CodeSystem/ze-befundkuerzel"
 * ^status = #active
 * ^experimental = false
 * ^caseSensitive = true
 * ^content = #fragment
-* ^publisher = "cognovis GmbH (Vorschlag)"
+* ^publisher = "cognovis GmbH (Vorschlag — erweitert KZBV DPF, nicht identisch)"
 
 // Fehlende Zähne
 * #x "Zahn fehlt"
