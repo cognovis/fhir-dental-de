@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.33.0] - 2026-05-12
+
+### Features
+
+- **fdde-0pf**: Verlangensleistung nach § 1 Abs. 2 Satz 2 GOZ als Extension markierbar
+  - Neue `VerlangensleistungExt` Extension auf ChargeItem mit `verlangensleistung` (boolean) und optionaler `verlangensleistungBeleg` (Reference DocumentReference)
+  - Eingebunden in `GozChargeItemDE` als optionale Extension `verlangensleistung 0..1 MS`
+  - Neuer informativer `TypischeVerlangensleistungenCS` / `VS` mit 8 typischen Verlangens-Codes (Bleaching, Veneer-aesthetic, ästhetischer Aufschlag, Schmuckstein, PZR-ästhetisch etc.)
+  - Beispielinstanz `ExampleGozChargeItemVerlangens` (Bleaching, Faktor 2,3, mit Beleg-Reference)
+
+### Documentation
+
+- **fdde-0pf**: Neue pagecontent `verlangensleistung.md` — Abgrenzung Heilbehandlung vs Verlangensleistung, gebühren- und steuerrechtliche Konsequenzen, Modellierung im IG, Indikations-Prüfung, Beweissicherung
+
 ## [0.32.0] - 2026-05-12
 
 ### Features

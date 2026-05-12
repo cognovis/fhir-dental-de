@@ -74,14 +74,16 @@ Description: "Profil für privatzahnärztliche Leistungen nach GOZ 2012 (Gebühr
 * account only Reference(Account)
 * account ^short = "Zugehörige Privatrechnung (SWS: Rechnung-Ref)"
 
-// --- Extensions: FDI-Zahnnummer, Zahnflächen, Steigerungsfaktor, Analogleistung ---
+// --- Extensions: FDI-Zahnnummer, Zahnflächen, Steigerungsfaktor, Analogleistung, Verlangensleistung ---
 * extension contains
     FdiToothNumberExt named fdiToothNumber 0..1 MS and
     ToothSurfacesExt named toothSurfaces 0..* MS and
     PrivatgebuehrSteigerungsfaktorExt named steigerungsfaktor 0..1 MS and
-    PrivatgebuehrAnalogReferenceExt named analogReference 0..1 MS
+    PrivatgebuehrAnalogReferenceExt named analogReference 0..1 MS and
+    VerlangensleistungExt named verlangensleistung 0..1 MS
 
 * extension[fdiToothNumber] ^short = "FDI-Zahnnummer (SWS: Zahnnummer)"
 * extension[toothSurfaces] ^short = "Betroffene Zahnflächen (SWS: Flächen)"
 * extension[steigerungsfaktor] ^short = "Steigerungsfaktor-Begründung §5 GOZ (SWS: Begründung >2,3)"
 * extension[analogReference] ^short = "Analogleistung §6 GOZ (SWS: Analogleistung)"
+* extension[verlangensleistung] ^short = "Verlangensleistung-Markierung § 1 Abs. 2 Satz 2 GOZ (boolean + optionaler Beleg). Wenn verlangensleistung.verlangensleistung=true: § 2 GOZ-Vereinbarungspflicht entfällt; USt-Pflicht 19% (siehe fdde-8vf)."
