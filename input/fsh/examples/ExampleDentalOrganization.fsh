@@ -7,11 +7,19 @@ Usage: #example
 Title: "Beispiel Zahnarztpraxis MVZ Nürnberg"
 Description: "Demo-Zahnarztpraxis (MVZ) in Nürnberg mit BSNR und KZV-Abrechnungsnummer (Bayern)."
 
-// BSNR: use inherited KBV slice name (from KBV_PR_Base_Organization via PraxisOrganizationDE)
+// BSNR: use inherited KBV slice name (from KBV_PR_Base_Organization via PraxisOrganizationDE).
+// The .type discriminator is required for KBV identifier slicing (type=value, path=type)
+// to match the identifier-bsnr profile pattern.
+* identifier[Betriebsstaettennummer].type.coding[0].system = "http://terminology.hl7.org/CodeSystem/v2-0203"
+* identifier[Betriebsstaettennummer].type.coding[0].code = #BSNR
 * identifier[Betriebsstaettennummer].value = "721234500"
 
-// KZV-Stempelnummer = KZV-Abrechnungsnummer: use inherited KBV slice (identifier-kzva profile)
+// KZV-Stempelnummer = KZV-Abrechnungsnummer: use inherited KBV slice (identifier-kzva profile).
 // The 9-digit KZV number doubles as the SWS Dateinamensuffix (Stempelnummer).
+// The .type discriminator is required for KBV identifier slicing (type=value, path=type)
+// to match the identifier-kzva profile pattern.
+* identifier[KZV-Abrechnungsnummer].type.coding[0].system = "http://fhir.de/CodeSystem/identifier-type-de-basis"
+* identifier[KZV-Abrechnungsnummer].type.coding[0].code = #KZVA
 * identifier[KZV-Abrechnungsnummer].value = "720001234"
 
 * name = "Demo-Zahnarztpraxis MVZ Nürnberg"
