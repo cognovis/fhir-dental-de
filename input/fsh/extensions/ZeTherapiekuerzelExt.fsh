@@ -1,7 +1,14 @@
 Extension: ZeTherapiekuerzelExt
 Id: ze-therapiekuerzel
 Title: "ZE Therapiekürzel"
-Description: "Therapiekürzel für die geplante Zahnersatz-Versorgung gemäß KZBV Digitaler Planungsbogen für Zahnersatz (DPF). Beschreibt die geplante Soll-Versorgung (z.B. 'K'=Krone, 'B'=Brücke, 'E'=Implantat)."
+Description: """
+Therapiekürzel für die geplante Zahnersatz-Versorgung auf einem `CarePlan`. Codes können aus zwei sich ergänzenden Code-Systemen kommen:
+
+* **`http://fhir.de/CodeSystem/kzbv/dpf-therapiekuerzel`** — Authoritative KZBV-DPF-Liste (EBZ Anlage 2, 43 Codes wie `K`, `B`, `T`, `SB`, `SK`, `T2`). Verwende dies für eHKP-konforme Therapie-Notation.
+* **`https://fhir.cognovis.de/dental/CodeSystem/ze-therapiekuerzel`** — Cognovis-interner Status (KFO-Retainer, Reparaturen, Unterfütterungen — Konzepte ausserhalb des EBZ-ZE-Workflows).
+
+Binding ist `extensible`: beide Code-Systeme sind valide. Bei lexikalisch überlappenden Codes (`K`, `B`, `T`, `E`) ist die `system`-URL entscheidend. Siehe `docs/adr/ADR-004` in fhir-terminology-de.
+"""
 * ^url = "https://fhir.cognovis.de/dental/StructureDefinition/ze-therapiekuerzel"
 * ^status = #active
 * ^experimental = false
@@ -10,5 +17,5 @@ Description: "Therapiekürzel für die geplante Zahnersatz-Versorgung gemäß KZ
 * ^context[=].expression = "CarePlan"
 
 * value[x] only code
-* value[x] from ZeTherapiekuerzelVS (required)
-* value[x] ^short = "ZE-Therapiekürzel nach KZBV DPF (z.B. K, B, T, V, E)"
+* value[x] from ZeTherapiekuerzelVS (extensible)
+* value[x] ^short = "Therapiekürzel (KZBV-DPF authoritativ, oder cognovis-Status-Ergänzung)"

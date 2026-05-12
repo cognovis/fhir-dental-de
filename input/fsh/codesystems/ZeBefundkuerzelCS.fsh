@@ -1,96 +1,78 @@
 CodeSystem: ZeBefundkuerzelCS
 Id: ze-befundkuerzel
-Title: "ZE-Befundkürzel (cognovis erweiterte Dental-Status-Taxonomie)"
+Title: "Dental Befund-Status (cognovis-intern, ergänzend zu KZBV)"
 Description: """
-Cognovis-redaktionelle, **erweiterte** Befundkürzel-Liste für den Zahnersatz-Ist-Zustand. Verwendet im fhir-dental-de IG, wo eine breitere Differenzierung benötigt wird als die offizielle KZBV-DPF-Liste hergibt (z.B. "kr"=Kronreparatur nötig, "Atx"=Attachment, "MagA"=Magnetanker — Konzepte, die EBZ Anlage 2 nicht abbildet).
+**Klinische Befund-Status-Codes für die zahnärztliche Dokumentation**, die *über* die offiziellen KZBV-Code-Listen hinausgehen. Verwendet in `CarePlan.extension[ze-befundkuerzel]` wo der Workflow eine Status-Notation braucht die EBZ Anlage 2 / FZ-Kompendium nicht abbildet (z.B. "Krone defekt", "Magnetanker", "Inlay (Keramik)").
 
-**Dies ist NICHT die offizielle KZBV-DPF-Kürzel-Liste.** Für KZBV-EBZ-konforme Workflows (Anträge, Genehmigungsverfahren, Reconciliation) ist die authoritative Code-Liste:
+## Diese CS ist NICHT die KZBV-DPF-Liste
 
-  - **`http://fhir.de/CodeSystem/kzbv/dpf-befundkuerzel`** (33 Codes, EBZ Anlage 2 2022-05-25)
-  - distributed via `de.cognovis.terminology.dental.dpf-kuerzel@2022.0.0` auf `npm.cognovis.de`
+Für KZBV-EBZ-konforme Workflows (eHKP, Anträge, Genehmigungsverfahren) verwende die **authoritativen KZBV-Code-Listen**:
 
-Achtung **Semantik-Konflikt** zwischen den beiden CSes:
+| Use-Case | Authoritative CS | Paket |
+|---|---|---|
+| HKP-Befund-Notation im Zahnschema (eHKP, ab 2022-01-01 verbindlich) | `http://fhir.de/CodeSystem/kzbv/dpf-befundkuerzel` (33 Codes, EBZ Anlage 2 2022-05-25) | `de.cognovis.terminology.dental.dpf-kuerzel@2022.0.0` |
+| Festzuschuss-Befunde (§ 55 SGB V Anspruchskategorisierung) | `https://fhir.cognovis.de/dental/CodeSystem/festzuschuss-befund` (54 Codes, 1.1–8.6) | im IG; Volltext-Supplement in `de.cognovis.terminology.dental.festzuschuss` |
 
-| Code | KZBV DPF              | cognovis (dieses CS)      |
-|------|------------------------|----------------------------|
-| `e`  | ersetzter Zahn         | Eigener Zahn (Gegenteil!) |
-| `k`  | klinisch intakte Krone | Krone (allgemein)         |
-| `b`  | Brückenglied           | Brücke                    |
+Beide KZBV-Taxonomien sind **disjunkt** (numerische FZ-Codes vs. alphabetische DPF-Kürzel) — verwechsle sie nicht.
 
-Anwendungs-Schicht muss explizit wählen welcher Namespace gemeint ist. Siehe ADR-004 in fhir-terminology-de.
+## Bindung extensible
+
+Die Extension `ze-befundkuerzel` bindet diese CS **`extensible`**: für nicht abgedeckte Konzepte können Konsumenten direkt KZBV-DPF-Codes (`http://fhir.de/CodeSystem/kzbv/dpf-befundkuerzel#…`) verwenden.
+
+## Code-Konflikt-Warnung
+
+Manche Codes in dieser cognovis-CS überlappen *lexikalisch* mit KZBV-DPF, haben aber **andere Semantik**. Beim Persistieren von Daten ist die `system`-URL entscheidend:
+
+| Code | Diese CS (cognovis) | KZBV-DPF (`fhir.de/CodeSystem/kzbv/dpf-befundkuerzel`) |
+|------|----------------------|---------------------------------------------------------|
+| `x`  | Zahn fehlt           | nicht erhaltungswürdiger Zahn                          |
+
+Siehe `docs/adr/ADR-004-dental-befund-namespaces.md` in fhir-terminology-de für die volle Geschichte und Migrationsstrategie.
 """
 * ^url = "https://fhir.cognovis.de/dental/CodeSystem/ze-befundkuerzel"
 * ^status = #active
 * ^experimental = false
 * ^caseSensitive = true
 * ^content = #fragment
-* ^publisher = "cognovis GmbH (Vorschlag — erweitert KZBV DPF, nicht identisch)"
+* ^publisher = "cognovis GmbH (cognovis-internal supplement to KZBV codes)"
 
-// Fehlende Zähne
-* #x "Zahn fehlt"
-* #xb "Fehlend, mit Zahnersatz versorgt"
-* #xw "Fehlend, wird nicht ersetzt"
+// =============================================================================
+// Backward-compatible code (preserves seed/test fixtures in install-pvs and
+// fhir-dental-de examples). For new development bind against
+// http://fhir.de/CodeSystem/kzbv/dpf-befundkuerzel instead.
+// =============================================================================
+* #x "Zahn fehlt"  "Kompatibilitäts-Eintrag — entspricht KZBV-DPF `f` (fehlender Zahn). Bei Neuentwicklung bevorzuge `fhir.de/CodeSystem/kzbv/dpf-befundkuerzel#f`."
 
-// Eigene Zähne
-* #e "Eigener Zahn"
-* #ek "Eigener Zahn mit Krone"
-* #ep "Eigener Zahn mit Teilkrone/Inlay"
+// =============================================================================
+// Klinische Befund-Status-Codes — Konzepte die EBZ Anlage 2 NICHT abbildet
+// (KZBV DPF konzentriert sich auf HKP-relevante Versorgungs-Status; hier:
+// allgemeiner Praxis-Befundstatus für Karteikarte/Anamnese)
+// =============================================================================
 
-// Kronen und Brücken
-* #k "Krone"
-* #tK "Teleskopkrone"
-* #kb "Krone als Brückenpfeiler"
-* #kbw "Krone als Brückenpfeiler und -zwischenglied"
-* #bg "Brückenglied"
-* #b "Brücke"
+// Implantat-Versorgungen
+* #impl  "Implantat"
+* #ikr   "Implantatgetragene Krone"
+* #ibrg  "Implantatgetragenes Brückenglied"
 
-// Parodontologie
-* #pa "Parodontal behandlungsbedürftig"
-* #pw "Erhaltungswürdiger Zahn mit partieller Zerstörung" "Eigener Zahn mit partieller Substanzzerstörung, erhaltungswürdig"
+// Defekt-/Reparatur-Status (laufende Praxis-Dokumentation, nicht HKP)
+* #kd    "Krone defekt"
+* #kr    "Kronreparatur nötig"
+* #pd    "Prothese defekt"
+* #prd   "Prothese reparaturbedürftig"
 
-// Wurzelversorgung
-* #w "Wurzelstift"
-* #wk "Wurzelstift mit Krone"
+// Konservierende Versorgung (Inlay-Materialien — vs. KZBV-DPF abstraktes `i`)
+* #ie    "Inlay-Ersatz"
+* #ic    "Inlay (Keramik)"
+* #ig    "Inlay (Gold/Guß)"
+* #ik    "Inlay (Kunststoff)"
+* #vn    "Veneer"
 
-// Implantate
-* #impl "Implantat"
-* #ikr "Implantatgetragene Krone"
-* #ibrg "Implantatgetragenes Brückenglied"
-
-// Prothesen
-* #p "Teilprothese"
-* #pp "Totalprothese (Vollprothese)"
-* #pr "Prothese mit Resilienzverankerung"
-* #psr "Prothese mit Schieberesilienz"
-
-// Spezielle Konstruktionen
-* #ga "Gegossene Basis"
-* #ga-p "Gegossene Basis Prothese"
-* #TK "Teleskopkrone (Großbuchstabe)"
-* #Sup "Suprakonstruktion"
-* #Atx "Attachment"
-* #Bar "Stegverankerung"
-* #HerA "Herausnehmbares Attachment"
-* #StegP "Stegprothese"
-* #LocA "Locator-Attachment"
+// Verbindungselemente / Halte-Attachments (KZBV-DPF hat hier nur generisches `so`)
+* #Atx   "Attachment"
+* #Bar   "Stegverankerung"
+* #LocA  "Locator-Attachment"
 * #BallA "Kugelkopf-Attachment"
-* #MagA "Magnetanker"
-* #Sp "Spezialanker"
+* #MagA  "Magnetanker"
 
-// Erweiterte Befundkürzel
-* #zw "Zahn (Wurzelrest)"
-* #fe "Fehlend, ersetzt durch Implantat"
-* #fp "Fehlend, Prothese geplant"
-* #ku "Krone ungünstig"
-* #kr "Kronreparatur nötig"
-* #kd "Krone defekt"
-* #ie "Inlay-Ersatz"
-* #ia "Inlay (Amalgam)"
-* #ik "Inlay (Kunststoff)"
-* #ig "Inlay (Gold/Guß)"
-* #ic "Inlay (Keramik)"
-* #vn "Veneer"
-* #prd "Prothese reparaturbedürftig"
-* #pd "Prothese defekt"
-* #pe "Prothesenzahn fehlt"
-* #si "Stiftaufbau (gegossen)"
+// Parodontologie-Status (KZBV-DPF hat dazu kein eigenes Befundkürzel)
+* #pa    "Parodontal behandlungsbedürftig"
