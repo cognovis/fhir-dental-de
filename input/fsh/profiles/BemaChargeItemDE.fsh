@@ -2,6 +2,14 @@
 // fdi-tooth-number   → https://fhir.cognovis.de/dental/StructureDefinition/fdi-tooth-number
 // tooth-surfaces     → https://fhir.cognovis.de/dental/StructureDefinition/tooth-surfaces
 // bema-befundklasse  → https://fhir.cognovis.de/dental/StructureDefinition/bema-befundklasse
+//
+// Tax-Pattern Note (fdde-pax.2 audit — no implementation required here):
+// BEMA charges are GKV (statutory) services and are generally exempt from VAT under
+// § 4 Nr. 14 UStG (Trennungsprinzip). The praxis-de Tax-Pattern extensions
+// (e.g. tax-rate, tax-category from de.cognovis.fhir.praxis) COULD be applied to
+// this profile if mixed-invoice scenarios arise (e.g. GOÄ/Zahn parallel billing or
+// ZE Mischrechnung including BEMA + GOZ + ZZV components). Evaluate when implementing
+// ZE Mischrechnung or § 19 UStG / Abfärbung use cases.
 
 Profile: BemaChargeItemDE
 Parent: ChargeItem

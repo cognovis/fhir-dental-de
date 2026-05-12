@@ -1,17 +1,26 @@
-// Example: Zahnarztpraxis mit BSNR und KZV-Stempelnummer
+// Example: Zahnarztpraxis mit BSNR und KZV-Abrechnungsnummer (= Stempelnummer)
 // SWS 2.0 Satzart 0 — Praxisstammdaten
 
 Instance: org-dental-mvz
 InstanceOf: DentalOrganizationDE
 Usage: #example
 Title: "Beispiel Zahnarztpraxis MVZ Nürnberg"
-Description: "Demo-Zahnarztpraxis (MVZ) in Nürnberg mit BSNR und KZV-Stempelnummer (Bayern)."
+Description: "Demo-Zahnarztpraxis (MVZ) in Nürnberg mit BSNR und KZV-Abrechnungsnummer (Bayern)."
 
-* identifier[bsnr].system = "https://fhir.kbv.de/NamingSystem/KBV_NS_Base_BSNR"
-* identifier[bsnr].value = "721234500"
+// BSNR: use inherited KBV slice name (from KBV_PR_Base_Organization via PraxisOrganizationDE).
+// The .type discriminator is required for KBV identifier slicing (type=value, path=type)
+// to match the identifier-bsnr profile pattern.
+* identifier[Betriebsstaettennummer].type.coding[0].system = "http://terminology.hl7.org/CodeSystem/v2-0203"
+* identifier[Betriebsstaettennummer].type.coding[0].code = #BSNR
+* identifier[Betriebsstaettennummer].value = "721234500"
 
-* identifier[kzv].system = "https://fhir.cognovis.de/dental/identifier/kzv-stempelnummer"
-* identifier[kzv].value = "K720001234"
+// KZV-Stempelnummer = KZV-Abrechnungsnummer: use inherited KBV slice (identifier-kzva profile).
+// The 9-digit KZV number doubles as the SWS Dateinamensuffix (Stempelnummer).
+// The .type discriminator is required for KBV identifier slicing (type=value, path=type)
+// to match the identifier-kzva profile pattern.
+* identifier[KZV-Abrechnungsnummer].type.coding[0].system = "http://fhir.de/CodeSystem/identifier-type-de-basis"
+* identifier[KZV-Abrechnungsnummer].type.coding[0].code = #KZVA
+* identifier[KZV-Abrechnungsnummer].value = "720001234"
 
 * name = "Demo-Zahnarztpraxis MVZ Nürnberg"
 

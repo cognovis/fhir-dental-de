@@ -1,9 +1,20 @@
-// Note: Ideally Parent would be KBV_PR_Base_Condition_Diagnosis, but kbv.basis#1.7.0
-// has null min/max values in its snapshot (known issue) that break the IG Publisher's
-// snapshot generation. Using Condition as parent with KBV-compatible constraints instead.
-// Re-evaluate when kbv.basis publishes a fixed snapshot.
+// 3-Layer-Chain: KBV → praxis-de → dental-de
+//
+// Layer 1 (KBV): KBV_PR_Base_Condition_Diagnosis (kbv.basis) — German base condition/diagnosis
+//   constraints mandated by the KBV for GKV interoperability.
+// Layer 2 (praxis-de): PraxisConditionDE (de.cognovis.fhir.praxis) — shared practice-level
+//   constraints applicable across all cognovis IGs (not dental-specific).
+// Layer 3 (dental-de): DentalConditionDE (this profile) — dental-specific constraints:
+//   ICD-10-GM binding, FDI tooth identification, KZBV Zahnschema Befundstatus.
+//
+// KZBV Gap: KZBV does not publish a formal FHIR base profile for dental conditions.
+//   Until KZBV publishes a canonical dental Condition profile, this profile fulfills
+//   the KBV/GKV constraints through PraxisConditionDE and adds dental-domain extensions directly.
+//
+// Reusability: PraxisConditionDE can be extended by any cognovis IG (e.g. a future
+//   praxis-intern IG or an orthodontic sub-IG) without re-implementing KBV constraints.
 Profile: DentalConditionDE
-Parent: Condition
+Parent: PraxisConditionDE
 Id: dental-condition
 Title: "Zahnärztliche Diagnose (DE)"
 Description: "Profil für zahnärztliche Diagnosen und Befunde. Nutzt ICD-10-GM und FDI-Zahnschema. Orientiert sich am HL7 Dental Data Exchange IG DentalCondition. Kompatibel mit KBV_PR_Base_Condition_Diagnosis."

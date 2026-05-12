@@ -3,6 +3,16 @@
 // tooth-surfaces                  → https://fhir.cognovis.de/dental/StructureDefinition/tooth-surfaces
 // privatgebuehr-steigerungsfaktor → https://fhir.cognovis.de/dental/StructureDefinition/privatgebuehr-steigerungsfaktor
 // privatgebuehr-analog-reference  → https://fhir.cognovis.de/dental/StructureDefinition/privatgebuehr-analog-reference
+//
+// Tax-Pattern Note (fdde-pax.2 audit — no implementation required here):
+// GOZ charges are private (PKV) services subject to VAT per UStG (typically 19% standard rate).
+// The praxis-de Tax-Pattern extensions (e.g. tax-rate, tax-category from de.cognovis.fhir.praxis)
+// COULD be applied to this profile to model:
+//   - Steuerpflicht per Leistungsposition (§ 19 UStG Kleinunternehmer: 0%)
+//   - Abfärbung: mixed practice (GKV+PKV) triggering full Umsatzsteuerpflicht
+//   - ZE Mischrechnung: BEMA-Festzuschuss + GOZ + ZZV in a single invoice
+// Evaluate when implementing the Tax-Compliance or ZE-Mischrechnung epics.
+// Reference: praxis-de Tax-Pattern extensions (Trennungsprinzip / § 19 / Abfärbung beads).
 
 Profile: GozChargeItemDE
 Parent: ChargeItem

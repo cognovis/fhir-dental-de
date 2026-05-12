@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.31.0] - 2026-05-12
+
+### Features
+
+- **fdde-pax.2**: Migrate DentalConditionDE + DentalOrganizationDE to Praxis*DE parents (3-Layer-Chain KBV→praxis-de→dental-de)
+  - DentalConditionDE: Parent changed from `Condition` to `PraxisConditionDE`
+  - DentalOrganizationDE: Parent changed from `Organization` to `PraxisOrganizationDE`; identifier slicing reworked to be compatible with KBV_PR_Base_Organization (type=value, path=type discriminator); BSNR now inherited as `identifier:Betriebsstaettennummer`; KZV-Stempelnummer uses inherited `identifier:KZV-Abrechnungsnummer`
+  - praxis-de dependency bumped 0.48.0 → 0.61.0
+
+### Documentation
+
+- **fdde-pax.2**: Add architecture-profile-audit.md documenting 3-Layer-Chain pattern and why 10 dental profiles are NOT migrated (no matching Praxis*DE wrappers in praxis-de v0.61.0)
+- **fdde-pax.2**: Add Tax-Pattern doc comments to BemaChargeItemDE.fsh and GozChargeItemDE.fsh (§ 19 UStG / Abfärbung / ZE Mischrechnung — for future evaluation, no implementation)
+- **fdde-pax.2**: DentalConditionDE top-comment rewritten: explains 3-Layer-Chain, KZBV gap, and reusability path
+
 ## [0.30.0] - 2026-05-04
 
 ### Features
