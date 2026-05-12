@@ -7,7 +7,7 @@ description: >-
   conditions (ICD-10-GM), findings (Zahnschema/FDI), and communication.
   Built on German base profiles (de.basisprofil.r4, KBV).
 status: active
-version: 0.33.0
+version: 0.34.0
 fhirVersion: 4.0.1
 copyrightYear: 2026+
 copyright: Copyright 2026+ cognovis GmbH. Licensed under CC-BY-4.0.
@@ -51,6 +51,8 @@ pages:
     title: Profile Architecture Audit
   verlangensleistung.md:
     title: Verlangensleistung (§ 1 Abs. 2 Satz 2 GOZ)
+  ust-modellierung.md:
+    title: USt-Modellierung in dental ChargeItems
 
 parameters:
   special-url:
