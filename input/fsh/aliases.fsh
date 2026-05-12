@@ -17,3 +17,10 @@ Alias: $ReportSubstatusCS          = https://fhir.cognovis.de/praxis/CodeSystem/
 // Praxis-DE Extension + ValueSet aliases (0.43.1 — use directly, do NOT redefine in dental IG)
 Alias: $ReportSubstatusExt = https://fhir.cognovis.de/praxis/StructureDefinition/report-substatus
 Alias: $ReportSubstatusVS  = https://fhir.cognovis.de/praxis/ValueSet/report-substatus
+
+// Praxis-DE Tax aliases (0.61.0 — used in BEMA/GOZ ChargeItem Tax-Pattern via fdde-8vf)
+Alias: $TaxCategoryExt        = https://fhir.cognovis.de/praxis/StructureDefinition/ext-tax-category
+Alias: $TaxExemptionReasonExt = https://fhir.cognovis.de/praxis/StructureDefinition/ext-tax-exemption-reason
+// TaxCategory codes come from UN/CEFACT codelist 5305 (EN 16931 aligned: S/AA/E/AE/Z)
+Alias: $UnCefact5305          = urn:un:unece:uncefact:codelist:standard:5305
+Alias: $UStBefreiungsgrundCS  = https://fhir.cognovis.de/praxis/CodeSystem/ust-befreiungsgrund

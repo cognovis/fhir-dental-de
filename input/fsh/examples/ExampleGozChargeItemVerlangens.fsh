@@ -19,6 +19,11 @@ Description: "Externe Zahnaufhellung (Bleaching) ohne medizinische Indikation, a
 * extension[steigerungsfaktor].extension[schwellenwert].valueDecimal = 2.3
 * extension[steigerungsfaktor].extension[leistungsart].valueCode = https://fhir.cognovis.de/dental/CodeSystem/privatgebuehr-leistungsart#persoenlich "Persönliche Leistung"
 
+// USt-Pattern (fdde-8vf): Verlangensleistung = keine Heilbehandlung, Regelsatz 19%
+// (Invariant goz-tax-verlangens-s greift: VerlangensleistungExt=true → TaxCategory=S)
+// (Invariant goz-tax-iff-e greift: TaxCategory!=E → kein TaxExemptionReason)
+* extension[taxCategory].valueCodeableConcept = $UnCefact5305#S "Normaler Steuersatz"
+
 * status = #billable
 
 // GOZ-analoge Position für Bleaching (häufig analog abgerechnet nach §6 GOZ)

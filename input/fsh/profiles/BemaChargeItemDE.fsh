@@ -68,12 +68,20 @@ Description: "Profil für kassenzahnärztliche Leistungen nach BEMA (Bewertungsm
 * account only Reference(Account)
 * account ^short = "Sammelabrechnung (SWS: Abrechnung-Ref)"
 
-// --- Extensions: FDI-Zahnnummer, Zahnflächen, Befundklasse ---
+// --- Extensions: FDI-Zahnnummer, Zahnflächen, Befundklasse, Tax-Pattern ---
 * extension contains
     FdiToothNumberExt named fdiToothNumber 0..1 MS and
     ToothSurfacesExt named toothSurfaces 0..* MS and
-    BemaBefundklasseExt named bemaBefundklasse 0..1 MS
+    BemaBefundklasseExt named bemaBefundklasse 0..1 MS and
+    $TaxCategoryExt named taxCategory 1..1 MS and
+    $TaxExemptionReasonExt named taxExemptionReason 1..1 MS
 
 * extension[fdiToothNumber] ^short = "FDI-Zahnnummer (SWS: Zahnnummer)"
 * extension[toothSurfaces] ^short = "Betroffene Zahnflächen (SWS: Flächen)"
 * extension[bemaBefundklasse] ^short = "BEMA Befundklasse c/k/f/e/b (SWS: Befundklasse)"
+
+// --- USt-Pattern (fdde-8vf): BEMA = GKV-Heilbehandlung, immer steuerfrei nach § 4 Nr. 14a UStG ---
+* extension[taxCategory].valueCodeableConcept = $UnCefact5305#E "Steuerfrei"
+* extension[taxCategory] ^short = "USt-Kategorie (EN 16931 / UN-CEFACT-5305: für BEMA fix = E steuerfrei)"
+* extension[taxExemptionReason].valueCodeableConcept = $UStBefreiungsgrundCS#para4-nr14a "§ 4 Nr. 14a UStG"
+* extension[taxExemptionReason] ^short = "USt-Befreiungsgrund (für BEMA fix = § 4 Nr. 14a UStG Heilbehandlung)"
