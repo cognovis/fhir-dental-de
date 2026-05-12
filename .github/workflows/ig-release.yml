@@ -79,6 +79,9 @@ jobs:
         with:
           verdaccio-token: ${{ secrets.VERDACCIO_TOKEN }}
 
+      - name: Generate KBV Basis snapshots (KBV publishes kbv.basis without snapshots)
+        uses: ./.github/actions/generate-kbv-basis-snapshots
+
       - name: Install Jekyll
         run: sudo gem install jekyll
 
