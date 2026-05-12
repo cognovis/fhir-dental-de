@@ -40,6 +40,24 @@ Until praxis-de provides corresponding wrappers, migration is not possible.
 | `DentalProcedureDE` | `Procedure` | `PraxisProcedureDE` | Dental procedures (BEMA/GOZ execution context) have no shared praxis wrapper |
 | `DentalClinicalImpressionDE` | `ClinicalImpression` | `PraxisClinicalImpressionDE` | PAR/KFO clinical impressions are domain-specific |
 | `DentalAtfBundleDE` | `Bundle` | `PraxisBundleDE` | ATF MessageBundle structure is specified by de.gematik.fhir.atf; wrapping not appropriate |
+| `DentalCbctImagingStudyDE` | `ImagingStudy` (via `DentalImagingStudyDE`) | *(inherits from `DentalImagingStudyDE`, not directly from a base resource)* | Sub-profile of `DentalImagingStudyDE`; if `DentalImagingStudyDE` is migrated to a `PraxisImagingStudyDE` parent in the future, `DentalCbctImagingStudyDE` will automatically benefit via inheritance — no separate migration needed |
+
+## Out-of-Scope Profiles (no Praxis*DE wrapper applicable)
+
+The following 5 profiles use a `Dental*` naming convention but are **billing or clinical observation profiles**,
+not practice-structure profiles. No `Praxis*DE` wrapper exists for `ChargeItem` or `Observation`-derived
+resources, and the shared-practice pattern does not apply to these domain objects.
+They are intentionally excluded from this migration audit.
+
+| Profile | Base Resource | Notes |
+|---|---|---|
+| `BemaChargeItemDE` | `ChargeItem` | GKV dental billing item (BEMA catalog); no praxis wrapper for ChargeItem |
+| `GozChargeItemDE` | `ChargeItem` | Private dental billing item (GOZ catalog); no praxis wrapper for ChargeItem |
+| `OralHealthScreeningDE` | `Observation` | Oral health screening observation; no `PraxisObservationDE` wrapper defined |
+| `PeriodontalObservationDE` | `Observation` | PAR clinical observation; no `PraxisObservationDE` wrapper defined |
+| `ProphylaxisObservationDE` | `Observation` | Prophylaxis clinical observation; no `PraxisObservationDE` wrapper defined |
+
+Tax-pattern extensions for `ChargeItem`-based profiles are tracked separately under bead `fdde-8vf`.
 
 ## Migration Trigger
 

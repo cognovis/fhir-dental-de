@@ -7,23 +7,23 @@
 // Layer 2 (praxis-de): PraxisOrganizationDE (de.cognovis.fhir.praxis) — shared practice-level
 //   constraints applicable across all cognovis IGs (not dental-specific).
 // Layer 3 (dental-de): DentalOrganizationDE (this profile) — dental-specific constraints:
-//   KZV-Stempelnummer identifier, SWS 2.0 Satzart 0 (Praxisstammdaten) mapping.
+//   SWS 2.0 Satzart 0 (Praxisstammdaten) mapping.
 //
 // Identifier slicing inherited from KBV_PR_Base_Organization (via PraxisOrganizationDE):
 //   discriminator: type=value, path=type
 //   DO NOT redefine the slicing discriminator here — child profiles inherit parent slicing.
 //
 //   KBV-inherited slices (use as-is via inheritance):
-//     identifier:Betriebsstaettennummer — BSNR (KBV_NS_Base_BSNR)
-//     identifier:KZV-Abrechnungsnummer  — KZV billing number (identifier-kzva profile)
+//     identifier:Betriebsstaettennummer    — BSNR (KBV_NS_Base_BSNR)
+//     identifier:KZV-Abrechnungsnummer     — KZV billing/stamp number (identifier-kzva profile)
 //     identifier:Institutionskennzeichen, identifier:VKNR, identifier:Telematik-ID
 //
-//   Dental-specific slice (new, compatible with type discriminator):
-//     identifier:kzvStempelnummer — KZV-Stempelnummer (SWS Dateinamensuffix, system-based)
-//       Distinguished from KZV-Abrechnungsnummer by custom type code.
+//   The KZV-Stempelnummer (SWS Dateinamensuffix) is the same 9-digit KZV number as
+//   KZV-Abrechnungsnummer. Use identifier:KZV-Abrechnungsnummer (inherited from
+//   KBV_PR_Base_Organization) — no separate dental slice is needed or defined here.
 //
 // SWS 2.0 Satzart 0: Praxisstammdaten / Behandlerstammdaten
-// Fields: Praxisname, Stempelnummer, BSNR, Adresse, Telefon/Fax
+// Fields: Praxisname, Stempelnummer (= KZV-Abrechnungsnummer), BSNR, Adresse, Telefon/Fax
 
 Profile: DentalOrganizationDE
 Parent: PraxisOrganizationDE
@@ -34,27 +34,13 @@ Description: "Profil für Zahnarztpraxen und beteiligte Organisationen (z.B. Den
 * ^experimental = false
 * ^publisher = "cognovis GmbH"
 
-// --- Identifier: KZV-Stempelnummer (dental-specific, not in KBV base) ---
-// The BSNR (Betriebsstättennummer) is already provided by the inherited
-// identifier:Betriebsstaettennummer slice from KBV_PR_Base_Organization.
-// We add only the KZV-Stempelnummer as a new slice using a custom type coding,
-// compatible with the parent's type=value, path=type discriminator.
+// --- Identifier: inherited slices used as-is ---
+// BSNR: identifier:Betriebsstaettennummer — inherited from KBV_PR_Base_Organization.
+// KZV-Stempelnummer: use identifier:KZV-Abrechnungsnummer — the KZV 9-digit number is
+//   the same identifier used as the SWS Dateinamensuffix. Inherited from KBV_PR_Base_Organization.
+//   No additional dental-specific slice is required.
 * identifier MS
-* identifier ^short = "Praxis-Identifier (BSNR via KBV-Vererbung, KZV-Stempelnummer)"
-
-* identifier contains kzvStempelnummer 0..1 MS
-
-// KZV-Stempelnummer slice: uses type discriminator (patternCodeableConcept on identifier.type)
-// to be compatible with the parent's slicing discriminator (type=value, path=type).
-// The custom type code "KZVSNR" (KZV-Stempelnummer) distinguishes this from the KBV-inherited
-// KZV-Abrechnungsnummer slice (which uses code "KZVA" from http://terminology.hl7.org/CodeSystem/v2-0203).
-* identifier[kzvStempelnummer].type 1..1 MS
-* identifier[kzvStempelnummer].type = http://terminology.hl7.org/CodeSystem/v2-0203#KZVSNR "KZV-Stempelnummer"
-* identifier[kzvStempelnummer].system 1..1 MS
-* identifier[kzvStempelnummer].system = "https://fhir.cognovis.de/dental/identifier/kzv-stempelnummer"
-* identifier[kzvStempelnummer].value 1..1 MS
-* identifier[kzvStempelnummer] ^short = "KZV-Stempelnummer (Abrechnungsnummer)"
-* identifier[kzvStempelnummer] ^definition = "KZV-Abrechnungsnummer der Praxis (SWS: Stempelnummer). Wird als Dateinamensuffix in SWS_DATA.nnn verwendet. Distinct from identifier:KZV-Abrechnungsnummer inherited from KBV_PR_Base_Organization."
+* identifier ^short = "Praxis-Identifier (BSNR und KZV-Abrechnungsnummer via KBV-Vererbung)"
 
 // --- Name: Praxisbezeichnung ---
 * name 1..1 MS
