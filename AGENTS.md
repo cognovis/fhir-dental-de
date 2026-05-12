@@ -91,7 +91,7 @@ dolt --host 127.0.0.1 --port 3306 --no-tls sql \
 
 ### Troubleshooting: `.beads/issues.jsonl` shows up in VS Code / git
 
-Since commit `c75ca16` (2026-05-10) `issues.jsonl` and `interactions.jsonl` are **gitignored** — Dolt is the source of truth, the JSONL files are derivative artifacts that `bd dolt pull/push` rewrites on every sync.
+Since commit `c75ca16` (2026-05-10) `issues.jsonl` and `interactions.jsonl` are **gitignored** — Dolt is the source of truth, and as of 2026-05-12 the JSONL auto-export is also disabled in `.beads/config.yaml` (`backup.enabled: false`). The local jsonl stays as a stale snapshot from the last manual `bd export -o`; sync state via `bd dolt pull/push` only.
 
 If VS Code's Source Control panel keeps flagging `.beads/issues.jsonl` as modified or untracked, or `git push` tries to ship it:
 

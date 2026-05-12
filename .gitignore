@@ -10,12 +10,16 @@ input-cache/
 txCache/
 
 # Beads / Dolt files (added by bd init)
-# .beads/ as a whole is NOT ignored — issues.jsonl + config must be tracked
-# so collaborators can see the issue database. Dolt internals, sockets and
-# local-only files are excluded by .beads/.gitignore.
+# .beads/ as a whole is NOT ignored — config + hooks + metadata stay tracked.
+# Dolt internals, sockets and local-only files are excluded by .beads/.gitignore.
 .dolt/
 *.db
 .beads-credential-key
+
+# Beads JSONL — Dolt remote (dolt.cognovis.de) is the sole source of truth.
+# JSONL stays local only; `bd dolt pull/push` syncs state across machines.
+.beads/issues.jsonl
+.beads/events.jsonl
 
 # Claude session logs
 logs/
