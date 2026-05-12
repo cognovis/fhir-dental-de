@@ -7,11 +7,13 @@ Usage: #example
 Title: "Beispiel Zahnarztpraxis MVZ Nürnberg"
 Description: "Demo-Zahnarztpraxis (MVZ) in Nürnberg mit BSNR und KZV-Stempelnummer (Bayern)."
 
-* identifier[bsnr].system = "https://fhir.kbv.de/NamingSystem/KBV_NS_Base_BSNR"
-* identifier[bsnr].value = "721234500"
+// BSNR: use inherited KBV slice name (from KBV_PR_Base_Organization via PraxisOrganizationDE)
+* identifier[Betriebsstaettennummer].value = "721234500"
 
-* identifier[kzv].system = "https://fhir.cognovis.de/dental/identifier/kzv-stempelnummer"
-* identifier[kzv].value = "K720001234"
+// KZV-Stempelnummer: dental-specific slice
+* identifier[kzvStempelnummer].type = http://terminology.hl7.org/CodeSystem/v2-0203#KZVSNR "KZV-Stempelnummer"
+* identifier[kzvStempelnummer].system = "https://fhir.cognovis.de/dental/identifier/kzv-stempelnummer"
+* identifier[kzvStempelnummer].value = "K720001234"
 
 * name = "Demo-Zahnarztpraxis MVZ Nürnberg"
 
