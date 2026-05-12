@@ -74,16 +74,39 @@ Description: "Profil für privatzahnärztliche Leistungen nach GOZ 2012 (Gebühr
 * account only Reference(Account)
 * account ^short = "Zugehörige Privatrechnung (SWS: Rechnung-Ref)"
 
-// --- Extensions: FDI-Zahnnummer, Zahnflächen, Steigerungsfaktor, Analogleistung, Verlangensleistung ---
+// --- Extensions: FDI-Zahnnummer, Zahnflächen, Steigerungsfaktor, Analogleistung, Verlangensleistung, Tax-Pattern ---
 * extension contains
     FdiToothNumberExt named fdiToothNumber 0..1 MS and
     ToothSurfacesExt named toothSurfaces 0..* MS and
     PrivatgebuehrSteigerungsfaktorExt named steigerungsfaktor 0..1 MS and
     PrivatgebuehrAnalogReferenceExt named analogReference 0..1 MS and
-    VerlangensleistungExt named verlangensleistung 0..1 MS
+    VerlangensleistungExt named verlangensleistung 0..1 MS and
+    $TaxCategoryExt named taxCategory 1..1 MS and
+    $TaxExemptionReasonExt named taxExemptionReason 0..1 MS
 
 * extension[fdiToothNumber] ^short = "FDI-Zahnnummer (SWS: Zahnnummer)"
 * extension[toothSurfaces] ^short = "Betroffene Zahnflächen (SWS: Flächen)"
 * extension[steigerungsfaktor] ^short = "Steigerungsfaktor-Begründung §5 GOZ (SWS: Begründung >2,3)"
 * extension[analogReference] ^short = "Analogleistung §6 GOZ (SWS: Analogleistung)"
-* extension[verlangensleistung] ^short = "Verlangensleistung-Markierung § 1 Abs. 2 Satz 2 GOZ (boolean + optionaler Beleg). Wenn verlangensleistung.verlangensleistung=true: § 2 GOZ-Vereinbarungspflicht entfällt; USt-Pflicht 19% (siehe fdde-8vf)."
+* extension[verlangensleistung] ^short = "Verlangensleistung-Markierung § 1 Abs. 2 Satz 2 GOZ (boolean + optionaler Beleg). Wenn verlangensleistung.verlangensleistung=true: § 2 GOZ-Vereinbarungspflicht entfällt; USt-Pflicht 19% (Constraint goz-tax-verlangens-s)."
+
+// --- USt-Pattern (fdde-8vf): GOZ je nach Indikation/Verlangens/Eigenlabor (E/S/AA) ---
+// Default (medizinisch indizierte Heilbehandlung): TaxCategory=E + TaxExemptionReason=para4-nr14a
+// Bei Verlangensleistung:                          TaxCategory=S (kein Befreiungsgrund) — siehe Constraint goz-tax-verlangens-s
+// Bei Eigenlabor-Werkstück:                        siehe Sub-Profil GozZahntechWerkstueckChargeItemDE (AA)
+// Binding der valueCodeableConcept-Codes übernommen aus den praxis-de Extension-Definitionen.
+* extension[taxCategory] ^short = "USt-Kategorie (EN 16931 / UN-CEFACT-5305) — E steuerfrei (Default Heilbehandlung), S 19% (Verlangens), AA 7% (Eigenlabor-Werkstück)"
+* extension[taxExemptionReason] ^short = "USt-Befreiungsgrund — Pflicht wenn-und-nur-wenn taxCategory=E (Constraint goz-tax-iff-e)"
+
+* obeys goz-tax-iff-e
+* obeys goz-tax-verlangens-s
+
+Invariant: goz-tax-iff-e
+Description: "TaxExemptionReason MUSS vorhanden sein wenn-und-nur-wenn TaxCategory=E (steuerfrei). Bei jedem anderen TaxCategory-Wert (S/AA/AE/Z) DARF kein Befreiungsgrund gesetzt sein, da nur tatsächliche Steuerbefreiung einen Grund braucht."
+Severity: #error
+Expression: "(extension.where(url='https://fhir.cognovis.de/praxis/StructureDefinition/ext-tax-category').valueCodeableConcept.coding.where(system='urn:un:unece:uncefact:codelist:standard:5305').code = 'E') = extension.where(url='https://fhir.cognovis.de/praxis/StructureDefinition/ext-tax-exemption-reason').exists()"
+
+Invariant: goz-tax-verlangens-s
+Description: "Wenn VerlangensleistungExt.verlangensleistung=true gesetzt, MUSS TaxCategory=S (Regelsatz 19%) sein. Verlangensleistungen sind keine Heilbehandlung i.S. § 4 Nr. 14a UStG und daher USt-pflichtig."
+Severity: #error
+Expression: "extension.where(url='https://fhir.cognovis.de/dental/StructureDefinition/verlangensleistung').extension.where(url='verlangensleistung').valueBoolean = true implies extension.where(url='https://fhir.cognovis.de/praxis/StructureDefinition/ext-tax-category').valueCodeableConcept.coding.where(system='urn:un:unece:uncefact:codelist:standard:5305').code = 'S'"

@@ -21,6 +21,12 @@ KBV base, **FHIR R4 → praxis-de → dental-de**).
 | `BemaChargeItemDE` | `ChargeItemPraxisDe` | `ChargeItem` (raw FHIR R4) | fdde-n4q | v0.32.0 |
 | `GozChargeItemDE` | `ChargeItemPraxisDe` | `ChargeItem` (raw FHIR R4) | fdde-n4q | v0.32.0 |
 
+## New Sub-Profiles (Tax-Pattern)
+
+| Dental Profile | Parent | Purpose | Bead | Released |
+|---|---|---|---|---|
+| `GozZahntechWerkstueckChargeItemDE` | `GozChargeItemDE` | Eigenlabor-Werkstücke 7 % USt (Anlage 2 Nr. 52 UStG) | fdde-8vf | v0.34.0 |
+
 ## Non-Migrated Profiles — Status & Rationale
 
 The classifications below are correct against `de.cognovis.fhir.praxis@0.61.0`.
@@ -65,11 +71,16 @@ corresponding `Dental*DE` profile — file a migration bead if the new parent is
 Since v0.32.0, both `BemaChargeItemDE` and `GozChargeItemDE` inherit from
 `ChargeItemPraxisDe`, which makes the praxis-de tax extensions available via inheritance:
 
-- `TaxCategoryExt` (EN 16931 ValueSet: `S`/`AA`/`E`/`AE`/`Z`)
+- `TaxCategoryExt` (UN/CEFACT 5305 codes: `S`=19% / `AA`=7% / `E`=steuerfrei / `AE`=Reverse-Charge / `Z`=Nullsatz)
 - `TaxExemptionReasonExt` (CodeSystem `ust-befreiungsgrund`: `para4-nr14a`, `para4-nr14b`, `para4-nr16`, `para4-nr17a`, `para4-nr23`, `kleinunternehmer-para19`)
 
-Concrete tax-pattern application (default values, Verlangensleistungs-Trigger, Eigenlabor `AA`,
-invariants) is tracked in bead `fdde-8vf`.
+Since v0.34.0 the concrete tax-pattern is implemented via fdde-8vf:
+
+- `BemaChargeItemDE` fixes both extensions to `E` + `para4-nr14a` (BEMA = ausnahmslos GKV-Heilbehandlung)
+- `GozChargeItemDE` carries both as MS with two invariants `goz-tax-iff-e` (Befreiungsgrund iff E) and `goz-tax-verlangens-s` (Verlangens → S)
+- `GozZahntechWerkstueckChargeItemDE` fixes `TaxCategory=AA` for Eigenlabor-Werkstücke
+
+See `ust-modellierung.md` for the full design.
 
 ## Related
 
