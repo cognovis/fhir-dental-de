@@ -83,6 +83,16 @@ Integration tests for ConceptMap $translate operations live in `test/CM/`.
 - Test files use `.http` format (httpyac compatible)
 - On test errors: report first, don't auto-fix immediately
 
+## ICD Coding Anchors (GM vs CM vs ICD-11)
+
+When binding ConditionDE or related profiles to ICD codes, follow
+`cognovis-core/standards/healthcare/icd-coding-anchors.md` — verify against
+ICD-10-GM (BfArM) before use, treat F-/G-/R-chapter codes as high-risk for
+ICD-10-CM contamination, and apply the ICD-11-as-clinical-anchor /
+ICD-10-GM-as-billing-bridge hybrid when ICD-10-GM is too coarse or missing.
+Auto-loaded via standards triggers (`ICD-10`, `ICD-11`, `BfArM`,
+`rechtfertigende Indikation`, ...).
+
 ## License Guardrails
 
 The pre-push hook blocks accidental commits of copyrighted KZBV/BEB catalog texts (BEMA, BEL II, beb'97).
