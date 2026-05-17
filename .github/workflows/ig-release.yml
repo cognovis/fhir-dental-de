@@ -71,9 +71,6 @@ jobs:
             tar xzf /tmp/praxis.tgz -C "$HOME/.fhir/packages/de.cognovis.fhir.praxis#${LABEL}/"
           done
 
-      - name: Run SUSHI
-        run: sushi .
-
       - name: Pre-load private FHIR packages from npm.cognovis.de
         uses: ./.github/actions/preload-private-fhir-packages
         with:
@@ -81,6 +78,9 @@ jobs:
 
       - name: Generate KBV Basis snapshots (KBV publishes kbv.basis without snapshots)
         uses: ./.github/actions/generate-kbv-basis-snapshots
+
+      - name: Run SUSHI
+        run: sushi .
 
       - name: Install Jekyll
         run: sudo gem install jekyll
