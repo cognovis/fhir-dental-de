@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.35.0] - 2026-05-17
+
+### Build / CI
+
+- **Dependency bump**: `de.cognovis.fhir.praxis` 0.61.0 → 0.62.1
+  - v0.62.0: Practitioner-Berechtigungs-Strukturen (genehmigung-leistungsbereich +130 codes, wb-befugnis, ermaechtigung, sitz-vakanz extensions, ZANR identifier slice on PraxisPractitionerDE, shared ZulassungStatusConcepts RuleSet)
+  - v0.62.1: PvsWritebackStatusCS (adapter writeback error tag)
+- **Release pipeline fix**: `ig-release.yml` now generates KBV Basis snapshots and pre-loads private FHIR packages BEFORE running SUSHI. Previous order caused v0.31.0–v0.34.0 release workflows to fail with "Structure Definition ... is missing a snapshot." Validate workflow (`ig-ci.yml`) already had the correct order — this release publishes the accumulated changes from v0.31.0 onward.
+
+### Notes
+
+- Versions v0.31.0, v0.32.0, v0.33.0, v0.34.0 exist as git tags but were never published to the FHIR Package Registry due to the pipeline bug above. Their content is included in this v0.35.0 release.
+
 ## [0.34.0] - 2026-05-12
 
 ### Features
