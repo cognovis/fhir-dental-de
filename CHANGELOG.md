@@ -2,113 +2,155 @@
 
 All notable changes to this project will be documented in this file.
 
-## [Unreleased]
+## [unreleased]
 
-### Build / CI
+### Bug Fixes
 
-- **fdde-o4n**: Pin `de.cognovis.fhir.praxis` from 0.62.1 → 0.64.0
-  - v0.64.0 adds ProposalProvenanceDE profile (fpde-ctx) and AW billing claim constraint fixes
-  - CI workflows now fetch from pinned `releases/tags/v0.64.0` instead of `releases/latest`
-  - `scripts/prefetch-praxis.sh` defaults to `v0.64.0` for local development
-  - SUSHI build clean: 181 resources, 0 errors, 0 warnings
+- **clc-8gy**: Explicit empty worktree_bootstrap to prevent legacy .env fallback
+- **fdde-o4n**: Address review findings iteration 1
+
+### Features
+
+- **clc-8gy**: Add orchestrator-config.yml for fhir-dental-de
+- **clc-8gy**: Add orchestrator-config.yml (dev_server concurrency key rename)
+- **clc-8gy**: Note no worktree_bootstrap needed (shared Aidbox)
+
+### Miscellaneous
+
+- **fdde-o4n**: Pin de.cognovis.fhir.praxis to 0.64.0
+- **fdde-o4n**: Add changelog entry for praxis 0.64.0 pin
 
 ## [0.35.0] - 2026-05-17
 
-### Build / CI
+### Bug Fixes
 
-- **Dependency bump**: `de.cognovis.fhir.praxis` 0.61.0 → 0.62.1
-  - v0.62.0: Practitioner-Berechtigungs-Strukturen (genehmigung-leistungsbereich +130 codes, wb-befugnis, ermaechtigung, sitz-vakanz extensions, ZANR identifier slice on PraxisPractitionerDE, shared ZulassungStatusConcepts RuleSet)
-  - v0.62.1: PvsWritebackStatusCS (adapter writeback error tag)
-- **Release pipeline fix**: `ig-release.yml` now generates KBV Basis snapshots and pre-loads private FHIR packages BEFORE running SUSHI. Previous order caused v0.31.0–v0.34.0 release workflows to fail with "Structure Definition ... is missing a snapshot." Validate workflow (`ig-ci.yml`) already had the correct order — this release publishes the accumulated changes from v0.31.0 onward.
+- **ci**: Pre-load kbv.mio.impfpass.vocab@1.1.0-cognovis.1 from Verdaccio + show full SUSHI errors
+- **ci**: Generate KBV Basis snapshots in CI (KBV publishes without snapshots)
+- **ci**: Run snapshot generation before SUSHI in ig-release.yml
 
-### Notes
+### Documentation
 
-- Versions v0.31.0, v0.32.0, v0.33.0, v0.34.0 exist as git tags but were never published to the FHIR Package Registry due to the pipeline bug above. Their content is included in this v0.35.0 release.
+- **agents**: VS Code troubleshooting for gitignored .beads/issues.jsonl
+- **fdde-qhy**: Reference cognovis-core ICD coding anchors standard
+
+### Miscellaneous
+
+- **beads**: Disable export.auto + import.auto — bd dolt is the only sync path
+- **deps**: Bump fhir-praxis-de 0.61.0 → 0.62.1
+- **release**: Bump to v0.35.0
+
+### Merge
+
+- Ci-fix-praxis-deps (kbv.mio.impfpass.vocab preload + SUSHI error visibility)
+- Ci-snapshot-fix (generate-kbv-basis-snapshots composite action)
 
 ## [0.34.0] - 2026-05-12
 
 ### Features
 
-- **fdde-8vf**: USt-Modellierung in dental ChargeItems via praxis@0.61.0 Tax-Pattern
-  - `BemaChargeItemDE`: TaxCategoryExt fix=`E` (steuerfrei) + TaxExemptionReasonExt fix=`para4-nr14a` (§ 4 Nr. 14a UStG — BEMA = GKV-Heilbehandlung)
-  - `GozChargeItemDE`: TaxCategoryExt + TaxExemptionReasonExt als MS mit zwei Invarianten
-    - `goz-tax-iff-e` (bi-direktional): TaxExemptionReason vorhanden wenn-und-nur-wenn TaxCategory=E
-    - `goz-tax-verlangens-s` (Trigger): VerlangensleistungExt=true → TaxCategory MUSS S sein
-  - Neues Sub-Profil `GozZahntechWerkstueckChargeItemDE` für Eigenlabor-Werkstücke: TaxCategory fix=`AA` (7% nach § 12 Abs. 2 Nr. 6 UStG / Anlage 2 Nr. 52), TaxExemptionReason 0..0 verboten
-  - Vier komplette Beispielinstanzen aktualisiert/neu: BEMA 13c (E+para4-nr14a), GOZ 2150 Aufbaufüllung (E+para4-nr14a), GOZ Bleaching Verlangens (S, kein Befreiungsgrund), GOZ 2200 Vollkeramik-Krone Eigenlabor (AA, kein Befreiungsgrund)
+- **fdde-8vf**: USt-Modellierung in dental ChargeItems via praxis@0.61.0 Tax-Pattern (v0.34.0)
 
-### Documentation
+### Merge
 
-- **fdde-8vf**: Neue pagecontent `ust-modellierung.md` — steuerrechtliche Grundlagen, Modellierung via praxis-de Extensions, profil-spezifische Pattern (BEMA fix / GOZ Invarianten / Eigenlabor Sub-Profil), Ausblick auf ZE-Mischrechnung
-- **fdde-8vf**: Aliases `$TaxCategoryExt`, `$TaxExemptionReasonExt`, `$UnCefact5305`, `$UStBefreiungsgrundCS` in `input/fsh/aliases.fsh` zentral hinterlegt
+- Worktree-bead-fdde-8vf (USt-Modellierung in dental ChargeItems, v0.34.0)
 
 ## [0.33.0] - 2026-05-12
 
 ### Features
 
-- **fdde-0pf**: Verlangensleistung nach § 1 Abs. 2 Satz 2 GOZ als Extension markierbar
-  - Neue `VerlangensleistungExt` Extension auf ChargeItem mit `verlangensleistung` (boolean) und optionaler `verlangensleistungBeleg` (Reference DocumentReference)
-  - Eingebunden in `GozChargeItemDE` als optionale Extension `verlangensleistung 0..1 MS`
-  - Neuer informativer `TypischeVerlangensleistungenCS` / `VS` mit 8 typischen Verlangens-Codes (Bleaching, Veneer-aesthetic, ästhetischer Aufschlag, Schmuckstein, PZR-ästhetisch etc.)
-  - Beispielinstanz `ExampleGozChargeItemVerlangens` (Bleaching, Faktor 2,3, mit Beleg-Reference)
+- **fdde-0pf**: Mark Verlangensleistung per § 1 Abs. 2 Satz 2 GOZ (v0.33.0)
 
-### Documentation
+### Merge
 
-- **fdde-0pf**: Neue pagecontent `verlangensleistung.md` — Abgrenzung Heilbehandlung vs Verlangensleistung, gebühren- und steuerrechtliche Konsequenzen, Modellierung im IG, Indikations-Prüfung, Beweissicherung
+- Worktree-bead-fdde-0pf (Verlangensleistung-Markierung, v0.33.0)
 
 ## [0.32.0] - 2026-05-12
 
-### Features
-
-- **fdde-n4q**: Migrate BemaChargeItemDE + GozChargeItemDE to `ChargeItemPraxisDe` parent (3-Layer-Chain pre-step for fdde-8vf)
-  - BemaChargeItemDE: Parent changed from `ChargeItem` to `ChargeItemPraxisDe`
-  - GozChargeItemDE: Parent changed from `ChargeItem` to `ChargeItemPraxisDe`
-  - Both profiles now inherit `TaxCategoryExt` and `TaxExemptionReasonExt` from praxis@0.61.0 — concrete tax-pattern application happens in fdde-8vf
-
 ### Documentation
 
-- **fdde-n4q**: Tax-Pattern comments updated in BemaChargeItemDE.fsh + GozChargeItemDE.fsh — clarify which tax extensions are now available via inheritance and which use cases (Heilbehandlung E + para4-nr14a, Verlangens S, Eigenlabor AA) fdde-8vf will model
-- **fdde-n4q**: architecture-profile-audit.md rewritten — corrects factual claims about which praxis@0.61.0 wrappers exist (PraxisCarePlanDE, EncounterPraxis, ChargeItemPraxisDe, ImagingStudyPraxisDe, ImagingDiagnosticReportPraxisDe etc. are all present); classifies non-migrated profiles into "wrapper available — deferred", "wrapper exists but wrong fit", "no wrapper exists"
-
-## [0.31.0] - 2026-05-12
+- Tag DentalBefundStatusCS as draft + add ADR-004 companion handover
 
 ### Features
 
-- **fdde-pax.2**: Migrate DentalConditionDE + DentalOrganizationDE to Praxis*DE parents (3-Layer-Chain KBV→praxis-de→dental-de)
-  - DentalConditionDE: Parent changed from `Condition` to `PraxisConditionDE`
-  - DentalOrganizationDE: Parent changed from `Organization` to `PraxisOrganizationDE`; identifier slicing reworked to be compatible with KBV_PR_Base_Organization (type=value, path=type discriminator); BSNR now inherited as `identifier:Betriebsstaettennummer`; KZV-Stempelnummer uses inherited `identifier:KZV-Abrechnungsnummer`
-  - praxis-de dependency bumped 0.48.0 → 0.61.0
-
-### Documentation
-
-- **fdde-pax.2**: Add architecture-profile-audit.md documenting 3-Layer-Chain pattern and why 10 dental profiles are NOT migrated (no matching Praxis*DE wrappers in praxis-de v0.61.0)
-- **fdde-pax.2**: Add Tax-Pattern doc comments to BemaChargeItemDE.fsh and GozChargeItemDE.fsh (§ 19 UStG / Abfärbung / ZE Mischrechnung — for future evaluation, no implementation)
-- **fdde-pax.2**: DentalConditionDE top-comment rewritten: explains 3-Layer-Chain, KZBV gap, and reusability path
-
-## [0.30.0] - 2026-05-04
-
-### Features
-
-- Bump de.cognovis.fhir.praxis dependency to 0.48.0 (adds PraxisComposition, PraxisCommunication, PraxisFlag, PraxisMedicationAdministration, PraxisAnamneseQuestionnaireResponse, PraxisImmunization with KBV-MIO-Impfpass vocabulary)
-
-## [unreleased]
-
-### Bug Fixes
-
-- **fdde-4qi**: Fix ig-release.yml missing private FHIR package pre-load; unblocks releases from v0.26.0+ (all green on CI run 25279193047, de.cognovis.fhir.dental@0.29.1 live on npm.cognovis.de)
-- **fdde-wzv**: Add copyright-allowlist markers to BemaCS display texts
-- **fdde-o84**: Correct BEMA-Z mapping numbers from official 2026 catalog
-
-### Documentation
-
-- **fdde-o84**: Add BEMA-Z mapping hints to BemaCS surgical code comments for clarity
-- **fdde-a5j**: Document pre-push copyright hook setup in CLAUDE.md
+- **fdde-n4q**: Migrate BemaChargeItemDE + GozChargeItemDE to ChargeItemPraxisDe parent (v0.32.0)
 
 ### Miscellaneous
 
-- **fdde-9ah**: Extract private FHIR package preload into composite GitHub Action; replace 38-line duplicated inline step in ig-ci.yml and ig-release.yml with 3-line uses: reference (76 lines removed, structural parity enforced)
-- **deps**: Bump de.cognovis.fhir.praxis to 0.45.1
-- **fdde-a5j**: Add changelog entry for pre-push copyright hook documentation
+- Remove ADR-004-companion-handover from public repo + gitignore it
+
+### Merge
+
+- Worktree-bead-fdde-n4q (ChargeItem -> ChargeItemPraxisDe migration, v0.32.0)
+
+## [0.31.0] - 2026-05-12
+
+### Bug Fixes
+
+- **fdde-pax.2**: Address review findings iteration 1 — remove fabricated KZVSNR code, fix audit doc, CI fallback comment
+- **fdde-pax.2**: Address codex adversarial findings — add identifier type discriminators to examples, fix changelog
+
+### Documentation
+
+- **fdde-ktj**: Add internal delegation matrix for PA-Befunde
+- Document beads onboarding and JSONL-based sync workflow
+- Clarify ZeBefundkuerzelCS + ZeTherapiekuerzelCS are cognovis-extended (not official KZBV DPF)
+
+### Features
+
+- **fdde-pax.2**: Migrate DentalConditionDE + DentalOrganizationDE to Praxis*DE parents (praxis@0.61.0)
+
+### Miscellaneous
+
+- Track .beads/ database for collaborator visibility
+- **beads**: Rework PSI/FMPS beads after ProphylaxisObservation review
+- **beads**: Add dental-finding specialization gaps from DGZMK leitlinien
+- **beads**: Add GOZ § 2 / § 10 / Verlangensleistung / USt beads
+- **beads**: Add DentalConditionDE modeling and compliance gaps
+- **beads**: Add ZE Mischrechnung beads (BEMA/GOZ/Festzuschuss/ZZV)
+- **beads**: Add tax compliance beads (Trennungsprinzip / § 19 / Abfärbung)
+- **beads**: Migrate cross-IG concerns to praxis-de + add KBV-inheritance epic
+- **beads**: Switch to Dolt-primary sync, gitignore JSONL exports
+- Commit generated files before bead merge (worktree-bead-fdde-pax.2)
+
+### Refactoring
+
+- Slim ze-befund/therapiekuerzel to cognovis-internal-only + extensible binding
+
+### Bd
+
+- Update sync.remote
+
+### Merge
+
+- Worktree-bead-fdde-pax.2
+
+## [0.30.0] - 2026-05-04
+
+### Documentation
+
+- **fdde-4qi**: Add changelog entry for ig-release.yml private package pre-load fix
+- **fdde-9ah**: Add changelog entry for composite action extraction
+
+### Miscellaneous
+
+- **fdde-9ah**: Extract private FHIR preload into composite action
+- Bump de.cognovis.fhir.praxis to 0.48.0 and release 0.30.0
+
+## [0.29.1] - 2026-05-03
+
+### Bug Fixes
+
+- **fdde-o84**: Correct BEMA-Z mapping numbers from official 2026 catalog
+- **fdde-4qi**: Add private FHIR package pre-load to ig-release.yml
+
+### Documentation
+
+- **fdde-o84**: Update changelog for BEMA-Z surgical codes refactor
+
+### Miscellaneous
+
+- **fdde-o84**: Pre-merge changelog update from second merge step
+- **fdde-o84**: Bump version to 0.29.1
 
 ### Refactoring
 
@@ -116,8 +158,30 @@ All notable changes to this project will be documented in this file.
 
 ### Merge
 
+- Worktree-bead-fdde-o84
+
+## [0.29.0] - 2026-05-02
+
+### Bug Fixes
+
+- **fdde-wzv**: Add copyright-allowlist markers to BemaCS display texts
+
+### Documentation
+
+- **fdde-a5j**: Document pre-push copyright hook setup in CLAUDE.md
+
+### Miscellaneous
+
+- **deps**: Bump de.cognovis.fhir.praxis to 0.45.1
+- **fdde-a5j**: Add changelog entry for pre-push copyright hook documentation
+- **fdde-a5j**: Bump version to 0.29.0 and update changelog
+
+### Merge
+
 - Resolve CHANGELOG conflict from concurrent worktree sessions
 - Worktree-bead-fdde-511
+- Worktree-bead-fdde-a5j
+- Worktree-bead-fdde-a5j
 
 ## [0.28.0] - 2026-05-02
 
