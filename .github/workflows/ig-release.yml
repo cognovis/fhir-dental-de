@@ -63,8 +63,8 @@ jobs:
           # Extract actual version from downloaded package
           PRAXIS_VERSION=$(tar xzf /tmp/praxis.tgz -O package/package.json | jq -r '.version')
           echo "Praxis version: $PRAXIS_VERSION"
-          # Update sushi-config.yaml to match (keeps SUSHI cache lookup in sync — pinned to 0.64.0)
-          sed -i "s|de\.cognovis\.fhir\.praxis:.*|de.cognovis.fhir.praxis: $PRAXIS_VERSION    # Praxis-DE Foundation — pinned to 0.64.0|" sushi-config.yaml
+          # Update sushi-config.yaml to match (keeps SUSHI cache lookup in sync)
+          sed -i "s|de\.cognovis\.fhir\.praxis:.*|de.cognovis.fhir.praxis: $PRAXIS_VERSION    # Praxis-DE Foundation — pinned to $PRAXIS_VERSION|" sushi-config.yaml
           # Install under versioned name and current (for backwards compat)
           for LABEL in "$PRAXIS_VERSION" "current"; do
             mkdir -p "$HOME/.fhir/packages/de.cognovis.fhir.praxis#${LABEL}"
