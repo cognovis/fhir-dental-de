@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [Unreleased]
+
+### Build / CI
+
+- **fdde-o4n**: Pin `de.cognovis.fhir.praxis` from 0.62.1 → 0.64.0
+  - v0.64.0 adds ProposalProvenanceDE profile (fpde-ctx) and AW billing claim constraint fixes
+  - CI workflows now fetch from pinned `releases/tags/v0.64.0` instead of `releases/latest`
+  - `scripts/prefetch-praxis.sh` defaults to `v0.64.0` for local development
+  - SUSHI build clean: 181 resources, 0 errors, 0 warnings
+
 ## [0.35.0] - 2026-05-17
 
 ### Build / CI
