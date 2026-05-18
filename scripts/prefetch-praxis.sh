@@ -13,7 +13,7 @@
 #
 # Usage:
 #   ./scripts/prefetch-praxis.sh                # fetch latest release
-#   ./scripts/prefetch-praxis.sh v0.40.3        # fetch a specific tag
+#   ./scripts/prefetch-praxis.sh v0.64.0        # fetch pinned version (current pin)
 #
 # Exit 0: cache populated. Exit 1: download failed.
 
