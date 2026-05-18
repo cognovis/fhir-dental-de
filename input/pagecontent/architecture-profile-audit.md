@@ -29,9 +29,9 @@ KBV base, **FHIR R4 → praxis-de → dental-de**).
 
 ## Non-Migrated Profiles — Status & Rationale
 
-The classifications below are correct against `de.cognovis.fhir.praxis@0.61.0`.
+The classifications below are correct against `de.cognovis.fhir.praxis@0.64.0`.
 
-### Wrapper exists in praxis@0.61.0 — migration candidate (separate bead)
+### Wrapper exists in praxis@0.64.0 — migration candidate (separate bead)
 
 | Dental Profile | Available Praxis Wrapper | Why deferred / what to evaluate |
 |---|---|---|
@@ -54,7 +54,7 @@ The classifications below are correct against `de.cognovis.fhir.praxis@0.61.0`.
 
 | Dental Profile | Base Resource | Status |
 |---|---|---|
-| `DentalClinicalImpressionDE` | `ClinicalImpression` | No `PraxisClinicalImpressionDE` in praxis@0.61.0. |
+| `DentalClinicalImpressionDE` | `ClinicalImpression` | No `PraxisClinicalImpressionDE` in praxis@0.64.0. |
 | `DentalAtfBundleDE` | `Bundle` | No `PraxisBundleDE` (and not appropriate — ATF MessageBundle structure is specified by `de.gematik.fhir.atf`). |
 | `OralHealthScreeningDE` | `Observation` | No generic `PraxisObservationDE` wrapper (only `PraxisLabObservation`, which is lab-specific). |
 | `PeriodontalObservationDE` | `Observation` | Same as above. |
@@ -87,4 +87,4 @@ See `ust-modellierung.md` for the full design.
 - Bead `fdde-pax.2` — DentalConditionDE + DentalOrganizationDE migration (v0.31.0)
 - Bead `fdde-n4q` — BemaChargeItemDE + GozChargeItemDE migration (v0.32.0)
 - Bead `fdde-8vf` — USt-Modellierung in dental ChargeItems (depends on `fdde-n4q`)
-- `sushi-config.yaml` — dependency `de.cognovis.fhir.praxis: 0.61.0`
+- `sushi-config.yaml` — dependency `de.cognovis.fhir.praxis: 0.64.0`

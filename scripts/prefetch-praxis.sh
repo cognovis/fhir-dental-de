@@ -12,15 +12,16 @@
 # run. This script mirrors that logic for local development.
 #
 # Usage:
-#   ./scripts/prefetch-praxis.sh                # fetch latest release
-#   ./scripts/prefetch-praxis.sh v0.40.3        # fetch a specific tag
+#   ./scripts/prefetch-praxis.sh                # fetch pinned version (v0.64.0)
+#   ./scripts/prefetch-praxis.sh v0.64.0        # fetch pinned version explicitly
+#   ./scripts/prefetch-praxis.sh latest         # fetch latest release
 #
 # Exit 0: cache populated. Exit 1: download failed.
 
 set -euo pipefail
 
 REPO="cognovis/fhir-praxis-de"
-TAG="${1:-latest}"
+TAG="${1:-v0.64.0}"
 CACHE_DIR="$HOME/.fhir/packages"
 
 if [ "$TAG" = "latest" ]; then
