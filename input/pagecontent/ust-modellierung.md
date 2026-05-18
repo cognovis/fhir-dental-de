@@ -1,7 +1,7 @@
 # USt-Modellierung in dental ChargeItems
 
 Dieser Abschnitt beschreibt, wie BEMA- und GOZ-Leistungen umsatzsteuerlich modelliert werden.
-Die strukturelle Basis liefert praxis@0.61.0 via `ChargeItemPraxisDe` mit den geerbten Extensions
+Die strukturelle Basis liefert praxis@0.64.0 via `ChargeItemPraxisDe` mit den geerbten Extensions
 `TaxCategoryExt` und `TaxExemptionReasonExt`. Dental-spezifisch sind die Pattern-Defaults,
 Invarianten und das Sub-Profil für Eigenlabor-Werkstücke.
 

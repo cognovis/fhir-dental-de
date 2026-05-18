@@ -88,8 +88,8 @@ jobs:
 
       - name: Install fhir-praxis-de dependency
         run: |
-          # Always use latest praxis release from GitHub
-          RELEASE_JSON=$(curl -s https://api.github.com/repos/cognovis/fhir-praxis-de/releases/latest)
+          # Pinned to v0.64.0 — update sushi-config.yaml and this step together when bumping
+          RELEASE_JSON=$(curl -s https://api.github.com/repos/cognovis/fhir-praxis-de/releases/tags/v0.64.0)
           ASSET_URL=$(echo "$RELEASE_JSON" | jq -r '[.assets[] | select(.name | startswith("de.cognovis.fhir.praxis"))] | last | .browser_download_url')
           if [ -z "$ASSET_URL" ] || [ "$ASSET_URL" = "null" ]; then
             echo "::error::Could not find fhir-praxis-de release asset"
@@ -101,7 +101,7 @@ jobs:
           PRAXIS_VERSION=$(tar xzf /tmp/praxis.tgz -O package/package.json | jq -r '.version')
           echo "Praxis version: $PRAXIS_VERSION"
           # Update sushi-config.yaml to match (keeps SUSHI cache lookup in sync)
-          sed -i "s|de\.cognovis\.fhir\.praxis:.*|de.cognovis.fhir.praxis: $PRAXIS_VERSION    # Praxis-DE Foundation — auto-updated to latest|" sushi-config.yaml
+          sed -i "s|de\.cognovis\.fhir\.praxis:.*|de.cognovis.fhir.praxis: $PRAXIS_VERSION    # Praxis-DE Foundation — pinned to $PRAXIS_VERSION|" sushi-config.yaml
           # Install under versioned name and current (for backwards compat)
           for LABEL in "$PRAXIS_VERSION" "current"; do
             mkdir -p "$HOME/.fhir/packages/de.cognovis.fhir.praxis#${LABEL}"
