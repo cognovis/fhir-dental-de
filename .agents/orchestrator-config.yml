@@ -1,0 +1,32 @@
+# fhir-dental-de orchestrator configuration
+# Schema: cognovis-core/standards/orchestrator/orchestrator-config.md
+# Owner: clc-8gy
+# Note: fhir-dental-de depends on fhir-praxis-de (de.cognovis.fhir.praxis must be installed first)
+
+project:
+  namespace_pattern: "{prefix}-{bead_number}"
+
+dev_server:
+  mode: shared_external
+  startup:
+    owner: external   # Aidbox is externally managed -- do NOT start/stop
+    command: null
+    health_url: "http://localhost:8080/fhir/metadata"
+    startup_timeout_s: 5
+  serialization:
+    lock_resource: "aidbox:package-install"   # serialize IG package installs (praxis + dental)
+
+scenarios:
+  required_for_feature_beads: false   # FHIR IG projects don't use scenario gate
+  config_path: ".agents/scenario-config.yml"
+
+standards:
+  index: ".agents/standards/index.yml"
+
+phases:
+  phase_12_e2e:
+    enabled: false
+  phase_13_uat:
+    enabled: false
+  phase_14_constraints:
+    enabled: true
