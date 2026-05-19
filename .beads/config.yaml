@@ -60,3 +60,8 @@ sync.remote: "https://dolt.cognovis.de/fhir_dental_de"
 export.auto: false
 
 export.git-add: false
+
+# Disable JSONL auto-import; Dolt is the source of truth.
+no-auto-import: true
+
+import.auto: false
