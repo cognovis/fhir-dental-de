@@ -58,6 +58,8 @@ This policy exists because vendor leaks have happened before and required remedi
 
 ### Standard PR workflow
 
+**Self-merge is allowed and intended.** No human reviewer is required by branch protection (`required_pull_request_reviews: null`). The PR flow exists to gate on **CI checks**, not on human approval. The same person (or agent) creates the PR, waits for green CI, and runs `gh pr merge` — all in the same session. Total latency: ~30–90 seconds for CI, no human bottleneck.
+
 ```bash
 git pull --rebase origin main
 git checkout -b <feature-branch>
