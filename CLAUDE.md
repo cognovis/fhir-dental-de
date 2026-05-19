@@ -26,6 +26,51 @@ sushi .                    # Compile FSH → FHIR JSON
 # IG Publisher runs in CI (GitHub Actions), not locally
 ```
 
+## Branch Protection & Merge Workflow
+
+`main` is protected. **Direct push is blocked.** All changes flow through pull requests.
+
+### Branch-protection settings (`cognovis/fhir-dental-de`, `main`)
+
+- `required_status_checks: ["check"]` — the `vendor-leak-check` workflow (`.github/workflows/vendor-leak-check.yml`) must pass before merge
+- `enforce_admins: true` — repo admins (including the owner) cannot bypass the protection
+- `allow_force_pushes: false` — no force-push to main outside temporary, audited rewrite windows
+- `allow_deletions: false` — main cannot be deleted
+
+### Vendor leak policy — **HARD FAIL, no bypass**
+
+The `vendor-leak-check / check` workflow runs `scripts/vendor-leak-guard.sh`. The script scans `input/fsh/`, `input/pagecontent/`, `test/Profile/` (and other configured paths) for third-party PVS vendor names and cognovis-internal project codenames.
+
+**A vendor-leak finding on any PR fails the check, which blocks the merge.** There is no override path:
+
+- `SKIP_SUSHI_CHECK=1`, `SKIP_COPYRIGHT_CHECK=1`, `SKIP_VENDOR_LEAK_CHECK=1`, and `git push --no-verify` only suppress the LOCAL pre-push hook — they do not reach the server-side workflow.
+- Admin bypass is disabled (`enforce_admins: true`).
+- The branch protection rule cannot be temporarily relaxed without going through the documented rewrite-window procedure, which is reserved for coordinated history rewrites (see `fhir-term-ikl` in fhir-terminology-de), not for routine merges.
+
+If the check fails on your PR:
+
+1. Read the failure output and identify the leaked term and file.
+2. **Fix** the leak in your branch — rename, redact, or move the reference out of the scanned scope per the guard's `SCAN_DIRS` list.
+3. Push a new commit to the feature branch; CI re-runs automatically.
+4. If the failure represents a **legitimate** reference that the guard should not catch (e.g. a new exempt path or a term that genuinely belongs on a public IG surface), open a **separate** PR that updates `scripts/vendor-leak-guard.sh` with rationale. Get that PR merged first, then rebase your original PR.
+
+This policy exists because vendor leaks have happened before and required remediation commits on main (see the April 2026 `fdde-yb6` "vendor-clear" cleanup that renamed `de-platform-*` profile IDs and removed Pvs/Pvs references). The cost of one fix-forward commit is small; the cost of vendor refs sitting in published IG surfaces and indexed history is high.
+
+### Standard PR workflow
+
+```bash
+git pull --rebase origin main
+git checkout -b <feature-branch>
+# ... make changes ...
+git commit -m "..."
+git push -u origin <feature-branch>
+gh pr create --base main --head <feature-branch> --title "..." --body "..."
+gh pr checks --watch                              # wait for vendor-leak-check + other required checks
+gh pr merge <pr-number> --merge --delete-branch   # merges once all required checks are green
+```
+
+`bd dolt push` still goes direct to the Dolt remote — beads are not subject to git branch protection.
+
 ## Local Testing with Aidbox
 
 Uses the local Aidbox instance on localhost:8080.
