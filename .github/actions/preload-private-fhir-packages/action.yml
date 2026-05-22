@@ -6,6 +6,7 @@ description: >
 
   Currently pre-loads:
     - de.cognovis.terminology.imaging@1.0.0      (transitive dep from de.cognovis.fhir.praxis)
+    - de.cognovis.terminology.kbv@1.0.0          (transitive dep from de.cognovis.fhir.praxis)
     - kbv.mio.impfpass.vocab@1.1.0-cognovis.1    (transitive dep from de.cognovis.fhir.praxis;
                                                   cognovis fork — public registry returns 404)
 
@@ -52,4 +53,5 @@ runs:
         }
 
         fetch_to_fhir_cache "de.cognovis.terminology.imaging" "1.0.0"
+        fetch_to_fhir_cache "de.cognovis.terminology.kbv" "1.0.0"
         fetch_to_fhir_cache "kbv.mio.impfpass.vocab" "1.1.0-cognovis.1"
