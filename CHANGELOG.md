@@ -4,6 +4,8 @@ All notable changes to this project will be documented in this file.
 
 ## [unreleased]
 
+## [0.36.0] - 2026-05-22
+
 ### Bug Fixes
 
 - **clc-8gy**: Explicit empty worktree_bootstrap to prevent legacy .env fallback
@@ -19,6 +21,7 @@ All notable changes to this project will be documented in this file.
 
 - **fdde-o4n**: Pin de.cognovis.fhir.praxis to 0.64.0
 - **fdde-o4n**: Add changelog entry for praxis 0.64.0 pin
+- **fdde-je1**: Pin de.cognovis.fhir.praxis to 0.66.1 and align private preload versions for release
 
 ## [0.35.0] - 2026-05-17
 
@@ -297,5 +300,3 @@ All notable changes to this project will be documented in this file.
 ### Miscellaneous
 
 - Public root release 0.25.0
-
-

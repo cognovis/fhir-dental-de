@@ -5,7 +5,7 @@ description: >
   them without hitting the public FHIR package registries (which return 404 for private packages).
 
   Currently pre-loads:
-    - de.cognovis.terminology.imaging@2026.0.0   (transitive dep from de.cognovis.fhir.praxis)
+    - de.cognovis.terminology.imaging@1.0.0      (transitive dep from de.cognovis.fhir.praxis)
     - kbv.mio.impfpass.vocab@1.1.0-cognovis.1    (transitive dep from de.cognovis.fhir.praxis;
                                                   cognovis fork — public registry returns 404)
 
@@ -51,5 +51,5 @@ runs:
           echo "  Installed $(ls "$cache_dir/package/" | wc -l) files into $cache_dir"
         }
 
-        fetch_to_fhir_cache "de.cognovis.terminology.imaging" "2026.0.0"
+        fetch_to_fhir_cache "de.cognovis.terminology.imaging" "1.0.0"
         fetch_to_fhir_cache "kbv.mio.impfpass.vocab" "1.1.0-cognovis.1"
