@@ -88,8 +88,8 @@ jobs:
 
       - name: Install fhir-praxis-de dependency
         run: |
-          # Pinned to v0.64.0 — update sushi-config.yaml and this step together when bumping
-          RELEASE_JSON=$(curl -s https://api.github.com/repos/cognovis/fhir-praxis-de/releases/tags/v0.64.0)
+          # Pinned to v0.66.0 — update sushi-config.yaml and this step together when bumping
+          RELEASE_JSON=$(curl -s https://api.github.com/repos/cognovis/fhir-praxis-de/releases/tags/v0.66.0)
           ASSET_URL=$(echo "$RELEASE_JSON" | jq -r '[.assets[] | select(.name | startswith("de.cognovis.fhir.praxis"))] | last | .browser_download_url')
           if [ -z "$ASSET_URL" ] || [ "$ASSET_URL" = "null" ]; then
             echo "::error::Could not find fhir-praxis-de release asset"
