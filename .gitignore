@@ -24,9 +24,10 @@ txCache/
 # Claude session logs
 logs/
 
-# Claude Code project config (keep commands/ tracked)
+# Claude Code project config (keep commands/ + skills/ tracked)
 .claude/*
 !.claude/commands/
+!.claude/skills/
 
 # IG Publisher artifacts in root
 Requirements-fromNarrative.json
