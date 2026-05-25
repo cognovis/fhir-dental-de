@@ -172,7 +172,7 @@ Statutory dental services rendered under BEMA (Bewertungsmaßstab Zahnärzte). E
 
 | SWS Field | SWS Name (DE) | FHIR Resource | FHIR Path | Notes |
 |-----------|---------------|---------------|-----------|-------|
-| BEMA-Nummer | Service code (e.g. 01a, 13c) | `ChargeItem` | `ChargeItem.code.coding` | System: `https://fhir.cognovis.de/dental/CodeSystem/bema` |
+| BEMA-Nummer | Service code (e.g. 01a, 13c) | `ChargeItem` | `ChargeItem.code.coding` | System: `http://fhir.de/CodeSystem/kzbv/bema` |
 | Punktzahl | BEMA point value | `ChargeItem` | `ChargeItem.quantity` | |
 | Betrag (EUR) | Calculated euro amount | `ChargeItem` | `ChargeItem.priceOverride` | Points × KZV point rate |
 | Leistungsdatum | Service date | `ChargeItem` | `ChargeItem.occurrenceDateTime` | |

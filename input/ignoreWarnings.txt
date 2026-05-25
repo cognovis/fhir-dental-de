@@ -3,14 +3,13 @@
 # ---------------------------------------------------------------------------
 # Fragment CodeSystem "unknown code" warnings
 #
-# BemaCS, BelIICS, and GozCS are defined with content = #fragment (they contain
-# only a representative subset of codes). The IG Publisher validator warns when
-# a code is used that is not in the fragment, but notes it "may be valid in some
-# other fragment". These warnings are expected for fragment CodeSystems and do
-# not indicate real errors.
+# GozCS is defined with content = #fragment (it contains only a representative
+# subset of codes). The IG Publisher validator warns when a code is used that is
+# not in the fragment, but notes it "may be valid in some other fragment". These
+# warnings are expected for fragment CodeSystems and do not indicate real errors.
 # ---------------------------------------------------------------------------
 
-# Fragment CS warnings — codes not in our fragment but valid in the full BEMA/BEL/GOZ
+# Fragment CS warnings — codes not in our fragment but valid in the full GOZ
 %note that the code system is labeled as a fragment, so the code may be valid in some other fragment%
 
 # ---------------------------------------------------------------------------

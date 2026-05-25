@@ -1,12 +1,11 @@
 ### Code Systems
 
-This implementation guide defines the following code systems for German dental terminology:
+This implementation guide defines the following code systems for German dental terminology.
+External catalog systems such as BEMA and BEL-II are referenced by canonical URL and supplied by dedicated terminology packages.
 
 #### Billing Code Systems
-- [BEMA](CodeSystem-bema.html) — Bewertungsmaßstab zahnärztlicher Leistungen (GKV)
 - [GOZ](CodeSystem-goz.html) — Gebührenordnung für Zahnärzte (PKV)
 - [GOÄ Zahnarzt](CodeSystem-goae-zahn.html) — Relevante GOÄ-Positionen für Zahnärzte
-- [BEL-II](CodeSystem-bel-ii.html) — Zahntechnischer Leistungskatalog
 - [beb'97](CodeSystem-beb97.html) — Private zahntechnische Leistungen
 
 #### Clinical Code Systems

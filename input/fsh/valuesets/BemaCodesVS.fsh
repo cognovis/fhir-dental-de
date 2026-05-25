@@ -7,4 +7,4 @@ Description: "Alle Leistungscodes aus dem Bewertungsmaßstab Zahnärzte (BEMA) f
 * ^experimental = false
 * ^publisher = "cognovis GmbH"
 
-* include codes from system BemaCS
+* include codes from system http://fhir.de/CodeSystem/kzbv/bema

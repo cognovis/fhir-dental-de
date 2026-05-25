@@ -7,7 +7,7 @@ description: >-
   conditions (ICD-10-GM), findings (Zahnschema/FDI), and communication.
   Built on German base profiles (de.basisprofil.r4, KBV).
 status: active
-version: 0.36.0
+version: 0.36.1
 fhirVersion: 4.0.1
 copyrightYear: 2026+
 copyright: Copyright 2026+ cognovis GmbH. Licensed under CC-BY-4.0.
@@ -59,6 +59,7 @@ parameters:
     # External CodeSystems from German base profiles (not in standard registries)
     - http://fhir.de/CodeSystem/kzbv/bema
     - http://fhir.de/CodeSystem/bzaek/goz
+    - https://fhir.cognovis.de/dental/CodeSystem/bel-ii
     - http://terminology.hl7.org/CodeSystem/ex-tooth
     - http://fhir.de/CodeSystem/bfarm/icd-10-gm
     - http://fhir.de/CodeSystem/bfarm/ops
@@ -80,7 +81,6 @@ parameters:
     - https://fhir.cognovis.de/dental/CodeSystem/goae-zahn
     - https://fhir.cognovis.de/dental/CodeSystem/dental-category
     - https://fhir.cognovis.de/dental/CodeSystem/scheintyp
-    - https://fhir.cognovis.de/dental/CodeSystem/bel-ii
     - https://fhir.cognovis.de/dental/CodeSystem/ze-bonus-prozent
     - https://fhir.cognovis.de/dental/CodeSystem/kzv-regionen
     - https://fhir.cognovis.de/dental/CodeSystem/par-stadium
