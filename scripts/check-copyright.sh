@@ -51,8 +51,6 @@ ALLOWLIST_FILES=(
 # explicit file list with '--' scans those files directly, which keeps tests and
 # targeted checks useful.
 DEFAULT_STRICT_FILES=(
-  "input/fsh/codesystems/BemaCS.fsh"
-  "input/fsh/codesystems/BelIICS.fsh"
   "input/fsh/codesystems/Beb97CS.fsh"
 )
 
@@ -83,16 +81,18 @@ fi
 
 # --- Load blocklist patterns ---
 if [ ! -f "$BLOCKLIST" ]; then
-  echo "⚠️  check-copyright: blocklist not found at $BLOCKLIST — skipping check"
+  echo "check-copyright: blocklist not found at $BLOCKLIST — skipping check"
   exit 0
 fi
 
 # Extract pattern portion (before the first '|') into a temp patterns file.
-# Also build an associative array of pattern -> source-ref for reporting.
+# Also keep pattern -> source-ref pairs for reporting. Use parallel arrays so
+# the hook works with the Bash 3.x version shipped by macOS.
 PATTERNS_FILE="$(mktemp)"
 trap 'rm -f "$PATTERNS_FILE"' EXIT
 
-declare -A PATTERN_SOURCES
+PATTERNS=()
+PATTERN_SOURCE_REFS=()
 
 while IFS= read -r line; do
   [[ "$line" =~ ^[[:space:]]*# ]] && continue
@@ -101,12 +101,13 @@ while IFS= read -r line; do
   source_ref="${line#*|}"
   if [ -n "$pattern" ]; then
     printf '%s\n' "$pattern" >> "$PATTERNS_FILE"
-    PATTERN_SOURCES["$pattern"]="$source_ref"
+    PATTERNS+=("$pattern")
+    PATTERN_SOURCE_REFS+=("$source_ref")
   fi
 done < "$BLOCKLIST"
 
 if [ ! -s "$PATTERNS_FILE" ]; then
-  echo "⚠️  check-copyright: blocklist is empty — nothing to check"
+  echo "check-copyright: blocklist is empty — nothing to check"
   exit 0
 fi
 
@@ -142,7 +143,10 @@ else
 
   if [ -n "$RANGE" ]; then
     # Collect changed files from the commit range
-    mapfile -t CHANGED_FILES < <(git diff --name-only "$RANGE" 2>/dev/null || true)
+    CHANGED_FILES=()
+    while IFS= read -r f; do
+      CHANGED_FILES+=("$f")
+    done < <(git diff --name-only "$RANGE" 2>/dev/null || true)
     for f in "${CHANGED_FILES[@]}"; do
       [ -f "$REPO_ROOT/$f" ] && FILES_TO_SCAN+=("$f")
     done
@@ -150,7 +154,9 @@ else
 
   if [ "${#FILES_TO_SCAN[@]}" -eq 0 ]; then
     # No range or empty range — full-repo scan (CI mode)
-    mapfile -t FILES_TO_SCAN < <(
+    while IFS= read -r f; do
+      FILES_TO_SCAN+=("$f")
+    done < <(
       git ls-files --cached --others --exclude-standard 2>/dev/null \
         | grep -v '\.git/' \
         || true
@@ -206,7 +212,7 @@ if [ "${#FILTERED_FILES[@]}" -eq 0 ]; then
 fi
 
 echo ""
-echo "🔍 check-copyright: scanning ${#FILTERED_FILES[@]} file(s) for copyrighted catalog texts..."
+echo "check-copyright: scanning ${#FILTERED_FILES[@]} file(s) for copyrighted catalog texts..."
 echo ""
 
 # --- Single-pass scan using all patterns at once ---
@@ -216,7 +222,9 @@ echo ""
 RAW_MATCHES=()
 
 if [ "$SCANNER" = "rg" ]; then
-  mapfile -t RAW_MATCHES < <(
+  while IFS= read -r match; do
+    RAW_MATCHES+=("$match")
+  done < <(
     rg --fixed-strings --file "$PATTERNS_FILE" \
        --with-filename --line-number \
        "${FILTERED_FILES[@]}" 2>/dev/null \
@@ -224,7 +232,9 @@ if [ "$SCANNER" = "rg" ]; then
     || true
   )
 else
-  mapfile -t RAW_MATCHES < <(
+  while IFS= read -r match; do
+    RAW_MATCHES+=("$match")
+  done < <(
     grep --fixed-strings --file "$PATTERNS_FILE" \
          --with-filename --line-number \
          "${FILTERED_FILES[@]}" 2>/dev/null \
@@ -251,9 +261,10 @@ for match in "${RAW_MATCHES[@]}"; do
 
   # Find which pattern(s) matched this line
   source_annotation=""
-  for pattern in "${!PATTERN_SOURCES[@]}"; do
+  for index in "${!PATTERNS[@]}"; do
+    pattern="${PATTERNS[$index]}"
     if [[ "$match_content" == *"$pattern"* ]]; then
-      ref="${PATTERN_SOURCES[$pattern]}"
+      ref="${PATTERN_SOURCE_REFS[$index]}"
       source_annotation="${source_annotation:+$source_annotation, }$ref"
     fi
   done
@@ -263,11 +274,11 @@ done
 
 # --- Report ---
 if [ "${#VIOLATIONS[@]}" -eq 0 ]; then
-  echo "✅ check-copyright: no copyrighted catalog texts found"
+  echo "check-copyright: no copyrighted catalog texts found"
   exit 0
 fi
 
-echo "❌ check-copyright: found ${#VIOLATIONS[@]} copyrighted catalog text(s):"
+echo "check-copyright: found ${#VIOLATIONS[@]} copyrighted catalog text(s):"
 echo ""
 for v in "${VIOLATIONS[@]}"; do
   echo "   $v"
@@ -275,7 +286,7 @@ done
 echo ""
 
 if [ "$WARN_ONLY" -eq 1 ]; then
-  echo "⚠️  check-copyright: running in warn-only mode (--warn-only) — push allowed."
+  echo "check-copyright: running in warn-only mode (--warn-only) — push allowed."
   echo "   To suppress a finding, use:"
   echo "     - inline marker: # copyright-allowlist: <reason>"
   echo "     - or remove the flagged string"

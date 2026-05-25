@@ -92,12 +92,12 @@ EOF
 # 6. Copy all StructureDefinition, CodeSystem, ValueSet JSONs (flat, like KBV packages)
 #    Prefer IG Publisher output (has snapshots) over raw SUSHI output (differentials only).
 #    Downstream consumers (e.g. downstream FHIR consumers) need snapshots for import.
-if [ -d "$ROOT/output" ] && ls "$ROOT/output/"StructureDefinition-*.json &>/dev/null; then
+if [ "$SKIP_SUSHI" = true ] && [ -d "$ROOT/output" ] && ls "$ROOT/output/"StructureDefinition-*.json &>/dev/null; then
   RESOURCE_DIR="$ROOT/output"
   echo "Using IG Publisher output (with snapshots)"
 else
   RESOURCE_DIR="$ROOT/fsh-generated/resources"
-  echo "Warning: Using SUSHI output (no snapshots) — run IG Publisher first for full packages"
+  echo "Warning: Using SUSHI output (no snapshots) — run IG Publisher first for full release packages"
 fi
 
 for f in "$RESOURCE_DIR/"*.json; do

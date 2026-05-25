@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 
 ## [unreleased]
 
+### Bug Fixes
+
+- **fdde-dc9**: Remove IG-local BEMA and BEL-II CodeSystems; these catalogs are supplied by dedicated KZBV terminology packages.
+
 ## [0.36.0] - 2026-05-22
 
 ### Bug Fixes

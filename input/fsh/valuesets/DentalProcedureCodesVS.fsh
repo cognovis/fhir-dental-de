@@ -7,7 +7,7 @@ Description: "Vereinigtes ValueSet für zahnärztliche Leistungen: BEMA (GKV), G
 * ^experimental = false
 * ^publisher = "cognovis GmbH"
 
-* include codes from system BemaCS
+* include codes from system http://fhir.de/CodeSystem/kzbv/bema
 * include codes from system GozCS
 * include codes from system $ops
   where concept descendent-of #5-23   // Operationen an den Zähnen
