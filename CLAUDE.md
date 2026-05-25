@@ -4,8 +4,14 @@
 
 Always load these skills at the beginning of every session:
 
-- `/samurai-skills:aidbox-ig-development` — FHIR IG development lifecycle (install, test, validate, publish)
-- `/samurai-skills:aidbox` — Aidbox FHIR platform (REST API, search, validation, terminology)
+- `/aidbox-ig-development` - FHIR IG development lifecycle (install, test, validate, publish)
+- `/aidbox` - Aidbox FHIR platform (REST API, search, validation, terminology)
+- `/aidbox-sql-on-fhir` - SQL on FHIR, ViewDefinitions, $materialize
+- `/hs-search` - Search health-samurai.io docs, blog, examples
+- `/atomic-generate-types` - FHIR type generation with @atomic-ehr/codegen
+- `/fhir-validation` - FHIR Schema, $validate responses, and OperationOutcome debugging
+- `/fhir-publish-ig` - trusted preflight, release tag handoff, and publish/watch workflows
+- `/fhir-sync-versions` - downstream fhir-* version pin reconciliation
 
 ## Overview
 
