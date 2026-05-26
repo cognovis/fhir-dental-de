@@ -24,7 +24,7 @@ dependencies:
   kbv.basis: 1.8.0                  # KBV Basisprofile — Condition/Diagnosis, Patient base
   kbv.ita.for: 1.3.1                # KBV Formular-Anforderungen — KBV_PR_FOR_Patient for dental
   de.gematik.fhir.atf: 1.4.1        # ATF MessageHeader for KIM/TIM transport
-  de.cognovis.fhir.praxis: 0.68.0    # Praxis-DE Foundation — pinned to 0.68.0
+  de.cognovis.fhir.praxis: 0.69.1    # Praxis-DE Foundation — AccountPraxisSchein + EncounterPraxis (ADR-039)
   # CI Fallback (Option C): If Verdaccio uplink errors occur during CI build, pre-load the package
   # manually via the preload-private-fhir-packages composite action (see .github/actions/) which
   # fetches from npm.cognovis.de and places it in the FHIR package cache before sushi/IG-Publisher run.

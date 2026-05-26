@@ -38,3 +38,5 @@ Description: "Externe Zahnaufhellung (Bleaching) ohne medizinische Indikation, a
 // Bruttopreis inkl. 19 % USt (USt-Modellierung selbst kommt in fdde-8vf)
 * priceOverride.value = 178.50
 * priceOverride.currency = #EUR
+
+* account = Reference(acct-dental-02-pkv-q1)

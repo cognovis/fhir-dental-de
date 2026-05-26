@@ -40,8 +40,8 @@ Description: "Profil für privatzahnärztliche Leistungen nach GOZ 2012 (Gebühr
 
 // --- Encounter-Kontext (Behandlungsfall) ---
 * context MS
-* context only Reference(Encounter)
-* context ^short = "Behandlungsfall (Encounter)"
+* context only Reference(DentalEncounterDE)
+* context ^short = "Klinischer Behandlungskontakt (DentalEncounterDE)"
 
 // --- Behandler (PractitionerRole) ---
 * performer MS
@@ -70,9 +70,9 @@ Description: "Profil für privatzahnärztliche Leistungen nach GOZ 2012 (Gebühr
 * bodysite ^short = "Bezugszahn nach FDI-Zahnschema"
 
 // --- Abrechnungsreferenz (Rechnung/Account) ---
-* account MS
-* account only Reference(Account)
-* account ^short = "Zugehörige Privatrechnung (SWS: Rechnung-Ref)"
+* account 1..1 MS
+* account only Reference(AccountPraxisSchein)
+* account ^short = "Abrechnungs-Schein (AccountPraxisSchein, ADR-039)"
 
 // --- Extensions: FDI-Zahnnummer, Zahnflächen, Steigerungsfaktor, Analogleistung, Verlangensleistung, Tax-Pattern ---
 * extension contains

@@ -47,6 +47,7 @@ Description: "BEMA-Leistungsposition 13c (Kompositfüllung dreiflächig) für Za
 * bodysite = $fdiCS#36 "36"
 * bodysite.text = "Zahn 36"
 
+* account = Reference(acct-dental-01-gkv-q1)
 
 // -----------------------------------------------------------------------
 // Zusätzliches Beispiel: BEMA ChargeItem mit BEL-Punkte Extension (Zahntechnik)
@@ -85,3 +86,5 @@ Description: "BEMA-Leistungsposition für Krone (BEMA 99a Aufbaufüllung) Zahn 4
 
 * bodysite = $fdiCS#46 "46"
 * bodysite.text = "Zahn 46"
+
+* account = Reference(acct-dental-04-gkv-q1)

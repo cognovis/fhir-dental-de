@@ -29,13 +29,27 @@ KBV base, **FHIR R4 → praxis-de → dental-de**).
 
 ## Non-Migrated Profiles — Status & Rationale
 
-The classifications below are correct against `de.cognovis.fhir.praxis@0.64.0`.
+The classifications below are correct against `de.cognovis.fhir.praxis@0.69.1`.
 
-### Wrapper exists in praxis@0.64.0 — migration candidate (separate bead)
+## ADR-039 Account Model (dental, fdde-gzsq)
+
+Dental adopts the same Account-centered billing-case model as fhir-praxis-de (ADR-039 / fpde-cj3):
+
+| Concern | Dental model | Notes |
+|---|---|---|
+| Clinical contact | `DentalEncounterDE` (parents `Encounter` directly) | Billing-agnostic: `class` AMB/HH only; no Scheintyp, coverage, or Abrechnungsquartal on Encounter |
+| Billing case (Schein) | **Reuse** `AccountPraxisSchein` from `de.cognovis.fhir.praxis` | No `AccountDentalSchein` — identical shape (ScheinNummer, Scheinart gkv/pkv, servicePeriod, coverage, active/inactive) |
+| Encounter → Account | `DentalEncounterDE.account` → `AccountPraxisSchein` | Must-support |
+| ChargeItem → Account | `BemaChargeItemDE.account` / `GozChargeItemDE.account` → `AccountPraxisSchein` | 1..1 must-support |
+| Abrechnungsstatus | `DentalClaimDE.status` / `ClaimResponse` | **Not** `Account.status` (only open/closed Schein) |
+| Gebührenordnung (BEMA/GOZ/KZBV) | ChargeItem code system + Claim lines | Distinct from `Account.type` (Versicherungs-/Scheinart gkv/pkv) |
+| AW-SST export | `DentalEncounterDE` → `KBV_PR_AW_Begegnung` crosswalk | Account has no AW equivalent; decomposes on export (same as praxis `aw-sst-crosswalk.md`) |
+
+### Wrapper exists in praxis@0.69.1 — migration candidate (separate bead)
 
 | Dental Profile | Available Praxis Wrapper | Why deferred / what to evaluate |
 |---|---|---|
-| `DentalEncounterDE` | `EncounterPraxis` (← Encounter, adds `scheinNummer` identifier) | Generic praxis wrapper centers on the Schein/Quartalsabrechnung shape; dental Behandlungsfall semantics need to be checked for fit before migration. |
+| `DentalEncounterDE` | `EncounterPraxis` | **Not adopted as parent** (fdde-gzsq): dental profile mirrors the same ADR-039 contact semantics on base `Encounter` + `AccountPraxisSchein` reference; avoids inheriting praxis-only extensions (e.g. Wegegeld) until needed. |
 | `DentalCarePlanDE` | `PraxisCarePlanDE` (← CarePlan) | praxis wrapper exists but its constraint shape was not designed against dental HKP/KFO/PAR plans; needs a fit analysis before adopting as parent. |
 | `DentalImagingStudyDE` | `ImagingStudyPraxisDe` (← `ImagingStudy-uv-ips`) | Inherits IPS (International Patient Summary) constraints which add cardinality/binding requirements potentially incompatible with dental Intraoral/OPG/DVT modeling. Needs careful diff before migrating. |
 | `DentalImagingDiagnosticReportDE` | `ImagingDiagnosticReportPraxisDe` (← `imr-diagnosticreport`) | praxis wrapper slices `category` into roentgen/CT/MRT — dental radiology mostly aligns with the roentgen slice; viable migration candidate. |
@@ -87,4 +101,5 @@ See `ust-modellierung.md` for the full design.
 - Bead `fdde-pax.2` — DentalConditionDE + DentalOrganizationDE migration (v0.31.0)
 - Bead `fdde-n4q` — BemaChargeItemDE + GozChargeItemDE migration (v0.32.0)
 - Bead `fdde-8vf` — USt-Modellierung in dental ChargeItems (depends on `fdde-n4q`)
-- `sushi-config.yaml` — dependency `de.cognovis.fhir.praxis: 0.64.0`
+- `sushi-config.yaml` — dependency `de.cognovis.fhir.praxis: 0.69.1`
+- Bead `fdde-gzsq` — ADR-039 Account model: `DentalEncounterDE` contact + `AccountPraxisSchein` reuse + `DentalClaimDE` boundary profile

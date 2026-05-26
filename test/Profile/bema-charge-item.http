@@ -95,7 +95,10 @@ Content-Type: application/fhir+json
       ],
       "text": "Zahn 36"
     }
-  ]
+  ],
+  "account": {
+    "reference": "Account/ExampleDentalAccountSchein"
+  }
 }
 
 ### Validate invalid bema-charge-item

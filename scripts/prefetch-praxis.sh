@@ -12,8 +12,8 @@
 # run. This script mirrors that logic for local development.
 #
 # Usage:
-#   ./scripts/prefetch-praxis.sh                # fetch pinned version (v0.68.0)
-#   ./scripts/prefetch-praxis.sh v0.68.0        # fetch pinned version explicitly
+#   ./scripts/prefetch-praxis.sh                # fetch pinned version (v0.69.1)
+#   ./scripts/prefetch-praxis.sh v0.69.1        # fetch pinned version explicitly
 #   ./scripts/prefetch-praxis.sh latest         # fetch latest release
 #
 # Exit 0: cache populated. Exit 1: download failed.
@@ -21,7 +21,7 @@
 set -euo pipefail
 
 REPO="cognovis/fhir-praxis-de"
-TAG="${1:-v0.68.0}"
+TAG="${1:-v0.69.1}"
 CACHE_DIR="$HOME/.fhir/packages"
 
 if [ "$TAG" = "latest" ]; then

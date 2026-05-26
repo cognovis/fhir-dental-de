@@ -36,8 +36,8 @@ Description: "Profil für kassenzahnärztliche Leistungen nach BEMA (Bewertungsm
 
 // --- Encounter-Kontext (Behandlungsfall) ---
 * context MS
-* context only Reference(Encounter)
-* context ^short = "Abrechnungsfall (Encounter)"
+* context only Reference(DentalEncounterDE)
+* context ^short = "Klinischer Behandlungskontakt (DentalEncounterDE)"
 
 // --- Behandler (PractitionerRole) ---
 * performer MS
@@ -64,9 +64,9 @@ Description: "Profil für kassenzahnärztliche Leistungen nach BEMA (Bewertungsm
 * bodysite ^short = "Bezugszahn nach FDI-Zahnschema"
 
 // --- Abrechnungsreferenz (Sammelabrechnung/Account) ---
-* account MS
-* account only Reference(Account)
-* account ^short = "Sammelabrechnung (SWS: Abrechnung-Ref)"
+* account 1..1 MS
+* account only Reference(AccountPraxisSchein)
+* account ^short = "Abrechnungs-Schein (AccountPraxisSchein, ADR-039)"
 
 // --- Extensions: FDI-Zahnnummer, Zahnflächen, Befundklasse, Tax-Pattern ---
 * extension contains
