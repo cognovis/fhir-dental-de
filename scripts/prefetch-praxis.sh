@@ -32,18 +32,20 @@ fi
 
 echo "Resolving praxis release ($TAG) ..."
 RELEASE_JSON=$(curl -s "$RELEASE_URL")
-ASSET_URL=$(echo "$RELEASE_JSON" | jq -r '[.assets[] | select(.name | startswith("de.cognovis.fhir.praxis"))] | last | .browser_download_url')
+ASSET_URL=$(echo "$RELEASE_JSON" | jq -r '[.assets[]? | select(.name | startswith("de.cognovis.fhir.praxis"))] | last | .browser_download_url // empty')
 
-if [ -z "$ASSET_URL" ] || [ "$ASSET_URL" = "null" ]; then
-  echo "::error::Could not find fhir-praxis-de release asset for tag $TAG" >&2
-  echo "Response: $RELEASE_JSON" | head -20 >&2
-  exit 1
-fi
-
-echo "Downloading: $ASSET_URL"
 TMP_TGZ=$(mktemp -t praxis-XXXXXX.tgz)
 trap 'rm -f "$TMP_TGZ"' EXIT
-curl -L -s -o "$TMP_TGZ" "$ASSET_URL"
+
+if [ -n "$ASSET_URL" ]; then
+  echo "Downloading from GitHub release: $ASSET_URL"
+  curl -L -s -o "$TMP_TGZ" "$ASSET_URL"
+else
+  PRAXIS_VER="${TAG#v}"
+  NPM_URL="https://npm.cognovis.de/de.cognovis.fhir.praxis/-/de.cognovis.fhir.praxis-${PRAXIS_VER}.tgz"
+  echo "GitHub release $TAG not found; falling back to npm.cognovis.de: $NPM_URL"
+  curl -L -s -o "$TMP_TGZ" "$NPM_URL"
+fi
 
 # Extract version from package.json inside the tarball
 VERSION=$(tar xzf "$TMP_TGZ" -O package/package.json | jq -r '.version')
