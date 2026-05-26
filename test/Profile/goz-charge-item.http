@@ -13,6 +13,30 @@ Content-Type: application/fhir+json
   },
   "extension": [
     {
+      "url": "https://fhir.cognovis.de/praxis/StructureDefinition/ext-tax-category",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "code": "E",
+            "system": "urn:un:unece:uncefact:codelist:standard:5305",
+            "display": "Steuerfrei"
+          }
+        ]
+      }
+    },
+    {
+      "url": "https://fhir.cognovis.de/praxis/StructureDefinition/ext-tax-exemption-reason",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "code": "para4-nr14a",
+            "system": "https://fhir.cognovis.de/praxis/CodeSystem/ust-befreiungsgrund",
+            "display": "§ 4 Nr. 14a UStG"
+          }
+        ]
+      }
+    },
+    {
       "url": "https://fhir.cognovis.de/dental/StructureDefinition/fdi-tooth-number",
       "valueCode": "16"
     },
@@ -59,6 +83,9 @@ Content-Type: application/fhir+json
   "subject": {
     "reference": "Patient/ExamplePatient"
   },
+  "context": {
+    "reference": "Encounter/ExampleDentalEncounter"
+  },
   "occurrenceDateTime": "2026-01-15",
   "factorOverride": 2.3,
   "priceOverride": {
@@ -75,6 +102,11 @@ Content-Type: application/fhir+json
         }
       ],
       "text": "Zahn 16 — erster oberer rechter Molar"
+    }
+  ],
+  "account": [
+    {
+      "reference": "Account/ExampleDentalAccountSchein"
     }
   ]
 }
@@ -93,6 +125,30 @@ Content-Type: application/fhir+json
     ]
   },
   "extension": [
+    {
+      "url": "https://fhir.cognovis.de/praxis/StructureDefinition/ext-tax-category",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "code": "E",
+            "system": "urn:un:unece:uncefact:codelist:standard:5305",
+            "display": "Steuerfrei"
+          }
+        ]
+      }
+    },
+    {
+      "url": "https://fhir.cognovis.de/praxis/StructureDefinition/ext-tax-exemption-reason",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "code": "para4-nr14a",
+            "system": "https://fhir.cognovis.de/praxis/CodeSystem/ust-befreiungsgrund",
+            "display": "§ 4 Nr. 14a UStG"
+          }
+        ]
+      }
+    },
     {
       "url": "https://fhir.cognovis.de/dental/StructureDefinition/fdi-tooth-number",
       "valueCode": "16"
