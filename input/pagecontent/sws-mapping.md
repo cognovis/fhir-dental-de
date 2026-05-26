@@ -106,17 +106,22 @@ Demographic and insurance data. Distinguishes GKV patients (with statutory insur
 
 ### Satzart 2: Abrechnungsfall / Behandlungsfall
 
-Billing-relevant treatment episode per quarter (GKV) or per episode (GOZ). Links patient, practitioner, period, and insurance context.
+ADR-039 separates the **clinical contact** (`DentalEncounterDE`) from the **billing case** (`AccountPraxisSchein`, reused from fhir-praxis-de). AW-SST: contact crosswalks to `KBV_PR_AW_Begegnung`; Account has no AW equivalent and decomposes on export (see fhir-praxis-de `aw-sst-crosswalk.md`).
 
 | SWS Field | SWS Name (DE) | FHIR Resource | FHIR Path | Notes |
 |-----------|---------------|---------------|-----------|-------|
-| Fall-ID | Internal case number | `Encounter` | `Encounter.identifier` | |
-| Patient-Ref | Patient reference | `Encounter` | `Encounter.subject` | → Patient |
-| Behandler-Ref | Practitioner reference | `Encounter` | `Encounter.participant` | → PractitionerRole |
-| Quartal/Jahr | Billing quarter | `Encounter` | `Encounter.period` + Extension `abrechnungsquartal` | Quarter has no native FHIR equivalent → Extension |
-| Behandlungsart | GKV / GOZ / emergency | `Encounter` | `Encounter.class` | ValueSet AMB/EMER |
-| Scheintyp | Referral type | `Encounter` | `Encounter.type` + Extension `scheintyp` | |
-| Abrechnungsstatus | Billed / open | `Account` | `Account.status` | active/inactive |
+| Fall-ID | Internal contact/case number | `Encounter` | `DentalEncounterDE.identifier` | Contact ID, not ScheinNummer |
+| Patient-Ref | Patient reference | `Encounter` | `DentalEncounterDE.subject` | → Patient |
+| Behandler-Ref | Practitioner reference | `Encounter` | `DentalEncounterDE.participant` | → PractitionerRole |
+| Kontaktzeitraum | Treatment contact period | `Encounter` | `DentalEncounterDE.period` | Clinical contact only |
+| Behandlungskontakt-Art | Ambulatory / home visit | `Encounter` | `DentalEncounterDE.class` | AMB or HH (`encounter-praxis-class` VS) |
+| Schein-Ref | Billing case link | `Encounter` | `DentalEncounterDE.account` | → `AccountPraxisSchein` |
+| ScheinNummer | Schein primary key | `Account` | `AccountPraxisSchein.identifier[scheinNummer]` | ADR-002 |
+| Scheinart | GKV / PKV / … | `Account` | `AccountPraxisSchein.type` | `ScheinartCS` (praxis-de); BEMA/GOZ via ChargeItem code |
+| Quartal/Jahr | Billing quarter | `Account` | `AccountPraxisSchein.servicePeriod` | Optional Extension `abrechnungsquartal` on Account |
+| Versicherung | Coverage | `Account` | `AccountPraxisSchein.coverage` | Not on Encounter |
+| Schein offen/geschlossen | Open vs closed case | `Account` | `AccountPraxisSchein.status` | active/inactive only |
+| Abrechnungsstatus | Billed / submitted / … | `Claim` | `DentalClaimDE.status` | **Not** `Account.status` (ADR-039) |
 
 ---
 
@@ -612,7 +617,7 @@ All custom extensions for this IG use the canonical namespace `https://fhir.cogn
 | `eigenanteil-regelversorgung` | `Money` | Patient co-payment — standard provision | `Claim` |
 | `eigenanteil-gleichartig` | `Money` | Patient co-payment — equivalent provision | `Claim` |
 | `eigenanteil-andersartig` | `Money` | Patient co-payment — non-standard provision | `Claim` |
-| `abrechnungsquartal` | `string` | Billing quarter (format: YYYYQN, e.g. 2026Q1) | `Encounter`, `Account` |
+| `abrechnungsquartal` | `string` | Billing quarter (format: YYYYQN, e.g. 2026Q1) | `Account` (preferred); legacy examples may still document Encounter |
 | `kzv-kontext` | complex | KZV region, point rate, HVM budget rules | `Organization` |
 
 ### KFO Extensions (P2)

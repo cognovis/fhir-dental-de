@@ -51,3 +51,5 @@ Description: "GOZ-Leistungsposition 2150 (Aufbaufüllung) für Zahn 15 (zweiter 
 // Bodyside: FDI 15
 * bodysite = $fdiCS#15 "15"
 * bodysite.text = "Zahn 15 — zweiter oberer rechter Prämolar"
+
+* account = Reference(acct-dental-02-pkv-q1)

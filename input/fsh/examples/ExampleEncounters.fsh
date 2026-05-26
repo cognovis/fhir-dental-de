@@ -1,20 +1,16 @@
-// Beispiel-Behandlungsfälle (Demo-Daten)
-// Ergänzen den ExampleDentalEncounter.fsh um weitere Fälle
+// Beispiel-Behandlungskontakte (Demo-Daten, ADR-039)
+// Klinischer Kontakt = DentalEncounterDE; Abrechnungs-Schein = AccountPraxisSchein via Encounter.account
 
 Alias: $v3-act-code = http://terminology.hl7.org/CodeSystem/v3-ActCode
-Alias: $scheintyp   = https://fhir.cognovis.de/dental/CodeSystem/scheintyp
 
 // ============================================================
 // Encounter 1: GKV Kassenschein 2026-01-10, Klaus Bergmann
-// (GKV Kassenschein Beispiel)
 // ============================================================
 Instance: enc-dental-01-kassenschein
 InstanceOf: DentalEncounterDE
 Usage: #example
-Title: "Beispiel Abrechnungsfall GKV Kassenschein (enc-dental-01)"
-Description: "GKV Kassenschein Q1/2026 für Klaus Bergmann bei Dr. Schöll (Gibitzenhof). Behandlung am 2026-01-10."
-
-* extension[abrechnungsquartal].valueString = "2026Q1"
+Title: "Beispiel Behandlungskontakt GKV 2026-01-10 (enc-dental-01)"
+Description: "Klinischer Behandlungskontakt am 2026-01-10 für Klaus Bergmann. Abrechnungs-Schein via account → acct-dental-01-gkv-q1 (GKV Q1/2026)."
 
 * identifier[0].system = "https://example-dental-practice.de/fall-id"
 * identifier[0].value = "DENTAL-2026-0001"
@@ -23,8 +19,6 @@ Description: "GKV Kassenschein Q1/2026 für Klaus Bergmann bei Dr. Schöll (Gibi
 
 * class = $v3-act-code#AMB "ambulatory"
 
-* type[0] = $scheintyp#kassenschein "Kassenschein"
-
 * subject = Reference(Patient/pat-gkv-01)
 
 * participant[0].individual = Reference(PractitionerRole/role-schoell-gibitzenhof)
@@ -32,16 +26,16 @@ Description: "GKV Kassenschein Q1/2026 für Klaus Bergmann bei Dr. Schöll (Gibi
 * period.start = "2026-01-10"
 * period.end = "2026-01-10"
 
+* account[0] = Reference(acct-dental-01-gkv-q1)
+
 // ============================================================
 // Encounter 2: Privatschein 2026-01-22, Charlotte von Hohenstein
 // ============================================================
 Instance: enc-dental-02-privatschein
 InstanceOf: DentalEncounterDE
 Usage: #example
-Title: "Beispiel Abrechnungsfall Privatschein (enc-dental-02)"
-Description: "Privatschein Q1/2026 für Charlotte von Hohenstein bei Lena Uselmann (Plärrer). Behandlung am 2026-01-22."
-
-* extension[abrechnungsquartal].valueString = "2026Q1"
+Title: "Beispiel Behandlungskontakt PKV 2026-01-22 (enc-dental-02)"
+Description: "Klinischer Behandlungskontakt am 2026-01-22 für Charlotte von Hohenstein. Abrechnungs-Schein via account → acct-dental-02-pkv-q1 (PKV Q1/2026)."
 
 * identifier[0].system = "https://example-dental-practice.de/fall-id"
 * identifier[0].value = "DENTAL-2026-0002"
@@ -50,8 +44,6 @@ Description: "Privatschein Q1/2026 für Charlotte von Hohenstein bei Lena Uselma
 
 * class = $v3-act-code#AMB "ambulatory"
 
-* type[0] = $scheintyp#privatschein "Privatschein"
-
 * subject = Reference(Patient/pat-pkv-01)
 
 * participant[0].individual = Reference(PractitionerRole/role-uselmann-plaerrer)
@@ -59,16 +51,16 @@ Description: "Privatschein Q1/2026 für Charlotte von Hohenstein bei Lena Uselma
 * period.start = "2026-01-22"
 * period.end = "2026-01-22"
 
+* account[0] = Reference(acct-dental-02-pkv-q1)
+
 // ============================================================
 // Encounter 3: ZE Kassenschein, Aylin Özdemir
 // ============================================================
 Instance: enc-dental-04-ze-kassenschein
 InstanceOf: DentalEncounterDE
 Usage: #example
-Title: "Beispiel ZE Kassenschein Aylin Özdemir (enc-dental-04)"
-Description: "ZE Kassenschein Q1/2026 für Aylin Özdemir bei Dr. Schöll (Gibitzenhof). Behandlung ab 2026-01-15."
-
-* extension[abrechnungsquartal].valueString = "2026Q1"
+Title: "Beispiel Behandlungskontakt ZE Aylin Özdemir (enc-dental-04)"
+Description: "Klinischer Behandlungskontakt ab 2026-01-15 für Aylin Özdemir. Abrechnungs-Schein via account → acct-dental-04-gkv-q1."
 
 * identifier[0].system = "https://example-dental-practice.de/fall-id"
 * identifier[0].value = "DENTAL-2026-0004"
@@ -77,10 +69,10 @@ Description: "ZE Kassenschein Q1/2026 für Aylin Özdemir bei Dr. Schöll (Gibit
 
 * class = $v3-act-code#AMB "ambulatory"
 
-* type[0] = $scheintyp#kassenschein "Kassenschein"
-
 * subject = Reference(Patient/pat-gkv-dental-01)
 
 * participant[0].individual = Reference(PractitionerRole/role-schoell-gibitzenhof)
 
 * period.start = "2026-01-15"
+
+* account[0] = Reference(acct-dental-04-gkv-q1)

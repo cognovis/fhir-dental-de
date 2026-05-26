@@ -99,3 +99,5 @@ Description: "Zahntechnische Leistungsposition (BEL II) für Keramik-Inlay Zahn 
 * priceOverride.currency = #EUR
 
 * bodysite = $fdiCS#15 "15"
+
+* account = Reference(acct-dental-02-pkv-q1)

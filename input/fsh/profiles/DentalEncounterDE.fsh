@@ -1,57 +1,41 @@
 Profile: DentalEncounterDE
 Parent: Encounter
 Id: dental-encounter
-Title: "Zahnärztlicher Abrechnungsfall (DE)"
-Description: "Profil für den zahnärztlichen Abrechnungsfall (Behandlungsfall) nach SWS 2.0 Satzart 2. Verbindet Patient, Behandler, Abrechnungsquartal und Versicherungskontext."
+Title: "Zahnärztlicher Behandlungskontakt (DE)"
+Description: "Billing-agnostic clinical contact in dental practice (consultation, treatment visit). One contact = one Encounter. Encounter.class = AMB (ambulatory) or HH (home visit). Encounter.account references the billing case (AccountPraxisSchein). ScheinNummer, Scheinart, coverage, and billing quarter live on the Account, not the Encounter."
 * ^status = #active
 * ^experimental = false
 * ^publisher = "cognovis GmbH"
 
-// --- Fall-ID (SWS: Fall-ID) ---
+// --- Kontakt-ID (interne Fallnummer pro Behandlungskontakt) ---
 * identifier MS
-* identifier ^short = "Fall-ID (SWS: interne Fallnummer)"
+* identifier ^short = "Kontakt-ID (interne Fallnummer des Behandlungskontakts)"
 
-// --- Status (Pflichtfeld in Encounter base, immer angeben) ---
-* status MS
+// --- Status ---
+* status 1..1 MS
 
-// --- Behandlungsart (GKV=AMB / Notfall=EMER) ---
-* class MS
-* class from http://terminology.hl7.org/ValueSet/v3-ActEncounterCode (extensible)
-* class ^short = "Behandlungsart: AMB (kassenzahnärztlich) oder EMER (Notfallschein)"
+// --- Behandlungskontakt-Art (AMB / HH) ---
+* class 1..1 MS
+* class from https://fhir.cognovis.de/praxis/ValueSet/encounter-praxis-class (required)
+* class ^short = "AMB | HH — ambulanter Behandlungskontakt oder Hausbesuch"
+* class ^comment = "Billing-agnostic contact class. GKV/GOZ/KZBV billing case type is on AccountPraxisSchein.type, not Encounter."
 
-// --- Scheintyp (SWS: Scheintyp) ---
-* type MS
-* type from ScheintypVS (extensible)
-* type ^short = "Scheintyp (Kassenschein, Überweisungsschein, Notfallschein, Privatschein)"
-
-// --- Patient (Pflichtfeld) ---
+// --- Patient ---
 * subject 1..1 MS
 * subject only Reference(Patient)
 * subject ^short = "Behandelter Patient"
 
-// --- Behandler (PractitionerRole) ---
+// --- Behandler ---
 * participant MS
 * participant.individual MS
 * participant.individual only Reference(PractitionerRole)
 * participant ^short = "Erbringender Behandler (SWS: Behandler-Ref)"
 
-// --- Behandlungszeitraum + Abrechnungsquartal ---
+// --- Behandlungszeitraum des Kontakts ---
 * period MS
-* period ^short = "Behandlungszeitraum des Falls"
+* period ^short = "Zeitraum des klinischen Behandlungskontakts"
 
-// --- Diagnosen ---
-* diagnosis MS
-* diagnosis.condition MS
-* diagnosis.condition only Reference(Condition)
-* diagnosis ^short = "Verknüpfte Diagnosen (SWS: Diagnose-Ref)"
-
-// --- Abrechnung (Account mit Coverage-Referenz) ---
-* account MS
-* account only Reference(Account)
-* account ^short = "Sammelabrechnung (SWS: Abrechnungsstatus / Kostenstelle)"
-
-// --- Extensions ---
-* extension contains
-    https://fhir.cognovis.de/praxis/StructureDefinition/abrechnungsquartal named abrechnungsquartal 0..1 MS
-
-* extension[abrechnungsquartal] ^short = "GKV-Abrechnungsquartal im Format JJJJQ (z.B. 2026Q1)"
+// --- Abrechnungsfall (Schein) ---
+* account 0..* MS
+* account only Reference(AccountPraxisSchein)
+* account ^short = "Zugehöriger Abrechnungs-Schein (AccountPraxisSchein aus fhir-praxis-de)"

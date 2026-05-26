@@ -29,3 +29,5 @@ Description: "Vollkeramik-Krone aus dem Eigenlabor der Praxis für Zahn 36. Priv
 
 * bodysite = $fdiCS#36 "36"
 * bodysite.text = "Zahn 36 — erster unterer linker Molar"
+
+* account = Reference(acct-dental-02-pkv-q1)
