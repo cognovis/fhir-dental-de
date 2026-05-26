@@ -20,6 +20,7 @@ txCache/
 # JSONL stays local only; `bd dolt pull/push` syncs state across machines.
 .beads/issues.jsonl
 .beads/events.jsonl
+.beads/runs/
 
 # Claude session logs
 logs/
