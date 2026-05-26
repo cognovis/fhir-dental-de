@@ -74,7 +74,7 @@ jobs:
           AIDBOX_LICENSE_KEY: ${{ secrets.AIDBOX_LICENSE_KEY }}
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           fetch-depth: 0  # Need tags for auto-tag step
 
@@ -89,12 +89,12 @@ jobs:
           echo "Versions in sync: $VERSION"
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: '20'
 
       - name: Setup Java
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v5
         with:
           distribution: 'temurin'
           java-version: '17'
@@ -305,7 +305,7 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
 
   auto-tag:
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
@@ -314,7 +314,7 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           fetch-depth: 0
           token: ${{ secrets.RELEASE_PAT }}
