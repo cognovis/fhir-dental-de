@@ -294,7 +294,6 @@ jobs:
 
   deploy:
     if: false  # DEPRECATED (fmgt-5ff): deploy/publish disabled
-    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     needs: validate
     runs-on: ubuntu-latest
     environment:
@@ -310,7 +309,6 @@ jobs:
 
   auto-tag:
     if: false  # DEPRECATED (fmgt-5ff): deploy/publish disabled
-    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     needs: validate
     runs-on: ubuntu-latest
     permissions:
