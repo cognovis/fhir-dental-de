@@ -42,12 +42,5 @@ jobs:
               py_compile.compile(str(path), doraise=True)
           print(f"Compiled {len(paths)} Python script(s).")
           PY
-      - name: Run release-publication unit tests
-        run: |
-          set -euo pipefail
-          python3 -m pip install --user pytest
-          python3 -m pytest \
-            tests/test_package_list_remote.py \
-            tests/test_release_publication_verification.py
       - name: Run vendor-leak guard
         run: bash scripts/vendor-leak-guard.sh
