@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 
 ## [unreleased]
 
-## [0.36.2] - 2026-06-01
+## [0.36.3] - 2026-06-01
 
 ### Changed
 
@@ -12,6 +12,13 @@ All notable changes to this project will be documented in this file.
   rebuild — keeps dental current with the praxis release.
 
 ### Bug Fixes
+
+- Republish with the complete package (53 StructureDefinitions). 0.36.2 was an
+  incomplete build (package.json + 1 CodeSystem only) from stale build
+  artifacts; do not use 0.36.2.
+- **fdde-dc9**: Remove IG-local BEMA and BEL-II CodeSystems; these catalogs are supplied by dedicated KZBV terminology packages.
+
+## [0.36.0] - 2026-05-22
 
 - **fdde-dc9**: Remove IG-local BEMA and BEL-II CodeSystems; these catalogs are supplied by dedicated KZBV terminology packages.
 
