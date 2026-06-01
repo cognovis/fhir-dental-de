@@ -61,7 +61,6 @@ EXCLUDE_PATTERNS=(
   "CHANGELOG.md"
   "docs/adr/"
   ".github/workflows/"
-  ".beads/"        # Internal tooling/bead metadata — not public FHIR content
 )
 
 # --- Collect files to scan ---

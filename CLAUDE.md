@@ -90,7 +90,7 @@ Always invoke `/aidbox` before manually curl-debugging — it contains learnings
 Integration tests for ConceptMap $translate operations live in `test/CM/`.
 
 **Prerequisites:**
-1. Aidbox running at localhost:8080 (see docker-compose.yaml)
+1. Aidbox running at localhost:8080 (see docker-compose.test.yaml)
 2. Run SUSHI: `npx sushi .` (generates `fsh-generated/resources/`)
 3. Upload ConceptMaps to Aidbox:
    ```bash

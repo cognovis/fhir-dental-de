@@ -9,26 +9,19 @@ dist/
 input-cache/
 txCache/
 
-# Beads / Dolt files (added by bd init)
-# .beads/ as a whole is NOT ignored — config + hooks + metadata stay tracked.
-# Dolt internals, sockets and local-only files are excluded by .beads/.gitignore.
+# Beads task tracker — internal, not part of the IG.
+# Data lives on the Dolt remote (dolt.cognovis.de); local copy stays untracked.
 .dolt/
 *.db
 .beads-credential-key
-
-# Beads JSONL — Dolt remote (dolt.cognovis.de) is the sole source of truth.
-# JSONL stays local only; `bd dolt pull/push` syncs state across machines.
-.beads/issues.jsonl
-.beads/events.jsonl
-.beads/runs/
+.beads/
 
 # Claude session logs
 logs/
 
-# Claude Code project config (keep commands/ + skills/ tracked)
+# Claude Code project config (keep commands/ tracked)
 .claude/*
 !.claude/commands/
-!.claude/skills/
 
 # IG Publisher artifacts in root
 Requirements-fromNarrative.json
@@ -41,3 +34,10 @@ docs/adr/ADR-004-companion-handover.md
 # session-close transient artifacts (per-worktree IPC files)
 .session-close.lock
 .worktree-handoff.json
+.wave-orchestrator.lock
+
+# Non-IG tooling — kept locally but not tracked on the public IG repo.
+# Agent/skill tooling, release orchestration, local dev convenience.
+AGENTS.md
+cliff.toml
+docker-compose.yaml
