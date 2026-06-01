@@ -25,29 +25,6 @@ npm install -g fsh-sushi
 sushi .
 ```
 
-## Issue Tracking (Beads)
-
-Issues live in `.beads/` and are version-controlled as `.beads/issues.jsonl`. The Dolt database itself (`.beads/dolt/`) is local-only.
-
-### After fresh clone
-
-```bash
-beads init --from-jsonl   # imports .beads/issues.jsonl into local Dolt DB
-beads list                # lists all open issues
-beads ready               # shows unblocked work
-```
-
-### Sharing changes
-
-After creating or updating issues, sync the JSONL and commit it so collaborators can see the changes:
-
-```bash
-beads sync                # export current DB to .beads/issues.jsonl
-git add .beads/issues.jsonl
-git commit -m "chore(beads): <change>"
-git push
-```
-
 ## License Guardrails
 
 To prevent accidental reintroduction of copyrighted catalog texts (KZBV BEMA, BEL II, beb'97),

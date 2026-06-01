@@ -34,7 +34,6 @@ BLOCKLIST="$REPO_ROOT/scripts/copyright-blocklist.txt"
 ALLOWLIST_PATHS=(
   "docs/"
   "test/"
-  ".beads/"
 )
 
 # --- Allowlisted specific files (exact match, not prefix) ---
