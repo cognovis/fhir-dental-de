@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 ## [unreleased]
 
+## [0.36.2] - 2026-06-01
+
+### Changed
+
+- Re-pin `de.cognovis.fhir.praxis` dependency to **0.75.0** (was 0.74.0) and
+  rebuild — keeps dental current with the praxis release.
+
 ### Bug Fixes
 
 - **fdde-dc9**: Remove IG-local BEMA and BEL-II CodeSystems; these catalogs are supplied by dedicated KZBV terminology packages.
