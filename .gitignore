@@ -38,6 +38,7 @@ docs/adr/ADR-004-companion-handover.md
 
 # Non-IG tooling — kept locally but not tracked on the public IG repo.
 # Agent/skill tooling, release orchestration, local dev convenience.
+.agents/
 AGENTS.md
 cliff.toml
 docker-compose.yaml
