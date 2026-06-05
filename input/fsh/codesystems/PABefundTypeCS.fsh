@@ -14,3 +14,9 @@ Description: "Component type codes for periodontal Observations. PA findings are
 * #attachment-loss "Attachmentverlust" "Klinischer Attachmentverlust in mm"
 * #bleeding-on-probing "Blutung on Probing" "Blutung nach Sondierung (BOP)"
 * #furcation "Furkationsbeteiligung" "Furkationsgrad (0=keine, 1=Klasse I, 2=Klasse II, 3=Klasse III)"
+// PAR-Richtlinie component codes
+* #par-grad "PAR Grad" "PAR-Grad (Schweregrad nach EFP/BSP 2018)"
+* #par-behandlungsphase "PAR Behandlungsphase" "PAR-Behandlungsphase (Initial-, Basis-, Support-/Erhaltungsphase)"
+* #par-lockerungsgrad "Lockerungsgrad" "Zahnlockerung nach PAR-Klassifikation (0/I/II/III)"
+* #par-furkationsbefall "PAR Furkationsbefall" "Furkationsbeteiligung nach PAR-Klassifikation (0/I/II/III)"
+* #par-behandlungsbeduerftigkeit "PAR Behandlungsbeduerftigkeit" "Behandlungsbedürftigkeit nach PAR-Richtlinie"
