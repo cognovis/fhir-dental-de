@@ -13,6 +13,10 @@ description: >
                                                   npm.cognovis.de, so SUSHI's own fetch gets 401 —
                                                   must be pre-loaded with auth like the others)
 
+  Transitive private de.cognovis.* dependencies (e.g. dental.dpf-kuerzel, pulled in by the
+  dental packages) are resolved automatically by walking each fetched package's dependencies —
+  IG Publisher needs the whole closure cached, not just the direct deps.
+
 inputs:
   verdaccio-token:
     description: Authentication token for npm.cognovis.de (Verdaccio)
@@ -37,22 +41,39 @@ runs:
           echo "//npm.cognovis.de/:always-auth=true"
         } >> ~/.npmrc
 
+        # Tracks every pkg#version already handled this run, so cycles and
+        # diamond deps don't cause repeated work or infinite recursion.
+        declare -A PROCESSED
+
         fetch_to_fhir_cache() {
           local pkg="$1" version="$2"
-          local cache_dir="${HOME}/.fhir/packages/${pkg}#${version}"
+          local key="${pkg}#${version}"
+          [ -n "${PROCESSED[$key]:-}" ] && return
+          PROCESSED[$key]=1
+          local cache_dir="${HOME}/.fhir/packages/${key}"
           if [ -d "$cache_dir/package" ] && [ -f "$cache_dir/package/package.json" ]; then
-            echo "$pkg#$version already cached — skipping"
-            return
+            echo "$key already cached — skipping fetch"
+          else
+            echo "Fetching $pkg@$version from npm.cognovis.de..."
+            local pack_dir
+            pack_dir=$(mktemp -d)
+            ( cd "$pack_dir" && npm pack "${pkg}@${version}" --registry https://npm.cognovis.de >/dev/null )
+            local tgz
+            tgz=$(ls "$pack_dir"/*.tgz | head -1)
+            mkdir -p "$cache_dir"
+            tar xzf "$tgz" -C "$cache_dir"
+            echo "  Installed $(ls "$cache_dir/package/" | wc -l) files into $cache_dir"
           fi
-          echo "Fetching $pkg@$version from npm.cognovis.de..."
-          local pack_dir
-          pack_dir=$(mktemp -d)
-          ( cd "$pack_dir" && npm pack "${pkg}@${version}" --registry https://npm.cognovis.de >/dev/null )
-          local tgz
-          tgz=$(ls "$pack_dir"/*.tgz | head -1)
-          mkdir -p "$cache_dir"
-          tar xzf "$tgz" -C "$cache_dir"
-          echo "  Installed $(ls "$cache_dir/package/" | wc -l) files into $cache_dir"
+          # Recurse into private (de.cognovis.*) FHIR dependencies. IG Publisher
+          # resolves the full transitive closure and only knows the public FHIR
+          # registries (packages.fhir.org), so every private transitive dep must be
+          # pre-loaded too — otherwise it fails with "Unable to resolve package id".
+          local deps
+          deps=$(python3 -c "import json; d=json.load(open('$cache_dir/package/package.json')); print('\n'.join(f'{k} {v}' for k,v in d.get('dependencies',{}).items() if k.startswith('de.cognovis')))" 2>/dev/null || true)
+          while read -r dpkg dver; do
+            [ -z "$dpkg" ] && continue
+            fetch_to_fhir_cache "$dpkg" "$dver"
+          done <<< "$deps"
         }
 
         fetch_to_fhir_cache "de.cognovis.terminology.imaging" "1.0.0"
