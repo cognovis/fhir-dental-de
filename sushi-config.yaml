@@ -7,7 +7,7 @@ description: >-
   conditions (ICD-10-GM), findings (Zahnschema/FDI), and communication.
   Built on German base profiles (de.basisprofil.r4, KBV).
 status: active
-version: 0.36.9
+version: 0.37.0
 fhirVersion: 4.0.1
 copyrightYear: 2026+
 copyright: Copyright 2026+ cognovis GmbH. Licensed under CC-BY-4.0.
@@ -29,6 +29,11 @@ dependencies:
   # manually via the preload-private-fhir-packages composite action (see .github/actions/) which
   # fetches from npm.cognovis.de and places it in the FHIR package cache before sushi/IG-Publisher run.
   hl7.fhir.uv.tools.r4: 1.1.2       # R4-specific version required; 1.1.2 has snapshot-base-version extension
+  de.cognovis.terminology.dental.lekholm-zarb: 1.0.0
+  de.cognovis.terminology.dental.impaction: 1.0.0
+  de.cognovis.terminology.dental.gingival-recession: 2.0.0
+  de.cognovis.terminology.dental.routine-befund: 1.0.0
+  de.cognovis.terminology.dental.par-richtlinie: 1.0.0
 
 pages:
   index.md:
@@ -92,6 +97,30 @@ parameters:
     - https://fhir.cognovis.de/dental/CodeSystem/preparation-type
     - https://fhir.cognovis.de/dental/CodeSystem/dental-lab-order-type
     - https://fhir.cognovis.de/dental/CodeSystem/occlusion-concept
+    # Terminology packages for bone implant planning, impaction classification, gingival recession, and PAR
+    - https://fhir.cognovis.de/dental/CodeSystem/lekholm-zarb-jawbone-shape
+    - https://fhir.cognovis.de/dental/CodeSystem/lekholm-zarb-jawbone-quality
+    - https://fhir.cognovis.de/dental/CodeSystem/winter-impaction-angulation
+    - https://fhir.cognovis.de/dental/CodeSystem/pell-gregory-space
+    - https://fhir.cognovis.de/dental/CodeSystem/pell-gregory-depth
+    - https://fhir.cognovis.de/dental/CodeSystem/miller-gingival-recession-1985
+    - https://fhir.cognovis.de/dental/CodeSystem/cairo-gingival-recession-2011
+    - https://fhir.cognovis.de/dental/CodeSystem/bema-01-mindestpflicht-befund
+    - https://fhir.cognovis.de/dental/CodeSystem/dental-praxis-konvention-befund
+    - https://fhir.cognovis.de/dental/ValueSet/bema-01-befund-vollstaendig
+    - https://fhir.cognovis.de/dental/ValueSet/goz-0010-befund-vollstaendig
+    - https://fhir.cognovis.de/dental/ValueSet/ebz-export-strict-befund
+    - https://fhir.cognovis.de/dental/CodeSystem/par-grad
+    - https://fhir.cognovis.de/dental/CodeSystem/par-behandlungs-phase
+    - https://fhir.cognovis.de/dental/CodeSystem/par-lockerungsgrad
+    - https://fhir.cognovis.de/dental/CodeSystem/par-furkationsbefall
+    - https://fhir.cognovis.de/dental/CodeSystem/par-behandlungsbeduerftigkeit
+    - https://fhir.cognovis.de/dental/CodeSystem/ebz-par-ausmass-verteilung
+    - https://fhir.cognovis.de/dental/CodeSystem/ebz-par-interdentales-cal
+    - https://fhir.cognovis.de/dental/CodeSystem/ebz-par-knochenabbau
+    - https://fhir.cognovis.de/dental/CodeSystem/ebz-par-knochenabbauindex
+    - https://fhir.cognovis.de/dental/CodeSystem/ebz-par-komplexitaetsfaktor
+    - https://fhir.cognovis.de/dental/CodeSystem/ebz-par-zahnverlust
     # Praxis-DE CodeSystems (not in standard FHIR registry, referenced via aliases)
     - https://fhir.cognovis.de/praxis/CodeSystem/radiology-role
     - https://fhir.cognovis.de/praxis/CodeSystem/report-substatus

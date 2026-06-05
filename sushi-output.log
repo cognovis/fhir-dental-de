@@ -1,0 +1,143 @@
+info  Running SUSHI v3.19.0 (implements FHIR Shorthand specification v3.0.0)
+info  Arguments:
+info    /Users/malte/code/fhir/fhir-dental-de/.claude/worktrees/bead-fdde-2twc
+info  No output path specified. Output to .
+info  Using configuration file: /Users/malte/code/fhir/fhir-dental-de/.claude/worktrees/bead-fdde-2twc/sushi-config.yaml
+info  Importing FSH text...
+info  Preprocessed 182 documents with 39 aliases.
+info  Imported 143 definitions and 70 instances.
+info  Loaded virtual package sushi-r5forR4#1.0.0 with 7 resources
+info  Loaded hl7.fhir.uv.tools.r4#1.1.2 with 119 resources
+info  Resolved hl7.terminology.r4#latest to concrete version 7.1.0
+info  Loaded hl7.terminology.r4#7.1.0 with 4103 resources
+info  Loaded de.basisprofil.r4#1.6.0-ballot2 with 173 resources
+info  Loaded kbv.basis#1.8.0 with 163 resources
+info  Loaded kbv.ita.for#1.3.1 with 20 resources
+info  Loaded de.gematik.fhir.atf#1.4.1 with 14 resources
+info  Attempting to download de.cognovis.fhir.praxis#0.79.0 from https://packages.fhir.org/de.cognovis.fhir.praxis/0.79.0
+info  Attempting to download de.cognovis.fhir.praxis#0.79.0 from https://packages2.fhir.org/packages/de.cognovis.fhir.praxis/0.79.0
+error Failed to load de.cognovis.fhir.praxis#0.79.0: Failed to download de.cognovis.fhir.praxis#0.79.0 from the registry
+info  Loaded de.cognovis.terminology.dental.lekholm-zarb#1.0.0 with 2 resources
+info  Loaded de.cognovis.terminology.dental.impaction#1.0.0 with 3 resources
+info  Loaded de.cognovis.terminology.dental.gingival-recession#1.0.0 with 2 resources
+info  Loaded de.cognovis.terminology.dental.routine-befund#1.0.0 with 5 resources
+info  Loaded de.cognovis.terminology.dental.par-richtlinie#1.0.0 with 12 resources
+info  Loaded hl7.fhir.r4.core#4.0.1 with 4581 resources
+info  Resolved hl7.fhir.uv.extensions.r4#latest to concrete version 5.3.0
+info  Loaded hl7.fhir.uv.extensions.r4#5.3.0 with 885 resources
+info  Loaded virtual package sushi-local#LOCAL with 1 resources
+info  Converting FSH to FHIR resources...
+error Parent ChargeItemPraxisDe not found for BemaChargeItemDE
+  File: /Users/malte/code/fhir/fhir-dental-de/.claude/worktrees/bead-fdde-2twc/input/fsh/profiles/BemaChargeItemDE.fsh
+  Line: 16 - 87
+error The type "DentalConditionDE" does not match any of the allowed types: Resource
+  File: /Users/malte/code/fhir/fhir-dental-de/.claude/worktrees/bead-fdde-2twc/input/fsh/profiles/DentalAtfBundleDE.fsh
+  Line: 52
+error The type "Reference(DentalConditionDE)" does not match any of the allowed types: Reference(http://hl7.org/fhir/StructureDefinition/Condition)
+  File: /Users/malte/code/fhir/fhir-dental-de/.claude/worktrees/bead-fdde-2twc/input/fsh/profiles/DentalClaimDE.fsh
+  Line: 48
+error The type "Reference(BemaChargeItemDE)" does not match any of the allowed types: Reference(http://hl7.org/fhir/StructureDefinition/Resource)
+  File: /Users/malte/code/fhir/fhir-dental-de/.claude/worktrees/bead-fdde-2twc/input/fsh/profiles/DentalClaimDE.fsh
+  Line: 63
+error Parent PraxisConditionDE not found for DentalConditionDE
+  File: /Users/malte/code/fhir/fhir-dental-de/.claude/worktrees/bead-fdde-2twc/input/fsh/profiles/DentalConditionDE.fsh
+  Line: 16 - 52
+error No definition for the type "AccountPraxisSchein" could be found.
+  File: /Users/malte/code/fhir/fhir-dental-de/.claude/worktrees/bead-fdde-2twc/input/fsh/profiles/DentalEncounterDE.fsh
+  Line: 40
+error Cannot create reportSubstatus extension; unable to locate extension definition for: https://fhir.cognovis.de/praxis/StructureDefinition/report-substatus.
+  File: /Users/malte/code/fhir/fhir-dental-de/.claude/worktrees/bead-fdde-2twc/input/fsh/profiles/DentalImagingDiagnosticReportDE.fsh
+  Line: 63
+error No element found at path extension[reportSubstatus] for CardRule in DentalImagingDiagnosticReportDE, skipping rule
+  File: /Users/malte/code/fhir/fhir-dental-de/.claude/worktrees/bead-fdde-2twc/input/fsh/profiles/DentalImagingDiagnosticReportDE.fsh
+  Line: 63
+error No element found at path extension[reportSubstatus] for FlagRule in DentalImagingDiagnosticReportDE, skipping rule
+  File: /Users/malte/code/fhir/fhir-dental-de/.claude/worktrees/bead-fdde-2twc/input/fsh/profiles/DentalImagingDiagnosticReportDE.fsh
+  Line: 63
+error No element found at path extension[reportSubstatus] for CaretValueRule in DentalImagingDiagnosticReportDE, skipping rule
+  File: /Users/malte/code/fhir/fhir-dental-de/.claude/worktrees/bead-fdde-2twc/input/fsh/profiles/DentalImagingDiagnosticReportDE.fsh
+  Line: 64
+error Parent PraxisOrganizationDE not found for DentalOrganizationDE
+  File: /Users/malte/code/fhir/fhir-dental-de/.claude/worktrees/bead-fdde-2twc/input/fsh/profiles/DentalOrganizationDE.fsh
+  Line: 28 - 59
+error Parent ChargeItemPraxisDe not found for GozChargeItemDE
+  File: /Users/malte/code/fhir/fhir-dental-de/.claude/worktrees/bead-fdde-2twc/input/fsh/profiles/GozChargeItemDE.fsh
+  Line: 20 - 102
+error Parent ChargeItemPraxisDe not found for GozChargeItemDE
+  File: /Users/malte/code/fhir/fhir-dental-de/.claude/worktrees/bead-fdde-2twc/input/fsh/profiles/GozChargeItemDE.fsh
+  Line: 20 - 102
+info  Converted 57 FHIR StructureDefinitions.
+info  Converted 38 FHIR CodeSystems.
+info  Converted 48 FHIR ValueSets.
+error InstanceOf BemaChargeItemDE not found for ExampleBemaChargeItem
+  File: /Users/malte/code/fhir/fhir-dental-de/.claude/worktrees/bead-fdde-2twc/input/fsh/examples/ExampleBemaChargeItem.fsh
+  Line: 8 - 50
+error InstanceOf BemaChargeItemDE not found for ExampleBemaChargeItemBelPunkte
+  File: /Users/malte/code/fhir/fhir-dental-de/.claude/worktrees/bead-fdde-2twc/input/fsh/examples/ExampleBemaChargeItem.fsh
+  Line: 56 - 90
+error InstanceOf AccountPraxisSchein not found for acct-dental-01-gkv-q1
+  File: /Users/malte/code/fhir/fhir-dental-de/.claude/worktrees/bead-fdde-2twc/input/fsh/examples/ExampleDentalAccounts.fsh
+  Line: 44 - 57
+error InstanceOf AccountPraxisSchein not found for acct-dental-02-pkv-q1
+  File: /Users/malte/code/fhir/fhir-dental-de/.claude/worktrees/bead-fdde-2twc/input/fsh/examples/ExampleDentalAccounts.fsh
+  Line: 62 - 75
+error InstanceOf AccountPraxisSchein not found for acct-dental-04-gkv-q1
+  File: /Users/malte/code/fhir/fhir-dental-de/.claude/worktrees/bead-fdde-2twc/input/fsh/examples/ExampleDentalAccounts.fsh
+  Line: 80 - 93
+error InstanceOf DentalConditionDE not found for AtfDentalConditionKaries46
+  File: /Users/malte/code/fhir/fhir-dental-de/.claude/worktrees/bead-fdde-2twc/input/fsh/examples/ExampleDentalAtfBundle.fsh
+  Line: 19 - 52
+error InstanceOf DentalConditionDE not found for AtfDentalConditionKaries46
+  File: /Users/malte/code/fhir/fhir-dental-de/.claude/worktrees/bead-fdde-2twc/input/fsh/examples/ExampleDentalAtfBundle.fsh
+  Line: 127 - 144
+error InstanceOf DentalOrganizationDE not found for ExampleDentallabor
+  File: /Users/malte/code/fhir/fhir-dental-de/.claude/worktrees/bead-fdde-2twc/input/fsh/examples/ExampleDentalLabServiceRequest.fsh
+  Line: 40 - 64
+error InstanceOf BemaChargeItemDE not found for ExampleBelChargeItemKeramikInlay
+  File: /Users/malte/code/fhir/fhir-dental-de/.claude/worktrees/bead-fdde-2twc/input/fsh/examples/ExampleDentalLabServiceRequest.fsh
+  Line: 71 - 103
+error InstanceOf DentalOrganizationDE not found for org-dental-mvz
+  File: /Users/malte/code/fhir/fhir-dental-de/.claude/worktrees/bead-fdde-2twc/input/fsh/examples/ExampleDentalOrganization.fsh
+  Line: 4 - 47
+warn  Cannot find the entity referenced at acct-dental-01-gkv-q1. The provided reference value will be used, but this reference does not conform to the FHIR Reference format.
+  File: /Users/malte/code/fhir/fhir-dental-de/.claude/worktrees/bead-fdde-2twc/input/fsh/examples/ExampleEncounters.fsh
+  Line: 28 - 29
+warn  Cannot find the entity referenced at acct-dental-02-pkv-q1. The provided reference value will be used, but this reference does not conform to the FHIR Reference format.
+  File: /Users/malte/code/fhir/fhir-dental-de/.claude/worktrees/bead-fdde-2twc/input/fsh/examples/ExampleEncounters.fsh
+  Line: 53 - 54
+warn  Cannot find the entity referenced at acct-dental-04-gkv-q1. The provided reference value will be used, but this reference does not conform to the FHIR Reference format.
+  File: /Users/malte/code/fhir/fhir-dental-de/.claude/worktrees/bead-fdde-2twc/input/fsh/examples/ExampleEncounters.fsh
+  Line: 77 - 78
+error InstanceOf GozChargeItemDE not found for ExampleGozChargeItem
+  File: /Users/malte/code/fhir/fhir-dental-de/.claude/worktrees/bead-fdde-2twc/input/fsh/examples/ExampleGozChargeItem.fsh
+  Line: 8 - 55
+error InstanceOf GozChargeItemDE not found for ExampleGozChargeItemVerlangens
+  File: /Users/malte/code/fhir/fhir-dental-de/.claude/worktrees/bead-fdde-2twc/input/fsh/examples/ExampleGozChargeItemVerlangens.fsh
+  Line: 7 - 42
+error InstanceOf GozZahntechWerkstueckChargeItemDE not found for ExampleGozZahntechWerkstueckChargeItem
+  File: /Users/malte/code/fhir/fhir-dental-de/.claude/worktrees/bead-fdde-2twc/input/fsh/examples/ExampleGozZahntechWerkstueckChargeItem.fsh
+  Line: 7 - 33
+info  Converted 70 FHIR instances.
+info  Exporting FHIR resources as JSON...
+info  Exported 191 FHIR resources as JSON.
+info  Assembling Implementation Guide sources...
+info  Generated ImplementationGuide-de.cognovis.fhir.dental.json
+info  Assembled Implementation Guide sources; ready for IG Publisher.
+info  The _build script hosted at https://github.com/HL7/ig-publisher-scripts is useful for downloading and running the IG Publisher.
+
+========================= SUSHI RESULTS ===========================
+|  -------------------------------------------------------------  |
+| |    Profiles   |  Extensions  |   Logicals   |   Resources   | |
+| |-------------------------------------------------------------| |
+| |      19       |      33      |      0       |       0       | |
+|  -------------------------------------------------------------  |
+|  -------------------------------------------------------------  |
+| |      ValueSets     |    CodeSystems    |     Instances      | |
+| |-------------------------------------------------------------| |
+| |         48         |        38         |         57         | |
+|  -------------------------------------------------------------  |
+|                                                                 |
+===================================================================
+| Don't carp about your mistakes.       27 Errors      3 Warnings |
+===================================================================
+
