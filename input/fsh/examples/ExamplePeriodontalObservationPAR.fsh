@@ -111,12 +111,12 @@ Description: "Complete periodontal observation on tooth 16 with PAR-Richtlinie s
 // PAR Grad: I (mild periodontitis)
 * component[parGrad].code = $pabefund#par-grad
 * component[parGrad].code.text = "PAR Grad"
-* component[parGrad].valueCodeableConcept = $pargrad#I "Grad I"
+* component[parGrad].valueCodeableConcept = $pargrad#B "Grad B"
 
 // PAR Treatment Phase: Initial phase (Initialphase)
 * component[parBehandlungsphase][0].code = $pabefund#par-behandlungsphase
 * component[parBehandlungsphase][0].code.text = "PAR Behandlungsphase"
-* component[parBehandlungsphase][0].valueCodeableConcept = $parthase#Initialphase "Initialphase"
+* component[parBehandlungsphase][0].valueCodeableConcept = $parthase#ATG "Parodontologisches Aufklaerungs- und Therapiegespraech"
 
 // PAR Mobility: Grade 0 (no mobility)
 * component[parLockerungsgrad].code = $pabefund#par-lockerungsgrad
@@ -131,4 +131,4 @@ Description: "Complete periodontal observation on tooth 16 with PAR-Richtlinie s
 // PAR Treatment Need: Basic therapy required
 * component[parBehandlungsbeduerftigkeit].code = $pabefund#par-behandlungsbeduerftigkeit
 * component[parBehandlungsbeduerftigkeit].code.text = "PAR Behandlungsbeduerftigkeit"
-* component[parBehandlungsbeduerftigkeit].valueCodeableConcept = $partreat#basic-therapy "Basic therapy required"
+* component[parBehandlungsbeduerftigkeit].valueCodeableConcept = $partreat#P "Parodontitis"

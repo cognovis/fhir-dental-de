@@ -29,11 +29,11 @@ Description: "Bone site (maxilla, anterior) assessed for implant planning using 
 * bodySite.text = "Maxilla anterior (implant site)"
 
 // Bone Shape: C (complete alveolar atrophy)
-* component[boneShape].code = https://fhir.cognovis.de/dental/CodeSystem/pa-befund-type#pocket-depth-encoded
+* component[boneShape].code = https://fhir.cognovis.de/dental/CodeSystem/pa-befund-type#bone-shape
 * component[boneShape].code.text = "Lekholm-Zarb bone shape"
 * component[boneShape].valueCodeableConcept = $boneshape#C "Complete alveolar bone atrophy"
 
 // Bone Quality: 3 (thin cortex surrounding dense cancellous bone)
-* component[boneQuality].code = https://fhir.cognovis.de/dental/CodeSystem/pa-befund-type#attachment-loss
+* component[boneQuality].code = https://fhir.cognovis.de/dental/CodeSystem/pa-befund-type#bone-quality
 * component[boneQuality].code.text = "Lekholm-Zarb bone quality"
 * component[boneQuality].valueCodeableConcept = $bonequality#3 "Thin cortex surrounding dense cancellous bone"

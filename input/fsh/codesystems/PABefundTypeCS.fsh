@@ -20,3 +20,5 @@ Description: "Component type codes for periodontal Observations. PA findings are
 * #par-lockerungsgrad "Lockerungsgrad" "Zahnlockerung nach PAR-Klassifikation (0/I/II/III)"
 * #par-furkationsbefall "PAR Furkationsbefall" "Furkationsbeteiligung nach PAR-Klassifikation (0/I/II/III)"
 * #par-behandlungsbeduerftigkeit "PAR Behandlungsbeduerftigkeit" "Behandlungsbedürftigkeit nach PAR-Richtlinie"
+* #bone-shape "Knochenmorphologie" "Knochenform nach Lekholm-Zarb-Klassifikation (A-E) fuer Implantatplanung"
+* #bone-quality "Knochenqualitaet" "Knochenqualitaet nach Lekholm-Zarb-Klassifikation (1-4) fuer Implantatplanung"

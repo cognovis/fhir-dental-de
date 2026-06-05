@@ -12,8 +12,8 @@ Description: "Routine dental finding documentation for BEMA-01 (initial examinat
 
 * category[dental] = https://fhir.cognovis.de/dental/CodeSystem/dental-category#dental "Dental"
 
-// BEMA-01 routine finding code (placeholder code; actual codes from bema-01-mindestpflicht-befund CS)
-* code = $bema#routine-examination "Routine Examination"
+// BEMA-01 routine finding code — Zahnstein (tartar buildup, common BEMA-01 finding)
+* code = $bema#zst "Zahnstein"
 
 * subject = Reference(Patient/pat-gkv-01)
 
