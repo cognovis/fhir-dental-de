@@ -291,6 +291,7 @@ jobs:
         uses: actions/upload-artifact@v6
         with:
           name: qa-report
+          retention-days: 7
           path: |
             output/qa.html
             output/qa/
@@ -299,6 +300,7 @@ jobs:
         uses: actions/upload-artifact@v6
         with:
           name: ig-package
+          retention-days: 7
           path: |
             dist/*.tgz
             output/full-ig.zip
