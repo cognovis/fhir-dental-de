@@ -31,7 +31,7 @@ dependencies:
   hl7.fhir.uv.tools.r4: 1.1.2       # R4-specific version required; 1.1.2 has snapshot-base-version extension
   de.cognovis.terminology.dental.lekholm-zarb: 1.0.0
   de.cognovis.terminology.dental.impaction: 1.0.0
-  de.cognovis.terminology.dental.gingival-recession: 1.0.0
+  de.cognovis.terminology.dental.gingival-recession: 2.0.0
   de.cognovis.terminology.dental.routine-befund: 1.0.0
   de.cognovis.terminology.dental.par-richtlinie: 1.0.0
 

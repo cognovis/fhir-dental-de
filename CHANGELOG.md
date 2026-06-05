@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file.
 
 ## [unreleased]
 
+## [0.37.0] - 2026-06-05
+
+### Features
+
+- Bind five dental-befund terminology packages into Observation profiles: Lekholm-Zarb (bone site), impaction, gingival recession (Miller/Cairo), routine befund (BEMA/GOZ), PAR-Richtlinie components on periodontal observations.
+- Add ValueSets, examples, and `special-url` entries for imported CodeSystems from those packages.
+
+### Bug Fixes
+
+- Correct fabricated example codes and BoneSite component discriminators (`pocket-depth-encoded` → `bone-shape`, `attachment-loss` → `bone-quality`).
+
 ## [0.36.3] - 2026-06-01
 
 ### Changed
