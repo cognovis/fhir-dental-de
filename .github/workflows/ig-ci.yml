@@ -1,6 +1,12 @@
 name: IG CI — Validate & Build
 
 on:
+  # Manual trigger: lets the full validate job be exercised on any branch
+  # (e.g. to verify the self-hosted runner migration) without driving a Pages
+  # deploy — the Pages steps are guarded by `github.ref == 'refs/heads/main'
+  # && github.event_name == 'push'`, so a dispatch run never publishes.
+  workflow_dispatch:
+
   # validate is the release gate: auto-tag (release tag) and deploy (GitHub
   # Pages) both `needs: validate`. It therefore runs only on main, not per PR
   # and not on every feature-branch push. PRs are gated by the independent
@@ -34,7 +40,11 @@ concurrency:
 
 jobs:
   validate:
-    runs-on: ubuntu-latest
+    # Self-hosted runner (cognovis org: atlas / kaji). Match architecture only,
+    # not a specific machine — same convention as fhir-terminology-de's CI.
+    # The aidbox service is published on host port 8082 (not 8080) so it never
+    # collides with polaris' Aidbox (8080) when this lands on the same machine.
+    runs-on: [self-hosted, Linux, X64]
 
     services:
       postgres:
@@ -52,7 +62,9 @@ jobs:
       aidbox:
         image: healthsamurai/aidboxone:edge
         ports:
-          - 8080:8080
+          # host:container — host 8082 avoids the polaris Aidbox (8080) clash on
+          # shared self-hosted runners; container still listens on 8080 internally.
+          - 8082:8080
         env:
           AIDBOX_PORT: 8080
           AIDBOX_FHIR_VERSION: 4.0.1
@@ -140,7 +152,7 @@ jobs:
         run: |
           echo "Waiting for Aidbox to be ready..."
           for i in $(seq 1 24); do
-            if curl -sf http://localhost:8080/health > /dev/null 2>&1; then
+            if curl -sf http://localhost:8082/health > /dev/null 2>&1; then
               echo "Aidbox is ready after $((i * 5))s"
               break
             fi
@@ -157,7 +169,7 @@ jobs:
           # Retry the POST a few times to handle this race condition.
           for attempt in 1 2 3 4 5; do
             HTTP_CODE=$(curl -s -o /tmp/aidbox-response.json -w "%{http_code}" \
-              -X POST http://localhost:8080/ \
+              -X POST http://localhost:8082/ \
               -u "basic:secret" \
               -H "Content-Type: application/json" \
               -d @init-bundle.json)
@@ -207,7 +219,7 @@ jobs:
           echo "{\"resourceType\":\"Bundle\",\"type\":\"transaction\",\"entry\":[$ENTRIES]}" > /tmp/sd-bundle.json
           echo "Uploading $COUNT StructureDefinitions as transaction bundle..."
           HTTP_CODE=$(curl -s -o /tmp/sd-response.json -w "%{http_code}" \
-            -X POST http://localhost:8080/ \
+            -X POST http://localhost:8082/ \
             -u "basic:secret" \
             -H "Content-Type: application/json" \
             -d @/tmp/sd-bundle.json)
@@ -247,8 +259,17 @@ jobs:
             && echo "::notice::Profile tests passed" \
             || echo "::warning::Profile tests had failures (negative tests may need updating for Aidbox edge)"
 
-      - name: Install Jekyll
-        run: sudo gem install jekyll
+      - name: Verify Jekyll is available
+        # IG Publisher needs jekyll for the narrative HTML build. It is
+        # pre-installed on the self-hosted runners (/usr/local/bin/jekyll);
+        # the github-runner user has no passwordless sudo, so `sudo gem install`
+        # would fail. Fail loudly if the runner image ever loses jekyll.
+        run: |
+          command -v jekyll >/dev/null 2>&1 || {
+            echo "::error::jekyll not found on runner — install it on the host (gem install jekyll)"
+            exit 1
+          }
+          jekyll --version
 
       - name: Download IG Publisher
         run: |
