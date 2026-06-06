@@ -32,7 +32,7 @@ Description: "Profil für zahnärztliche Diagnosen und Befunde. Nutzt ICD-10-GM 
 
 // Code: ICD-10-GM binding (extensible to allow SNOMED CT etc.)
 * code 1..1 MS
-* code from http://fhir.de/ValueSet/bfarm/icd-10-gm|1.6.0-ballot2 (extensible)
+* code from http://fhir.de/ValueSet/bfarm/icd-10-gm|1.5.4 (extensible)
 
 // Subject
 * subject 1..1 MS
