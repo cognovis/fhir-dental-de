@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 ## [unreleased]
 
+## [0.38.0] - 2026-06-06
+
+### Changed
+
+- **basisprofil** (fpde-8n4): Downgraded `de.basisprofil.r4` from `1.6.0-ballot2` to `1.5.4` to align with the praxis 0.80.0 downgrade and the ISiK / kbv.basis 1.5.x ecosystem (dental independently pinned ballot2 while also pinning kbv.basis 1.8.0, which transitively wants 1.5.4). Updated the version-pinned `bfarm/icd-10-gm` binding on `DentalConditionDE.code` from `|1.6.0-ballot2` to `|1.5.4`, since the ballot2-versioned ValueSet does not resolve against a 1.5.4 base.
+
 ## [0.37.0] - 2026-06-05
 
 ### Features
