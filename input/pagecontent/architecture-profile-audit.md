@@ -31,9 +31,9 @@ KBV base, **FHIR R4 → praxis-de → dental-de**).
 
 The classifications below are correct against `de.cognovis.fhir.praxis@0.69.1`.
 
-## ADR-039 Account Model (dental, fdde-gzsq)
+## Account Model (billing-case boundary)
 
-Dental adopts the same Account-centered billing-case model as fhir-praxis-de (ADR-039 / fpde-cj3):
+Dental adopts the same Account-centered billing-case model as the Praxis-DE IG:
 
 | Concern | Dental model | Notes |
 |---|---|---|

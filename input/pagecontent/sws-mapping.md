@@ -106,7 +106,7 @@ Demographic and insurance data. Distinguishes GKV patients (with statutory insur
 
 ### Satzart 2: Abrechnungsfall / Behandlungsfall
 
-ADR-039 separates the **clinical contact** (`DentalEncounterDE`) from the **billing case** (`AccountPraxisSchein`, reused from fhir-praxis-de). AW-SST: contact crosswalks to `KBV_PR_AW_Begegnung`; Account has no AW equivalent and decomposes on export (see fhir-praxis-de `aw-sst-crosswalk.md`).
+The billing model separates the **clinical contact** (`DentalEncounterDE`) from the **billing case** (`AccountPraxisSchein`, reused from the Praxis-DE IG). AW-SST: contact crosswalks to `KBV_PR_AW_Begegnung`; Account has no AW equivalent and decomposes into its AW constituents on export.
 
 | SWS Field | SWS Name (DE) | FHIR Resource | FHIR Path | Notes |
 |-----------|---------------|---------------|-----------|-------|
@@ -268,7 +268,7 @@ Dental prosthetics documentation with fixed subsidy calculation. Contains findin
 | SWS Field | SWS Name (DE) | FHIR Resource | FHIR Path | Notes |
 |-----------|---------------|---------------|-----------|-------|
 | ZE-ID | Internal ZE ID | `CarePlan` | `CarePlan.identifier` | |
-| Befundkürzel | KZBV DPF Befundkürzel (e.g. `a`, `b`, `e`, `k`, `x`, `pw`, `ww`) — EBZ Anlage 2 | `CarePlan` | Extension `ze-befundkuerzel` | Authoritative CS: `http://fhir.de/CodeSystem/kzbv/dpf-befundkuerzel`. **NOT** the Festzuschuss codes (1.1–8.6 are numerische FZ-Befunde, separate taxonomy). See ADR-004 in fhir-terminology-de. |
+| Befundkürzel | KZBV DPF Befundkürzel (e.g. `a`, `b`, `e`, `k`, `x`, `pw`, `ww`) — EBZ Anlage 2 | `CarePlan` | Extension `ze-befundkuerzel` | Authoritative CS: `http://fhir.de/CodeSystem/kzbv/dpf-befundkuerzel`. **NOT** the Festzuschuss codes (1.1–8.6 are numerische FZ-Befunde, separate taxonomy). |
 | Therapiekürzel | KZBV DPF Therapiekürzel (e.g. `K`, `B`, `SB`, `T2`) — EBZ Anlage 2 | `CarePlan` | Extension `ze-therapiekuerzel` | Authoritative CS: `http://fhir.de/CodeSystem/kzbv/dpf-therapiekuerzel` |
 | Versorgungsart | Standard / equivalent / non-standard | `CarePlan` | Extension `ze-versorgungsart` | |
 | Festzuschuss | Fixed subsidy (EUR) | `ClaimResponse` | `ClaimResponse.item.adjudication` | |

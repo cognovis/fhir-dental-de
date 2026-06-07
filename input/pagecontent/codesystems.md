@@ -31,4 +31,4 @@ Im Dental-IG kommen drei *unterschiedliche* KZBV-publizierte Code-Listen zum Tra
 
 Daneben existieren die cognovis-internen **`ze-befundkuerzel`** und **`ze-therapiekuerzel`** CSes — sie sind **ergänzend**, decken klinische Status-Codes ab die in KZBV-DPF nicht existieren (z.B. "Krone defekt", "Magnetanker", "KFO-Retainer", "Reparatur Brücke").
 
-> **Wichtig**: Lexikalisch überlappende Codes (`x`, `B`, `K`, `e`, `b`) haben **unterschiedliche Semantik** zwischen den Code-Systemen. Bei `Coding` immer die `system`-URL explizit setzen. Volle Hintergrund-Doku: `docs/adr/ADR-004-dental-befund-namespaces.md` in `fhir-terminology-de`.
+> **Wichtig**: Lexikalisch überlappende Codes (`x`, `B`, `K`, `e`, `b`) haben **unterschiedliche Semantik** zwischen den Code-Systemen. Bei `Coding` immer die `system`-URL explizit setzen — sie ist der einzig verlässliche Diskriminator zwischen den parallelen Befund-Taxonomien.
