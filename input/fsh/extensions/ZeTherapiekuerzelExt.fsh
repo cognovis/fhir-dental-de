@@ -7,7 +7,7 @@ Therapiekürzel für die geplante Zahnersatz-Versorgung auf einem `CarePlan`. Co
 * **`http://fhir.de/CodeSystem/kzbv/dpf-therapiekuerzel`** — Authoritative KZBV-DPF-Liste (EBZ Anlage 2, 43 Codes wie `K`, `B`, `T`, `SB`, `SK`, `T2`). Verwende dies für eHKP-konforme Therapie-Notation.
 * **`https://fhir.cognovis.de/dental/CodeSystem/ze-therapiekuerzel`** — Cognovis-interner Status (KFO-Retainer, Reparaturen, Unterfütterungen — Konzepte ausserhalb des EBZ-ZE-Workflows).
 
-Binding ist `extensible`: beide Code-Systeme sind valide. Bei lexikalisch überlappenden Codes (`K`, `B`, `T`, `E`) ist die `system`-URL entscheidend. Siehe `docs/adr/ADR-004` in fhir-terminology-de.
+Binding ist `extensible`: beide Code-Systeme sind valide. Bei lexikalisch überlappenden Codes (`K`, `B`, `T`, `E`) ist die `system`-URL entscheidend.
 """
 * ^url = "https://fhir.cognovis.de/dental/StructureDefinition/ze-therapiekuerzel"
 * ^status = #active

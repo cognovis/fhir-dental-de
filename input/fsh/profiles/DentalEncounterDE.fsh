@@ -38,4 +38,4 @@ Description: "Billing-agnostic clinical contact in dental practice (consultation
 // --- Abrechnungsfall (Schein) ---
 * account 0..* MS
 * account only Reference(AccountPraxisSchein)
-* account ^short = "Zugehöriger Abrechnungs-Schein (AccountPraxisSchein aus fhir-praxis-de)"
+* account ^short = "Zugehöriger Abrechnungs-Schein (AccountPraxisSchein aus dem Praxis-DE IG)"

@@ -7,7 +7,7 @@ Befundkürzel für den Zahnersatz-Ist-Zustand auf einem `CarePlan`. Codes könne
 * **`http://fhir.de/CodeSystem/kzbv/dpf-befundkuerzel`** — Authoritative KZBV-DPF-Liste (EBZ Anlage 2, 33 Codes wie `a`, `b`, `e`, `k`, `pw`, `ww`, `x`). Verwende dies für eHKP-konforme HKP-Befund-Notation.
 * **`https://fhir.cognovis.de/dental/CodeSystem/ze-befundkuerzel`** — Cognovis-interner Ergänzungs-Status (z.B. `kd`=Krone defekt, `Atx`=Attachment, `MagA`=Magnetanker — Konzepte ausserhalb des EBZ-Workflows).
 
-Binding ist `extensible`: beide Code-Systeme sind valide. Achtung Semantik-Konflikte bei überlappenden Codes (`x`, `B`, `K`, `e`, `b`) — die `system`-URL der Coding/code ist entscheidend. Siehe `docs/adr/ADR-004` in fhir-terminology-de.
+Binding ist `extensible`: beide Code-Systeme sind valide. Achtung Semantik-Konflikte bei überlappenden Codes (`x`, `B`, `K`, `e`, `b`) — die `system`-URL der Coding/code ist entscheidend.
 """
 * ^url = "https://fhir.cognovis.de/dental/StructureDefinition/ze-befundkuerzel"
 * ^status = #active

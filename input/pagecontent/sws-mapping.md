@@ -116,12 +116,12 @@ The billing model separates the **clinical contact** (`DentalEncounterDE`) from 
 | Kontaktzeitraum | Treatment contact period | `Encounter` | `DentalEncounterDE.period` | Clinical contact only |
 | Behandlungskontakt-Art | Ambulatory / home visit | `Encounter` | `DentalEncounterDE.class` | AMB or HH (`encounter-praxis-class` VS) |
 | Schein-Ref | Billing case link | `Encounter` | `DentalEncounterDE.account` | → `AccountPraxisSchein` |
-| ScheinNummer | Schein primary key | `Account` | `AccountPraxisSchein.identifier[scheinNummer]` | ADR-002 |
+| ScheinNummer | Schein primary key | `Account` | `AccountPraxisSchein.identifier[scheinNummer]` | |
 | Scheinart | GKV / PKV / … | `Account` | `AccountPraxisSchein.type` | `ScheinartCS` (praxis-de); BEMA/GOZ via ChargeItem code |
 | Quartal/Jahr | Billing quarter | `Account` | `AccountPraxisSchein.servicePeriod` | Optional Extension `abrechnungsquartal` on Account |
 | Versicherung | Coverage | `Account` | `AccountPraxisSchein.coverage` | Not on Encounter |
 | Schein offen/geschlossen | Open vs closed case | `Account` | `AccountPraxisSchein.status` | active/inactive only |
-| Abrechnungsstatus | Billed / submitted / … | `Claim` | `DentalClaimDE.status` | **Not** `Account.status` (ADR-039) |
+| Abrechnungsstatus | Billed / submitted / … | `Claim` | `DentalClaimDE.status` | **Not** `Account.status` |
 
 ---
 

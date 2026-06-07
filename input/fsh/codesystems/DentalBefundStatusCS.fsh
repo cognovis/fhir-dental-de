@@ -6,11 +6,11 @@ Cognovis-redaktionelle Befund-/Therapiestatus-Codes für die HKP-B-Zeile. Kleinb
 
 **Drei Vorbehalte — NICHT authoritativ:**
 
-1. **Keine vollständige DIN-13910-Liste.** Die Kleinbuchstaben-Codes folgen *im Geist* DIN-13910 / SWS L001 (`f`=fehlend, `c`=kariös, `z`=zerstört, `e`=ersetzt, `i`=Implantat, `t`=Teleskopkrone), aber die vollständige DIN-Liste (~40 Codes inkl. `g`/`j`/`A`/`U`/`B`/`F`/`V`) ist hier nicht abgebildet. Authoritative DIN-Extraktion in **`fhir-term-uzw`** in fhir-terminology-de geplant.
+1. **Keine vollständige DIN-13910-Liste.** Die Kleinbuchstaben-Codes folgen *im Geist* DIN-13910 / SWS L001 (`f`=fehlend, `c`=kariös, `z`=zerstört, `e`=ersetzt, `i`=Implantat, `t`=Teleskopkrone), aber die vollständige DIN-Liste (~40 Codes inkl. `g`/`j`/`A`/`U`/`B`/`F`/`V`) ist hier nicht abgebildet. Eine vollständige, authoritative DIN-13910-Extraktion ist als eigenständiges Terminologie-Paket vorgesehen.
 
 2. **Therapie-Großbuchstaben kollidieren mit KZBV-DPF und DIN.** Z.B. dieses CS hat `K`="Krone geplant" (Therapie); KZBV-DPF `K`="Krone" (passiv, vorhandene Versorgung); DIN-13910 `K`="defective crown" (Befund). **Drei `K`s, drei Bedeutungen** — die `system`-URL einer `Coding` ist der einzig verlässliche Diskriminator.
 
-3. **Nicht identisch mit `ze-befundkuerzel`/`ze-therapiekuerzel`.** Dieses CS lebt parallel und überlappt teilweise mit den cognovis-Vorschlag-CSes. Siehe **ADR-004** in `fhir-terminology-de/docs/adr/` für die volle 5-Taxonomien-Übersicht.
+3. **Nicht identisch mit `ze-befundkuerzel`/`ze-therapiekuerzel`.** Dieses CS lebt parallel und überlappt teilweise mit den cognovis-Vorschlag-CSes.
 
 Für KZBV-EBZ-konforme HKP-Anträge verwende:
 - `http://fhir.de/CodeSystem/kzbv/dpf-befundkuerzel` (33 Befund-Codes)
@@ -18,7 +18,7 @@ Für KZBV-EBZ-konforme HKP-Anträge verwende:
 
 Paket: `de.cognovis.terminology.dental.dpf-kuerzel@2022.0.0` auf `npm.cognovis.de`.
 
-Status `#draft` markiert dieses CS als "wird beim DIN-Cleanup (fhir-term-uzw) noch angefasst".
+Status `#draft` markiert dieses CS als vorläufig — es wird im Zuge der DIN-13910-Konsolidierung noch überarbeitet.
 """
 * ^url = "https://fhir.cognovis.de/dental/CodeSystem/dental-befund-status"
 * ^status = #draft

@@ -10,7 +10,7 @@ Description: "Dental billing claim (BEMA/GOZ/KZBV). Claim.diagnosis carries the 
 
 * status 1..1 MS
 * status ^short = "Abrechnungsstatus des Anspruchs (active, cancelled, …)"
-* status ^comment = "Operational billing lifecycle (Abrechnungsstatus) lives here and on ClaimResponse, not on Account.status (ADR-039)."
+* status ^comment = "Operational billing lifecycle (Abrechnungsstatus) lives here and on ClaimResponse, not on Account.status."
 
 * use = #claim
 * use MS
@@ -42,7 +42,7 @@ Description: "Dental billing claim (BEMA/GOZ/KZBV). Claim.diagnosis carries the 
 // Billing-tuple diagnoses (ICD + Diagnosesicherheit + …); fdde-xht extends slicing.
 * diagnosis 0..* MS
 * diagnosis ^short = "Behandlungsdiagnosen als Abrechnungs-Tupel"
-* diagnosis ^definition = "Quarterly or episode diagnoses for billing. Dedupe is over the exact billing tuple: ICD code, Diagnosesicherheit, Seitenlokalisation, and Mehrfachcodierungskennzeichen. Full tuple constraints align with fhir-praxis-de claim-diagnosis-contract."
+* diagnosis ^definition = "Quarterly or episode diagnoses for billing. Dedupe is over the exact billing tuple: ICD code, Diagnosesicherheit, Seitenlokalisation, and Mehrfachcodierungskennzeichen. Full tuple constraints align with the Praxis-DE claim-diagnosis contract."
 * diagnosis.sequence MS
 * diagnosis.diagnosisReference MS
 * diagnosis.diagnosisReference only Reference(DentalConditionDE)

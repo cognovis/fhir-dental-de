@@ -29,7 +29,7 @@ Description: "Markiert eine GOZ-Leistung als Verlangensleistung ohne medizinisch
 
 * extension[verlangensleistung].value[x] only boolean
 * extension[verlangensleistung].value[x] ^short = "Ist Verlangensleistung (true) oder Heilbehandlung (false/absent)"
-* extension[verlangensleistung].value[x] ^definition = "Wenn true, wurde die Leistung vom Patienten ohne medizinische Indikation verlangt. Triggert in fdde-8vf den USt-Regelsatz von 19 % via TaxCategoryExt=S."
+* extension[verlangensleistung].value[x] ^definition = "Wenn true, wurde die Leistung vom Patienten ohne medizinische Indikation verlangt. Triggert den USt-Regelsatz von 19 % via TaxCategoryExt=S."
 
 * extension[verlangensleistungBeleg].value[x] only Reference(DocumentReference)
 * extension[verlangensleistungBeleg].value[x] ^short = "Beleg des Patientenverlangens (Aufklärungsprotokoll, Behandlungsvertrag)"

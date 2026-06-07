@@ -30,7 +30,7 @@ Beispiel siehe `ExampleGozChargeItemVerlangens` (Bleaching, Faktor 2,3, mit Bele
 
 Da Verlangensleistungen **keine** Heilbehandlungen im Sinne § 4 Nr. 14a UStG sind, unterliegen sie
 dem USt-Regelsatz von 19 %. Die konkrete Tax-Pattern-Anwendung (TaxCategoryExt=S, kein
-TaxExemptionReason) erfolgt im Bead `fdde-8vf` über die in `ChargeItemPraxisDe` geerbten praxis-de
+TaxExemptionReason) erfolgt über die in `ChargeItemPraxisDe` geerbten praxis-de
 Tax-Extensions.
 
 Bei korrekter Modellierung ergibt sich für eine Verlangensleistung:
@@ -39,8 +39,8 @@ Bei korrekter Modellierung ergibt sich für eine Verlangensleistung:
 ChargeItem (GozChargeItemDE)
 ├── extension[verlangensleistung].verlangensleistung = true
 ├── extension[steigerungsfaktor].faktor = <frei vereinbart>
-├── extension[ext-tax-category] = tax-category-de#S        ← fdde-8vf
-│   (kein extension[ext-tax-exemption-reason])             ← fdde-8vf
+├── extension[ext-tax-category] = tax-category-de#S
+│   (kein extension[ext-tax-exemption-reason])
 └── priceOverride = <brutto inkl. 19 % USt>
 ```
 
@@ -76,7 +76,5 @@ Typische Beispiele (informativ, nicht abschließend) sind in `TypischeVerlangens
 
 ## Querverweise
 
-- Bead `fdde-0pf` — diese Markierungs-Extension
-- Bead `fdde-8vf` — USt-Modellierung in dental ChargeItems (Tax-Pattern-Anwendung)
-- Bead `fdde-co8` — § 2 GOZ-Vereinbarung modellieren (Faktor > 3,5; entfällt bei Verlangensleistung)
+- [USt-Modellierung](ust-modellierung.html) — Tax-Pattern in dental ChargeItems
 - `TypischeVerlangensleistungenVS` — informativer Beispielkatalog

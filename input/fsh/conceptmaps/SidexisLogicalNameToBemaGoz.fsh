@@ -19,14 +19,14 @@ Instance: SidexisLogicalNameToBemaGoz
 InstanceOf: ConceptMap
 Usage: #definition
 Title: "Sidexis LogicalName → BEMA + GOZ Vorschlag"
-Description: "Mapping von Sidexis 4 LogicalName-Aufnahmetypen auf GKV-BEMA- und GOZ-Privatpositionen für die zahnärztliche Röntgen-Review-Abrechnung. Quellen: GOZ-Katalog (BZAEK), BEMA-Z (KZBV), zahnrad/tools/Roentgen-Review/README.md (Praxis-Validierung)."
+Description: "Mapping von Sidexis 4 LogicalName-Aufnahmetypen auf GKV-BEMA- und GOZ-Privatpositionen für die zahnärztliche Röntgen-Review-Abrechnung. Quellen: GOZ-Katalog (BZAEK), BEMA-Z (KZBV), praxis-validiertes Mapping."
 
 * name = "SidexisLogicalNameToBemaGozCM"
 * url = "https://fhir.cognovis.de/dental/ConceptMap/sidexis-logical-name-to-bema-goz"
 * status = #active
 * experimental = false
 * publisher = "cognovis GmbH"
-* purpose = "Bridges Sidexis 4 imaging metadata (LogicalName) to German dental billing codes (BEMA/GOZ) so that radiology workflows can produce billing-ready procedure resources without hardcoded mapping tables. Sources: GOZ-Katalog (BZÄK), BEMA-Z (KZBV), zahnrad/tools/Roentgen-Review/README.md (Praxis-validiertes Mapping)."
+* purpose = "Bridges Sidexis 4 imaging metadata (LogicalName) to German dental billing codes (BEMA/GOZ) so that radiology workflows can produce billing-ready procedure resources without hardcoded mapping tables. Sources: GOZ-Katalog (BZÄK), BEMA-Z (KZBV), praxis-validiertes Mapping."
 * sourceCanonical = "https://www.dentsplysirona.com/sidexis/logical-name"
 
 // Group 0: Sidexis LogicalName → BEMA
@@ -71,7 +71,7 @@ Description: "Mapping von Sidexis 4 LogicalName-Aufnahmetypen auf GKV-BEMA- und 
 * group[1].element[0].target[0].code = #Ae5370
 * group[1].element[0].target[0].display = "Ae5370 (GOÄ-Position, Digitale Volumentomographie/DVT)"
 * group[1].element[0].target[0].equivalence = #equivalent
-* group[1].element[0].target[0].comment = "DVT additionally maps to OPG codes (Ae935d/Ae5004) when practice config flag DvtAcceptsOpg is enabled; see zahnrad/tools/Roentgen-Review/README.md"
+* group[1].element[0].target[0].comment = "DVT additionally maps to OPG codes (Ae935d/Ae5004) when the practice config flag DvtAcceptsOpg is enabled."
 
 // XRay2D.Extraoral.Panorama.Standard → GOZ Ae5004 (OPG)
 * group[1].element[1].code = #"XRay2D.Extraoral.Panorama.Standard"

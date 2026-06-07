@@ -24,7 +24,7 @@ Manche Codes überlappen *lexikalisch* mit KZBV-DPF mit unterschiedlicher Semant
 | `B`  | Brücke               | Brückenglied |
 | `K`  | Krone (allgemein)    | Krone (intakt — siehe KZBV-DPF) |
 
-Siehe `docs/adr/ADR-004-dental-befund-namespaces.md` in fhir-terminology-de für Migrations-Strategie.
+Beim Persistieren ist daher die `system`-URL der `Coding` der einzig verlässliche Diskriminator.
 """
 * ^url = "https://fhir.cognovis.de/dental/CodeSystem/ze-therapiekuerzel"
 * ^status = #active
