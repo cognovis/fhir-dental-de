@@ -29,7 +29,7 @@ Description: "Vorschlagsmapping von DICOM-Modalitäten auf BEMA-Abrechnungsposit
 * status = #active
 * experimental = false
 * publisher = "cognovis GmbH"
-* purpose = "Dental-PACS Kontext: CT = CBCT/DVT (Cone-Beam CT, dentales Volumentomogramm), NICHT medizinisches CT. Dieses Mapping gilt ausschließlich für den DICOMweb-Adapter-Upstream-Pfad (fdde-4kk), orthogonal zu fdde-6rt (Sidexis MSSQL)."
+* purpose = "Dental-PACS Kontext: CT = CBCT/DVT (Cone-Beam CT, dentales Volumentomogramm), NICHT medizinisches CT. Dieses Mapping gilt ausschließlich für den DICOMweb-Adapter-Upstream-Pfad, orthogonal zum proprietären Sidexis-MSSQL-Pfad."
 * sourceCanonical = "http://dicom.nema.org/resources/ontology/DCM"
 * targetCanonical = "http://fhir.de/CodeSystem/kzbv/bema"
 

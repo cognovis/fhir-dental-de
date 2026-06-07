@@ -27,7 +27,7 @@ Manche Codes in dieser cognovis-CS überlappen *lexikalisch* mit KZBV-DPF, haben
 |------|----------------------|---------------------------------------------------------|
 | `x`  | Zahn fehlt           | nicht erhaltungswürdiger Zahn                          |
 
-Siehe `docs/adr/ADR-004-dental-befund-namespaces.md` in fhir-terminology-de für die volle Geschichte und Migrationsstrategie.
+Beim Persistieren ist daher die `system`-URL der `Coding` der einzig verlässliche Diskriminator zwischen den parallelen Befund-Taxonomien.
 """
 * ^url = "https://fhir.cognovis.de/dental/CodeSystem/ze-befundkuerzel"
 * ^status = #active

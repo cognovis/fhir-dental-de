@@ -66,7 +66,7 @@ Description: "Profil für kassenzahnärztliche Leistungen nach BEMA (Bewertungsm
 // --- Abrechnungsreferenz (Sammelabrechnung/Account) ---
 * account 1..1 MS
 * account only Reference(AccountPraxisSchein)
-* account ^short = "Abrechnungs-Schein (AccountPraxisSchein, ADR-039)"
+* account ^short = "Abrechnungs-Schein (AccountPraxisSchein)"
 
 // --- Extensions: FDI-Zahnnummer, Zahnflächen, Befundklasse, Tax-Pattern ---
 * extension contains

@@ -16,9 +16,9 @@ This implementation guide defines the following profiles for German dental pract
 - [BemaChargeItemDE](StructureDefinition-bema-charge-item.html) — BEMA Leistungsposition (ChargeItem)
 - [GozChargeItemDE](StructureDefinition-goz-charge-item.html) — GOZ Leistungsposition (ChargeItem)
 - [DentalEncounterDE](StructureDefinition-dental-encounter.html) — Behandlungskontakt (Encounter, billing-agnostic)
-- [DentalClaimDE](StructureDefinition-dental-claim-de.html) — Abrechnungsanspruch (Claim, ADR-039 boundary)
+- [DentalClaimDE](StructureDefinition-dental-claim-de.html) — Abrechnungsanspruch (Claim, billing-case boundary)
 
-Dental billing cases reuse [AccountPraxisSchein](https://fhir.cognovis.de/praxis/StructureDefinition-account-praxis-schein) from [fhir-praxis-de](https://github.com/cognovis/fhir-praxis-de) (ADR-039). ScheinNummer, Scheinart, servicePeriod, and coverage live on Account; `Encounter.account` and `ChargeItem.account` reference it.
+Dental billing cases reuse [AccountPraxisSchein](https://fhir.cognovis.de/praxis/StructureDefinition-account-praxis-schein) from the Praxis-DE IG. ScheinNummer, Scheinart, servicePeriod, and coverage live on Account; `Encounter.account` and `ChargeItem.account` reference it.
 
 #### Treatment Plans
 - [DentalCarePlanDE](StructureDefinition-dental-care-plan.html) — Dental Behandlungsplan: HKP, PAR, KFO, ZE, KBR, KGL, PMB (CarePlan, via category[planType])

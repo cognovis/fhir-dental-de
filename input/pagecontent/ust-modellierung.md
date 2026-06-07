@@ -88,15 +88,10 @@ Ein Heil- und Kostenplan (ZE) kombiniert regelmäßig:
 - ggf. Verlangens-Aufschlag (`S`)
 
 Jede Position trägt ihren eigenen Steuersatz; die Aggregation auf Rechnungsebene
-(Invoice mit lineItem.priceComponent type=tax) ist Aufgabe der dazugehörigen Beads
-(siehe fdde-esc § 10 GOZ GozInvoiceDE und fdde-j5b Mischrechnung End-to-End).
+(Invoice mit lineItem.priceComponent type=tax) erfolgt im GozInvoiceDE-Profil
+(§ 10 GOZ) bzw. in der End-to-End-Mischrechnung.
 
 ## Querverweise
 
-- Bead `fdde-pax.2` — praxis-de Pin auf 0.61.0 (Tax-Infrastruktur)
-- Bead `fdde-n4q` — ChargeItem-Parent-Migration auf `ChargeItemPraxisDe`
-- Bead `fdde-0pf` — VerlangensleistungExt
-- Bead `fdde-8vf` — diese USt-Modellierung
-- Bead `fdde-esc` — § 10 GOZ GozInvoiceDE
-- Bead `fdde-j5b` — Mischrechnung End-to-End
+- [Verlangensleistung](verlangensleistung.html) — § 1 Abs. 2 Satz 2 GOZ
 - praxis-de `TaxCategoryExt`, `TaxExemptionReasonExt`, `KleinunternehmerregelungExt`

@@ -72,7 +72,7 @@ Description: "Profil für privatzahnärztliche Leistungen nach GOZ 2012 (Gebühr
 // --- Abrechnungsreferenz (Rechnung/Account) ---
 * account 1..1 MS
 * account only Reference(AccountPraxisSchein)
-* account ^short = "Abrechnungs-Schein (AccountPraxisSchein, ADR-039)"
+* account ^short = "Abrechnungs-Schein (AccountPraxisSchein)"
 
 // --- Extensions: FDI-Zahnnummer, Zahnflächen, Steigerungsfaktor, Analogleistung, Verlangensleistung, Tax-Pattern ---
 * extension contains
