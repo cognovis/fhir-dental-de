@@ -3,7 +3,7 @@
 //
 // Mapping:
 //   XRay3D.Volume.Standard             → DVT      → BEMA #Ae5370 (equivalent); GOZ #Ae5370 (equivalent)
-//                                                  comment: "DVT additionally maps to OPG codes (Ae935d/Ae5004) when practice config flag DvtAcceptsOpg is enabled; see zahnrad/tools/Roentgen-Review/README.md"
+//                                                  comment: "DVT additionally maps to OPG codes (Ae935d/Ae5004) when the practice config flag DvtAcceptsOpg is enabled."
 //   XRay2D.Extraoral.Panorama.Standard → OPG      → BEMA #Ae935d (equivalent); GOZ #Ae5004 (equivalent)
 //   XRay2D.Extraoral.Ceph.Standard     → SCHÄDEL  → BEMA #Ae934a (equivalent); GOZ #Ae5090 (equivalent)
 //   XRay2D.Intraoral.Standard          → EINZEL   → BEMA #Ae925a (equivalent); GOZ #Ae5000 (equivalent)
@@ -12,7 +12,7 @@
 // they follow a separate KFO billing pathway with different approval requirements.
 //
 // Sources: GOZ-Katalog (BZAEK), BEMA-Z (KZBV),
-//   zahnrad/tools/Roentgen-Review/README.md (Praxis-Validierung),
+//   practice-validated mapping,
 //   internal billing code whitelist specification
 
 Instance: SidexisLogicalNameToBemaGoz

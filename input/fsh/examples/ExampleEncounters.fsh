@@ -1,4 +1,4 @@
-// Beispiel-Behandlungskontakte (Demo-Daten, ADR-039)
+// Beispiel-Behandlungskontakte (Demo-Daten)
 // Klinischer Kontakt = DentalEncounterDE; Abrechnungs-Schein = AccountPraxisSchein via Encounter.account
 
 Alias: $v3-act-code = http://terminology.hl7.org/CodeSystem/v3-ActCode

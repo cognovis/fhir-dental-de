@@ -1,4 +1,4 @@
-// Dental billing-case Accounts (ADR-039): reuse AccountPraxisSchein from fhir-praxis-de.
+// Dental billing-case Accounts: reuse AccountPraxisSchein from the Praxis-DE IG.
 // ScheinNummer, Scheinart (gkv/pkv), servicePeriod, and coverage live on Account — not Encounter.
 
 Alias: $scheinartCS = https://fhir.cognovis.de/praxis/CodeSystem/scheinart

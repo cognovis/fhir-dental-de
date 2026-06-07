@@ -4,7 +4,7 @@
 // LogicalName codes follow the pattern <Family>.<Subtype>.<Variant>
 // e.g. XRay3D.Volume.Standard, XRay2D.Extraoral.Panorama.Standard
 // This is a fragment CodeSystem covering only the four radiation-relevant modalities
-// used in the zahnrad Röntgen-Review billing mapping.
+// used in the Röntgen-Review billing mapping.
 // KFO variants (e.g. XRay2D.Extraoral.Panorama.Kfo) are intentionally excluded —
 // they follow a different billing pathway and are NOT in the ConceptMap.
 

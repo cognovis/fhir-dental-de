@@ -1,14 +1,14 @@
 // ConceptMap: DICOM Modality → BEMA Röntgenpositionen (DICOMweb-Adapter-Upstream)
 // Bildet Standard-DICOM-Modalitäten auf zugehörige BEMA-Abrechnungspositionen ab.
-// Dient als Kodierungsvorschlag im DICOMweb-Adapter-Upstream-Pfad (fdde-4kk).
+// Dient als Kodierungsvorschlag im DICOMweb-Adapter-Upstream-Pfad.
 //
 // Purpose (Dental-PACS Kontext):
 //   CT in diesem Mapping bedeutet CBCT/DVT (Cone-Beam CT, dentales Volumentomogramm),
 //   NICHT medizinisches CT. Dental-PACS verwendet DICOM-Modalität CT auch für CBCT.
 //
-// Verhältnis zu fdde-6rt (Sidexis MSSQL → BEMA+GOZ):
+// Verhältnis zum Sidexis-MSSQL-Pfad (Sidexis-intern → BEMA+GOZ):
 //   Dieses ConceptMap deckt den DICOMweb-Pfad ab (Standard DICOM Modality → BEMA).
-//   fdde-6rt deckt den proprietären Sidexis-MSSQL-Pfad ab (Sidexis-intern → BEMA+GOZ).
+//   Der proprietäre Sidexis-MSSQL-Pfad wird separat abgedeckt (Sidexis-intern → BEMA+GOZ).
 //   Beide Pfade sind orthogonal — unterschiedliche Upstream-Quellen, gleiche BEMA-Ziele.
 //
 // Mapping:

@@ -9,8 +9,8 @@
 // The praxis-de TaxCategoryExt and TaxExemptionReasonExt are now available via
 // inheritance. BEMA charges are GKV (statutory) services and are generally exempt
 // from VAT under § 4 Nr. 14a UStG (Trennungsprinzip). Concrete tax-pattern
-// application (default: TaxCategoryExt=E + TaxExemptionReasonExt=para4-nr14a) is
-// implemented in bead fdde-8vf. This profile only inherits the structural ability
+// application (default: TaxCategoryExt=E + TaxExemptionReasonExt=para4-nr14a).
+// This profile only inherits the structural ability
 // to carry these extensions; no Tax slicing is added here.
 
 Profile: BemaChargeItemDE
@@ -80,7 +80,7 @@ Description: "Profil für kassenzahnärztliche Leistungen nach BEMA (Bewertungsm
 * extension[toothSurfaces] ^short = "Betroffene Zahnflächen (SWS: Flächen)"
 * extension[bemaBefundklasse] ^short = "BEMA Befundklasse c/k/f/e/b (SWS: Befundklasse)"
 
-// --- USt-Pattern (fdde-8vf): BEMA = GKV-Heilbehandlung, immer steuerfrei nach § 4 Nr. 14a UStG ---
+// --- USt-Pattern: BEMA = GKV-Heilbehandlung, immer steuerfrei nach § 4 Nr. 14a UStG ---
 * extension[taxCategory].valueCodeableConcept = $UnCefact5305#E "Steuerfrei"
 * extension[taxCategory] ^short = "USt-Kategorie (EN 16931 / UN-CEFACT-5305: für BEMA fix = E steuerfrei)"
 * extension[taxExemptionReason].valueCodeableConcept = $UStBefreiungsgrundCS#para4-nr14a "§ 4 Nr. 14a UStG"

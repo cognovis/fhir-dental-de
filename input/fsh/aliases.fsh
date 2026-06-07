@@ -18,7 +18,7 @@ Alias: $ReportSubstatusCS          = https://fhir.cognovis.de/praxis/CodeSystem/
 Alias: $ReportSubstatusExt = https://fhir.cognovis.de/praxis/StructureDefinition/report-substatus
 Alias: $ReportSubstatusVS  = https://fhir.cognovis.de/praxis/ValueSet/report-substatus
 
-// Praxis-DE Tax aliases (0.61.0 — used in BEMA/GOZ ChargeItem Tax-Pattern via fdde-8vf)
+// Praxis-DE Tax aliases (0.61.0 — used in BEMA/GOZ ChargeItem Tax-Pattern)
 Alias: $TaxCategoryExt        = https://fhir.cognovis.de/praxis/StructureDefinition/ext-tax-category
 Alias: $TaxExemptionReasonExt = https://fhir.cognovis.de/praxis/StructureDefinition/ext-tax-exemption-reason
 // TaxCategory codes come from UN/CEFACT codelist 5305 (EN 16931 aligned: S/AA/E/AE/Z)

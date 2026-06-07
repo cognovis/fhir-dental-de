@@ -19,7 +19,7 @@ Description: "BEMA-Leistungsposition 13c (Kompositfüllung dreiflächig) für Za
 
 * extension[bemaBefundklasse].valueCode = https://fhir.cognovis.de/dental/CodeSystem/bema-befundklasse#c "Erhaltungswürdig (konservierende Behandlung)"
 
-// USt-Pattern (fdde-8vf): BEMA = Heilbehandlung, steuerfrei nach § 4 Nr. 14a UStG
+// USt-Pattern: BEMA = Heilbehandlung, steuerfrei nach § 4 Nr. 14a UStG
 * extension[taxCategory].valueCodeableConcept = $UnCefact5305#E "Steuerfrei"
 * extension[taxExemptionReason].valueCodeableConcept = $UStBefreiungsgrundCS#para4-nr14a "§ 4 Nr. 14a UStG"
 
@@ -63,7 +63,7 @@ Description: "BEMA-Leistungsposition für Krone (BEMA 99a Aufbaufüllung) Zahn 4
 
 * extension[https://fhir.cognovis.de/dental/StructureDefinition/bel-punkte].valueInteger = 250
 
-// USt-Pattern (fdde-8vf): BEMA = Heilbehandlung, steuerfrei nach § 4 Nr. 14a UStG
+// USt-Pattern: BEMA = Heilbehandlung, steuerfrei nach § 4 Nr. 14a UStG
 * extension[taxCategory].valueCodeableConcept = $UnCefact5305#E "Steuerfrei"
 * extension[taxExemptionReason].valueCodeableConcept = $UStBefreiungsgrundCS#para4-nr14a "§ 4 Nr. 14a UStG"
 

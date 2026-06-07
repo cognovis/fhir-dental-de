@@ -1,5 +1,5 @@
-// Minimal DentalClaimDE example (ADR-039): billing-tuple diagnosis + ChargeItems with Account context.
-// Full BEMA/GOZ line-item slicing deferred to fdde-xht.
+// Minimal DentalClaimDE example: billing-tuple diagnosis + ChargeItems with Account context.
+// Full BEMA/GOZ line-item slicing is out of scope for this example.
 
 Alias: $bemaCS = http://fhir.de/CodeSystem/kzbv/bema
 
