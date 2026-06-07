@@ -12,8 +12,8 @@
 # run. This script mirrors that logic for local development.
 #
 # Usage:
-#   ./scripts/prefetch-praxis.sh                # fetch pinned version (v0.69.1)
-#   ./scripts/prefetch-praxis.sh v0.69.1        # fetch pinned version explicitly
+#   ./scripts/prefetch-praxis.sh                # fetch the version pinned in sushi-config.yaml
+#   ./scripts/prefetch-praxis.sh v0.80.3        # fetch a specific version explicitly
 #   ./scripts/prefetch-praxis.sh latest         # fetch latest release
 #
 # Exit 0: cache populated. Exit 1: download failed.
@@ -21,7 +21,11 @@
 set -euo pipefail
 
 REPO="cognovis/fhir-praxis-de"
-TAG="${1:-v0.69.1}"
+# Default to the praxis version pinned in sushi-config.yaml so the prefetch can
+# never silently lag the actual dependency pin (the stale hardcoded default
+# v0.69.1 caused the incomplete 0.38.3 release build).
+PINNED_VERSION=$(sed -n 's/^[[:space:]]*de\.cognovis\.fhir\.praxis:[[:space:]]*\([0-9][0-9.]*\).*/\1/p' sushi-config.yaml | head -1)
+TAG="${1:-v${PINNED_VERSION:?could not read de.cognovis.fhir.praxis pin from sushi-config.yaml}}"
 CACHE_DIR="$HOME/.fhir/packages"
 
 if [ "$TAG" = "latest" ]; then

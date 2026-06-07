@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 
 ## [unreleased]
 
+## [0.38.4] - 2026-06-07
+
+### Fixed
+
+- **release-integrity**: `0.38.3` was published from an incomplete SUSHI build — `prefetch-praxis.sh` defaulted to the stale hardcoded tag `v0.69.1`, so `de.cognovis.fhir.praxis#0.80.3` was missing from the local FHIR cache and 27 SUSHI errors silently dropped all praxis-derived profiles (`DentalConditionDE`, `DentalOrganizationDE`, `BemaChargeItemDE`, `GozChargeItemDE`, `GozZahntechWerkstueckChargeItemDE`, ATF/Account examples) from the published package. The prefetch script now defaults to the version pinned in `sushi-config.yaml`. `0.38.4` is the complete rebuild against praxis `0.80.3`; consumers must skip `0.38.2`/`0.38.3`.
+
+### Changed
+
+- **ig-pages** (#47, #48): Stripped internal repository references and removed the architecture audit page from published IG surfaces.
+
 ## [0.38.1] - 2026-06-06
 
 ### Changed
