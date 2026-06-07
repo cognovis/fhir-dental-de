@@ -6,7 +6,7 @@
 // nach § 2 Abs. 1+2 GOZ aus — Faktor und Vergütung sind frei verhandelbar.
 //
 // Steuerliche Konsequenz: Da KEINE Heilbehandlung im Sinne § 4 Nr. 14a UStG vorliegt,
-// gilt der USt-Regelsatz von 19 %. Die Tax-Pattern-Anwendung erfolgt in fdde-8vf
+// gilt der USt-Regelsatz von 19 %. Die Tax-Pattern-Anwendung erfolgt
 // über TaxCategoryExt=S (vererbt von ChargeItemPraxisDe).
 //
 // Beweissicherung: Empfohlen — verlangensleistungBeleg als DocumentReference auf

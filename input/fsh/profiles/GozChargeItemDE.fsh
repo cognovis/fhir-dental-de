@@ -14,8 +14,7 @@
 //   - Verlangensleistung (privatgebuehr-leistungsart=#verlangensleistung): TaxCategoryExt=S (19%)
 //   - Zahntechnisches Eigenlabor-Werkstück (Anlage 2 Nr. 52 UStG): TaxCategoryExt=AA (7%)
 //   - Kleinunternehmerregelung § 19 UStG: inherited via DentalOrganizationDE.KleinunternehmerregelungExt
-// Concrete patterns + invariants implemented in bead fdde-8vf. This profile only
-// inherits the structural ability to carry the tax extensions.
+// This profile inherits the structural ability to carry the tax extensions.
 
 Profile: GozChargeItemDE
 Parent: ChargeItemPraxisDe
@@ -90,7 +89,7 @@ Description: "Profil für privatzahnärztliche Leistungen nach GOZ 2012 (Gebühr
 * extension[analogReference] ^short = "Analogleistung §6 GOZ (SWS: Analogleistung)"
 * extension[verlangensleistung] ^short = "Verlangensleistung-Markierung § 1 Abs. 2 Satz 2 GOZ (boolean + optionaler Beleg). Wenn verlangensleistung.verlangensleistung=true: § 2 GOZ-Vereinbarungspflicht entfällt; USt-Pflicht 19% (Constraint goz-tax-verlangens-s)."
 
-// --- USt-Pattern (fdde-8vf): GOZ je nach Indikation/Verlangens/Eigenlabor (E/S/AA) ---
+// --- USt-Pattern: GOZ je nach Indikation/Verlangens/Eigenlabor (E/S/AA) ---
 // Default (medizinisch indizierte Heilbehandlung): TaxCategory=E + TaxExemptionReason=para4-nr14a
 // Bei Verlangensleistung:                          TaxCategory=S (kein Befreiungsgrund) — siehe Constraint goz-tax-verlangens-s
 // Bei Eigenlabor-Werkstück:                        siehe Sub-Profil GozZahntechWerkstueckChargeItemDE (AA)

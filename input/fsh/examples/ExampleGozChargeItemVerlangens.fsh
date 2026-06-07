@@ -1,5 +1,5 @@
 // Example: GOZ Bleaching als Verlangensleistung (§ 1 Abs. 2 Satz 2 GOZ)
-// USt-Pflicht 19 % wird in fdde-8vf via TaxCategoryExt=S modelliert.
+// USt-Pflicht 19 % wird via TaxCategoryExt=S modelliert.
 // Hier demonstriert: VerlangensleistungExt mit boolean=true und Beleg-DocumentReference.
 
 Alias: $gozCS = http://fhir.de/CodeSystem/bzaek/goz
@@ -19,7 +19,7 @@ Description: "Externe Zahnaufhellung (Bleaching) ohne medizinische Indikation, a
 * extension[steigerungsfaktor].extension[schwellenwert].valueDecimal = 2.3
 * extension[steigerungsfaktor].extension[leistungsart].valueCode = https://fhir.cognovis.de/dental/CodeSystem/privatgebuehr-leistungsart#persoenlich "Persönliche Leistung"
 
-// USt-Pattern (fdde-8vf): Verlangensleistung = keine Heilbehandlung, Regelsatz 19%
+// USt-Pattern: Verlangensleistung = keine Heilbehandlung, Regelsatz 19%
 // (Invariant goz-tax-verlangens-s greift: VerlangensleistungExt=true → TaxCategory=S)
 // (Invariant goz-tax-iff-e greift: TaxCategory!=E → kein TaxExemptionReason)
 * extension[taxCategory].valueCodeableConcept = $UnCefact5305#S "Normaler Steuersatz"
@@ -35,7 +35,7 @@ Description: "Externe Zahnaufhellung (Bleaching) ohne medizinische Indikation, a
 * occurrenceDateTime = "2026-02-14"
 * factorOverride = 2.3
 
-// Bruttopreis inkl. 19 % USt (USt-Modellierung selbst kommt in fdde-8vf)
+// Bruttopreis inkl. 19 % USt
 * priceOverride.value = 178.50
 * priceOverride.currency = #EUR
 

@@ -1,7 +1,7 @@
 // ValueSet: Strahlenschutz-relevante Abrechnungscodes (BEMA + GOZ)
 // Umfasst alle BEMA- und GOZ-Codes, die für strahlenschutzrechtlich relevante
 // zahnärztliche Röntgenleistungen abgerechnet werden. Wird im Kontext der
-// Sidexis-LogicalName-Abrechnung (zahnrad Röntgen-Review) eingesetzt.
+// Sidexis-LogicalName-Abrechnung (Röntgen-Review) eingesetzt.
 
 ValueSet: RadiationRelevantBillingCodeVS
 Id: radiation-relevant-billing-codes

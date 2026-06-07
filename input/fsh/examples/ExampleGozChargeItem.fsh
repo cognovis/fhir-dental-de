@@ -26,7 +26,7 @@ Description: "GOZ-Leistungsposition 2150 (Aufbaufüllung) für Zahn 15 (zweiter 
 * extension[analogReference].extension[gebuehrenordnung].valueCode = #goz
 * extension[analogReference].extension[begruendung].valueString = "Keramik-Inlay CAD/CAM, Analogabrechnung nach §6 GOZ"
 
-// USt-Pattern (fdde-8vf): GOZ medizinisch indizierte Heilbehandlung, steuerfrei nach § 4 Nr. 14a UStG
+// USt-Pattern: GOZ medizinisch indizierte Heilbehandlung, steuerfrei nach § 4 Nr. 14a UStG
 * extension[taxCategory].valueCodeableConcept = $UnCefact5305#E "Steuerfrei"
 * extension[taxExemptionReason].valueCodeableConcept = $UStBefreiungsgrundCS#para4-nr14a "§ 4 Nr. 14a UStG"
 

@@ -1,6 +1,6 @@
-// ADR-039 boundary profile: billing-tuple diagnoses and ChargeItem-backed lines.
+// Billing-boundary profile: billing-tuple diagnoses and ChargeItem-backed lines.
 // Full BEMA/GOZ line-item slicing, versorgungsart constraints, and gleichartig mix
-// rules remain in bead fdde-xht.
+// rules are out of scope for this profile.
 
 Profile: DentalClaimDE
 Parent: Claim
@@ -39,7 +39,7 @@ Description: "Dental billing claim (BEMA/GOZ/KZBV). Claim.diagnosis carries the 
 * insurance.focal MS
 * insurance.coverage MS
 
-// Billing-tuple diagnoses (ICD + Diagnosesicherheit + …); fdde-xht extends slicing.
+// Billing-tuple diagnoses (ICD + Diagnosesicherheit + …); full line-item slicing is out of scope here.
 * diagnosis 0..* MS
 * diagnosis ^short = "Behandlungsdiagnosen als Abrechnungs-Tupel"
 * diagnosis ^definition = "Quarterly or episode diagnoses for billing. Dedupe is over the exact billing tuple: ICD code, Diagnosesicherheit, Seitenlokalisation, and Mehrfachcodierungskennzeichen. Full tuple constraints align with the Praxis-DE claim-diagnosis contract."
