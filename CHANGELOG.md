@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 ## [unreleased]
 
+## [0.38.10] - 2026-06-22
+
+### Changed
+
+- **dependency**: Re-pinned `de.cognovis.fhir.praxis` to `0.80.11` (release cascade) and rebuilt.
+
 ## [0.38.7] - 2026-06-15
 
 ### Changed
