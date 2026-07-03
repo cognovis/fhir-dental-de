@@ -14,7 +14,7 @@ All notable changes to this project will be documented in this file.
 ### Changed
 
 - **fdde-540d**: Reparent `DentalConditionDE` directly to `KBV_PR_Base_Condition_Diagnosis`.
-- **dependency**: Bump `kbv.basis` to `1.9.0` and `de.cognovis.fhir.praxis` to `0.81.0`.
+- **dependency**: Bump `kbv.basis` to `1.9.0` and `de.cognovis.fhir.praxis` to `0.82.0`.
 
 ## [0.38.11] - 2026-07-01
 
