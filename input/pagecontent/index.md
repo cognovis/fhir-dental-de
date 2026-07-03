@@ -39,10 +39,10 @@ This IG adapts the structural concepts from the US IG while binding to German te
 This IG builds on:
 
 - [**de.basisprofil.r4**](https://simplifier.net/basisprofil-de-r4) (1.5.4) — German FHIR base profiles (Patient, Organization, Identifier systems)
-- [**kbv.basis**](https://simplifier.net/kbv-basis) (1.8.0) — KBV base profiles (Condition, Practitioner)
+- [**kbv.basis**](https://simplifier.net/kbv-basis) (1.9.0) — KBV base profiles (Condition, Practitioner)
 - [**kbv.ita.for**](https://simplifier.net/kbv-ita-for) (1.3.1) — KBV form requirements (KBV_PR_FOR_Patient)
 - [**de.gematik.fhir.atf**](https://simplifier.net/atf) (1.4.1) — ATF MessageHeader for KIM/TIM transport
-- [**de.cognovis.fhir.praxis**](https://fhir.cognovis.de/praxis/) (current) — Shared extensions (Abrechnungsquartal, Scheintyp, Steigerungsfaktor)
+- [**de.cognovis.fhir.praxis**](https://fhir.cognovis.de/praxis/) (0.81.0) — Shared extensions (Abrechnungsquartal, Scheintyp, Steigerungsfaktor)
 
 ### Conformance Expectations
 

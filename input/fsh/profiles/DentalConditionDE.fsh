@@ -1,23 +1,18 @@
-// 3-Layer-Chain: KBV → praxis-de → dental-de
+// Dental conditions inherit directly from the KBV diagnosis base.
 //
-// Layer 1 (KBV): KBV_PR_Base_Condition_Diagnosis (kbv.basis) — German base condition/diagnosis
-//   constraints mandated by the KBV for GKV interoperability.
-// Layer 2 (praxis-de): PraxisConditionDE (de.cognovis.fhir.praxis) — shared practice-level
-//   constraints applicable across all cognovis IGs (not dental-specific).
-// Layer 3 (dental-de): DentalConditionDE (this profile) — dental-specific constraints:
-//   ICD-10-GM binding, FDI tooth identification, KZBV Zahnschema Befundstatus.
+// Layer 1 (KBV): KBV_PR_Base_Condition_Diagnosis (kbv.basis) provides the
+//   German diagnosis constraints mandated for GKV interoperability.
+// Layer 2 (dental-de): DentalConditionDE adds dental-domain constraints:
+//   ICD-10-GM binding, FDI tooth identification, and KZBV Zahnschema status.
 //
 // KZBV Gap: KZBV does not publish a formal FHIR base profile for dental conditions.
-//   Until KZBV publishes a canonical dental Condition profile, this profile fulfills
-//   the KBV/GKV constraints through PraxisConditionDE and adds dental-domain extensions directly.
-//
-// Reusability: PraxisConditionDE can be extended by any cognovis IG (e.g. a future
-//   praxis-intern IG or an orthodontic sub-IG) without re-implementing KBV constraints.
+//   Until KZBV publishes a canonical dental Condition profile, this profile uses
+//   the KBV diagnosis base directly and keeps only dental-specific constraints here.
 Profile: DentalConditionDE
-Parent: PraxisConditionDE
+Parent: KBV_PR_Base_Condition_Diagnosis
 Id: dental-condition
 Title: "Zahnärztliche Diagnose (DE)"
-Description: "Profil für zahnärztliche Diagnosen und Befunde. Nutzt ICD-10-GM und FDI-Zahnschema. Orientiert sich am HL7 Dental Data Exchange IG DentalCondition. Kompatibel mit KBV_PR_Base_Condition_Diagnosis."
+Description: "Profil für zahnärztliche Diagnosen und Befunde. Nutzt ICD-10-GM und FDI-Zahnschema. Orientiert sich am HL7 Dental Data Exchange IG DentalCondition. Basiert direkt auf KBV_PR_Base_Condition_Diagnosis."
 * ^status = #active
 * ^experimental = false
 * ^publisher = "cognovis GmbH"
