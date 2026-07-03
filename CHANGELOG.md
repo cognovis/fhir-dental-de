@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 
 ## [unreleased]
 
+### Changed
+
+- **dependency** (fhir-term-wop9): Re-pinned `de.cognovis.fhir.praxis` to `0.80.16` after the heilmittel world-readable republish cascade and rebuilt.
+
 ## [0.38.11] - 2026-07-01
 
 ### Changed
