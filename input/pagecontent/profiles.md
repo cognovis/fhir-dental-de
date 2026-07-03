@@ -25,5 +25,6 @@ Dental billing cases reuse [AccountPraxisSchein](https://fhir.cognovis.de/praxis
 
 #### Supporting Profiles
 - [DentalOrganizationDE](StructureDefinition-dental-organization.html) — Zahnarztpraxis (Organization)
+- [DentalPractitionerDE](StructureDefinition-dental-practitioner.html) — Zahnärztlicher Behandler (Practitioner, ZANR)
 - [DentalImagingStudyDE](StructureDefinition-dental-imaging-study.html) — Röntgendiagnostik (ImagingStudy)
 - [DentalLabServiceRequestDE](StructureDefinition-dental-lab-service-request.html) — Laborauftrag (ServiceRequest)

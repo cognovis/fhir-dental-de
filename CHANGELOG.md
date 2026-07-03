@@ -4,6 +4,18 @@ All notable changes to this project will be documented in this file.
 
 ## [unreleased]
 
+## [0.39.0] - 2026-07-03
+
+### Added
+
+- **fdde-540d**: Add `DentalPractitionerDE` on `KBV_PR_Base_Practitioner`, marking the inherited `identifier[ZANR]` slice as Must Support for dental billing.
+- **fdde-540d**: Add the ZANR NamingSystem to the dental IG and update practitioner examples to carry ANR and ZANR.
+
+### Changed
+
+- **fdde-540d**: Reparent `DentalConditionDE` directly to `KBV_PR_Base_Condition_Diagnosis`.
+- **dependency**: Bump `kbv.basis` to `1.9.0` and `de.cognovis.fhir.praxis` to `0.81.0`.
+
 ## [0.38.11] - 2026-07-01
 
 ### Changed

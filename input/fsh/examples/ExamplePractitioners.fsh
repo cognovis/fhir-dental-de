@@ -4,13 +4,15 @@
 // Practitioner 1: Dr. Martin Schöll (Zahnarzt)
 // ============================================================
 Instance: prac-schoell
-InstanceOf: Practitioner
+InstanceOf: DentalPractitionerDE
 Usage: #example
 Title: "Beispiel Zahnarzt Dr. Martin Schöll"
-Description: "Dr. Martin Schöll, Zahnarzt, LANR 660100101."
+Description: "Dr. Martin Schöll, Zahnarzt, LANR 660100101, ZANR 660100101."
 
-* identifier[0].system = "http://fhir.de/sid/kbv/lanr"
-* identifier[0].value = "660100101"
+* identifier[ANR].system = "https://fhir.kbv.de/NamingSystem/KBV_NS_Base_ANR"
+* identifier[ANR].value = "660100101"
+* identifier[ZANR].system = "http://fhir.de/sid/kzbv/zahnarztnummer"
+* identifier[ZANR].value = "660100101"
 * active = true
 * name[0].use = #official
 * name[0].family = "Schöll"
@@ -24,13 +26,15 @@ Description: "Dr. Martin Schöll, Zahnarzt, LANR 660100101."
 // Practitioner 2: Lena Uselmann (Zahnärztin)
 // ============================================================
 Instance: prac-uselmann
-InstanceOf: Practitioner
+InstanceOf: DentalPractitionerDE
 Usage: #example
 Title: "Beispiel Zahnärztin Lena Uselmann"
-Description: "Lena Uselmann, Zahnärztin, LANR 660100105."
+Description: "Lena Uselmann, Zahnärztin, LANR 660100105, ZANR 660100105."
 
-* identifier[0].system = "http://fhir.de/sid/kbv/lanr"
-* identifier[0].value = "660100105"
+* identifier[ANR].system = "https://fhir.kbv.de/NamingSystem/KBV_NS_Base_ANR"
+* identifier[ANR].value = "660100105"
+* identifier[ZANR].system = "http://fhir.de/sid/kzbv/zahnarztnummer"
+* identifier[ZANR].value = "660100105"
 * active = true
 * name[0].use = #official
 * name[0].family = "Uselmann"
