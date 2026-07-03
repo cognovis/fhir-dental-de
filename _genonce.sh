@@ -17,4 +17,16 @@ if [ ! -f "$PUBLISHER_JAR" ]; then
   exit 1
 fi
 
-$JAVA -jar "$PUBLISHER_JAR" -ig . "$@"
+ARGS=("$@")
+HAS_TX=false
+for ARG in "${ARGS[@]}"; do
+  case "$ARG" in
+    -tx|--tx|-tx=*|--tx=*) HAS_TX=true ;;
+  esac
+done
+
+if [ "$HAS_TX" = false ]; then
+  ARGS+=("-tx" "n/a")
+fi
+
+$JAVA -jar "$PUBLISHER_JAR" -ig . "${ARGS[@]}"
