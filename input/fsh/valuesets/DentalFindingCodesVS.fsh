@@ -12,9 +12,18 @@ Description: "Codes für zahnärztliche Befundarten: LOINC für standardisierte 
 * $loinc#34553-8 "Dental history"
 * $loinc#32884-9 "Identification {Tooth}"
 
-// SNOMED-CT dental finding concepts
-* include codes from system $sct
-  where concept is-a #404684003   // Clinical finding (oral subset)
+// Explicit SNOMED-CT dental observation codes used by this IG.
+// Do NOT use `is-a #404684003` (Clinical finding) — that hierarchy is too large
+// for IG Publisher / tx.fhir.org and previously NPEd under -tx n/a (fmgt-5vw).
+* $sct#364126007 "Oral hygiene status"
+* $sct#113192009 "Bone structure of jaw"
+* $sct#89362005 "Impacted tooth"
+* $sct#80967001 "Dental caries"
+* $sct#427936003 "Localized alveolar bone loss"
+* $sct#718052004 "Asymptomatic periapical periodontitis"
+* $sct#25780007 "Bruxism"
+* $sct#87715008 "Xerostomia"
+* $sct#128139000 "Inflammatory disorder of mouth"
 
 Alias: $loinc = http://loinc.org
 Alias: $sct = http://snomed.info/sct
