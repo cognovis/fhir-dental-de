@@ -17,16 +17,9 @@ if [ ! -f "$PUBLISHER_JAR" ]; then
   exit 1
 fi
 
-ARGS=("$@")
-HAS_TX=false
-for ARG in "${ARGS[@]}"; do
-  case "$ARG" in
-    -tx|--tx|-tx=*|--tx=*) HAS_TX=true ;;
-  esac
-done
-
-if [ "$HAS_TX" = false ]; then
-  ARGS+=("-tx" "n/a")
-fi
-
-$JAVA -jar "$PUBLISHER_JAR" -ig . "${ARGS[@]}"
+# Do not force -tx n/a. This IG has ValueSet compose.include.filter entries
+# (OPS descendent-of, SNOMED is-a). With -tx n/a, IG Publisher 2.2.x NPEs in
+# ValueSetValidator.checkFilterValue (TerminologyClientContext.getAddress()
+# because "tc" is null). Omitting -tx uses the publisher default
+# (https://tx.fhir.org), matching CI. Pass -tx explicitly to override.
+$JAVA -jar "$PUBLISHER_JAR" -ig . "$@"
