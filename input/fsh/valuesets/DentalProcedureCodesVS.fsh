@@ -1,7 +1,10 @@
 ValueSet: DentalProcedureCodesVS
 Id: dental-procedure-codes
 Title: "Zahnärztliche Leistungscodes"
-Description: "Vereinigtes ValueSet für zahnärztliche Leistungen: BEMA (GKV), GOZ (PKV) und OPS (chirurgische Eingriffe)."
+Description: """Vereinigtes ValueSet für zahnärztliche Leistungen: BEMA (GKV) und GOZ (PKV).
+OPS surgical codes (5-23/5-24 descendants) remain usable via the extensible binding;
+they are not composed with descendent-of filters here because those require a
+terminology client and previously NPEd/hung IG Publisher builds (fmgt-5vw)."""
 * ^url = "https://fhir.cognovis.de/dental/ValueSet/dental-procedure-codes"
 * ^status = #active
 * ^experimental = false
@@ -9,9 +12,3 @@ Description: "Vereinigtes ValueSet für zahnärztliche Leistungen: BEMA (GKV), G
 
 * include codes from system http://fhir.de/CodeSystem/kzbv/bema
 * include codes from system GozCS
-* include codes from system $ops
-  where concept descendent-of #5-23   // Operationen an den Zähnen
-* include codes from system $ops
-  where concept descendent-of #5-24   // Operationen am Kiefer
-
-Alias: $ops = http://fhir.de/CodeSystem/bfarm/ops
