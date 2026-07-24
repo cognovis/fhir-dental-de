@@ -34,6 +34,9 @@ dependencies:
   de.cognovis.terminology.dental.gingival-recession: 2.1.0
   de.cognovis.terminology.dental.routine-befund: 1.0.0
   de.cognovis.terminology.dental.par-richtlinie: 1.1.0
+  # Gated SNOMED fragment for PractitionerRole.specialty runtime displays/validation (ADR-009).
+  # Public IG artifacts stay display-neutral; pin 1.0.1 (not 1.0.0 — stale 408462000).
+  de.cognovis.terminology.dental.snomed: 1.0.1
 
 pages:
   index.md:

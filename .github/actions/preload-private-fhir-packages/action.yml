@@ -9,7 +9,7 @@ description: >
     - de.cognovis.terminology.kbv@1.0.0          (transitive dep from de.cognovis.fhir.praxis)
     - kbv.mio.impfpass.vocab@1.1.0-cognovis.1    (transitive dep from de.cognovis.fhir.praxis;
                                                   cognovis fork — public registry returns 404)
-    - de.cognovis.terminology.dental.* (5 pkgs)  (direct deps in sushi-config.yaml; private on
+    - de.cognovis.terminology.dental.* (6 pkgs)  (direct deps in sushi-config.yaml; private on
                                                   npm.cognovis.de, so SUSHI's own fetch gets 401 —
                                                   must be pre-loaded with auth like the others)
 
@@ -89,3 +89,4 @@ runs:
         fetch_to_fhir_cache "de.cognovis.terminology.dental.gingival-recession" "2.0.0"
         fetch_to_fhir_cache "de.cognovis.terminology.dental.routine-befund" "1.0.0"
         fetch_to_fhir_cache "de.cognovis.terminology.dental.par-richtlinie" "1.0.0"
+        fetch_to_fhir_cache "de.cognovis.terminology.dental.snomed" "1.0.1"

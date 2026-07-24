@@ -46,12 +46,13 @@ Description: "Lena Uselmann, Zahnärztin, LANR 660100105, ZANR 660100105."
 
 // ============================================================
 // PractitionerRole 1: Dr. Schöll @ Gibitzenhof (org-dental-mvz)
+// Specialty: SNOMED CT SCTID only (display-neutral public example).
 // ============================================================
 Instance: role-schoell-gibitzenhof
-InstanceOf: PractitionerRole
+InstanceOf: DentalPractitionerRoleDE
 Usage: #example
 Title: "Beispiel Zahnarztrolle Dr. Schöll (Gibitzenhof)"
-Description: "Dr. Martin Schöll als Zahnarzt in der Demo-Zahnarztpraxis (MVZ)."
+Description: "Dr. Martin Schöll als Zahnarzt in der Demo-Zahnarztpraxis (MVZ). Specialty coded with SNOMED CT 106289002 (display from gated terminology package)."
 
 * active = true
 * practitioner = Reference(Practitioner/prac-schoell)
@@ -59,16 +60,18 @@ Description: "Dr. Martin Schöll als Zahnarzt in der Demo-Zahnarztpraxis (MVZ)."
 * code[0].coding[0].system = "http://terminology.hl7.org/CodeSystem/practitioner-role"
 * code[0].coding[0].code = #doctor
 * code[0].coding[0].display = "Doctor"
-* specialty[0].text = "Zahnarzt"
+* specialty[0].coding[0].system = $sct
+* specialty[0].coding[0].code = #106289002
 
 // ============================================================
 // PractitionerRole 2: Lena Uselmann @ Plärrer (org-dental-mvz)
+// Specialty: SNOMED CT SCTID only (display-neutral public example).
 // ============================================================
 Instance: role-uselmann-plaerrer
-InstanceOf: PractitionerRole
+InstanceOf: DentalPractitionerRoleDE
 Usage: #example
 Title: "Beispiel Zahnarztrolle Lena Uselmann (Plärrer)"
-Description: "Lena Uselmann als Zahnärztin in der Demo-Zahnarztpraxis (MVZ)."
+Description: "Lena Uselmann als Zahnärztin in der Demo-Zahnarztpraxis (MVZ). Specialty coded with SNOMED CT 408444009 (display from gated terminology package)."
 
 * active = true
 * practitioner = Reference(Practitioner/prac-uselmann)
@@ -76,4 +79,5 @@ Description: "Lena Uselmann als Zahnärztin in der Demo-Zahnarztpraxis (MVZ)."
 * code[0].coding[0].system = "http://terminology.hl7.org/CodeSystem/practitioner-role"
 * code[0].coding[0].code = #doctor
 * code[0].coding[0].display = "Doctor"
-* specialty[0].text = "Zahnärztin"
+* specialty[0].coding[0].system = $sct
+* specialty[0].coding[0].code = #408444009

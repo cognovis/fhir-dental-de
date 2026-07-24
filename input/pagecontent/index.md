@@ -60,3 +60,5 @@ This IG is published as **Trial Use** (STU). It has been validated against real 
 ### IP Statements
 
 This IG is licensed under [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/). BEMA and GOZ code systems are referenced but not reproduced; implementers must obtain these from KZBV/BZÄK respectively.
+
+**SNOMED CT®:** cognovis GmbH holds an IHTSDO Affiliate License (Affiliate No. **1636879**). This public IG includes SNOMED CT concept identifiers and system URIs only; it does not redistribute SNOMED CT display text or other licensed content under CC-BY-4.0. Full selected dental SNOMED content (including displays) is distributed via the authenticated package `de.cognovis.terminology.dental.snomed`. SNOMED CT® is a registered trademark of the International Health Terminology Standards Development Organisation (IHTSDO).

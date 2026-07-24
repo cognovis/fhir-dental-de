@@ -26,5 +26,6 @@ Dental billing cases reuse [AccountPraxisSchein](https://fhir.cognovis.de/praxis
 #### Supporting Profiles
 - [DentalOrganizationDE](StructureDefinition-dental-organization.html) — Zahnarztpraxis (Organization)
 - [DentalPractitionerDE](StructureDefinition-dental-practitioner.html) — Zahnärztlicher Behandler (Practitioner, ZANR)
+- [DentalPractitionerRoleDE](StructureDefinition-dental-practitioner-role.html) — Zahnärztliche Rolle am Standort (`PractitionerRole.specialty` → SNOMED CT)
 - [DentalImagingStudyDE](StructureDefinition-dental-imaging-study.html) — Röntgendiagnostik (ImagingStudy)
 - [DentalLabServiceRequestDE](StructureDefinition-dental-lab-service-request.html) — Laborauftrag (ServiceRequest)

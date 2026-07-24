@@ -78,7 +78,7 @@ Practice and practitioner master data. Contains practice address, KZV registrati
 | Bankverbindung | IBAN/BIC | `Organization` | Extension `bank-account` | No native FHIR type |
 | LANR | Lifelong practitioner number | `Practitioner` | `Practitioner.identifier` | System: `https://fhir.kbv.de/NamingSystem/KBV_NS_Base_ANR` |
 | Titel / Name | Practitioner name | `Practitioner` | `Practitioner.name` | HumanName |
-| Fachgebiet | Dental specialty | `PractitionerRole` | `PractitionerRole.specialty` | SNOMED CT (e.g. 160274005 for general dentist) |
+| Fachgebiet | Dental specialty | `PractitionerRole` | `PractitionerRole.specialty` | SNOMED CT via [DentalPractitionerSpecialty](ValueSet-dental-practitioner-specialty.html) (e.g. `106289002`, `408444009`) |
 
 One practice → one `Organization`. Each practitioner → one `Practitioner` + one `PractitionerRole` linked to the `Organization`.
 
