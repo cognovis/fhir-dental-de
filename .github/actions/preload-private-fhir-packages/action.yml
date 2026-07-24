@@ -89,4 +89,4 @@ runs:
         fetch_to_fhir_cache "de.cognovis.terminology.dental.gingival-recession" "2.0.0"
         fetch_to_fhir_cache "de.cognovis.terminology.dental.routine-befund" "1.0.0"
         fetch_to_fhir_cache "de.cognovis.terminology.dental.par-richtlinie" "1.0.0"
-        fetch_to_fhir_cache "de.cognovis.terminology.dental.snomed" "1.0.1"
+        fetch_to_fhir_cache "de.cognovis.terminology.dental.snomed" "1.2.0"
