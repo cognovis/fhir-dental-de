@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 
 ## [unreleased]
 
+### Added
+
+- **fdde-q6r**: `DentalPractitionerSpecialtyVS` (SNOMED CT SCTIDs only) and `DentalPractitionerRoleDE` binding `PractitionerRole.specialty` to that value set; example roles use coded SNOMED specialties; docs cover no-local-specialty-CodeSystem guidance and SNOMED Affiliate license note (1636879). Pins `de.cognovis.terminology.dental.snomed@1.0.1` for runtime displays/validation.
+
 ## [0.39.0] - 2026-07-03
 
 ### Added

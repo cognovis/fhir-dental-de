@@ -3,6 +3,12 @@
 This implementation guide defines the following code systems for German dental terminology.
 External catalog systems such as BEMA and BEL-II are referenced by canonical URL and supplied by dedicated terminology packages.
 
+#### No local dental specialty CodeSystem
+
+Dental `PractitionerRole.specialty` uses **SNOMED CT** (`http://snomed.info/sct`) via [DentalPractitionerSpecialty](ValueSet-dental-practitioner-specialty.html).
+This IG **must not** define a local dental specialty CodeSystem while SNOMED CT covers the required concepts (there is no KZBV equivalent to KBV BAR2-WBO for dental specialties).
+Runtime displays and validation for those SCTIDs come from the gated package `de.cognovis.terminology.dental.snomed`; the public IG carries code references only.
+
 #### Billing Code Systems
 - [GOZ](CodeSystem-goz.html) — Gebührenordnung für Zahnärzte (PKV)
 - [GOÄ Zahnarzt](CodeSystem-goae-zahn.html) — Relevante GOÄ-Positionen für Zahnärzte
