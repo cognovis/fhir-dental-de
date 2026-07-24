@@ -1,6 +1,6 @@
 // Dental PractitionerRole.specialty — SNOMED CT only (ADR-009 / License Class I).
 // Public IG carries SCTID + system references only; no embedded SNOMED display text.
-// Runtime displays/validation: de.cognovis.terminology.dental.snomed@1.0.1
+// Runtime displays/validation: de.cognovis.terminology.dental.snomed@1.2.0
 ValueSet: DentalPractitionerSpecialtyVS
 Id: dental-practitioner-specialty
 Title: "Dental Practitioner Specialty (SNOMED CT)"
@@ -15,7 +15,7 @@ Public artifacts reference SCTIDs only; German/English displays come from the ga
 This public IG carries SNOMED CT identifiers and system URIs only; full concept content (including displays) is distributed via the authenticated package de.cognovis.terminology.dental.snomed.
 SNOMED CT® is a registered trademark of the International Health Terminology Standards Development Organisation (IHTSDO)."""
 
-// Pilot specialty concepts available in de.cognovis.terminology.dental.snomed@1.0.1
+// Pilot specialty concepts available in de.cognovis.terminology.dental.snomed@1.2.0
 // Do not include removed/invalid concepts 408462000 or 27568000.
 * $sct#106289002
 * $sct#394812008
