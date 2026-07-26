@@ -19,6 +19,7 @@ Description: "Codes für zahnärztliche Befundarten: LOINC für standardisierte 
 * $sct#113192009 "Bone structure of jaw"
 * $sct#89362005 "Impacted tooth"
 * $sct#80967001 "Dental caries"
+* include codes from system DentalDepositTypeCS
 * $sct#427936003 "Localized alveolar bone loss"
 * $sct#718052004 "Asymptomatic periapical periodontitis"
 * $sct#25780007 "Bruxism"

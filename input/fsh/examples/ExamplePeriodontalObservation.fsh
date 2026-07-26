@@ -4,6 +4,8 @@ Alias: $loinc = http://loinc.org
 Alias: $sct   = http://snomed.info/sct
 Alias: $fdiCS = https://fhir.cognovis.de/dental/CodeSystem/tooth-identification-fdi
 Alias: $periodontalSite = https://fhir.cognovis.de/dental/CodeSystem/periodontal-measurement-site
+Alias: $pabefund = https://fhir.cognovis.de/dental/CodeSystem/pa-befund-type
+Alias: $parloc = https://fhir.cognovis.de/dental/CodeSystem/par-lockerungsgrad
 
 Instance: ExamplePeriodontalObservation
 InstanceOf: PeriodontalObservationDE
@@ -134,3 +136,7 @@ Description: "6-Punkt-Sondierungstiefe, Rezession und BOP fuer Zahn 16 (erster o
 * component[furcation].code = $sct#109728009
 * component[furcation].code.text = "Furkationsbeteiligung"
 * component[furcation].valueInteger = 2
+
+// Canonical mobility without suppuration
+* component[parLockerungsgrad].code = $pabefund#par-lockerungsgrad
+* component[parLockerungsgrad].valueCodeableConcept = $parloc#II

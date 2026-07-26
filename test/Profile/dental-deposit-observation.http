@@ -1,0 +1,22 @@
+@fhirServer = http://localhost:8080
+
+### Validate tooth deposit
+POST {{fhirServer}}/fhir/Observation/$validate?profile=https://fhir.cognovis.de/dental/StructureDefinition/dental-deposit-observation
+Authorization: {{$processEnv AIDBOX_AUTH}}
+Content-Type: application/fhir+json
+
+< ../../fsh-generated/resources/Observation-ExampleSubgingivalToothDeposit.json
+
+### Validate implant deposit
+POST {{fhirServer}}/fhir/Observation/$validate?profile=https://fhir.cognovis.de/dental/StructureDefinition/dental-deposit-observation
+Authorization: {{$processEnv AIDBOX_AUTH}}
+Content-Type: application/fhir+json
+
+< ../../fsh-generated/resources/Observation-ExampleImplantBiofilmDeposit.json
+
+### Validate pontic deposit
+POST {{fhirServer}}/fhir/Observation/$validate?profile=https://fhir.cognovis.de/dental/StructureDefinition/dental-deposit-observation
+Authorization: {{$processEnv AIDBOX_AUTH}}
+Content-Type: application/fhir+json
+
+< ../../fsh-generated/resources/Observation-ExamplePonticCalculusDeposit.json

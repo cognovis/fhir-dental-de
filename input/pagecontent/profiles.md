@@ -6,6 +6,8 @@ This implementation guide defines the following profiles for German dental pract
 - [DentalFindingDE](StructureDefinition-dental-finding.html) — Zahnärztlicher Befund (Observation)
 - [PeriodontalObservationDE](StructureDefinition-periodontal-observation.html) — Parodontalbefund (Observation)
 - [ProphylaxisObservationDE](StructureDefinition-prophylaxis-observation.html) — Prophylaxe-Befund (Observation)
+- [DentalDepositObservationDE](StructureDefinition-dental-deposit-observation.html) — Klinischer Belagstyp und zweiachsige Lokalisation (Observation)
+- [RadiographicBoneLossObservationDE](StructureDefinition-radiographic-bone-loss-observation.html) — Röntgenologischer Knochenabbau mit Grading-Evidenz (Observation)
 - [OralHealthScreeningDE](StructureDefinition-oral-health-screening.html) — Oral Health Screening: parafunktionale Habits, orale Risikofaktoren, systemische Screening-Befunde (Observation)
 - [DentalConditionDE](StructureDefinition-dental-condition.html) — Zahnärztliche Diagnose (Condition)
 - [DentalProcedureDE](StructureDefinition-dental-procedure.html) — Zahnärztliche Behandlung (Procedure)
@@ -22,6 +24,8 @@ Dental billing cases reuse [AccountPraxisSchein](https://fhir.cognovis.de/praxis
 
 #### Treatment Plans
 - [DentalCarePlanDE](StructureDefinition-dental-care-plan.html) — Dental Behandlungsplan: HKP, PAR, KFO, ZE, KBR, KGL, PMB (CarePlan, via category[planType])
+
+The PAR and prophylaxis resource boundaries, measurement representation, workflow links, and delegation semantics are described in [PAR and Prophylaxis](par-prophylaxis.html).
 
 #### Supporting Profiles
 - [DentalOrganizationDE](StructureDefinition-dental-organization.html) — Zahnarztpraxis (Organization)

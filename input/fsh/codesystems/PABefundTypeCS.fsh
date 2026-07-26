@@ -11,6 +11,9 @@ Description: "Vendor-neutral component type codes for structured periodontal obs
 
 * #attachment-loss "Attachmentverlust" "Klinischer Attachmentverlust in mm"
 * #bleeding-on-probing "Blutung on Probing" "Blutung nach Sondierung (BOP)"
+* #suppuration-on-probing "Suppuration on probing" "Site-level presence or absence of suppuration on probing"
+* #bone-loss-per-age "Bone loss per age" "Radiographic bone-loss percentage divided by patient age in years"
+* #patient-age-at-measurement "Patient age at measurement" "Age in completed years used for the bone-loss-per-age calculation"
 * #furcation "Furkationsbeteiligung" "Furkationsgrad (0=keine, 1=Klasse I, 2=Klasse II, 3=Klasse III)"
 // PAR-Richtlinie component codes
 * #par-grad "PAR Grad" "PAR-Grad (Schweregrad nach EFP/BSP 2018)"

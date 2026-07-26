@@ -19,6 +19,13 @@ Runtime displays and validation for those SCTIDs come from the gated package `de
 - [Dental Category](CodeSystem-dental-category.html) — Dental resource category marker
 - [Tooth Surfaces](CodeSystem-tooth-surfaces.html) — Zahnflächen (M/D/O/I/B/V/L/P)
 - [BEMA Befundklasse](CodeSystem-bema-befundklasse.html) — Befundklassen (c/k/f/e/b)
+- [Periodontal Measurement Site](CodeSystem-periodontal-measurement-site.html) — Six vendor-neutral tooth measurement sites
+- [PSI Score](CodeSystem-psi-score.html) — PSI scores 0 through 4
+- [Prophylaxis Index Method](CodeSystem-prophylaxis-index-method.html) — API, QHI, PI, SBI, PBI, and GI assessment methods
+- [Dental Deposit Type](CodeSystem-dental-deposit-type.html) — Biofilm and calculus
+- [Dental Deposit Vertical Location](CodeSystem-dental-deposit-vertical-location.html) — Supra-, gingival, and subgingival location
+- [Dental Deposit Surface](CodeSystem-dental-deposit-surface.html) — Tooth, root, implant, and pontic surfaces
+- [Caries Risk Level](CodeSystem-kariesrisiko-level.html) — IG-owned qualitative aggregate caries-risk levels
 
 #### Administrative Code Systems
 - [KZV Regionen](CodeSystem-kzv-regionen.html) — 17 Kassenzahnärztliche Vereinigungen

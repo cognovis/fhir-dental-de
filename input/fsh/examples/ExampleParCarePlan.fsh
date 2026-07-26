@@ -4,6 +4,7 @@
 Alias: $icd10gm = http://fhir.de/CodeSystem/bfarm/icd-10-gm
 Alias: $parStage = https://fhir.cognovis.de/dental/CodeSystem/par-stadium
 Alias: $parPhase = https://fhir.cognovis.de/dental/CodeSystem/par-behandlungs-phase
+Alias: $parGrade = https://fhir.cognovis.de/dental/CodeSystem/par-grad
 
 Instance: ExampleParCarePlan
 InstanceOf: DentalCarePlanDE
@@ -37,8 +38,9 @@ Description: "Parodontologischer Behandlungsplan (PAR-Richtlinie 07/2021) für g
 // Link to Parodontitis-Diagnose (Condition mit par-stadium)
 * addresses[0] = Reference(ExampleParodontitisCondition)
 
-// PA-Statuserhebung (DentalFinding)
-* supportingInfo[0] = Reference(ExampleDentalFinding)
+// Source observations supporting the plan; no six-month invariant is inferred.
+* supportingInfo[0] = Reference(ExampleProphylaxisObservation)
+* supportingInfo[1] = Reference(ExamplePeriodontalObservationPAR)
 
 // Authoritative treatment phases: ATG precedes the active treatment path
 * activity[0].detail.status = #scheduled
@@ -51,6 +53,7 @@ Description: "Parodontologischer Behandlungsplan (PAR-Richtlinie 07/2021) für g
 * activity[1].detail.scheduledTiming.repeat.period = 3
 * activity[1].detail.scheduledTiming.repeat.periodUnit = #mo
 * activity[1].detail.description = "Supportive periodontal therapy recall."
+* activity[1].outcomeReference[0] = Reference(ExampleProphylaxisObservationFollowUp)
 
 // -----------------------------------------------------------------------
 // Inline Parodontitis Condition (referenced by PAR CarePlan)
@@ -65,6 +68,14 @@ Description: "Generalisierte Parodontitis, Stadium II, Grad B (BSP-Klassifikatio
 
 * extension[0].url = "https://fhir.cognovis.de/dental/StructureDefinition/par-stadium"
 * extension[0].valueCodeableConcept = $parStage#II
+* extension[1].url = "https://fhir.cognovis.de/dental/StructureDefinition/par-grade"
+* extension[1].valueCodeableConcept = $parGrade#B
+* extension[2].url = "https://fhir.cognovis.de/dental/StructureDefinition/par-grading-evidence"
+* extension[2].valueReference = Reference(ExampleRadiographicBoneLoss)
+* extension[3].url = "https://fhir.cognovis.de/dental/StructureDefinition/par-grading-evidence"
+* extension[3].valueReference = Reference(ExampleHbA1cForParGrading)
+* extension[4].url = "https://fhir.cognovis.de/dental/StructureDefinition/par-grading-evidence"
+* extension[4].valueReference = Reference(ExampleOralHealthScreening)
 
 * clinicalStatus = http://terminology.hl7.org/CodeSystem/condition-clinical#active "Active"
 * verificationStatus = http://terminology.hl7.org/CodeSystem/condition-ver-status#confirmed "Confirmed"

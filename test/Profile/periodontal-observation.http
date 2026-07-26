@@ -5,6 +5,20 @@ Content-Type: application/fhir+json
 
 < ../../fsh-generated/resources/Observation-ExamplePeriodontalObservationReordered.json
 
+### Validate canonical mobility without suppuration
+POST http://localhost:8080/fhir/Observation/$validate?profile=https://fhir.cognovis.de/dental/StructureDefinition/periodontal-observation
+Authorization: {{$processEnv AIDBOX_AUTH}}
+Content-Type: application/fhir+json
+
+< ../../fsh-generated/resources/Observation-ExamplePeriodontalObservation.json
+
+### Validate canonical mobility with site-identified suppuration
+POST http://localhost:8080/fhir/Observation/$validate?profile=https://fhir.cognovis.de/dental/StructureDefinition/periodontal-observation
+Authorization: {{$processEnv AIDBOX_AUTH}}
+Content-Type: application/fhir+json
+
+< ../../fsh-generated/resources/Observation-ExamplePeriodontalObservationPAR.json
+
 ### Reject periodontal observation without required status and subject
 POST http://localhost:8080/fhir/Observation/$validate?profile=https://fhir.cognovis.de/dental/StructureDefinition/periodontal-observation
 Authorization: Basic YWRtaW46YVZyeFA1TkJyZlRLZWlpdDBxRnpLVzNL

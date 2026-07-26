@@ -121,6 +121,11 @@ Description: "Complete periodontal observation on tooth 16 with PAR-Richtlinie s
 * component[clinicalAttachmentLoss][0].valueQuantity.system = "http://unitsofmeasure.org"
 * component[clinicalAttachmentLoss][0].valueQuantity.code = #mm
 
+// Site-identified suppuration on probing
+* component[suppuration][0].code = $pabefund#suppuration-on-probing
+* component[suppuration][0].extension[measurementSite].valueCodeableConcept = $periodontalSite#distobuccal
+* component[suppuration][0].valueBoolean = true
+
 // Furcation: Grade I
 * component[furcation].code = $sct#109728009
 * component[furcation].code.text = "Furkationsbeteiligung"

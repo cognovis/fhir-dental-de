@@ -9,3 +9,10 @@ This implementation guide defines the following value sets:
 - [Dental Befundstatus](ValueSet-dental-befund-status-vs.html) — KZBV tooth status codes
 - [BEMA Codes](ValueSet-bema-codes.html) — All BEMA billing codes
 - [GOZ Codes](ValueSet-goz-codes.html) — All GOZ billing codes
+- [Periodontal Measurement Site](ValueSet-periodontal-measurement-site.html) — Six explicit measurement sites
+- [PSI Score](ValueSet-psi-score.html) — Required PSI result codes
+- [Prophylaxis Index Method](ValueSet-prophylaxis-index-method.html) — Supported whole-mouth index methods
+- [Caries Risk Level](ValueSet-kariesrisiko-level.html) — Aggregate qualitative caries risk
+- [Dental Deposit Type](ValueSet-dental-deposit-type.html) — Clinical deposit types
+- [Dental Deposit Vertical Location](ValueSet-dental-deposit-vertical-location.html) — Vertical deposit locations
+- [Dental Deposit Surface](ValueSet-dental-deposit-surface.html) — Anatomical deposit surfaces

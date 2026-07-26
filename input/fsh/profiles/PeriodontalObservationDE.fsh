@@ -26,6 +26,7 @@ Description: "Profil fuer parodontale Befunde: 6-Punkt-Sondierungstiefe, Rezessi
     recession 0..6 MS and
     bop 0..6 MS and
     clinicalAttachmentLoss 0..6 MS and
+    suppuration 0..6 MS and
     furcation 0..1 MS and
     parGrad 0..1 MS and
     parBehandlungsphase 0..* MS and
@@ -58,6 +59,11 @@ Description: "Profil fuer parodontale Befunde: 6-Punkt-Sondierungstiefe, Rezessi
 * component[clinicalAttachmentLoss].valueQuantity.system = "http://unitsofmeasure.org"
 * component[clinicalAttachmentLoss].valueQuantity.code = #mm
 * component[clinicalAttachmentLoss].extension contains PeriodontalMeasurementSiteExt named measurementSite 1..1 MS
+
+// Suppuration on probing is optional and site-identified.
+* component[suppuration].code = https://fhir.cognovis.de/dental/CodeSystem/pa-befund-type#suppuration-on-probing
+* component[suppuration].value[x] only boolean
+* component[suppuration].extension contains PeriodontalMeasurementSiteExt named measurementSite 1..1 MS
 
 // Furcation involvement: Furkationsgrad (0-3)
 * component[furcation].code = http://snomed.info/sct#109728009
@@ -93,3 +99,7 @@ Description: "Profil fuer parodontale Befunde: 6-Punkt-Sondierungstiefe, Rezessi
 * component[parBehandlungsbeduerftigkeit].code.text = "PAR Behandlungsbeduerftigkeit"
 * component[parBehandlungsbeduerftigkeit].value[x] only CodeableConcept
 * component[parBehandlungsbeduerftigkeit].valueCodeableConcept from https://fhir.cognovis.de/dental/ValueSet/par-behandlungsbeduerftigkeit (required)
+
+// Preserve measurement authorship without requiring it when the source omitted it.
+* performer MS
+* performer only Reference(Practitioner or PractitionerRole or Organization)
