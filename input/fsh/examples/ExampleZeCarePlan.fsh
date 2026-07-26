@@ -34,7 +34,7 @@ Description: "Zahnersatz-Behandlungsplan für dreigliedrige Brücke Zahn 35-37. 
 
 * title = "ZE-Plan: Brückenversorgung Zahn 35-37 — gleichartig"
 
-* description = "Zahnersatz-Behandlungsplan gemäß Festzuschuss-Richtlinie §56 SGB V. Zahn 36 fehlend (Befundkürzel x). Geplante Versorgung: Keramikbrücke 35-37 (gleichartige Versorgung). Festzuschuss: 50% + 20% Bonus (10 Jahre Bonusheft lückenlos). Eigenanteil Regelversorgung 180 €, Eigenanteil gleichartig 320 €. Eigenanteile werden in der zugehörigen Claim-Ressource über eigenanteil-regelversorgung und eigenanteil-gleichartig Extensions erfasst."
+* description = "Zahnersatz-Behandlungsplan gemäß Festzuschuss-Richtlinie. Zahn 36 fehlend (Befundkürzel x). Geplante Versorgung: Keramikbrücke 35-37 (gleichartige Versorgung). Festzuschuss: 75% nach zehnjährigem Vorsorgenachweis. Eigenanteil Regelversorgung 180 €, Eigenanteil gleichartig 320 €. Eigenanteile werden in der zugehörigen Claim-Ressource über eigenanteil-regelversorgung und eigenanteil-gleichartig Extensions erfasst."
 
 
 // -----------------------------------------------------------------------
@@ -46,8 +46,8 @@ Usage: #example
 Title: "Beispiel ZE-Eigenanteil Claim — Brücke Zahn 35-37"
 Description: "Claim-Ressource für ZE-Abrechnung Brücke Zahn 35-37. Demonstriert eigenanteil-regelversorgung, eigenanteil-gleichartig und ze-bonus-prozent Extensions. Patientin Aylin Özdemir (GKV+ZZV)."
 
-// ze-bonus-prozent: 70% (10 Jahre lückenlose Bonusheft-Dokumentation)
-* extension[https://fhir.cognovis.de/dental/StructureDefinition/ze-bonus-prozent].valueInteger = 70
+// ze-bonus-prozent: 75% (10 years of documented preventive examinations)
+* extension[https://fhir.cognovis.de/dental/StructureDefinition/ze-bonus-prozent].valueInteger = 75
 
 // eigenanteil-regelversorgung: 180 EUR (Differenz Regelversorgung minus Festzuschuss)
 * extension[https://fhir.cognovis.de/dental/StructureDefinition/eigenanteil-regelversorgung].valueMoney.value = 180.00
@@ -83,8 +83,8 @@ Usage: #example
 Title: "Beispiel ZE-Eigenanteil Claim — andersartige Versorgung"
 Description: "Claim-Ressource für ZE-Abrechnung mit andersartiger Versorgung (Vollkeramikkrone statt NEM-Regelversorgung). Demonstriert eigenanteil-andersartig Extension. Patientin Aylin Özdemir (GKV+ZZV)."
 
-// ze-bonus-prozent: 70% (10 Jahre lückenlose Bonusheft-Dokumentation)
-* extension[https://fhir.cognovis.de/dental/StructureDefinition/ze-bonus-prozent].valueInteger = 70
+// ze-bonus-prozent: 75% (10 years of documented preventive examinations)
+* extension[https://fhir.cognovis.de/dental/StructureDefinition/ze-bonus-prozent].valueInteger = 75
 
 // eigenanteil-regelversorgung: 180 EUR (Differenz Regelversorgung minus Festzuschuss)
 * extension[https://fhir.cognovis.de/dental/StructureDefinition/eigenanteil-regelversorgung].valueMoney.value = 180.00

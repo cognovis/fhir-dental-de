@@ -1,0 +1,10 @@
+### General Dentistry refset - Validate member
+# The stable canonical is provided by de.cognovis.terminology.dental.snomed@1.2.0.
+# Expected: result=true
+GET http://localhost:8080/fhir/ValueSet/$validate-code?url=https://fhir.cognovis.de/terminology/ValueSet/snomed-refset-721144007&system=http://snomed.info/sct&code=80967001
+Authorization: Basic basic:secret
+
+### General Dentistry refset - Reject code outside installed universe
+# Expected: result=false
+GET http://localhost:8080/fhir/ValueSet/$validate-code?url=https://fhir.cognovis.de/terminology/ValueSet/snomed-refset-721144007&system=http://snomed.info/sct&code=404684003
+Authorization: Basic basic:secret

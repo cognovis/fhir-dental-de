@@ -35,9 +35,9 @@ Description: "Generisches Profil fuer Dental-Behandlungsplaene. Unterscheidet Pl
 * status MS
 * status ^short = "Planstatus: draft | active | revoked"
 
-// --- Intent: immer plan ---
-* intent = #plan
-* intent ^short = "Planabsicht: immer 'plan'"
+// --- Intent: alternatives remain options until one plan is selected ---
+* intent MS
+* intent ^short = "Request intent: 'option' for an unselected alternative, 'plan' for the selected plan"
 
 // --- Category: zwei Slices — dental (Pflicht) + planType (Pflicht) ---
 * category ^slicing.discriminator.type = #pattern

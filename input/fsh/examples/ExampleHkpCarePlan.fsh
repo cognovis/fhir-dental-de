@@ -34,4 +34,4 @@ Description: "Heil- und Kostenplan (HKP) für Brückenversorgung Zahn 35-37 (Zah
 
 * title = "HKP: Brückenversorgung Zahn 35-37"
 
-* description = "Heil- und Kostenplan für dreigliedrige Brücke (Zahn 35-37, Zahn 36 fehlend). Befundkürzel: x (fehlender Zahn). Geplante Versorgung: Regelversorgung VMK-Brücke. Festzuschuss 50% + 20% Bonus (10 Jahre Bonusheft). Genehmigt durch Barmer am 2026-02-01. eHKP-Referenz: eHKP-2026-00123."
+* description = "Heil- und Kostenplan für dreigliedrige Brücke (Zahn 35-37, Zahn 36 fehlend). Befundkürzel: x (fehlender Zahn). Geplante Versorgung: Regelversorgung VMK-Brücke. Festzuschuss 75% nach zehnjährigem Vorsorgenachweis. Genehmigt durch Barmer am 2026-02-01. eHKP-Referenz: eHKP-2026-00123."

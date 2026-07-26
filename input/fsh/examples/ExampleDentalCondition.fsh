@@ -38,3 +38,24 @@ Description: "Kariesdiagnose K02.1 (Karies des Dentins) an Zahn 46 (erster unter
 
 // Evidence: link to the PSI finding observation
 * evidence[0].detail = Reference(ExampleDentalFinding)
+
+// Surface-specific diagnosis. Surfaces are extensions of the tooth bodySite,
+// never top-level Condition extensions.
+Instance: ExampleDentalConditionSurfaceSpecific
+InstanceOf: Condition
+Usage: #example
+Title: "Beispiel flächenspezifische Kariesdiagnose Zahn 36"
+Description: "Bestätigte Dentinkaries an Zahn 36 mit mesialer und okklusaler Beteiligung. Konform zu DentalConditionDE."
+
+* meta.profile[0] = "https://fhir.cognovis.de/dental/StructureDefinition/dental-condition"
+* clinicalStatus = http://terminology.hl7.org/CodeSystem/condition-clinical#active
+* verificationStatus = http://terminology.hl7.org/CodeSystem/condition-ver-status#confirmed
+* category[0] = https://fhir.cognovis.de/dental/CodeSystem/dental-category#dental
+* code = $icd10gm#K02.1
+* subject = Reference(Patient/pat-gkv-01)
+* recordedDate = "2026-07-26"
+* bodySite[0] = $fdiCS#36
+* bodySite[0].extension[0].url = "https://fhir.cognovis.de/dental/StructureDefinition/tooth-surfaces"
+* bodySite[0].extension[0].valueCodeableConcept = https://fhir.cognovis.de/dental/CodeSystem/tooth-surfaces#M
+* bodySite[0].extension[1].url = "https://fhir.cognovis.de/dental/StructureDefinition/tooth-surfaces"
+* bodySite[0].extension[1].valueCodeableConcept = https://fhir.cognovis.de/dental/CodeSystem/tooth-surfaces#O

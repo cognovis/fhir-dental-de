@@ -58,6 +58,12 @@ pages:
     title: Periodontal Measurements
   par-prophylaxis.md:
     title: PAR and Prophylaxis Exchange
+  billing-legal-sources.md:
+    title: Billing and Legal Sources
+  goz-honorarvereinbarung.md:
+    title: GOZ Fee Agreement
+  mischrechnung.md:
+    title: Dental Mixed Billing Claim
   lab-orders.md:
     title: Clinical Lab Orders
   sws-mapping.md:
@@ -149,6 +155,9 @@ menu:
   Use Cases: usecases.html
   Periodontal Measurements: periodontal-measurements.html
   PAR and Prophylaxis: par-prophylaxis.html
+  Billing and Legal Sources: billing-legal-sources.html
+  GOZ Fee Agreement: goz-honorarvereinbarung.html
+  Dental Mixed Billing Claim: mischrechnung.html
   SWS 2.0 Mapping: sws-mapping.html
   International Interoperability: international-interoperability.html
   Artifacts: artifacts.html
