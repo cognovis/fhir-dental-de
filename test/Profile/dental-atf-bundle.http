@@ -99,7 +99,7 @@ Content-Type: application/fhir+json
             {
               "code": "32910-2",
               "system": "http://loinc.org",
-              "display": "Periodontal pocket depth [Length] Mouth by Periodontal probing"
+              "display": "Probing depth {Tooth}.{probe site} Measured"
             }
           ]
         },
@@ -349,7 +349,7 @@ Content-Type: application/fhir+json
             {
               "code": "32910-2",
               "system": "http://loinc.org",
-              "display": "Periodontal pocket depth [Length] Mouth by Periodontal probing"
+              "display": "Probing depth {Tooth}.{probe site} Measured"
             }
           ]
         },

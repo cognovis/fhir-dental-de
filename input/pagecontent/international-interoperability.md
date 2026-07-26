@@ -103,12 +103,12 @@ against the release they actually exchange.
 | DentalConditionDE | Condition | Dental Condition | Both are Condition-based. DE binds `code` to ICD-10-GM; DDEx uses US-oriented diagnosis and finding terminologies. |
 | DentalProcedureDE | Procedure | US Core Procedure used by DDEx examples | DE uses BEMA/GOZ procedure codes; DDEx does not define a dental Procedure profile. No 1:1 billing-code mapping exists. |
 | DentalCommunicationDE | Communication | Dental Communication | Structurally aligned. Both carry dental-category payload. |
-| BemaChargeItemDE | ChargeItem | *(no US equivalent)* | GKV billing (BEMA). US uses Claim directly; ChargeItem is not profiled in the US IG. |
-| GozChargeItemDE | ChargeItem | *(no US equivalent)* | PKV billing (GOZ) with fee multiplier (`Steigerungsfaktor`). No US counterpart. |
+| BemaChargeItemDE | ChargeItem | *(no DDEx equivalent)* | GKV billing (BEMA). US uses Claim directly; ChargeItem is not profiled in the US IG. |
+| GozChargeItemDE | ChargeItem | *(no DDEx equivalent)* | PKV billing (GOZ) with fee multiplier (`Steigerungsfaktor`). No US counterpart. |
 | DentalCarePlanDE (type: hkp) | CarePlan | *(no DDEx equivalent)* | Treatment plan / prior authorization. US authorization uses [Da Vinci PAS 2.2.1](https://hl7.org/fhir/us/davinci-pas/), not DDEx. |
-| DentalCarePlanDE (type: kfo) | CarePlan | *(no US equivalent)* | Orthodontic treatment plan with KIG classification. |
-| DentalCarePlanDE (type: par) | CarePlan | *(no US equivalent)* | Periodontal treatment plan (PAR-Richtlinie). |
-| DentalCarePlanDE (type: ze) | CarePlan | *(no US equivalent)* | Dental prosthetics plan (Zahnersatz HKP). |
+| DentalCarePlanDE (type: kfo) | CarePlan | *(no DDEx equivalent)* | Orthodontic treatment plan with KIG classification. |
+| DentalCarePlanDE (type: par) | CarePlan | *(no DDEx equivalent)* | Periodontal treatment plan (PAR-Richtlinie). |
+| DentalCarePlanDE (type: ze) | CarePlan | *(no DDEx equivalent)* | Dental prosthetics plan (Zahnersatz HKP). |
 
 ## Terminology Mapping
 

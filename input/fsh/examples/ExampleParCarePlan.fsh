@@ -78,7 +78,7 @@ Description: "Generalisierte Parodontitis, Stadium II, Grad B (BSP-Klassifikatio
 
 * category[dental] = https://fhir.cognovis.de/dental/CodeSystem/dental-category#dental "Dental"
 
-* code = $icd10gm#K05.31 "Chronische Parodontitis, generalisiert"
+* code = $icd10gm#K05.3 "Chronische Parodontitis"
 * code.coding.version = "2026"
 * code.text = "Generalisierte chronische Parodontitis, Stadium II, Grad B"
 

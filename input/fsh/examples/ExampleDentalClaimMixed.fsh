@@ -6,6 +6,9 @@ Usage: #example
 Title: "Beispiel Zahnzusatzversicherung Aylin Özdemir"
 Description: "Secondary private dental coverage used by the mixed-claim example."
 * status = #active
+// The required German base ValueSet has no supplementary-insurance concept.
+// PKV is the least-lossy available type; type.text and non-focal sequencing
+// preserve that this is supplementary coverage for a GKV-insured patient.
 * type.coding[VersicherungsArtDeBasis].system = "http://fhir.de/CodeSystem/versicherungsart-de-basis"
 * type.coding[VersicherungsArtDeBasis].code = #PKV
 * type.coding[VersicherungsArtDeBasis].display = "private Krankenversicherung"

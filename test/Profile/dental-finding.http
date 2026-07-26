@@ -34,7 +34,7 @@ Content-Type: application/fhir+json
       {
         "code": "32910-2",
         "system": "http://loinc.org",
-        "display": "Periodontal pocket depth [Length] Mouth by Periodontal probing"
+        "display": "Probing depth {Tooth}.{probe site} Measured"
       }
     ]
   },
@@ -69,7 +69,7 @@ Content-Type: application/fhir+json
           {
             "code": "32910-2",
             "system": "http://loinc.org",
-            "display": "Probing depth"
+            "display": "Probing depth {Tooth}.{probe site} Measured"
           }
         ],
         "text": "Sondierungstiefe mesio-bukkal"
@@ -87,7 +87,7 @@ Content-Type: application/fhir+json
           {
             "code": "32910-2",
             "system": "http://loinc.org",
-            "display": "Probing depth"
+            "display": "Probing depth {Tooth}.{probe site} Measured"
           }
         ],
         "text": "Sondierungstiefe bukkal"
@@ -105,7 +105,7 @@ Content-Type: application/fhir+json
           {
             "code": "32910-2",
             "system": "http://loinc.org",
-            "display": "Probing depth"
+            "display": "Probing depth {Tooth}.{probe site} Measured"
           }
         ],
         "text": "Sondierungstiefe disto-bukkal"
@@ -123,7 +123,7 @@ Content-Type: application/fhir+json
           {
             "code": "32910-2",
             "system": "http://loinc.org",
-            "display": "Probing depth"
+            "display": "Probing depth {Tooth}.{probe site} Measured"
           }
         ],
         "text": "Sondierungstiefe mesio-lingual"
@@ -141,7 +141,7 @@ Content-Type: application/fhir+json
           {
             "code": "32910-2",
             "system": "http://loinc.org",
-            "display": "Probing depth"
+            "display": "Probing depth {Tooth}.{probe site} Measured"
           }
         ],
         "text": "Sondierungstiefe lingual"
@@ -159,7 +159,7 @@ Content-Type: application/fhir+json
           {
             "code": "32910-2",
             "system": "http://loinc.org",
-            "display": "Probing depth"
+            "display": "Probing depth {Tooth}.{probe site} Measured"
           }
         ],
         "text": "Sondierungstiefe disto-lingual"
@@ -209,7 +209,7 @@ Content-Type: application/fhir+json
       {
         "code": "32910-2",
         "system": "http://loinc.org",
-        "display": "Periodontal pocket depth [Length] Mouth by Periodontal probing"
+        "display": "Probing depth {Tooth}.{probe site} Measured"
       }
     ]
   },
@@ -241,7 +241,7 @@ Content-Type: application/fhir+json
           {
             "code": "32910-2",
             "system": "http://loinc.org",
-            "display": "Probing depth"
+            "display": "Probing depth {Tooth}.{probe site} Measured"
           }
         ],
         "text": "Sondierungstiefe mesio-bukkal"
@@ -259,7 +259,7 @@ Content-Type: application/fhir+json
           {
             "code": "32910-2",
             "system": "http://loinc.org",
-            "display": "Probing depth"
+            "display": "Probing depth {Tooth}.{probe site} Measured"
           }
         ],
         "text": "Sondierungstiefe bukkal"
@@ -277,7 +277,7 @@ Content-Type: application/fhir+json
           {
             "code": "32910-2",
             "system": "http://loinc.org",
-            "display": "Probing depth"
+            "display": "Probing depth {Tooth}.{probe site} Measured"
           }
         ],
         "text": "Sondierungstiefe disto-bukkal"
@@ -295,7 +295,7 @@ Content-Type: application/fhir+json
           {
             "code": "32910-2",
             "system": "http://loinc.org",
-            "display": "Probing depth"
+            "display": "Probing depth {Tooth}.{probe site} Measured"
           }
         ],
         "text": "Sondierungstiefe mesio-lingual"
@@ -313,7 +313,7 @@ Content-Type: application/fhir+json
           {
             "code": "32910-2",
             "system": "http://loinc.org",
-            "display": "Probing depth"
+            "display": "Probing depth {Tooth}.{probe site} Measured"
           }
         ],
         "text": "Sondierungstiefe lingual"
@@ -331,7 +331,7 @@ Content-Type: application/fhir+json
           {
             "code": "32910-2",
             "system": "http://loinc.org",
-            "display": "Probing depth"
+            "display": "Probing depth {Tooth}.{probe site} Measured"
           }
         ],
         "text": "Sondierungstiefe disto-lingual"

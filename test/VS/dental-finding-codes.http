@@ -1,6 +1,6 @@
 ### ValueSet: DentalFindingCodesVS - Expand SCTID-only pick list
 # VS URL: https://fhir.cognovis.de/dental/ValueSet/dental-finding-codes
-# Expected: expansion.contains has 11 SNOMED CT entries without public displays
+# Expected: expansion.contains has 18 SNOMED CT entries without public displays
 GET http://localhost:8080/ValueSet/dental-finding-codes/$expand
 Authorization: Basic basic:secret
 
@@ -8,6 +8,12 @@ Authorization: Basic basic:secret
 # System: http://snomed.info/sct
 # Expected: result=true
 GET http://localhost:8080/ValueSet/$validate-code?url=https://fhir.cognovis.de/dental/ValueSet/dental-finding-codes&system=http://snomed.info/sct&code=80967001
+Authorization: Basic basic:secret
+
+### ValueSet: DentalFindingCodesVS - Validate Alveolar Bone Loss
+# System: http://snomed.info/sct
+# Expected: result=true
+GET http://localhost:8080/ValueSet/$validate-code?url=https://fhir.cognovis.de/dental/ValueSet/dental-finding-codes&system=http://snomed.info/sct&code=109706009
 Authorization: Basic basic:secret
 
 ### ValueSet: DentalFindingCodesVS - Validate Invalid Code

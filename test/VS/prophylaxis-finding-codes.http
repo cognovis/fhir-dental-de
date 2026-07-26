@@ -7,41 +7,35 @@ Authorization: Basic basic:secret
 ### ValueSet: ProphylaxisFindingCodesVS - Validate Valid Code (18949003)
 # System: http://snomed.info/sct
 # Expected: result=true
-# Actual: result=True
 GET http://localhost:8080/ValueSet/$validate-code?url=https://fhir.cognovis.de/dental/ValueSet/prophylaxis-finding-codes&system=http://snomed.info/sct&code=18949003
 Authorization: Basic basic:secret
 
-### ValueSet: ProphylaxisFindingCodesVS - Validate Valid Code (37397005)
+### ValueSet: ProphylaxisFindingCodesVS - Validate Valid Code (364126007)
 # System: http://snomed.info/sct
 # Expected: result=true
-# Actual: result=True
-GET http://localhost:8080/ValueSet/$validate-code?url=https://fhir.cognovis.de/dental/ValueSet/prophylaxis-finding-codes&system=http://snomed.info/sct&code=37397005
+GET http://localhost:8080/ValueSet/$validate-code?url=https://fhir.cognovis.de/dental/ValueSet/prophylaxis-finding-codes&system=http://snomed.info/sct&code=364126007
 Authorization: Basic basic:secret
 
-### ValueSet: ProphylaxisFindingCodesVS - Validate Valid Code (34552-0)
+### ValueSet: ProphylaxisFindingCodesVS - Validate Valid Code (8704-9)
 # System: http://loinc.org
 # Expected: result=true
-# Actual: result=True
-GET http://localhost:8080/ValueSet/$validate-code?url=https://fhir.cognovis.de/dental/ValueSet/prophylaxis-finding-codes&system=http://loinc.org&code=34552-0
+GET http://localhost:8080/ValueSet/$validate-code?url=https://fhir.cognovis.de/dental/ValueSet/prophylaxis-finding-codes&system=http://loinc.org&code=8704-9
 Authorization: Basic basic:secret
 
 ### ValueSet: ProphylaxisFindingCodesVS - Validate Valid Code (32953-2)
 # System: http://loinc.org
 # Expected: result=true
-# Actual: result=True
 GET http://localhost:8080/ValueSet/$validate-code?url=https://fhir.cognovis.de/dental/ValueSet/prophylaxis-finding-codes&system=http://loinc.org&code=32953-2
 Authorization: Basic basic:secret
 
 ### ValueSet: ProphylaxisFindingCodesVS - Validate Valid Code (32951-6)
 # System: http://loinc.org
 # Expected: result=true
-# Actual: result=True
 GET http://localhost:8080/ValueSet/$validate-code?url=https://fhir.cognovis.de/dental/ValueSet/prophylaxis-finding-codes&system=http://loinc.org&code=32951-6
 Authorization: Basic basic:secret
 
 ### ValueSet: ProphylaxisFindingCodesVS - Validate Invalid Code
 # System: http://loinc.org
 # Expected: result=false
-# Actual: result=False
 GET http://localhost:8080/ValueSet/$validate-code?url=https://fhir.cognovis.de/dental/ValueSet/prophylaxis-finding-codes&system=http://loinc.org&code=INVALID_XYZ
 Authorization: Basic basic:secret

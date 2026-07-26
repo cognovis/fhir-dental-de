@@ -9,6 +9,11 @@ const repositoryRoot = process.cwd();
 const invalidCodes = [
   ["32884", "-9"].join(""),
   ["95570", "007"].join(""),
+  ["K05", ".31"].join(""),
+];
+const invalidDisplays = [
+  "Periodontal pocket depth [Length] Mouth by Periodontal probing",
+  '"display": "Probing depth"',
 ];
 const activeExtensions = new Set([".fsh", ".http", ".md", ".json"]);
 
@@ -35,9 +40,12 @@ function scan(paths) {
   const violations = paths.flatMap((path) =>
     collectFiles(path).flatMap((file) => {
       const content = readFileSync(file, "utf8");
-      return invalidCodes
-        .filter((code) => content.includes(code))
-        .map((code) => `${relative(repositoryRoot, file)} contains ${code}`);
+      return [...invalidCodes, ...invalidDisplays]
+        .filter((fragment) => content.includes(fragment))
+        .map(
+          (fragment) =>
+            `${relative(repositoryRoot, file)} contains ${fragment}`,
+        );
     }),
   );
   assert(
@@ -70,6 +78,10 @@ const requiredFragments = new Map([
     "http://snomed.info/sct#109706009",
   ],
   [
+    "input/fsh/valuesets/DentalFindingCodesVS.fsh",
+    "* $sct#109706009",
+  ],
+  [
     "input/fsh/valuesets/PeriodontalFindingCodesVS.fsh",
     '$loinc#32910-2 "Probing depth {Tooth}.{probe site} Measured"',
   ],
@@ -84,6 +96,14 @@ const requiredFragments = new Map([
   [
     "input/fsh/valuesets/ProphylaxisFindingCodesVS.fsh",
     '$loinc#32951-6 "Bleeding on probing index Gingiva Calculated"',
+  ],
+  [
+    "input/fsh/examples/ExampleParCarePlan.fsh",
+    '$icd10gm#K05.3 "Chronische Parodontitis"',
+  ],
+  [
+    "input/fsh/examples/ExampleDentalImagingStudy.fsh",
+    'icd-10-gm#K05.3 "Chronische Parodontitis"',
   ],
 ]);
 

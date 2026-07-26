@@ -1,7 +1,12 @@
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 
-const resourceDirectory = join(process.cwd(), "fsh-generated", "resources");
+const repositoryRoot = process.cwd();
+const resourceDirectory = join(
+  repositoryRoot,
+  "fsh-generated",
+  "resources",
+);
 const gradingExtensionUrl =
   "https://fhir.cognovis.de/dental/StructureDefinition/par-grading-evidence";
 
@@ -15,6 +20,66 @@ function assert(condition, message) {
   if (!condition) {
     throw new Error(message);
   }
+}
+
+function readSource(relativePath) {
+  return readFileSync(join(repositoryRoot, relativePath), "utf8");
+}
+
+const extensionSource = readSource(
+  "input/fsh/extensions/ParGradingEvidenceExt.fsh",
+);
+assert(
+  extensionSource.includes("* ^status = #retired"),
+  "The duplicate PAR grading evidence extension is not retired in FSH",
+);
+
+const conditionSource = readSource(
+  "input/fsh/examples/ExampleParCarePlan.fsh",
+);
+assert(
+  !conditionSource.includes(gradingExtensionUrl),
+  "The active PAR Condition still uses the retired grading extension in FSH",
+);
+for (const evidenceRule of [
+  "* evidence[0].detail[0] = Reference(ExampleRadiographicBoneLoss)",
+  "* evidence[0].detail[1] = Reference(ExampleHbA1cForParGrading)",
+  "* evidence[0].detail[2] = Reference(ExampleSmokingStatusForParGrading)",
+]) {
+  assert(
+    conditionSource.includes(evidenceRule),
+    `The PAR Condition FSH is missing ${evidenceRule}`,
+  );
+}
+
+const evidenceSource = readSource(
+  "input/fsh/examples/ExampleParGradingEvidence.fsh",
+);
+assert(
+  evidenceSource.includes("InstanceOf: HbA1cObservationDE"),
+  "The PAR HbA1c FSH does not reuse HbA1cObservationDE",
+);
+assert(
+  evidenceSource.includes("InstanceOf: SmokingStatusDE"),
+  "The PAR smoking FSH does not reuse SmokingStatusDE",
+);
+
+const screeningSource = readSource(
+  "input/fsh/examples/ExampleOralHealthScreening.fsh",
+);
+assert(
+  screeningSource.includes(
+    "derivedFrom[0] = Reference(ExampleSmokingStatusForParGrading)",
+  ),
+  "The oral-screening FSH is not linked to its source Observation",
+);
+
+if (
+  process.argv.includes("--source-only") ||
+  !existsSync(resourceDirectory)
+) {
+  console.log("Periodontal evidence source checks passed");
+  process.exit(0);
 }
 
 const gradingExtension = readResource(
