@@ -54,6 +54,8 @@ pages:
     title: Value Sets
   usecases.md:
     title: Use Cases
+  billing-legal-sources.md:
+    title: Billing and Legal Sources
   lab-orders.md:
     title: Clinical Lab Orders
   sws-mapping.md:
@@ -143,6 +145,7 @@ menu:
     Code Systems: codesystems.html
     Value Sets: valuesets.html
   Use Cases: usecases.html
+  Billing and Legal Sources: billing-legal-sources.html
   SWS 2.0 Mapping: sws-mapping.html
   International Interoperability: international-interoperability.html
   Artifacts: artifacts.html
