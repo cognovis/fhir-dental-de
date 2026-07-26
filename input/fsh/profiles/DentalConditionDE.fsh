@@ -24,6 +24,16 @@ ToothSurfacesExt am zugehörigen bodySite.
 * ^experimental = false
 * ^publisher = "cognovis GmbH"
 
+// Lifecycle elements remain optional because producers must not invent values
+// that are absent from the source. Inherited cardinalities, bindings, and
+// Condition invariants (including con-5 for entered-in-error) remain unchanged.
+* clinicalStatus MS
+* clinicalStatus ^definition = "Klinischer Status der Diagnose, sofern im Quellsystem vorhanden. Bei verificationStatus = entered-in-error muss clinicalStatus gemäß der geerbten FHIR-Invariante con-5 fehlen."
+* verificationStatus MS
+* verificationStatus ^definition = "Verifikationsstatus der Diagnose, sofern im Quellsystem vorhanden. Ein fehlender Quellwert darf nicht synthetisiert werden."
+* encounter MS
+* encounter ^definition = "Behandlungskontakt, in dessen Kontext die Diagnose festgestellt wurde, sofern die Quelle diesen Zusammenhang führt. Für longitudinale Diagnosen darf encounter fehlen."
+
 // Category: dental (zusätzlich zu encounter-diagnosis etc.)
 * category 1..* MS
 * category ^slicing.discriminator.type = #pattern
@@ -51,6 +61,18 @@ ToothSurfacesExt am zugehörigen bodySite.
 * stage MS
 * stage.summary from DentalBefundStatusVS (preferred)
 * stage.summary ^short = "Befundstatus nach KZBV-Zahnschema (f, z, c, k, b, i, etc.)"
+
+// Authorship is optional but auditable when present. Asserter identifies the
+// diagnosing dental professional; recorder identifies the person who entered
+// the record. Qualification cannot be proven by isolated Condition validation.
+* asserter MS
+* asserter only Reference(DentalPractitionerDE or DentalPractitionerRoleDE)
+* asserter ^short = "Diagnoseverantwortliche zahnärztliche Person"
+* asserter ^definition = "Person oder Rolle, die die Diagnose fachlich feststellt. Die zahnärztliche Qualifikation muss über aufgelöste Referenzen oder Anwendungs- beziehungsweise Serverrichtlinien geprüft werden; die isolierte Condition-Validierung garantiert sie nicht."
+* recorder MS
+* recorder only Reference(Practitioner or PractitionerRole)
+* recorder ^short = "Dokumentierende Person oder Rolle"
+* recorder ^definition = "Person oder Rolle, die den Datensatz erfasst. recorder ist semantisch von asserter zu unterscheiden und darf fehlen, wenn die Quelle keine dokumentierende Person führt."
 
 // Evidence: link to DentalFinding observations
 * evidence MS
