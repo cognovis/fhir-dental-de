@@ -41,7 +41,7 @@ The [MedMij R4 Dental Care IG](https://simplifier.net/guide/medmij-r4-dentalcare
 |---|---|---|
 | Procedure codes | BEMA + GOZ (German statutory/private) | Vektis Prestatiecodelijst Mondzorg 010 (Dutch) |
 | Diagnosis codes | ICD-10-GM (required) | SNOMED CT (via nl-core-Condition) |
-| Observation codes | LOINC + SNOMED CT (extensible) | SNOMED CT (fixed per profile) |
+| Observation codes | Curated SNOMED CT pick list (extensible; additional codes such as LOINC remain permitted) | SNOMED CT (fixed per profile) |
 | Tooth numbering | FDI (ISO 3950) with dual SNOMED coding | Not explicitly exposed in IG |
 | Tooth surfaces | Custom + SNOMED CT dual coding | Not profiled |
 
@@ -217,7 +217,7 @@ This IG is scoped to the German healthcare system (`jurisdiction: DE`). However,
 
 The following profiles use international coding systems and can be adopted in Austria and Switzerland without modification:
 
-- **DentalFindingDE** / **PeriodontalObservationDE** / **ProphylaxisObservationDE** — FDI tooth numbering (ISO 3950) is used in all three countries. SNOMED CT and LOINC observation codes are internationally valid.
+- **DentalFindingDE** / **PeriodontalObservationDE** / **ProphylaxisObservationDE** — FDI tooth numbering (ISO 3950) is used in all three countries. DentalFindingDE exposes an SCTID-only SNOMED CT pick list; its extensible binding and the specialized profiles still permit internationally valid codes such as LOINC where the curated list does not represent the observation.
 - **DentalConditionDE** — ICD-10-GM (German modification) shares a common WHO ICD-10 stem with the Austrian and Swiss variants. Dental diagnoses (K00-K14) are largely identical across all three national ICD-10 editions.
 - **DentalProcedureDE** — The Procedure resource structure is country-neutral. Only the `code` binding (BEMA/GOZ) is Germany-specific.
 - **DentalImagingStudyDE** — DICOM modality codes are international. FDI tooth numbering in `series.bodySite` works across DACH.
