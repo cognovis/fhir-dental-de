@@ -56,6 +56,8 @@ pages:
     title: Use Cases
   billing-legal-sources.md:
     title: Billing and Legal Sources
+  goz-honorarvereinbarung.md:
+    title: GOZ Fee Agreement
   lab-orders.md:
     title: Clinical Lab Orders
   sws-mapping.md:
@@ -146,6 +148,7 @@ menu:
     Value Sets: valuesets.html
   Use Cases: usecases.html
   Billing and Legal Sources: billing-legal-sources.html
+  GOZ Fee Agreement: goz-honorarvereinbarung.html
   SWS 2.0 Mapping: sws-mapping.html
   International Interoperability: international-interoperability.html
   Artifacts: artifacts.html
