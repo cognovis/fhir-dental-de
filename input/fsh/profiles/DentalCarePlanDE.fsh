@@ -82,6 +82,7 @@ Description: "Generisches Profil fuer Dental-Behandlungsplaene. Unterscheidet Pl
     EhkpIdExt named ehkpId 0..1 MS and
     KfoBehandlungsphaseExt named kfoBehandlungsphase 0..1 MS and
     KfoApparatusTypeExt named kfoApparatusType 0..1 MS and
+    ParTreatmentPhaseExt named parTreatmentPhase 0..1 MS and
     ParUptIntervallExt named parUptIntervall 0..1 MS and
     ZeHaerteFallExt named zeHaerteFall 0..1 MS
 
@@ -92,5 +93,6 @@ Description: "Generisches Profil fuer Dental-Behandlungsplaene. Unterscheidet Pl
 * extension[ehkpId] ^short = "EBZ-Referenznummer des elektronischen HKP"
 * extension[kfoBehandlungsphase] ^short = "KFO-Behandlungsphase: aktiv | retention | abschluss"
 * extension[kfoApparatusType] ^short = "KFO-Apparaturtyp: festsitzend | herausnehmbar"
+* extension[parTreatmentPhase] ^short = "Current authoritative PAR treatment phase"
 * extension[parUptIntervall] ^short = "UPT-Recall-Intervall in Monaten (typisch 3/6/12)"
 * extension[zeHaerteFall] ^short = "Härtefall nach § 55 SGB V: erhöhter Festzuschuss"

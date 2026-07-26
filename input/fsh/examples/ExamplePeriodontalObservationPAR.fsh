@@ -9,6 +9,7 @@ Alias: $parthase = https://fhir.cognovis.de/dental/CodeSystem/par-behandlungs-ph
 Alias: $parloc = https://fhir.cognovis.de/dental/CodeSystem/par-lockerungsgrad
 Alias: $parfurk = https://fhir.cognovis.de/dental/CodeSystem/par-furkationsbefall
 Alias: $partreat = https://fhir.cognovis.de/dental/CodeSystem/par-behandlungsbeduerftigkeit
+Alias: $periodontalSite = https://fhir.cognovis.de/dental/CodeSystem/periodontal-measurement-site
 
 Instance: ExamplePeriodontalObservationPAR
 InstanceOf: PeriodontalObservationDE
@@ -38,6 +39,7 @@ Description: "Complete periodontal observation on tooth 16 with PAR-Richtlinie s
 // Probing depths (6 sites: mesio-buccal, buccal, disto-buccal, mesio-lingual, lingual, disto-lingual)
 * component[probingDepth][0].code = $loinc#32884-9
 * component[probingDepth][0].code.text = "Sondierungstiefe mesio-bukkal"
+* component[probingDepth][0].extension[measurementSite].valueCodeableConcept = $periodontalSite#mesiobuccal
 * component[probingDepth][0].valueQuantity.value = 4
 * component[probingDepth][0].valueQuantity.unit = "mm"
 * component[probingDepth][0].valueQuantity.system = "http://unitsofmeasure.org"
@@ -45,6 +47,7 @@ Description: "Complete periodontal observation on tooth 16 with PAR-Richtlinie s
 
 * component[probingDepth][1].code = $loinc#32884-9
 * component[probingDepth][1].code.text = "Sondierungstiefe bukkal"
+* component[probingDepth][1].extension[measurementSite].valueCodeableConcept = $periodontalSite#buccal
 * component[probingDepth][1].valueQuantity.value = 3
 * component[probingDepth][1].valueQuantity.unit = "mm"
 * component[probingDepth][1].valueQuantity.system = "http://unitsofmeasure.org"
@@ -52,6 +55,7 @@ Description: "Complete periodontal observation on tooth 16 with PAR-Richtlinie s
 
 * component[probingDepth][2].code = $loinc#32884-9
 * component[probingDepth][2].code.text = "Sondierungstiefe disto-bukkal"
+* component[probingDepth][2].extension[measurementSite].valueCodeableConcept = $periodontalSite#distobuccal
 * component[probingDepth][2].valueQuantity.value = 4
 * component[probingDepth][2].valueQuantity.unit = "mm"
 * component[probingDepth][2].valueQuantity.system = "http://unitsofmeasure.org"
@@ -59,6 +63,7 @@ Description: "Complete periodontal observation on tooth 16 with PAR-Richtlinie s
 
 * component[probingDepth][3].code = $loinc#32884-9
 * component[probingDepth][3].code.text = "Sondierungstiefe mesio-lingual"
+* component[probingDepth][3].extension[measurementSite].valueCodeableConcept = $periodontalSite#mesiolingual
 * component[probingDepth][3].valueQuantity.value = 3
 * component[probingDepth][3].valueQuantity.unit = "mm"
 * component[probingDepth][3].valueQuantity.system = "http://unitsofmeasure.org"
@@ -66,6 +71,7 @@ Description: "Complete periodontal observation on tooth 16 with PAR-Richtlinie s
 
 * component[probingDepth][4].code = $loinc#32884-9
 * component[probingDepth][4].code.text = "Sondierungstiefe lingual"
+* component[probingDepth][4].extension[measurementSite].valueCodeableConcept = $periodontalSite#lingual
 * component[probingDepth][4].valueQuantity.value = 3
 * component[probingDepth][4].valueQuantity.unit = "mm"
 * component[probingDepth][4].valueQuantity.system = "http://unitsofmeasure.org"
@@ -73,6 +79,7 @@ Description: "Complete periodontal observation on tooth 16 with PAR-Richtlinie s
 
 * component[probingDepth][5].code = $loinc#32884-9
 * component[probingDepth][5].code.text = "Sondierungstiefe disto-lingual"
+* component[probingDepth][5].extension[measurementSite].valueCodeableConcept = $periodontalSite#distolingual
 * component[probingDepth][5].valueQuantity.value = 3
 * component[probingDepth][5].valueQuantity.unit = "mm"
 * component[probingDepth][5].valueQuantity.system = "http://unitsofmeasure.org"
@@ -81,15 +88,18 @@ Description: "Complete periodontal observation on tooth 16 with PAR-Richtlinie s
 // BOP (2 sites: buccal, lingual) — simplified for example
 * component[bop][0].code = $sct#86276007
 * component[bop][0].code.text = "BOP bukkal"
+* component[bop][0].extension[measurementSite].valueCodeableConcept = $periodontalSite#buccal
 * component[bop][0].valueBoolean = true
 
 * component[bop][1].code = $sct#86276007
 * component[bop][1].code.text = "BOP lingual"
+* component[bop][1].extension[measurementSite].valueCodeableConcept = $periodontalSite#lingual
 * component[bop][1].valueBoolean = false
 
 // Recession (2 sites: buccal, lingual)
 * component[recession][0].code = $sct#6288001
 * component[recession][0].code.text = "Rezession bukkal"
+* component[recession][0].extension[measurementSite].valueCodeableConcept = $periodontalSite#buccal
 * component[recession][0].valueQuantity.value = 1
 * component[recession][0].valueQuantity.unit = "mm"
 * component[recession][0].valueQuantity.system = "http://unitsofmeasure.org"
@@ -97,10 +107,24 @@ Description: "Complete periodontal observation on tooth 16 with PAR-Richtlinie s
 
 * component[recession][1].code = $sct#6288001
 * component[recession][1].code.text = "Rezession lingual"
+* component[recession][1].extension[measurementSite].valueCodeableConcept = $periodontalSite#lingual
 * component[recession][1].valueQuantity.value = 0
 * component[recession][1].valueQuantity.unit = "mm"
 * component[recession][1].valueQuantity.system = "http://unitsofmeasure.org"
 * component[recession][1].valueQuantity.code = #mm
+
+// Explicit clinical attachment loss at the same site
+* component[clinicalAttachmentLoss][0].code = $pabefund#attachment-loss
+* component[clinicalAttachmentLoss][0].extension[measurementSite].valueCodeableConcept = $periodontalSite#buccal
+* component[clinicalAttachmentLoss][0].valueQuantity.value = 5
+* component[clinicalAttachmentLoss][0].valueQuantity.unit = "mm"
+* component[clinicalAttachmentLoss][0].valueQuantity.system = "http://unitsofmeasure.org"
+* component[clinicalAttachmentLoss][0].valueQuantity.code = #mm
+
+// Site-identified suppuration on probing
+* component[suppuration][0].code = $pabefund#suppuration-on-probing
+* component[suppuration][0].extension[measurementSite].valueCodeableConcept = $periodontalSite#distobuccal
+* component[suppuration][0].valueBoolean = true
 
 // Furcation: Grade I
 * component[furcation].code = $sct#109728009

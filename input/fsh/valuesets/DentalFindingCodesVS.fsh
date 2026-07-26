@@ -30,4 +30,13 @@ Terminologieversionen werden ausschließlich in der Build- und Laufzeitkonfigura
 * $sct#87715008
 * $sct#274950005
 
+// Additional SCTIDs used by the clinical observation profiles in this IG.
+* $sct#364126007
+* $sct#113192009
+* $sct#89362005
+* $sct#427936003
+* $sct#25780007
+* $sct#128139000
+* include codes from system DentalDepositTypeCS
+
 Alias: $sct = http://snomed.info/sct

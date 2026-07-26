@@ -1,0 +1,8 @@
+@fhirServer = http://localhost:8080
+
+### Validate PAR CarePlan supporting information and UPT outcome references
+POST {{fhirServer}}/fhir/CarePlan/$validate?profile=https://fhir.cognovis.de/dental/StructureDefinition/dental-care-plan
+Authorization: {{$processEnv AIDBOX_AUTH}}
+Content-Type: application/fhir+json
+
+< ../../fsh-generated/resources/CarePlan-ExampleParCarePlan.json

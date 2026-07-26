@@ -1,7 +1,7 @@
 CodeSystem: PABefundTypeCS
 Id: pa-befund-type
 Title: "PA-Befund Typ"
-Description: "Component type codes for periodontal Observations. PA findings are stored as per-tooth strings with multi-digit measurements (e.g. '__0450__64' encodes [0,4,5,0,6,4] mm). These codes identify each component type. Replaces the interim system https://fhir.cognovis.de/dental/CodeSystem/pa-befund-interim with an IG-conformant URL."
+Description: "Vendor-neutral component type codes for structured periodontal observations. Positional source encodings are ingest concerns and are not part of this public clinical terminology."
 * ^url = "https://fhir.cognovis.de/dental/CodeSystem/pa-befund-type"
 * ^status = #active
 * ^experimental = false
@@ -9,10 +9,11 @@ Description: "Component type codes for periodontal Observations. PA findings are
 * ^content = #complete
 * ^publisher = "cognovis GmbH"
 
-// String-kodiertes Format: '__0450__64' → [0,4,5,0,6,4] mm pro Messpunkt
-* #pocket-depth-encoded "Taschentiefe (String-kodiert)" "Sondierungstiefen als String-kodierte Messung pro Zahn — mehrzifferige Kodierung, z.B. '__0450__64' = [0,4,5,0,6,4] mm"
 * #attachment-loss "Attachmentverlust" "Klinischer Attachmentverlust in mm"
 * #bleeding-on-probing "Blutung on Probing" "Blutung nach Sondierung (BOP)"
+* #suppuration-on-probing "Suppuration on probing" "Site-level presence or absence of suppuration on probing"
+* #bone-loss-per-age "Bone loss per age" "Radiographic bone-loss percentage divided by patient age in years"
+* #patient-age-at-measurement "Patient age at measurement" "Age in completed years used for the bone-loss-per-age calculation"
 * #furcation "Furkationsbeteiligung" "Furkationsgrad (0=keine, 1=Klasse I, 2=Klasse II, 3=Klasse III)"
 // PAR-Richtlinie component codes
 * #par-grad "PAR Grad" "PAR-Grad (Schweregrad nach EFP/BSP 2018)"

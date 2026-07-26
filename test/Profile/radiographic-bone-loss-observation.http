@@ -1,0 +1,8 @@
+@fhirServer = http://localhost:8080
+
+### Validate radiographic bone loss and explicit ratio inputs
+POST {{fhirServer}}/fhir/Observation/$validate?profile=https://fhir.cognovis.de/dental/StructureDefinition/radiographic-bone-loss-observation
+Authorization: {{$processEnv AIDBOX_AUTH}}
+Content-Type: application/fhir+json
+
+< ../../fsh-generated/resources/Observation-ExampleRadiographicBoneLoss.json

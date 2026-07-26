@@ -54,6 +54,10 @@ pages:
     title: Value Sets
   usecases.md:
     title: Use Cases
+  periodontal-measurements.md:
+    title: Periodontal Measurements
+  par-prophylaxis.md:
+    title: PAR and Prophylaxis Exchange
   billing-legal-sources.md:
     title: Billing and Legal Sources
   goz-honorarvereinbarung.md:
@@ -149,6 +153,8 @@ menu:
     Code Systems: codesystems.html
     Value Sets: valuesets.html
   Use Cases: usecases.html
+  Periodontal Measurements: periodontal-measurements.html
+  PAR and Prophylaxis: par-prophylaxis.html
   Billing and Legal Sources: billing-legal-sources.html
   GOZ Fee Agreement: goz-honorarvereinbarung.html
   Dental Mixed Billing Claim: mischrechnung.html

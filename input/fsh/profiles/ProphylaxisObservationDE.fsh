@@ -21,27 +21,56 @@ Description: "Profil fuer Prophylaxe-Befunde: Plaque-Index (API/QHI), Mundhygien
 * component ^slicing.description = "Slicing for prophylaxis assessment components"
 
 * component contains
-    plaqueIndex 0..1 MS and
-    gingivitisIndex 0..1 MS and
+    api 0..1 MS and
+    qhi 0..1 MS and
+    pi 0..1 MS and
+    sbi 0..1 MS and
+    pbi 0..1 MS and
+    gi 0..1 MS and
     psiScore 0..6 MS and
-    oralHygieneStatus 0..1 MS
+    oralHygieneStatus 0..1 MS and
+    cariesRisk 0..1 MS
 
-// Plaque index: Approximalraum-Plaque-Index (API) or Quigley-Hein-Index (QHI), 0-100%
-* component[plaqueIndex].code = http://snomed.info/sct#18949003
-* component[plaqueIndex].value[x] only Quantity
-* component[plaqueIndex].valueQuantity.system = "http://unitsofmeasure.org"
-* component[plaqueIndex].valueQuantity.code = #%
+// Each aggregate index method is an explicit component code. Scales are not interchangeable.
+* component[api].code = ProphylaxisIndexMethodCS#API
+* component[api].value[x] only Quantity
+* component[api].valueQuantity.system = "http://unitsofmeasure.org"
+* component[api].valueQuantity.code = #%
 
-// Gingivitis index: Sulcus-Blutungs-Index (SBI) or PBI, 0-100%
-* component[gingivitisIndex].code = http://snomed.info/sct#66383009
-* component[gingivitisIndex].value[x] only Quantity
-* component[gingivitisIndex].valueQuantity.system = "http://unitsofmeasure.org"
-* component[gingivitisIndex].valueQuantity.code = #%
+* component[qhi].code = ProphylaxisIndexMethodCS#QHI
+* component[qhi].value[x] only Quantity
 
-// PSI score per sextant (0-4, codes * and X)
+* component[pi].code = ProphylaxisIndexMethodCS#PI
+* component[pi].value[x] only Quantity
+
+* component[sbi].code = ProphylaxisIndexMethodCS#SBI
+* component[sbi].value[x] only Quantity
+* component[sbi].valueQuantity.system = "http://unitsofmeasure.org"
+* component[sbi].valueQuantity.code = #%
+
+* component[pbi].code = ProphylaxisIndexMethodCS#PBI
+* component[pbi].value[x] only Quantity
+
+* component[gi].code = ProphylaxisIndexMethodCS#GI
+* component[gi].value[x] only Quantity
+
+// PSI score per sextant (0-4); the star is an independent modifier.
 * component[psiScore].code = http://snomed.info/sct#251309006
-* component[psiScore].value[x] only integer
+* component[psiScore].value[x] only CodeableConcept
+* component[psiScore].valueCodeableConcept from PsiScoreVS (required)
+* component[psiScore].extension contains
+    PsiSextantExt named sextant 1..1 MS and
+    PsiAdditionalFindingExt named additionalFinding 0..1 MS
 
 // Oral hygiene status: overall assessment (CodeableConcept)
 * component[oralHygieneStatus].code = http://snomed.info/sct#364126007
 * component[oralHygieneStatus].value[x] only CodeableConcept
+
+// Aggregate caries-risk assessment, distinct from a lesion or diagnosis
+* component[cariesRisk].code = http://snomed.info/sct#74024006
+* component[cariesRisk].value[x] only CodeableConcept
+* component[cariesRisk].valueCodeableConcept from KariesrisikoLevelVS (required)
+
+// Preserve measurement authorship without requiring it when the source omitted it.
+* performer MS
+* performer only Reference(Practitioner or PractitionerRole or Organization)

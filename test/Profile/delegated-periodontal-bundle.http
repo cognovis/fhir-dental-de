@@ -1,0 +1,8 @@
+@fhirServer = http://localhost:8080
+
+### Validate resolved delegation audit bundle
+POST {{fhirServer}}/fhir/Bundle/$validate
+Authorization: {{$processEnv AIDBOX_AUTH}}
+Content-Type: application/fhir+json
+
+< ../../fsh-generated/resources/Bundle-ExampleDelegatedPeriodontalBundle.json

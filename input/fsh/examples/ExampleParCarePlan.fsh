@@ -2,6 +2,9 @@
 // SWS 2.0 Satzart 9 — PAR-Behandlungsplan
 
 Alias: $icd10gm = http://fhir.de/CodeSystem/bfarm/icd-10-gm
+Alias: $parStage = https://fhir.cognovis.de/dental/CodeSystem/par-stadium
+Alias: $parPhase = https://fhir.cognovis.de/dental/CodeSystem/par-behandlungs-phase
+Alias: $parGrade = https://fhir.cognovis.de/dental/CodeSystem/par-grad
 
 Instance: ExampleParCarePlan
 InstanceOf: DentalCarePlanDE
@@ -10,6 +13,7 @@ Title: "Beispiel PAR-Behandlungsplan UPT 3 Monate"
 Description: "Parodontologischer Behandlungsplan (PAR-Richtlinie 07/2021) für generalisierten Parodontitis-Befund. UPT-Recall-Intervall 3 Monate. Behandlungszeitraum: 2026-02-10 bis 2028-02-09. Patient Friedrich Hartmann (Beihilfe)."
 
 * extension[parUptIntervall].valueInteger = 3
+* extension[parTreatmentPhase].valueCodeableConcept = $parPhase#UPT
 
 * identifier[0].system = "https://example-dental-practice.de/par-plan"
 * identifier[0].value = "PAR-2026-0001"
@@ -34,16 +38,22 @@ Description: "Parodontologischer Behandlungsplan (PAR-Richtlinie 07/2021) für g
 // Link to Parodontitis-Diagnose (Condition mit par-stadium)
 * addresses[0] = Reference(ExampleParodontitisCondition)
 
-// PA-Statuserhebung (DentalFinding)
-* supportingInfo[0] = Reference(ExampleDentalFinding)
+// Source observations supporting the plan; no six-month invariant is inferred.
+* supportingInfo[0] = Reference(ExampleProphylaxisObservation)
+* supportingInfo[1] = Reference(ExamplePeriodontalObservationPAR)
 
-// UPT-Recall-Aktivität: alle 3 Monate
+// Authoritative treatment phases: ATG precedes the active treatment path
 * activity[0].detail.status = #scheduled
-* activity[0].detail.code = http://snomed.info/sct#63963009 "Dental prophylaxis, adult"
-* activity[0].detail.code.text = "UPT — Unterstützende Parodontitistherapie"
-* activity[0].detail.scheduledTiming.repeat.period = 3
-* activity[0].detail.scheduledTiming.repeat.periodUnit = #mo
-* activity[0].detail.description = "UPT-Recall alle 3 Monate: subgingivales Reinstrumentieren, Remotivation, Dokumentation."
+* activity[0].detail.code = $parPhase#ATG
+* activity[0].detail.description = "Periodontal information and treatment discussion."
+
+// UPT recall activity every three months
+* activity[1].detail.status = #scheduled
+* activity[1].detail.code = $parPhase#UPT
+* activity[1].detail.scheduledTiming.repeat.period = 3
+* activity[1].detail.scheduledTiming.repeat.periodUnit = #mo
+* activity[1].detail.description = "Supportive periodontal therapy recall."
+* activity[1].outcomeReference[0] = Reference(ExampleProphylaxisObservationFollowUp)
 
 // -----------------------------------------------------------------------
 // Inline Parodontitis Condition (referenced by PAR CarePlan)
@@ -57,7 +67,15 @@ Description: "Generalisierte Parodontitis, Stadium II, Grad B (BSP-Klassifikatio
 * meta.profile[0] = "https://fhir.cognovis.de/dental/StructureDefinition/dental-condition"
 
 * extension[0].url = "https://fhir.cognovis.de/dental/StructureDefinition/par-stadium"
-* extension[0].valueCode = https://fhir.cognovis.de/dental/CodeSystem/par-stadium#B "Stadium B (moderate Progression)"
+* extension[0].valueCodeableConcept = $parStage#II
+* extension[1].url = "https://fhir.cognovis.de/dental/StructureDefinition/par-grade"
+* extension[1].valueCodeableConcept = $parGrade#B
+* extension[2].url = "https://fhir.cognovis.de/dental/StructureDefinition/par-grading-evidence"
+* extension[2].valueReference = Reference(ExampleRadiographicBoneLoss)
+* extension[3].url = "https://fhir.cognovis.de/dental/StructureDefinition/par-grading-evidence"
+* extension[3].valueReference = Reference(ExampleHbA1cForParGrading)
+* extension[4].url = "https://fhir.cognovis.de/dental/StructureDefinition/par-grading-evidence"
+* extension[4].valueReference = Reference(ExampleOralHealthScreening)
 
 * clinicalStatus = http://terminology.hl7.org/CodeSystem/condition-clinical#active "Active"
 * verificationStatus = http://terminology.hl7.org/CodeSystem/condition-ver-status#confirmed "Confirmed"
