@@ -2,7 +2,13 @@ Profile: DentalFindingDE
 Parent: Observation
 Id: dental-finding
 Title: "Zahnärztlicher Befund (DE)"
-Description: "Profil für zahnärztliche Einzelbefunde: Zahnschema-Einträge, Parodontalindices (PSI, BOP, Sondierungstiefe), Vitalitätsprüfungen, Mundschleimhautbefunde. Entspricht dem DentalFinding (Observation) im HL7 Dental Data Exchange IG."
+Description: """
+Profil für beobachtete zahnärztliche Einzelbefunde, zum Beispiel Zahnschema-Einträge,
+Parodontalindices, Vitalitätsprüfungen und Mundschleimhautbefunde. DentalFindingDE ist
+der kanonische Träger für beobachtete Zahn- und Flächendetails. Eine bestätigte
+Diagnose wird separat als DentalConditionDE abgebildet und referenziert den
+zugrunde liegenden Befund bei Bedarf über evidence.detail.
+"""
 * ^status = #active
 * ^experimental = false
 * ^publisher = "cognovis GmbH"
@@ -14,7 +20,8 @@ Description: "Profil für zahnärztliche Einzelbefunde: Zahnschema-Einträge, Pa
 * category contains dental 1..1 MS
 * category[dental] = DentalCategoryCS#dental "Dental"
 
-// Code: what kind of finding (LOINC or SNOMED-CT)
+// Code: curated public SNOMED CT pick list; the extensible strength permits
+// additional codes from the gated General Dentistry validation universe.
 * code 1..1 MS
 * code from DentalFindingCodesVS (extensible)
 

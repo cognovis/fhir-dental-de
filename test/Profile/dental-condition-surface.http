@@ -1,0 +1,160 @@
+### Validate surface-specific diagnosis on bodySite
+# Expected: successful validation
+POST http://localhost:8080/fhir/Condition/$validate?profile=https://fhir.cognovis.de/dental/StructureDefinition/dental-condition
+Authorization: Basic basic:secret
+Content-Type: application/fhir+json
+
+{
+  "resourceType": "Condition",
+  "meta": {
+    "profile": [
+      "https://fhir.cognovis.de/dental/StructureDefinition/dental-condition"
+    ]
+  },
+  "clinicalStatus": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+        "code": "active"
+      }
+    ]
+  },
+  "verificationStatus": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+        "code": "confirmed"
+      }
+    ]
+  },
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "https://fhir.cognovis.de/dental/CodeSystem/dental-category",
+          "code": "dental"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "http://fhir.de/CodeSystem/bfarm/icd-10-gm",
+        "code": "K02.1"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/pat-gkv-01"
+  },
+  "bodySite": [
+    {
+      "extension": [
+        {
+          "url": "https://fhir.cognovis.de/dental/StructureDefinition/tooth-surfaces",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "https://fhir.cognovis.de/dental/CodeSystem/tooth-surfaces",
+                "code": "M"
+              }
+            ]
+          }
+        },
+        {
+          "url": "https://fhir.cognovis.de/dental/StructureDefinition/tooth-surfaces",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "https://fhir.cognovis.de/dental/CodeSystem/tooth-surfaces",
+                "code": "O"
+              }
+            ]
+          }
+        }
+      ],
+      "coding": [
+        {
+          "system": "https://fhir.cognovis.de/dental/CodeSystem/tooth-identification-fdi",
+          "code": "36"
+        }
+      ]
+    }
+  ]
+}
+
+### Reject a detached top-level tooth-surface extension
+# Expected: validation error because ToothSurfacesExt is valid only on Condition.bodySite
+POST http://localhost:8080/fhir/Condition/$validate?profile=https://fhir.cognovis.de/dental/StructureDefinition/dental-condition
+Authorization: Basic basic:secret
+Content-Type: application/fhir+json
+
+{
+  "resourceType": "Condition",
+  "meta": {
+    "profile": [
+      "https://fhir.cognovis.de/dental/StructureDefinition/dental-condition"
+    ]
+  },
+  "extension": [
+    {
+      "url": "https://fhir.cognovis.de/dental/StructureDefinition/tooth-surfaces",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "https://fhir.cognovis.de/dental/CodeSystem/tooth-surfaces",
+            "code": "M"
+          }
+        ]
+      }
+    }
+  ],
+  "clinicalStatus": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+        "code": "active"
+      }
+    ]
+  },
+  "verificationStatus": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+        "code": "confirmed"
+      }
+    ]
+  },
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "https://fhir.cognovis.de/dental/CodeSystem/dental-category",
+          "code": "dental"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "http://fhir.de/CodeSystem/bfarm/icd-10-gm",
+        "code": "K02.1"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/pat-gkv-01"
+  },
+  "bodySite": [
+    {
+      "coding": [
+        {
+          "system": "https://fhir.cognovis.de/dental/CodeSystem/tooth-identification-fdi",
+          "code": "36"
+        }
+      ]
+    }
+  ]
+}

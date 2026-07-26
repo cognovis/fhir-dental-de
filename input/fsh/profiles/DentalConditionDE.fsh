@@ -12,7 +12,14 @@ Profile: DentalConditionDE
 Parent: KBV_PR_Base_Condition_Diagnosis
 Id: dental-condition
 Title: "Zahnärztliche Diagnose (DE)"
-Description: "Profil für zahnärztliche Diagnosen und Befunde. Nutzt ICD-10-GM und FDI-Zahnschema. Orientiert sich am HL7 Dental Data Exchange IG DentalCondition. Basiert direkt auf KBV_PR_Base_Condition_Diagnosis."
+Description: """
+Profil für echte zahnärztliche Diagnosen. Es nutzt ICD-10-GM und die FDI-Zahnidentifikation
+und basiert direkt auf KBV_PR_Base_Condition_Diagnosis. Beobachtete Rohbefunde,
+Odontogrammzustände und Restaurationsdetails werden als DentalFindingDE abgebildet.
+Flächen dürfen an einer Condition nur dann angegeben werden, wenn sie Bestandteil
+einer bestätigten flächenspezifischen Diagnose sind; sie stehen ausschließlich als
+ToothSurfacesExt am zugehörigen bodySite.
+"""
 * ^status = #active
 * ^experimental = false
 * ^publisher = "cognovis GmbH"
@@ -36,6 +43,9 @@ Description: "Profil für zahnärztliche Diagnosen und Befunde. Nutzt ICD-10-GM 
 // Tooth identification
 * bodySite MS
 * bodySite from ToothIdentificationFDI_VS (preferred)
+* bodySite.extension contains ToothSurfacesExt named toothSurfaces 0..* MS
+* bodySite.extension[toothSurfaces] ^short = "Diagnostisch betroffene Zahnfläche"
+* bodySite.extension[toothSurfaces] ^definition = "Optionale Fläche einer echten flächenspezifischen Diagnose. Beobachtete Flächendetails ohne Diagnosestatus gehören in DentalFindingDE."
 
 // Befundstatus (f/z/c/k/b/i etc.)
 * stage MS

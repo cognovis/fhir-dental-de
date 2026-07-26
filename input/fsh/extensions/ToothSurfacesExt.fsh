@@ -6,15 +6,15 @@ Description: "Betroffene Zahnfläche. Diese Extension ist wiederholbar (0..*) um
 * ^status = #active
 * ^experimental = false
 * ^publisher = "cognovis GmbH"
-// Contexts: ChargeItem (Leistungsabrechnung) and Observation (Zahnbefund) are the primary
-// carriers of surface-level detail in the dental workflow.
-// Condition and Procedure are intentionally excluded: they use bodySite for anatomical
-// location, and surface granularity on those resources is rare; when needed it is
-// represented via bodySite.extension rather than a top-level extension.
+// ChargeItem and Observation are primary carriers of surface-level detail.
+// Condition is allowed only on bodySite so every surface remains attached to
+// the tooth identity represented by that CodeableConcept.
 * ^context[+].type = #element
 * ^context[=].expression = "ChargeItem"
 * ^context[+].type = #element
 * ^context[=].expression = "Observation"
+* ^context[+].type = #element
+* ^context[=].expression = "Condition.bodySite"
 
 * extension 0..0
 * value[x] only CodeableConcept
