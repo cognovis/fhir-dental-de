@@ -1,9 +1,9 @@
 ### CodeSystem: ZE Bonusprozent - Valid Code '50'
-GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/ze-bonus-prozent&code=50
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/ze-bonus-prozent&code=60
 Authorization: Basic basic:secret
 
 ### CodeSystem: ZE Bonusprozent - Valid Code '60'
-GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/ze-bonus-prozent&code=60
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/ze-bonus-prozent&code=75
 Authorization: Basic basic:secret
 
 ### CodeSystem: ZE Bonusprozent - Invalid Code

@@ -7,6 +7,6 @@ Description: "Bonusstufen für den ZE-Festzuschuss nach §55 Abs. 1 SGB V basier
 * ^experimental = false
 * ^publisher = "cognovis GmbH"
 
-// Note: The VS uses integer binding on the Extension, so actual values are 50, 60, 70.
-// For documentation, permitted values are 50 (Grundanspruch), 60 (5 Jahre lückenlos), 70 (10 Jahre lückenlos).
+// The simple extension uses integer values; this ValueSet documents the same
+// current levels as codes for terminology discovery.
 * include codes from system https://fhir.cognovis.de/dental/CodeSystem/ze-bonus-prozent

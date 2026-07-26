@@ -10,9 +10,9 @@ ausdrückliches Verlangen des Patienten erbracht werden. Die Abgrenzung ist sowo
 |---|---|---|
 | Medizinische Indikation | ja | nein |
 | § 4 Nr. 14a UStG anwendbar | ja → USt-frei | nein → USt-pflichtig 19 % |
-| § 2 GOZ Vereinbarungspflicht (Abs. 1+2) | ja | entfällt (§ 2 Abs. 3 GOZ) |
+| Schriftlicher Nachweis | Vereinbarung nach § 2 Abs. 1 und 2 bei abweichender Gebührenhöhe | Heil- und Kostenplan nach § 2 Abs. 3 |
 | Faktor frei verhandelbar | nein (Schwellenwert 2,3 / 1,8) | ja |
-| Schriftliche Vereinbarung empfohlen | nur bei Faktor > Schwellenwert | immer (Aufklärung, Beweissicherung) |
+| Zeitpunkt | vor der Leistung | Heil- und Kostenplan vor der Leistung |
 
 ## Modellierung im IG
 
@@ -21,8 +21,8 @@ ausdrückliches Verlangen des Patienten erbracht werden. Die Abgrenzung ist sowo
 Struktur:
 
 - `extension[verlangensleistung].valueBoolean` — `true` markiert die Leistung als Verlangensleistung
-- `extension[verlangensleistungBeleg].valueReference` — optionaler Verweis auf eine `DocumentReference`,
-  die das ausdrückliche Patientenverlangen dokumentiert (Aufklärungsprotokoll, Behandlungsvertrag)
+- `extension[verlangensleistungBeleg].valueReference` — erforderlicher Verweis auf
+  eine `DocumentReference` für den schriftlichen Heil- und Kostenplan
 
 Beispiel siehe `ExampleGozChargeItemVerlangens` (Bleaching, Faktor 2,3, mit Beleg).
 
@@ -64,15 +64,10 @@ Typische Beispiele (informativ, nicht abschließend) sind in `TypischeVerlangens
 
 ## Beweissicherung
 
-§ 2 Abs. 3 GOZ hebt die Vereinbarungspflicht aus § 2 Abs. 1+2 GOZ auf, aber:
-
-- Eine **schriftliche Aufklärung** über die Verlangensleistungs-Eigenschaft und die
-  Vergütungspflicht (auch ohne medizinische Indikation) bleibt aus Beweissicherungsgründen
-  dringend empfohlen
-- Bei steuerprüferischer Kontrolle (USt-Sonderprüfung) ist die Beleglage entscheidend für die
-  Anerkennung des § 4 Nr. 14a UStG-Ausschlusses
-- Der `verlangensleistungBeleg`-Reference auf eine `DocumentReference` ermöglicht eine
-  strukturierte Verknüpfung mit dem Aufklärungsprotokoll
+§ 2 Abs. 3 GOZ ist ein eigener Schriftformpfad. Der Heil- und Kostenplan muss
+vor der Leistung erstellt werden und die einzelnen Leistungen und Vergütungen,
+die Einordnung als Verlangensleistung sowie den möglichen Erstattungsausschluss
+enthalten. `verlangensleistungBeleg` verknüpft diesen Nachweis strukturiert.
 
 ## Querverweise
 

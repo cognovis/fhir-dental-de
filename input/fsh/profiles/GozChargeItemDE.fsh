@@ -79,6 +79,7 @@ Description: "Profil für privatzahnärztliche Leistungen nach GOZ 2012 (Gebühr
     ToothSurfacesExt named toothSurfaces 0..* MS and
     PrivatgebuehrSteigerungsfaktorExt named steigerungsfaktor 0..1 MS and
     PrivatgebuehrAnalogReferenceExt named analogReference 0..1 MS and
+    GozHonorarvereinbarungExt named honorAgreement 0..1 MS and
     VerlangensleistungExt named verlangensleistung 0..1 MS and
     $TaxCategoryExt named taxCategory 1..1 MS and
     $TaxExemptionReasonExt named taxExemptionReason 0..1 MS
@@ -87,7 +88,8 @@ Description: "Profil für privatzahnärztliche Leistungen nach GOZ 2012 (Gebühr
 * extension[toothSurfaces] ^short = "Betroffene Zahnflächen (SWS: Flächen)"
 * extension[steigerungsfaktor] ^short = "Steigerungsfaktor-Begründung §5 GOZ (SWS: Begründung >2,3)"
 * extension[analogReference] ^short = "Analogleistung §6 GOZ (SWS: Analogleistung)"
-* extension[verlangensleistung] ^short = "Verlangensleistung-Markierung § 1 Abs. 2 Satz 2 GOZ (boolean + optionaler Beleg). Wenn verlangensleistung.verlangensleistung=true: § 2 GOZ-Vereinbarungspflicht entfällt; USt-Pflicht 19% (Constraint goz-tax-verlangens-s)."
+* extension[honorAgreement] ^short = "Written GOZ §2(1)-(2) agreement required for a factor above 3.5"
+* extension[verlangensleistung] ^short = "Requested-service marker with the separate written treatment and cost plan required by GOZ §2(3)"
 
 // --- USt-Pattern: GOZ je nach Indikation/Verlangens/Eigenlabor (E/S/AA) ---
 // Default (medizinisch indizierte Heilbehandlung): TaxCategory=E + TaxExemptionReason=para4-nr14a
@@ -99,6 +101,7 @@ Description: "Profil für privatzahnärztliche Leistungen nach GOZ 2012 (Gebühr
 
 * obeys goz-tax-iff-e
 * obeys goz-tax-verlangens-s
+* obeys goz-factor-agreement and goz-agreement-before-service
 
 Invariant: goz-tax-iff-e
 Description: "TaxExemptionReason MUSS vorhanden sein wenn-und-nur-wenn TaxCategory=E (steuerfrei). Bei jedem anderen TaxCategory-Wert (S/AA/AE/Z) DARF kein Befreiungsgrund gesetzt sein, da nur tatsächliche Steuerbefreiung einen Grund braucht."
@@ -109,3 +112,13 @@ Invariant: goz-tax-verlangens-s
 Description: "Wenn VerlangensleistungExt.verlangensleistung=true gesetzt, MUSS TaxCategory=S (Regelsatz 19%) sein. Verlangensleistungen sind keine Heilbehandlung i.S. § 4 Nr. 14a UStG und daher USt-pflichtig."
 Severity: #error
 Expression: "extension.where(url='https://fhir.cognovis.de/dental/StructureDefinition/verlangensleistung').extension.where(url='verlangensleistung').valueBoolean = true implies extension.where(url='https://fhir.cognovis.de/praxis/StructureDefinition/ext-tax-category').valueCodeableConcept.coding.where(system='urn:un:unece:uncefact:codelist:standard:5305').code = 'S'"
+
+Invariant: goz-factor-agreement
+Description: "A factor above 3.5 requires a GOZ §2(1)-(2) agreement unless the item follows the separate requested-service path under GOZ §2(3)."
+Severity: #error
+Expression: "(factorOverride.exists() and factorOverride > 3.5 and extension.where(url='https://fhir.cognovis.de/dental/StructureDefinition/verlangensleistung').extension.where(url='verlangensleistung' and valueBoolean = true).exists().not()) implies extension.where(url='https://fhir.cognovis.de/dental/StructureDefinition/goz-honorarvereinbarung').exists()"
+
+Invariant: goz-agreement-before-service
+Description: "A GOZ §2(1)-(2) agreement is dated before the service."
+Severity: #error
+Expression: "extension.where(url='https://fhir.cognovis.de/dental/StructureDefinition/goz-honorarvereinbarung').exists() implies extension.where(url='https://fhir.cognovis.de/dental/StructureDefinition/goz-honorarvereinbarung').extension.where(url='agreedOn').valueDate < occurrenceDateTime.toDate()"
