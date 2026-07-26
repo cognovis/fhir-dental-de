@@ -1,7 +1,7 @@
 ValueSet: ZeVersorgungsartVS
 Id: ze-versorgungsart
 Title: "ZE Versorgungsart"
-Description: "Versorgungsarten für Zahnersatz nach §56 SGB V (Regelversorgung, gleichartig, andersartig)."
+Description: "Versorgungsarten für Zahnersatz (Regelversorgung, gleichartig, andersartig)."
 * ^url = "https://fhir.cognovis.de/dental/ValueSet/ze-versorgungsart"
 * ^status = #active
 * ^experimental = false

@@ -41,11 +41,12 @@ was supplied or verified for that proposition.
 | Festzuschuss findings are established before treatment and entered in the treatment and cost plan; annual amounts and billing rules are maintained independently. | [KZBV Festzuschuss guideline](https://www.kzbv.de/zahnaerzte/rechtsgrundlagen/festzuschuesse/festzuschuss-richtlinie/) | Keep planning (`CarePlan` or `ServiceRequest`), performed charges (`ChargeItem`), and the submitted claim (`Claim`) as separate resources. |
 
 The public sources above support the distinction between standard, equal-type,
-and other-type care. They do not by themselves prove that every equal-type FHIR
-claim must contain both a BEMA and a GOZ line in the same `Claim` resource.
-The IG therefore validates the machine-readable line classification and links
-to typed charge items, while documenting the BEMA-plus-GOZ mixed example as an
-interoperability pattern rather than a universal legal invariant.
+and other-type care. They do not by themselves prove that every external FHIR
+claim must contain both a BEMA and a GOZ line in the same resource.
+`DentalClaimDE` deliberately defines a narrower interoperability contract:
+when a line is marked `gleichartig`, that profile requires a BEMA-plus-GOZ mix.
+This is a profile-level representation rule, not a claim that all legal billing
+formats use the same resource boundary.
 
 ## PAR prerequisites (`fdde-094`)
 

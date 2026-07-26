@@ -42,10 +42,14 @@ See [SWS 2.0 Mapping](sws-mapping.html) for the complete field-level mapping.
 
 - [**GozChargeItemDE**](StructureDefinition-goz-charge-item.html) — GOZ billing position with:
   - GOZ code (e.g. 2060, 5000)
-  - Steigerungsfaktor (multiplier, default 2.3x, up to 3.5x with Begründung)
+  - Steigerungsfaktor (multiplier, with a §2 agreement path above 3.5x)
   - Begründungskategorie and Begründungstext
   - Analogleistung reference (§6 GOZ) for unlisted procedures
   - GOÄ positions for surgical components
+
+- [**DentalClaimDE mixed billing**](mischrechnung.html) — BEMA and GOZ claim
+  lines with typed ChargeItem links, care-type classification, coverage order,
+  and versioned Festzuschuss evidence
 
 **Workflow:**
 1. Practitioner documents treatment in the PVS
