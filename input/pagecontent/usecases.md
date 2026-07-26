@@ -61,6 +61,9 @@ See [SWS 2.0 Mapping](sws-mapping.html) for the complete field-level mapping.
 
 **Solution:** The [DentalCarePlanDE (planType: hkp)](StructureDefinition-dental-care-plan.html) profile models the complete HKP lifecycle:
 
+- **Care alternatives:** `intent = option` represents each not-yet-selected
+  alternative; after selection, the executable care plan uses `intent = plan`
+  without changing profiles or adding a vendor extension.
 - **Befund:** Per-tooth findings using KZBV DPF Befundkürzel (e.g. "f" = fehlend, "k" = Krone, "ww" = erhaltenswürdiger Zahn)
 - **Therapie:** Planned restorations using KZBV Therapiekürzel (e.g. "K" = Krone, "B" = Brückenglied, "TV" = Teleskop-Versorgung)
 - **Festzuschüsse:** Calculated insurance contributions based on Befund-Therapie combinations
@@ -69,10 +72,11 @@ See [SWS 2.0 Mapping](sws-mapping.html) for the complete field-level mapping.
 
 **Workflow:**
 1. Dentist documents Befund (clinical findings) per tooth
-2. ZMV (dental office manager) creates HKP with therapy plan and cost estimate
-3. E-HKP is submitted digitally to the insurer via EBZ
-4. Insurer returns approval/rejection (ClaimResponse)
-5. After approval, treatment can begin
+2. ZMV (dental office manager) creates one or more alternatives with `intent = option`
+3. The selected alternative becomes the executable `intent = plan`
+4. E-HKP is submitted digitally to the insurer via EBZ
+5. Insurer returns approval/rejection (ClaimResponse)
+6. After approval, treatment can begin
 
 ---
 
