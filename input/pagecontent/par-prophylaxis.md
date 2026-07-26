@@ -83,3 +83,5 @@ evidence reuse the `HbA1cObservationDE` and `SmokingStatusDE` profiles from the
 declared `de.cognovis.fhir.praxis` dependency. A smoking-status component in an
 oral screening is only a derived summary and does not replace the independent
 `SmokingStatusDE` evidence resource.
+
+Historical resources may contain LOINC `32884-9`, SNOMED CT `95570007`, or the non-existent ICD-10-GM subdivision `K05.31`; importers should migrate them to LOINC `32910-2`, SNOMED CT `109706009`, and ICD-10-GM `K05.3`, respectively. <!-- periodontal-terminology-allowlist: migration guidance for invalid historical codes -->

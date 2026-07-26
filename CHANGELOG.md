@@ -4,6 +4,21 @@ All notable changes to this project will be documented in this file.
 
 ## [unreleased]
 
+### Fixed
+
+- Correct periodontal probing depth from LOINC `32884-9` to `32910-2` and radiographic alveolar bone loss from SNOMED CT `95570007` to `109706009` across profiles, value sets, examples, and fixtures.
+- Correct the periodontal diagnosis examples from the non-existent ICD-10-GM code `K05.31` to `K05.3`.
+- Use the Praxis dependency version pinned in `sushi-config.yaml` during the main CI build instead of rewriting it to the stale `0.69.1` release.
+
+### Changed
+
+- Refresh international crosswalks for DDEx 2.0.0-ballot, MedMij Dental Care 1.0.0-rc.1, Da Vinci PAS 2.2.1, periodontal observations, tooth surfaces, and Praxis/AW/WeST billing exports.
+- Reuse Praxis `HbA1cObservationDE` and `SmokingStatusDE` as periodontal grading evidence through `Condition.evidence.detail`.
+
+### Deprecated
+
+- Retire `ParGradingEvidenceExt`; producers should migrate existing references to `Condition.evidence.detail`.
+
 ## [0.40.0] - 2026-07-24
 
 ### Added

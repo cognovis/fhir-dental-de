@@ -15,6 +15,7 @@ const invalidDisplays = [
   "Periodontal pocket depth [Length] Mouth by Periodontal probing",
   '"display": "Probing depth"',
 ];
+const allowlistMarker = "periodontal-terminology-allowlist:";
 const activeExtensions = new Set([".fsh", ".http", ".md", ".json"]);
 
 function assert(condition, message) {
@@ -40,12 +41,17 @@ function scan(paths) {
   const violations = paths.flatMap((path) =>
     collectFiles(path).flatMap((file) => {
       const content = readFileSync(file, "utf8");
-      return [...invalidCodes, ...invalidDisplays]
-        .filter((fragment) => content.includes(fragment))
-        .map(
-          (fragment) =>
-            `${relative(repositoryRoot, file)} contains ${fragment}`,
-        );
+      return content.split(/\r?\n/).flatMap((line, index) => {
+        if (line.includes(allowlistMarker)) {
+          return [];
+        }
+        return [...invalidCodes, ...invalidDisplays]
+          .filter((fragment) => line.includes(fragment))
+          .map(
+            (fragment) =>
+              `${relative(repositoryRoot, file)}:${index + 1} contains ${fragment}`,
+          );
+      });
     }),
   );
   assert(
@@ -68,7 +74,7 @@ scan([
   join(repositoryRoot, "test"),
 ]);
 
-const requiredFragments = new Map([
+const requiredFragments = [
   [
     "input/fsh/profiles/PeriodontalObservationDE.fsh",
     "http://loinc.org#32910-2",
@@ -105,7 +111,12 @@ const requiredFragments = new Map([
     "input/fsh/examples/ExampleDentalImagingStudy.fsh",
     'icd-10-gm#K05.3 "Chronische Parodontitis"',
   ],
-]);
+];
+
+assert(
+  requiredFragments.length === 9,
+  "The periodontal terminology guard lost a required assertion",
+);
 
 for (const [file, fragment] of requiredFragments) {
   assert(

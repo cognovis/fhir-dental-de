@@ -41,14 +41,21 @@ assert(
   !conditionSource.includes(gradingExtensionUrl),
   "The active PAR Condition still uses the retired grading extension in FSH",
 );
-for (const evidenceRule of [
-  "* evidence[0].detail[0] = Reference(ExampleRadiographicBoneLoss)",
-  "* evidence[0].detail[1] = Reference(ExampleHbA1cForParGrading)",
-  "* evidence[0].detail[2] = Reference(ExampleSmokingStatusForParGrading)",
+const evidenceReferencePattern =
+  /\*\s+evidence\[\d+\]\.detail\[(?:\d+|\+)\]\s*=\s*Reference\(([^)]+)\)/g;
+const sourceEvidenceReferences = new Set(
+  [...conditionSource.matchAll(evidenceReferencePattern)].map(
+    (match) => match[1],
+  ),
+);
+for (const evidenceReference of [
+  "ExampleRadiographicBoneLoss",
+  "ExampleHbA1cForParGrading",
+  "ExampleSmokingStatusForParGrading",
 ]) {
   assert(
-    conditionSource.includes(evidenceRule),
-    `The PAR Condition FSH is missing ${evidenceRule}`,
+    sourceEvidenceReferences.has(evidenceReference),
+    `The PAR Condition FSH is missing evidence ${evidenceReference}`,
   );
 }
 
