@@ -33,7 +33,7 @@ Title: "Delegated Periodontal Measurement"
 * performer = Reference(urn:uuid:4818fbd5-a2b1-47ec-9870-0d23e9b8ef6d)
 * effectiveDateTime = "2026-02-05T12:00:00+01:00"
 * bodySite = $fdiCS#16
-* component[probingDepth].code = $loinc#32884-9
+* component[probingDepth].code = $loinc#32910-2
 * component[probingDepth].extension[measurementSite].valueCodeableConcept = $periodontalSite#mesiobuccal
 * component[probingDepth].valueQuantity = 4 'mm'
 

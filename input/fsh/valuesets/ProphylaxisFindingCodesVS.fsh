@@ -12,7 +12,8 @@ Description: "LOINC- und SNOMED-CT-Codes fuer Prophylaxe-Befunde: Plaque-Index, 
 
 // LOINC codes for prophylaxis assessments
 * $loinc#8704-9 "Physical findings of Mouth and Throat and Teeth"
-* $loinc#32884-9 "Identification {Tooth}"
+* $loinc#32953-2 "Plaque index Dentition Calculated"
+* $loinc#32951-6 "Bleeding on probing index Gingiva Calculated"
 
 // SNOMED-CT prophylaxis finding concepts
 * $sct#18949003 "Dental plaque"

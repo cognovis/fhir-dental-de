@@ -9,7 +9,7 @@ Usage: #example
 Title: "Radiographic Bone Loss at Reference Tooth"
 Description: "Forty percent radiographic bone loss at tooth 16 for a 60-year-old patient. The explicit ratio is 40 divided by 60, rounded to 0.67."
 * status = #final
-* code = $sct#95570007
+* code = $sct#109706009
 * subject = Reference(Patient/pat-beihilfe-01)
 * performer = Reference(PractitionerRole/role-schoell-gibitzenhof)
 * effectiveDateTime = "2026-02-05T11:00:00+01:00"

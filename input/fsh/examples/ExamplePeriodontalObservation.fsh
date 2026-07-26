@@ -22,7 +22,7 @@ Description: "6-Punkt-Sondierungstiefe, Rezession und BOP fuer Zahn 16 (erster o
 
 // LOINC 8704-9 "Physical findings of Mouth and Throat and Teeth" — official display per CSIRO/LOINC 2.82
 // Used as parent code to satisfy obs-7 constraint (Observation.code must differ from component.code).
-// Components use LOINC 32884-9 "Identification {Tooth}" — official LOINC display (not "Periodontal pocket depth").
+// Components use LOINC 32910-2 "Probing depth {Tooth}.{probe site} Measured" — official LOINC display (not "Periodontal pocket depth").
 * code = $loinc#8704-9 "Physical findings of Mouth and Throat and Teeth"
 
 * subject = Reference(Patient/pat-beihilfe-01)
@@ -36,7 +36,7 @@ Description: "6-Punkt-Sondierungstiefe, Rezession und BOP fuer Zahn 16 (erster o
 * bodySite.text = "Zahn 16 — erster oberer rechter Molar"
 
 // 6x Sondierungstiefe (mesio-bukkal, bukkal, disto-bukkal, mesio-lingual, lingual, disto-lingual)
-* component[probingDepth][0].code = $loinc#32884-9
+* component[probingDepth][0].code = $loinc#32910-2
 * component[probingDepth][0].code.text = "Sondierungstiefe mesio-bukkal"
 * component[probingDepth][0].extension[measurementSite].valueCodeableConcept = $periodontalSite#mesiobuccal
 * component[probingDepth][0].valueQuantity.value = 5
@@ -44,7 +44,7 @@ Description: "6-Punkt-Sondierungstiefe, Rezession und BOP fuer Zahn 16 (erster o
 * component[probingDepth][0].valueQuantity.system = "http://unitsofmeasure.org"
 * component[probingDepth][0].valueQuantity.code = #mm
 
-* component[probingDepth][1].code = $loinc#32884-9
+* component[probingDepth][1].code = $loinc#32910-2
 * component[probingDepth][1].code.text = "Sondierungstiefe bukkal"
 * component[probingDepth][1].extension[measurementSite].valueCodeableConcept = $periodontalSite#buccal
 * component[probingDepth][1].valueQuantity.value = 4
@@ -52,7 +52,7 @@ Description: "6-Punkt-Sondierungstiefe, Rezession und BOP fuer Zahn 16 (erster o
 * component[probingDepth][1].valueQuantity.system = "http://unitsofmeasure.org"
 * component[probingDepth][1].valueQuantity.code = #mm
 
-* component[probingDepth][2].code = $loinc#32884-9
+* component[probingDepth][2].code = $loinc#32910-2
 * component[probingDepth][2].code.text = "Sondierungstiefe disto-bukkal"
 * component[probingDepth][2].extension[measurementSite].valueCodeableConcept = $periodontalSite#distobuccal
 * component[probingDepth][2].valueQuantity.value = 5
@@ -60,7 +60,7 @@ Description: "6-Punkt-Sondierungstiefe, Rezession und BOP fuer Zahn 16 (erster o
 * component[probingDepth][2].valueQuantity.system = "http://unitsofmeasure.org"
 * component[probingDepth][2].valueQuantity.code = #mm
 
-* component[probingDepth][3].code = $loinc#32884-9
+* component[probingDepth][3].code = $loinc#32910-2
 * component[probingDepth][3].code.text = "Sondierungstiefe mesio-lingual"
 * component[probingDepth][3].extension[measurementSite].valueCodeableConcept = $periodontalSite#mesiolingual
 * component[probingDepth][3].valueQuantity.value = 4
@@ -68,7 +68,7 @@ Description: "6-Punkt-Sondierungstiefe, Rezession und BOP fuer Zahn 16 (erster o
 * component[probingDepth][3].valueQuantity.system = "http://unitsofmeasure.org"
 * component[probingDepth][3].valueQuantity.code = #mm
 
-* component[probingDepth][4].code = $loinc#32884-9
+* component[probingDepth][4].code = $loinc#32910-2
 * component[probingDepth][4].code.text = "Sondierungstiefe lingual"
 * component[probingDepth][4].extension[measurementSite].valueCodeableConcept = $periodontalSite#lingual
 * component[probingDepth][4].valueQuantity.value = 3
@@ -76,7 +76,7 @@ Description: "6-Punkt-Sondierungstiefe, Rezession und BOP fuer Zahn 16 (erster o
 * component[probingDepth][4].valueQuantity.system = "http://unitsofmeasure.org"
 * component[probingDepth][4].valueQuantity.code = #mm
 
-* component[probingDepth][5].code = $loinc#32884-9
+* component[probingDepth][5].code = $loinc#32910-2
 * component[probingDepth][5].code.text = "Sondierungstiefe disto-lingual"
 * component[probingDepth][5].extension[measurementSite].valueCodeableConcept = $periodontalSite#distolingual
 * component[probingDepth][5].valueQuantity.value = 4

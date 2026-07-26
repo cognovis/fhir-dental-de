@@ -35,7 +35,7 @@ Description: "Profil fuer parodontale Befunde: 6-Punkt-Sondierungstiefe, Rezessi
     parBehandlungsbeduerftigkeit 0..1 MS
 
 // Probing depth: Sondierungstiefe in mm
-* component[probingDepth].code = http://loinc.org#32884-9
+* component[probingDepth].code = http://loinc.org#32910-2
 * component[probingDepth].value[x] only Quantity
 * component[probingDepth].valueQuantity.system = "http://unitsofmeasure.org"
 * component[probingDepth].valueQuantity.code = #mm
@@ -70,7 +70,7 @@ Description: "Profil fuer parodontale Befunde: 6-Punkt-Sondierungstiefe, Rezessi
 * component[furcation].value[x] only integer
 
 // PAR-Richtlinie components (per-tooth PAR staging and treatment planning)
-// PAR Grad: PAR severity grade (I/II/III/IV) per EFP/BSP 2018 classification
+// PAR grade: progression grade A/B/C per EFP/BSP 2018 classification
 * component[parGrad].code = https://fhir.cognovis.de/dental/CodeSystem/pa-befund-type#par-grad
 * component[parGrad].code.text = "PAR Grad"
 * component[parGrad].value[x] only CodeableConcept

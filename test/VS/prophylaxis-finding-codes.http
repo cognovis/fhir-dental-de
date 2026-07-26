@@ -1,6 +1,6 @@
 ### ValueSet: ProphylaxisFindingCodesVS - Expand
 # VS URL: https://fhir.cognovis.de/dental/ValueSet/prophylaxis-finding-codes
-# Expected: expansion.contains has 6 entries
+# Expected: expansion.contains has 7 entries
 GET http://localhost:8080/ValueSet/prophylaxis-finding-codes/$expand
 Authorization: Basic basic:secret
 
@@ -25,11 +25,18 @@ Authorization: Basic basic:secret
 GET http://localhost:8080/ValueSet/$validate-code?url=https://fhir.cognovis.de/dental/ValueSet/prophylaxis-finding-codes&system=http://loinc.org&code=34552-0
 Authorization: Basic basic:secret
 
-### ValueSet: ProphylaxisFindingCodesVS - Validate Valid Code (32884-9)
+### ValueSet: ProphylaxisFindingCodesVS - Validate Valid Code (32953-2)
 # System: http://loinc.org
 # Expected: result=true
 # Actual: result=True
-GET http://localhost:8080/ValueSet/$validate-code?url=https://fhir.cognovis.de/dental/ValueSet/prophylaxis-finding-codes&system=http://loinc.org&code=32884-9
+GET http://localhost:8080/ValueSet/$validate-code?url=https://fhir.cognovis.de/dental/ValueSet/prophylaxis-finding-codes&system=http://loinc.org&code=32953-2
+Authorization: Basic basic:secret
+
+### ValueSet: ProphylaxisFindingCodesVS - Validate Valid Code (32951-6)
+# System: http://loinc.org
+# Expected: result=true
+# Actual: result=True
+GET http://localhost:8080/ValueSet/$validate-code?url=https://fhir.cognovis.de/dental/ValueSet/prophylaxis-finding-codes&system=http://loinc.org&code=32951-6
 Authorization: Basic basic:secret
 
 ### ValueSet: ProphylaxisFindingCodesVS - Validate Invalid Code
