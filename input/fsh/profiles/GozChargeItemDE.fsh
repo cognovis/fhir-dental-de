@@ -116,7 +116,7 @@ Expression: "extension.where(url='https://fhir.cognovis.de/dental/StructureDefin
 Invariant: goz-factor-agreement
 Description: "A factor above 3.5 requires a GOZ §2(1)-(2) agreement unless the item follows the separate requested-service path under GOZ §2(3)."
 Severity: #error
-Expression: "(factorOverride.exists() and factorOverride > 3.5 and not(extension.where(url='https://fhir.cognovis.de/dental/StructureDefinition/verlangensleistung').extension.where(url='verlangensleistung' and valueBoolean = true).exists())) implies extension.where(url='https://fhir.cognovis.de/dental/StructureDefinition/goz-honorarvereinbarung').exists()"
+Expression: "(factorOverride.exists() and factorOverride > 3.5 and extension.where(url='https://fhir.cognovis.de/dental/StructureDefinition/verlangensleistung').extension.where(url='verlangensleistung' and valueBoolean = true).exists().not()) implies extension.where(url='https://fhir.cognovis.de/dental/StructureDefinition/goz-honorarvereinbarung').exists()"
 
 Invariant: goz-agreement-before-service
 Description: "A GOZ §2(1)-(2) agreement is dated before the service."
