@@ -8,14 +8,14 @@ Authorization: Basic basic:secret
 # System: https://fhir.cognovis.de/dental/CodeSystem/ze-bonus-prozent
 # Expected: result=true
 # Actual: result=True
-GET http://localhost:8080/ValueSet/$validate-code?url=https://fhir.cognovis.de/dental/ValueSet/ze-bonus-prozent&system=https://fhir.cognovis.de/dental/CodeSystem/ze-bonus-prozent&code=50
+GET http://localhost:8080/ValueSet/$validate-code?url=https://fhir.cognovis.de/dental/ValueSet/ze-bonus-prozent&system=https://fhir.cognovis.de/dental/CodeSystem/ze-bonus-prozent&code=60
 Authorization: Basic basic:secret
 
 ### ValueSet: ZeBonusProzentVS - Validate Valid Code (60)
 # System: https://fhir.cognovis.de/dental/CodeSystem/ze-bonus-prozent
 # Expected: result=true
 # Actual: result=True
-GET http://localhost:8080/ValueSet/$validate-code?url=https://fhir.cognovis.de/dental/ValueSet/ze-bonus-prozent&system=https://fhir.cognovis.de/dental/CodeSystem/ze-bonus-prozent&code=60
+GET http://localhost:8080/ValueSet/$validate-code?url=https://fhir.cognovis.de/dental/ValueSet/ze-bonus-prozent&system=https://fhir.cognovis.de/dental/CodeSystem/ze-bonus-prozent&code=75
 Authorization: Basic basic:secret
 
 ### ValueSet: ZeBonusProzentVS - Validate Invalid Code

@@ -272,7 +272,7 @@ Dental prosthetics documentation with fixed subsidy calculation. Contains findin
 | Therapiekürzel | KZBV DPF Therapiekürzel (e.g. `K`, `B`, `SB`, `T2`) — EBZ Anlage 2 | `CarePlan` | Extension `ze-therapiekuerzel` | Authoritative CS: `http://fhir.de/CodeSystem/kzbv/dpf-therapiekuerzel` |
 | Versorgungsart | Standard / equivalent / non-standard | `CarePlan` | Extension `ze-versorgungsart` | |
 | Festzuschuss | Fixed subsidy (EUR) | `ClaimResponse` | `ClaimResponse.item.adjudication` | |
-| Bonus (50%/60%/70%) | Bonus entitlement (Bonusheft) | `Claim` | Extension `ze-bonus-prozent` | |
+| Festzuschuss level (60%/70%/75%) | Bonus entitlement (Bonusheft) | `Claim` | Extension `ze-bonus-prozent` | |
 | Eigenanteil | Patient co-payment (EUR) | `Claim` | Extension `eigenanteil-gesamt` | |
 | Laborkosten | Lab invoice amount | `ChargeItem` | Separate ChargeItem → Satzart 13 | Linked via Account |
 
@@ -613,7 +613,7 @@ All custom extensions for this IG use the canonical namespace `https://fhir.cogn
 | `ze-befundkuerzel` | `code` | KZBV DPF Befundkürzel (e.g. `a`, `b`, `e`, `k`, `x`) — EBZ Anlage 2 alphabetisch. **NOT** Festzuschuss-Codes 1.1–8.6. CS: `http://fhir.de/CodeSystem/kzbv/dpf-befundkuerzel` | `CarePlan` |
 | `ze-therapiekuerzel` | `code` | KZBV DPF Therapiekürzel (e.g. `K`, `B`, `T2`) — EBZ Anlage 2. CS: `http://fhir.de/CodeSystem/kzbv/dpf-therapiekuerzel` | `CarePlan` |
 | `ze-versorgungsart` | `code` | Provision type: standard\|equivalent\|non-standard | `CarePlan` |
-| `ze-bonus-prozent` | `integer` | Bonus entitlement % (50\|60\|70) | `Claim` |
+| `ze-bonus-prozent` | `integer` | Festzuschuss level % (60\|70\|75) | `Claim` |
 | `eigenanteil-regelversorgung` | `Money` | Patient co-payment — standard provision | `Claim` |
 | `eigenanteil-gleichartig` | `Money` | Patient co-payment — equivalent provision | `Claim` |
 | `eigenanteil-andersartig` | `Money` | Patient co-payment — non-standard provision | `Claim` |

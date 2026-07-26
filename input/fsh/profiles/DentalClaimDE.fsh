@@ -53,6 +53,8 @@ Description: "Dental billing claim (BEMA/GOZ/KZBV). Claim.diagnosis carries the 
 * item ^short = "Abrechnungspositionen (BEMA/GOZ-Codes)"
 * item.sequence MS
 * item.productOrService MS
+* item.extension contains FestzuschussBetragExt named festzuschussAmount 0..1 MS
+* item.extension[festzuschussAmount] ^short = "Versioned applied subsidy amount for the referenced Festzuschuss finding"
 
 // Account-context ChargeItems (must set ChargeItem.account → AccountPraxisSchein).
 * supportingInfo 0..* MS

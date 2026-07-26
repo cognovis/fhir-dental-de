@@ -9,6 +9,6 @@ Description: "Bonusstufen für den Festzuschuss nach §55 Abs. 1 SGB V. Der Bonu
 * ^content = #complete
 * ^publisher = "cognovis GmbH"
 
-* #50 "50% Festzuschuss" "Grundanspruch ohne nachgewiesene regelmäßige Zahnarztbesuche"
-* #60 "60% Festzuschuss" "Erhöhter Festzuschuss bei lückenlosem Bonusheft über 5 Jahre"
-* #70 "70% Festzuschuss" "Maximaler Festzuschuss bei lückenlosem Bonusheft über 10 Jahre"
+* #60 "60% Festzuschuss" "Grundanspruch ohne nachgewiesene regelmäßige Zahnarztbesuche"
+* #70 "70% Festzuschuss" "Erhöhter Festzuschuss bei lückenlosem Bonusheft über 5 Jahre"
+* #75 "75% Festzuschuss" "Maximaler Festzuschuss bei lückenlosem Bonusheft über 10 Jahre"

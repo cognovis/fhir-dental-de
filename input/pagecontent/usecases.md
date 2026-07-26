@@ -67,7 +67,7 @@ See [SWS 2.0 Mapping](sws-mapping.html) for the complete field-level mapping.
 - **Befund:** Per-tooth findings using KZBV DPF Befundkürzel (e.g. "f" = fehlend, "k" = Krone, "ww" = erhaltenswürdiger Zahn)
 - **Therapie:** Planned restorations using KZBV Therapiekürzel (e.g. "K" = Krone, "B" = Brückenglied, "TV" = Teleskop-Versorgung)
 - **Festzuschüsse:** Calculated insurance contributions based on Befund-Therapie combinations
-- **Bonus:** 20% (5 years) or 30% (10 years) bonus on Festzuschüsse for documented Vorsorge
+- **Benefit level:** 60% standard, 70% after the five-year evidence period, or 75% after the ten-year evidence period
 - **Genehmigungsstatus:** eingereicht / in-pruefung / genehmigt / abgelehnt
 
 **Workflow:**
