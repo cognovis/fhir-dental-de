@@ -1,26 +1,17 @@
-### ValueSet: DentalFindingCodesVS - Expand
+### ValueSet: DentalFindingCodesVS - Expand SCTID-only pick list
 # VS URL: https://fhir.cognovis.de/dental/ValueSet/dental-finding-codes
-# Expected: expansion.contains has 4 entries
+# Expected: expansion.contains has 11 SNOMED CT entries without public displays
 GET http://localhost:8080/ValueSet/dental-finding-codes/$expand
 Authorization: Basic basic:secret
 
-### ValueSet: DentalFindingCodesVS - Validate Valid Code (34552-0)
-# System: http://loinc.org
+### ValueSet: DentalFindingCodesVS - Validate Valid Code
+# System: http://snomed.info/sct
 # Expected: result=true
-# Actual: result=True
-GET http://localhost:8080/ValueSet/$validate-code?url=https://fhir.cognovis.de/dental/ValueSet/dental-finding-codes&system=http://loinc.org&code=34552-0
-Authorization: Basic basic:secret
-
-### ValueSet: DentalFindingCodesVS - Validate Valid Code (32884-9)
-# System: http://loinc.org
-# Expected: result=true
-# Actual: result=True
-GET http://localhost:8080/ValueSet/$validate-code?url=https://fhir.cognovis.de/dental/ValueSet/dental-finding-codes&system=http://loinc.org&code=32884-9
+GET http://localhost:8080/ValueSet/$validate-code?url=https://fhir.cognovis.de/dental/ValueSet/dental-finding-codes&system=http://snomed.info/sct&code=80967001
 Authorization: Basic basic:secret
 
 ### ValueSet: DentalFindingCodesVS - Validate Invalid Code
-# System: http://loinc.org
+# System: http://snomed.info/sct
 # Expected: result=false
-# Actual: result=False
-GET http://localhost:8080/ValueSet/$validate-code?url=https://fhir.cognovis.de/dental/ValueSet/dental-finding-codes&system=http://loinc.org&code=INVALID_XYZ
+GET http://localhost:8080/ValueSet/$validate-code?url=https://fhir.cognovis.de/dental/ValueSet/dental-finding-codes&system=http://snomed.info/sct&code=404684003
 Authorization: Basic basic:secret
