@@ -3,6 +3,7 @@
 Alias: $loinc = http://loinc.org
 Alias: $sct   = http://snomed.info/sct
 Alias: $fdiCS = https://fhir.cognovis.de/dental/CodeSystem/tooth-identification-fdi
+Alias: $periodontalSite = https://fhir.cognovis.de/dental/CodeSystem/periodontal-measurement-site
 
 Instance: ExamplePeriodontalObservation
 InstanceOf: PeriodontalObservationDE
@@ -35,6 +36,7 @@ Description: "6-Punkt-Sondierungstiefe, Rezession und BOP fuer Zahn 16 (erster o
 // 6x Sondierungstiefe (mesio-bukkal, bukkal, disto-bukkal, mesio-lingual, lingual, disto-lingual)
 * component[probingDepth][0].code = $loinc#32884-9
 * component[probingDepth][0].code.text = "Sondierungstiefe mesio-bukkal"
+* component[probingDepth][0].extension[measurementSite].valueCodeableConcept = $periodontalSite#mesiobuccal
 * component[probingDepth][0].valueQuantity.value = 5
 * component[probingDepth][0].valueQuantity.unit = "mm"
 * component[probingDepth][0].valueQuantity.system = "http://unitsofmeasure.org"
@@ -42,6 +44,7 @@ Description: "6-Punkt-Sondierungstiefe, Rezession und BOP fuer Zahn 16 (erster o
 
 * component[probingDepth][1].code = $loinc#32884-9
 * component[probingDepth][1].code.text = "Sondierungstiefe bukkal"
+* component[probingDepth][1].extension[measurementSite].valueCodeableConcept = $periodontalSite#buccal
 * component[probingDepth][1].valueQuantity.value = 4
 * component[probingDepth][1].valueQuantity.unit = "mm"
 * component[probingDepth][1].valueQuantity.system = "http://unitsofmeasure.org"
@@ -49,6 +52,7 @@ Description: "6-Punkt-Sondierungstiefe, Rezession und BOP fuer Zahn 16 (erster o
 
 * component[probingDepth][2].code = $loinc#32884-9
 * component[probingDepth][2].code.text = "Sondierungstiefe disto-bukkal"
+* component[probingDepth][2].extension[measurementSite].valueCodeableConcept = $periodontalSite#distobuccal
 * component[probingDepth][2].valueQuantity.value = 5
 * component[probingDepth][2].valueQuantity.unit = "mm"
 * component[probingDepth][2].valueQuantity.system = "http://unitsofmeasure.org"
@@ -56,6 +60,7 @@ Description: "6-Punkt-Sondierungstiefe, Rezession und BOP fuer Zahn 16 (erster o
 
 * component[probingDepth][3].code = $loinc#32884-9
 * component[probingDepth][3].code.text = "Sondierungstiefe mesio-lingual"
+* component[probingDepth][3].extension[measurementSite].valueCodeableConcept = $periodontalSite#mesiolingual
 * component[probingDepth][3].valueQuantity.value = 4
 * component[probingDepth][3].valueQuantity.unit = "mm"
 * component[probingDepth][3].valueQuantity.system = "http://unitsofmeasure.org"
@@ -63,6 +68,7 @@ Description: "6-Punkt-Sondierungstiefe, Rezession und BOP fuer Zahn 16 (erster o
 
 * component[probingDepth][4].code = $loinc#32884-9
 * component[probingDepth][4].code.text = "Sondierungstiefe lingual"
+* component[probingDepth][4].extension[measurementSite].valueCodeableConcept = $periodontalSite#lingual
 * component[probingDepth][4].valueQuantity.value = 3
 * component[probingDepth][4].valueQuantity.unit = "mm"
 * component[probingDepth][4].valueQuantity.system = "http://unitsofmeasure.org"
@@ -70,6 +76,7 @@ Description: "6-Punkt-Sondierungstiefe, Rezession und BOP fuer Zahn 16 (erster o
 
 * component[probingDepth][5].code = $loinc#32884-9
 * component[probingDepth][5].code.text = "Sondierungstiefe disto-lingual"
+* component[probingDepth][5].extension[measurementSite].valueCodeableConcept = $periodontalSite#distolingual
 * component[probingDepth][5].valueQuantity.value = 4
 * component[probingDepth][5].valueQuantity.unit = "mm"
 * component[probingDepth][5].valueQuantity.system = "http://unitsofmeasure.org"
@@ -78,31 +85,38 @@ Description: "6-Punkt-Sondierungstiefe, Rezession und BOP fuer Zahn 16 (erster o
 // 6x BOP (mesio-bukkal, bukkal, disto-bukkal, mesio-lingual, lingual, disto-lingual)
 * component[bop][0].code = $sct#86276007
 * component[bop][0].code.text = "BOP mesio-bukkal"
+* component[bop][0].extension[measurementSite].valueCodeableConcept = $periodontalSite#mesiobuccal
 * component[bop][0].valueBoolean = true
 
 * component[bop][1].code = $sct#86276007
 * component[bop][1].code.text = "BOP bukkal"
+* component[bop][1].extension[measurementSite].valueCodeableConcept = $periodontalSite#buccal
 * component[bop][1].valueBoolean = false
 
 * component[bop][2].code = $sct#86276007
 * component[bop][2].code.text = "BOP disto-bukkal"
+* component[bop][2].extension[measurementSite].valueCodeableConcept = $periodontalSite#distobuccal
 * component[bop][2].valueBoolean = true
 
 * component[bop][3].code = $sct#86276007
 * component[bop][3].code.text = "BOP mesio-lingual"
+* component[bop][3].extension[measurementSite].valueCodeableConcept = $periodontalSite#mesiolingual
 * component[bop][3].valueBoolean = true
 
 * component[bop][4].code = $sct#86276007
 * component[bop][4].code.text = "BOP lingual"
+* component[bop][4].extension[measurementSite].valueCodeableConcept = $periodontalSite#lingual
 * component[bop][4].valueBoolean = false
 
 * component[bop][5].code = $sct#86276007
 * component[bop][5].code.text = "BOP disto-lingual"
+* component[bop][5].extension[measurementSite].valueCodeableConcept = $periodontalSite#distolingual
 * component[bop][5].valueBoolean = false
 
 // 2x Rezession (bukkal, lingual)
 * component[recession][0].code = $sct#6288001
 * component[recession][0].code.text = "Rezession bukkal"
+* component[recession][0].extension[measurementSite].valueCodeableConcept = $periodontalSite#buccal
 * component[recession][0].valueQuantity.value = 2
 * component[recession][0].valueQuantity.unit = "mm"
 * component[recession][0].valueQuantity.system = "http://unitsofmeasure.org"
@@ -110,6 +124,7 @@ Description: "6-Punkt-Sondierungstiefe, Rezession und BOP fuer Zahn 16 (erster o
 
 * component[recession][1].code = $sct#6288001
 * component[recession][1].code.text = "Rezession lingual"
+* component[recession][1].extension[measurementSite].valueCodeableConcept = $periodontalSite#lingual
 * component[recession][1].valueQuantity.value = 0
 * component[recession][1].valueQuantity.unit = "mm"
 * component[recession][1].valueQuantity.system = "http://unitsofmeasure.org"
