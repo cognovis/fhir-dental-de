@@ -1,0 +1,7 @@
+{
+  "version": 1,
+  "delivery": {
+    "mode": "pull_request",
+    "merge_method": "merge"
+  }
+}
