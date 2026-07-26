@@ -75,3 +75,11 @@ The reviewed grading thresholds are below 0.25 for grade A, 0.25 through 1.0
 for grade B, and above 1.0 for grade C. The ratio and related smoking or HbA1c
 Observations are evidence references; the IG does not calculate age, assign a
 grade, or override clinical judgment.
+
+New Conditions reference those observations through
+`Condition.evidence.detail`. The retired `ParGradingEvidenceExt` remains
+resolvable only for compatibility with existing resources. HbA1c and smoking
+evidence reuse the `HbA1cObservationDE` and `SmokingStatusDE` profiles from the
+declared `de.cognovis.fhir.praxis` dependency. A smoking-status component in an
+oral screening is only a derived summary and does not replace the independent
+`SmokingStatusDE` evidence resource.

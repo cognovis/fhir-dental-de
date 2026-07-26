@@ -1,11 +1,14 @@
 // End-to-end equal-type prosthesis example with typed BEMA and GOZ lines.
 
 Instance: cov-zzv-dental-01
-InstanceOf: Coverage
+InstanceOf: FPDECoveragePrivat
 Usage: #example
 Title: "Beispiel Zahnzusatzversicherung Aylin Özdemir"
-Description: "Secondary dental coverage used by the mixed-claim example."
+Description: "Secondary private dental coverage used by the mixed-claim example."
 * status = #active
+* type.coding[VersicherungsArtDeBasis].system = "http://fhir.de/CodeSystem/versicherungsart-de-basis"
+* type.coding[VersicherungsArtDeBasis].code = #PKV
+* type.coding[VersicherungsArtDeBasis].display = "private Krankenversicherung"
 * type.text = "Zahnzusatzversicherung"
 * subscriber = Reference(Patient/pat-gkv-dental-01)
 * beneficiary = Reference(Patient/pat-gkv-dental-01)

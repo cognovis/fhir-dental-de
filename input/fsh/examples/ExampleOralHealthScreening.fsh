@@ -1,4 +1,4 @@
-// Example: Oral Health Screening — Bruxismus + Raucherstatus + Xerostomie
+// Example: Oral Health Screening with a derived smoking-status summary
 
 Alias: $sct = http://snomed.info/sct
 
@@ -6,7 +6,7 @@ Instance: ExampleOralHealthScreening
 InstanceOf: OralHealthScreeningDE
 Usage: #example
 Title: "Beispiel Oral Health Screening"
-Description: "Ganzheitliches orales Screening: Bruxismus vorhanden, Mundatmung vorhanden, Raucherstatus ehemaliger Raucher, leichte Xerostomie. Patient Aylin Oezdemir. Typischer Screening-Befund bei Erstvorstellung oder Recall."
+Description: "Ganzheitliches orales Screening: Bruxismus vorhanden, Mundatmung vorhanden, abgeleitete Zusammenfassung des Raucherstatus und leichte Xerostomie. Der eigenständige Raucherstatus bleibt die maßgebliche Evidenzquelle."
 
 * status = #final
 
@@ -15,11 +15,12 @@ Description: "Ganzheitliches orales Screening: Bruxismus vorhanden, Mundatmung v
 * code = $sct#110353005 "Parafunctional activity"
 * code.text = "Oral Health Screening"
 
-* subject = Reference(Patient/pat-gkv-dental-01)
+* subject = Reference(Patient/pat-beihilfe-01)
 
 * performer[0] = Reference(Organization/org-dental-mvz)
 
-* effectiveDateTime = "2026-03-15T10:00:00+01:00"
+* effectiveDateTime = "2026-02-05T11:10:00+01:00"
+* derivedFrom[0] = Reference(ExampleSmokingStatusForParGrading)
 
 // Bruxismus: vorhanden
 * component[bruxism].code = $sct#25780007 "Bruxism"
@@ -38,7 +39,7 @@ Description: "Ganzheitliches orales Screening: Bruxismus vorhanden, Mundatmung v
 * component[mouthBreathing].code = $sct#79688008 "Mouth breathing"
 * component[mouthBreathing].valueBoolean = true
 
-// Raucherstatus: ehemaliger Raucher
+// Derived summary; use the referenced SmokingStatusDE as grading evidence.
 * component[smokingStatus].code = $sct#229819007 "Tobacco use and target"
 * component[smokingStatus].valueCodeableConcept.coding = $sct#8517006 "Ex-smoker"
 * component[smokingStatus].valueCodeableConcept.text = "Ehemaliger Raucher (aufgehoert 2022)"
