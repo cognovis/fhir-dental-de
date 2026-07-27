@@ -1,0 +1,135 @@
+### Validate an aligner KFO plan
+POST http://localhost:8080/fhir/CarePlan/$validate?profile=https://fhir.cognovis.de/dental/StructureDefinition/aligner-care-plan
+Authorization: Basic basic:secret
+Content-Type: application/fhir+json
+
+< ../../fsh-generated/resources/CarePlan-ExampleAlignerCarePlan.json
+
+### Validate an aligner progress observation
+POST http://localhost:8080/fhir/Observation/$validate?profile=https://fhir.cognovis.de/dental/StructureDefinition/aligner-progress-observation
+Authorization: Basic basic:secret
+Content-Type: application/fhir+json
+
+< ../../fsh-generated/resources/Observation-ExampleAlignerProgress.json
+
+### Reject an interproximal-reduction entry without the required amount
+POST http://localhost:8080/fhir/CarePlan/$validate?profile=https://fhir.cognovis.de/dental/StructureDefinition/aligner-care-plan
+Authorization: Basic basic:secret
+Content-Type: application/fhir+json
+
+{
+  "resourceType": "CarePlan",
+  "meta": {
+    "profile": [
+      "https://fhir.cognovis.de/dental/StructureDefinition/aligner-care-plan"
+    ]
+  },
+  "extension": [
+    {
+      "url": "https://fhir.cognovis.de/dental/StructureDefinition/aligner-interproximal-reduction-plan",
+      "extension": [
+        {
+          "url": "firstTooth",
+          "valueCode": "11"
+        },
+        {
+          "url": "secondTooth",
+          "valueCode": "12"
+        }
+      ]
+    }
+  ],
+  "status": "active",
+  "intent": "plan",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "https://fhir.cognovis.de/dental/CodeSystem/dental-category",
+          "code": "dental"
+        }
+      ]
+    },
+    {
+      "coding": [
+        {
+          "system": "https://fhir.cognovis.de/dental/CodeSystem/dental-care-plan-type",
+          "code": "kfo"
+        }
+      ]
+    }
+  ],
+  "subject": {
+    "reference": "Patient/pat-pkv-01"
+  },
+  "created": "2026-07-27",
+  "title": "Invalid aligner plan without a reduction amount"
+}
+
+### Reject a non-positive assessed aligner stage
+POST http://localhost:8080/fhir/Observation/$validate?profile=https://fhir.cognovis.de/dental/StructureDefinition/aligner-progress-observation
+Authorization: Basic basic:secret
+Content-Type: application/fhir+json
+
+{
+  "resourceType": "Observation",
+  "meta": {
+    "profile": [
+      "https://fhir.cognovis.de/dental/StructureDefinition/aligner-progress-observation"
+    ]
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "https://fhir.cognovis.de/dental/CodeSystem/dental-category",
+          "code": "dental"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "https://fhir.cognovis.de/dental/CodeSystem/aligner-progress-component",
+        "code": "assessment"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/pat-pkv-01"
+  },
+  "effectiveDateTime": "2026-07-27",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "https://fhir.cognovis.de/dental/CodeSystem/aligner-progress-component",
+            "code": "stage"
+          }
+        ]
+      },
+      "valueInteger": 0
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "https://fhir.cognovis.de/dental/CodeSystem/aligner-progress-component",
+            "code": "tracking-outcome"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "https://fhir.cognovis.de/dental/CodeSystem/aligner-tracking-outcome",
+            "code": "tracking-as-planned"
+          }
+        ]
+      }
+    }
+  ]
+}

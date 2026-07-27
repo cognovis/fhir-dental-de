@@ -1,7 +1,7 @@
 CodeSystem: DentalCarePlanTypeCS
 Id: dental-care-plan-type
 Title: "Dental Behandlungsplan Typ"
-Description: "Kategorisierung von Dental-Behandlungsplaenen nach Plantyp (ZE, HKP, PAR, KFO, KBR, KGL, PMB)."
+Description: "Kategorisierung von Dental-Behandlungsplaenen nach Plantyp (ZE, HKP, PAR, KFO, KBR, KGL, PMB und klinische Schlafschienen)."
 * ^url = "https://fhir.cognovis.de/dental/CodeSystem/dental-care-plan-type"
 * ^status = #active
 * ^experimental = false
@@ -16,3 +16,4 @@ Description: "Kategorisierung von Dental-Behandlungsplaenen nach Plantyp (ZE, HK
 * #kbr "Kieferbruch-Behandlung (KBR)" "Behandlungsplan fuer Kieferbruch-Behandlung (BEMA W-Serie)"
 * #kgl "Kiefergelenk-Behandlung (KGL)" "Behandlungsplan fuer Kiefergelenk-Erkrankungen (BEMA U-Serie)"
 * #pmb "Professionelle Mundgesundheitsberatung (PMB)" "Behandlungsplan fuer praeventive Massnahmen und professionelle Mundgesundheitsberatung"
+* #sleep-appliance "Sleep-related oral appliance" "Clinical oral-appliance plan without billing or reimbursement semantics."

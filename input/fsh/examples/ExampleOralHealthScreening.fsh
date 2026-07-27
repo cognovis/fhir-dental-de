@@ -22,10 +22,10 @@ Description: "Ganzheitliches orales Screening: Bruxismus vorhanden, Mundatmung v
 * effectiveDateTime = "2026-02-05T11:10:00+01:00"
 * derivedFrom[0] = Reference(ExampleSmokingStatusForParGrading)
 
-// Bruxismus: vorhanden
-* component[bruxism].code = $sct#25780007 "Bruxism"
-* component[bruxism].valueCodeableConcept.coding = $sct#52101004 "Present"
-* component[bruxism].valueCodeableConcept.text = "Bruxismus vorhanden — Abrasionsspuren an 16, 26, 36, 46. Schiene empfohlen."
+// Bruxism: independent presence, circadian type, and diagnostic grade axes
+* component[bruxism].valueBoolean = true
+* component[bruxismCircadianType].valueCodeableConcept = $bruxismCircadianTypeCS#sleep "Sleep bruxism"
+* component[bruxismDiagnosticGrade].valueCodeableConcept = $bruxismDiagnosticGradeCS#probable "Probable bruxism"
 
 // Tongue thrust: nicht vorhanden
 * component[tongueThrust].code = $sct#289147003 "Tongue thrust present"

@@ -1,0 +1,18 @@
+### Expand the published SWS 2.0 complete tooth-status ValueSet
+GET http://localhost:8080/ValueSet/sws2-zahnstatus-complete/$expand
+Authorization: Basic basic:secret
+
+### Validate a published SWS tooth-status code
+GET http://localhost:8080/ValueSet/$validate-code?url=https://fhir.cognovis.de/dental/ValueSet/sws2-zahnstatus-complete&system=https://fhir.cognovis.de/dental/CodeSystem/sws2-zahnstatus&code=c
+Authorization: Basic basic:secret
+# Expected: result=true
+
+### Reject an unknown code in the published SWS namespace
+GET http://localhost:8080/ValueSet/$validate-code?url=https://fhir.cognovis.de/dental/ValueSet/sws2-zahnstatus-complete&system=https://fhir.cognovis.de/dental/CodeSystem/sws2-zahnstatus&code=INVALID_CODE_XYZ
+Authorization: Basic basic:secret
+# Expected: result=false
+
+### Reject a code from the retired local namespace
+GET http://localhost:8080/ValueSet/$validate-code?url=https://fhir.cognovis.de/dental/ValueSet/sws2-zahnstatus-complete&system=https://fhir.cognovis.de/dental/CodeSystem/dental-befund-status&code=c
+Authorization: Basic basic:secret
+# Expected: retired system is rejected as unknown and cannot yield result=true

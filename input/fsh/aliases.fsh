@@ -7,6 +7,14 @@ Alias: $fdiCS      = https://fhir.cognovis.de/dental/CodeSystem/tooth-identifica
 Alias: $sct        = http://snomed.info/sct
 Alias: $fdi-tooth  = http://terminology.hl7.org/CodeSystem/ex-tooth
 Alias: $fdi-surface = http://terminology.hl7.org/CodeSystem/FDI-surface
+Alias: $swsToothStatusCS = https://fhir.cognovis.de/dental/CodeSystem/sws2-zahnstatus
+Alias: $swsToothStatusVS = https://fhir.cognovis.de/dental/ValueSet/sws2-zahnstatus-complete
+Alias: $bruxismCircadianTypeCS = https://fhir.cognovis.de/dental/CodeSystem/bruxism-circadian-type
+Alias: $bruxismCircadianTypeVS = https://fhir.cognovis.de/dental/ValueSet/bruxism-circadian-type
+Alias: $bruxismDiagnosticGradeCS = https://fhir.cognovis.de/dental/CodeSystem/bruxism-diagnostic-grade
+Alias: $bruxismDiagnosticGradeVS = https://fhir.cognovis.de/dental/ValueSet/bruxism-diagnostic-grade
+Alias: $icd11Mms = http://id.who.int/icd/release/11/mms
+Alias: $icd11Na0dTraumaVS = https://fhir.cognovis.de/dental/ValueSet/icd11-na0d-trauma
 
 // DICOM
 Alias: $dicom = http://dicom.nema.org/resources/ontology/DCM

@@ -85,3 +85,17 @@ oral screening is only a derived summary and does not replace the independent
 `SmokingStatusDE` evidence resource.
 
 Historical resources may contain LOINC `32884-9`, SNOMED CT `95570007`, or the non-existent ICD-10-GM subdivision `K05.31`; importers should migrate them to LOINC `32910-2`, SNOMED CT `109706009`, and ICD-10-GM `K05.3`, respectively. <!-- periodontal-terminology-allowlist: migration guidance for invalid historical codes -->
+
+### Adjunctive periodontal procedures
+
+`PeriodontalAdjunctiveProcedureDE` distinguishes direct laser therapy,
+antimicrobial photodynamic therapy (aPDT), antimicrobial photothermal therapy
+(aPTT), and local subgingival antimicrobial application. `usedReference`
+points to the laser Device and any locally applied Medication or Substance.
+Device wavelength, lot, dose, and manufacturer details remain properties of
+the referenced resource or an appropriate procedure note.
+
+The profile uses standard `basedOn` and `reasonReference` relationships.
+Systemic antibiotic prescribing remains in MedicationRequest or
+MedicationAdministration. The procedure profile contains no billing triggers,
+evidence grades, treatment recommendations, or proprietary product catalog.

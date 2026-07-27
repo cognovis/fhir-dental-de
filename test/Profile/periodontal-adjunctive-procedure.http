@@ -1,0 +1,13 @@
+### Validate a device-only direct laser procedure
+POST http://localhost:8080/fhir/Procedure/$validate?profile=https://fhir.cognovis.de/dental/StructureDefinition/periodontal-adjunctive-procedure
+Authorization: Basic basic:secret
+Content-Type: application/fhir+json
+
+< ../../fsh-generated/resources/Procedure-ExampleDirectLaserProcedure.json
+
+### Validate an aPDT procedure with Device and Substance
+POST http://localhost:8080/fhir/Procedure/$validate?profile=https://fhir.cognovis.de/dental/StructureDefinition/periodontal-adjunctive-procedure
+Authorization: Basic basic:secret
+Content-Type: application/fhir+json
+
+< ../../fsh-generated/resources/Procedure-ExampleApdtProcedure.json

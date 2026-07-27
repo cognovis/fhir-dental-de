@@ -3,7 +3,7 @@
 // Layer 1 (KBV): KBV_PR_Base_Condition_Diagnosis (kbv.basis) provides the
 //   German diagnosis constraints mandated for GKV interoperability.
 // Layer 2 (dental-de): DentalConditionDE adds dental-domain constraints:
-//   ICD-10-GM binding, FDI tooth identification, and KZBV Zahnschema status.
+//   ICD-10-GM binding and FDI tooth identification.
 //
 // KZBV Gap: KZBV does not publish a formal FHIR base profile for dental conditions.
 //   Until KZBV publishes a canonical dental Condition profile, this profile uses
@@ -57,10 +57,10 @@ ToothSurfacesExt am zugehörigen bodySite.
 * bodySite.extension[toothSurfaces] ^short = "Diagnostisch betroffene Zahnfläche"
 * bodySite.extension[toothSurfaces] ^definition = "Optionale Fläche einer echten flächenspezifischen Diagnose. Beobachtete Flächendetails ohne Diagnosestatus gehören in DentalFindingDE."
 
-// Befundstatus (f/z/c/k/b/i etc.)
+// Diagnosis staging remains available for actual disease stages. Tooth-chart
+// status is an observed finding and belongs in DentalFindingDE.
 * stage MS
-* stage.summary from DentalBefundStatusVS (preferred)
-* stage.summary ^short = "Befundstatus nach KZBV-Zahnschema (f, z, c, k, b, i, etc.)"
+* stage ^short = "Clinical stage of the diagnosed disease, when applicable"
 
 // Authorship is optional but auditable when present. Asserter identifies the
 // diagnosing dental professional; recorder identifies the person who entered

@@ -17,7 +17,7 @@ Profile: DentalCarePlanDE
 Parent: CarePlan
 Id: dental-care-plan
 Title: "Dental Behandlungsplan (DE)"
-Description: "Generisches Profil fuer Dental-Behandlungsplaene. Unterscheidet Plantypen (ZE, HKP, PAR, KFO, KBR, KGL, PMB) ueber category[planType]-Slice."
+Description: "Generisches Profil fuer Dental-Behandlungsplaene. Unterscheidet Plantypen (ZE, HKP, PAR, KFO, KBR, KGL, PMB und klinische Schlafschienen) ueber category[planType]-Slice."
 * ^status = #active
 * ^experimental = false
 * ^publisher = "cognovis GmbH"
@@ -47,7 +47,7 @@ Description: "Generisches Profil fuer Dental-Behandlungsplaene. Unterscheidet Pl
 * category[dental] = DentalCategoryCS#dental "Dental"
 * category[dental] ^short = "Dental-Kategorie (immer 'dental')"
 * category[planType] from DentalCarePlanTypeVS (required)
-* category[planType] ^short = "Plantyp: ze | hkp | par | kfo | kbr | kgl | pmb"
+* category[planType] ^short = "Plantyp: ze | hkp | par | kfo | kbr | kgl | pmb | sleep-appliance"
 
 // --- Erstelldatum ---
 * created MS

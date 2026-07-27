@@ -563,6 +563,14 @@ FDI tooth numbers are the de facto standard in Germany (and internationally outs
 
 Tooth status and surface findings are clinical measurements/findings — `Observation` is the correct resource. Each tooth receives its own `Observation` instance, with FHIR `component` entries for surfaces, finding parameters, and periodontal measurements. This allows granular querying and updating of individual tooth status without replacing the whole chart.
 
+SWS 2.0 tooth-chart values use
+`https://fhir.cognovis.de/dental/CodeSystem/sws2-zahnstatus` and the complete
+ValueSet `https://fhir.cognovis.de/dental/ValueSet/sws2-zahnstatus-complete`.
+The retired draft `dental-befund-status` canonical must not be emitted.
+Diagnosis staging is reserved for actual disease stages. KZBV DPF
+abbreviations and the dental IG's ZE planning extensions retain their own
+systems and must not be inferred from an SWS code.
+
 ### ClinicalImpression for Treatment Journal
 
 Free-text journal entries are clinical impressions — the practitioner's documented assessment. `ClinicalImpression` is semantically more accurate than `DocumentReference` (which is for documents) or `Observation` (which implies structured, measurable data).

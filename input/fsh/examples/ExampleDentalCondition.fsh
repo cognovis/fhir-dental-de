@@ -1,5 +1,4 @@
-// Example: Kariesbefund K02.1, Zahn 46, Befundstatus "c" (kariös)
-// SWS 2.0 — DentalCondition (Diagnosis)
+// Example: caries diagnosis K02.1 on tooth 46.
 //
 // Note: InstanceOf uses base Condition to work around SUSHI snapshot resolution
 // issues with KBV_PR_Base_Condition_Diagnosis code.coding slicing.
@@ -9,7 +8,7 @@ Instance: ExampleDentalCondition
 InstanceOf: Condition
 Usage: #example
 Title: "Beispiel Kariesbefund Zahn 46"
-Description: "Kariesdiagnose K02.1 (Karies des Dentins) an Zahn 46 (erster unterer rechter Molar), Befundstatus kariös (c). Patient Klaus Bergmann (AOK Bayern). Konform zu DentalConditionDE."
+Description: "Kariesdiagnose K02.1 (Karies des Dentins) an Zahn 46 (erster unterer rechter Molar). Der getrennte SWS-Zahnstatus wird als Observation ausgetauscht. Patient Klaus Bergmann (AOK Bayern). Konform zu DentalConditionDE."
 
 * meta.profile[0] = "https://fhir.cognovis.de/dental/StructureDefinition/dental-condition"
 
@@ -32,9 +31,6 @@ Description: "Kariesdiagnose K02.1 (Karies des Dentins) an Zahn 46 (erster unter
 
 // Tooth: FDI 46 (lower-right first molar) — cognovis CodeSystem
 * bodySite[0] = $fdiCS#46 "46"
-
-// Befundstatus "c" = kariös
-* stage[0].summary = https://fhir.cognovis.de/dental/CodeSystem/dental-befund-status#c "kariös"
 
 // Evidence: link to the PSI finding observation
 * evidence[0].detail = Reference(ExampleDentalFinding)
