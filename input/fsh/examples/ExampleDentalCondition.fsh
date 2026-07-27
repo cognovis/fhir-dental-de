@@ -52,6 +52,6 @@ Description: "Bestätigte Dentinkaries an Zahn 36 mit mesialer und okklusaler Be
 * recordedDate = "2026-07-26"
 * bodySite[0] = $fdiCS#36
 * bodySite[0].extension[0].url = "https://fhir.cognovis.de/dental/StructureDefinition/tooth-surfaces"
-* bodySite[0].extension[0].valueCodeableConcept = https://fhir.cognovis.de/dental/CodeSystem/tooth-surfaces#M
+* bodySite[0].extension[0].valueCodeableConcept = http://terminology.hl7.org/CodeSystem/FDI-surface#M
 * bodySite[0].extension[1].url = "https://fhir.cognovis.de/dental/StructureDefinition/tooth-surfaces"
-* bodySite[0].extension[1].valueCodeableConcept = https://fhir.cognovis.de/dental/CodeSystem/tooth-surfaces#O
+* bodySite[0].extension[1].valueCodeableConcept = http://terminology.hl7.org/CodeSystem/FDI-surface#O

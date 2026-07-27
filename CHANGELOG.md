@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.41.0] - 2026-07-27
+
+### Added
+
+- Add `GozInvoiceDE` as a direct specialization of the official gematik `DiPagRechnung` contract, including three positive invoice examples and one rejected generic-line fixture.
+
+### Changed
+
+- Pin `de.cognovis.fhir.praxis` 0.88.0 and `de.gematik.dipag` 1.0.8 for the shared practice and digital patient invoice contracts.
+- Derive dental encounter, communication, and practitioner-role profiles through their compatible Praxis-DE profiles.
+- Use the external GOZ, HL7 THO FDI tooth, and HL7 THO FDI-surface canonicals instead of publishing duplicate local CodeSystems.
+- Refresh the international interoperability inventory to 48 profiles and 46 extensions and correct the MedMij RC1 treatment-objective description.
+
 ## [0.40.1] - 2026-07-27
 
 ### Added

@@ -1,7 +1,7 @@
 Alias: $depositType = https://fhir.cognovis.de/dental/CodeSystem/dental-deposit-type
 Alias: $depositVertical = https://fhir.cognovis.de/dental/CodeSystem/dental-deposit-vertical-location
 Alias: $depositSurface = https://fhir.cognovis.de/dental/CodeSystem/dental-deposit-surface
-Alias: $fdiCS = https://fhir.cognovis.de/dental/CodeSystem/tooth-identification-fdi
+Alias: $fdiCS = http://terminology.hl7.org/CodeSystem/ex-tooth
 
 Instance: ExampleSubgingivalToothDeposit
 InstanceOf: DentalDepositObservationDE

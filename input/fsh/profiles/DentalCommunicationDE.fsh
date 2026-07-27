@@ -1,19 +1,20 @@
 Profile: DentalCommunicationDE
-Parent: Communication
+Parent: PraxisCommunication
 Id: dental-communication
 Title: "Zahnärztliche Kommunikation (DE)"
-Description: "Profil für zahnärztliche Kommunikation: Anweisungen, Aufklärungen und Mitteilungen im Behandlungskontext. Basiert auf FHIR R4 Communication."
+Description: "Profil für zahnärztliche Kommunikation: Anweisungen, Aufklärungen und Mitteilungen im Behandlungskontext. Basiert auf dem gemeinsamen Praxis-DE-Kommunikationsprofil."
 * ^status = #active
 * ^experimental = false
 * ^publisher = "cognovis GmbH"
 
 // Category: instruction (aligned with HL7 Dental IG)
 * category MS
-* category ^slicing.discriminator.type = #pattern
-* category ^slicing.discriminator.path = "$this"
-* category ^slicing.rules = #open
 * category contains dental 0..1 MS
-* category[dental] = DentalCategoryCS#dental "Dental"
+* category[dental].coding 1..1
+* category[dental].coding.system 1..1
+* category[dental].coding.system = "https://fhir.cognovis.de/dental/CodeSystem/dental-category" (exactly)
+* category[dental].coding.code 1..1
+* category[dental].coding.code = #dental (exactly)
 
 // Subject
 * subject MS

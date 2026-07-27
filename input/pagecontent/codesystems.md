@@ -1,7 +1,8 @@
 ### Code Systems
 
 This implementation guide defines the following code systems for German dental terminology.
-External catalog systems such as BEMA and BEL-II are referenced by canonical URL and supplied by dedicated terminology packages.
+External catalog and standard systems such as BEMA, GOZ, FDI teeth, and FDI
+surfaces are referenced by canonical URL rather than redefined by this IG.
 
 #### No local dental specialty CodeSystem
 
@@ -10,7 +11,7 @@ This IG **must not** define a local dental specialty CodeSystem while SNOMED CT 
 Runtime displays and validation for those SCTIDs come from the gated package `de.cognovis.terminology.dental.snomed`; the public IG carries code references only.
 
 #### Billing Code Systems
-- [GOZ](CodeSystem-goz.html) — Gebührenordnung für Zahnärzte (PKV)
+- GOZ (`http://fhir.de/CodeSystem/bzaek/goz`) — external canonical for the Gebührenordnung für Zahnärzte (PKV)
 - [GOÄ Zahnarzt](CodeSystem-goae-zahn.html) — Relevante GOÄ-Positionen für Zahnärzte
 - [beb'97](CodeSystem-beb97.html) — Private zahntechnische Leistungen
 
@@ -18,7 +19,7 @@ Runtime displays and validation for those SCTIDs come from the gated package `de
 - SWS 2.0 tooth status (`https://fhir.cognovis.de/dental/CodeSystem/sws2-zahnstatus`) — published external tooth-chart terminology from `de.cognovis.terminology.dental.sws-zahnstatus`
 - [Oral Health Screening Component](CodeSystem-oral-health-screening-component.html) — structural component identifiers only; bruxism type and grade values remain in the published upstream terminology
 - [Dental Category](CodeSystem-dental-category.html) — Dental resource category marker
-- [Tooth Surfaces](CodeSystem-tooth-surfaces.html) — Zahnflächen (M/D/O/I/B/V/L/P)
+- FDI tooth surfaces (`http://terminology.hl7.org/CodeSystem/FDI-surface`) — external HL7 Terminology code system
 - [BEMA Befundklasse](CodeSystem-bema-befundklasse.html) — Befundklassen (c/k/f/e/b)
 - [Periodontal Measurement Site](CodeSystem-periodontal-measurement-site.html) — Six vendor-neutral tooth measurement sites
 - [PSI Score](CodeSystem-psi-score.html) — PSI scores 0 through 4

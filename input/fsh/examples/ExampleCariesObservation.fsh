@@ -9,5 +9,5 @@ Description: "A distinct visual enamel change on the occlusal surface of tooth 1
 * performer = Reference(Organization/org-dental-mvz)
 * effectiveDateTime = "2026-07-27"
 * bodySite = $fdiCS#16
-* bodySite.extension[surface].valueCodeableConcept = ToothSurfacesCS#O
+* bodySite.extension[surface].valueCodeableConcept = $fdi-surface#O
 * valueCodeableConcept = ICDASCariesScoreCS#2

@@ -1,18 +1,6 @@
 == Suppressed Messages ==
 
 # ---------------------------------------------------------------------------
-# Fragment CodeSystem "unknown code" warnings
-#
-# GozCS is defined with content = #fragment (it contains only a representative
-# subset of codes). The IG Publisher validator warns when a code is used that is
-# not in the fragment, but notes it "may be valid in some other fragment". These
-# warnings are expected for fragment CodeSystems and do not indicate real errors.
-# ---------------------------------------------------------------------------
-
-# Fragment CS warnings — codes not in our fragment but valid in the full GOZ
-%note that the code system is labeled as a fragment, so the code may be valid in some other fragment%
-
-# ---------------------------------------------------------------------------
 # KBV_PR_FOR_Patient suppressions (scope: ALL Patient resources in this IG)
 #
 # Background: ExamplePatient declares conformance to KBV_PR_FOR_Patient via

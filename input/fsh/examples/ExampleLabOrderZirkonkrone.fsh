@@ -24,7 +24,7 @@ Description: "Beispiel fuer einen klinischen Laborauftrag: monolithische Zirkonk
 * performer[0].display = "Zahntechnik Mueller GmbH"
 
 // --- Betroffener Zahn ---
-* bodySite[0] = $fdiCS#26 "Zahn 26"
+* bodySite[0] = $fdiCS#26 "26"
 
 // --- Klinische Extensions ---
 * extension[restorationType].valueCodeableConcept = RestorationTypeCS#krone "Krone"

@@ -2,7 +2,7 @@
 
 Alias: $loinc = http://loinc.org
 Alias: $sct   = http://snomed.info/sct
-Alias: $fdiCS = https://fhir.cognovis.de/dental/CodeSystem/tooth-identification-fdi
+Alias: $fdiCS = http://terminology.hl7.org/CodeSystem/ex-tooth
 Alias: $pabefund = https://fhir.cognovis.de/dental/CodeSystem/pa-befund-type
 Alias: $pargrad = https://fhir.cognovis.de/dental/CodeSystem/par-grad
 Alias: $parthase = https://fhir.cognovis.de/dental/CodeSystem/par-behandlungs-phase

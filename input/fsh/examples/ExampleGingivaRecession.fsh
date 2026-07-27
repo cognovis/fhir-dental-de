@@ -1,7 +1,7 @@
 // Example: Gingival recession — Miller and Cairo classification
 
 Alias: $sct   = http://snomed.info/sct
-Alias: $fdiCS = https://fhir.cognovis.de/dental/CodeSystem/tooth-identification-fdi
+Alias: $fdiCS = http://terminology.hl7.org/CodeSystem/ex-tooth
 Alias: $miller = https://fhir.cognovis.de/dental/CodeSystem/miller-gingival-recession-1985
 Alias: $cairo = https://fhir.cognovis.de/dental/CodeSystem/cairo-gingival-recession-2011
 

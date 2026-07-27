@@ -3,7 +3,7 @@
 // available everywhere without re-declaration.
 
 Alias: $icd10gm    = http://fhir.de/CodeSystem/bfarm/icd-10-gm
-Alias: $fdiCS      = https://fhir.cognovis.de/dental/CodeSystem/tooth-identification-fdi
+Alias: $fdiCS      = http://terminology.hl7.org/CodeSystem/ex-tooth
 Alias: $sct        = http://snomed.info/sct
 Alias: $fdi-tooth  = http://terminology.hl7.org/CodeSystem/ex-tooth
 Alias: $fdi-surface = http://terminology.hl7.org/CodeSystem/FDI-surface

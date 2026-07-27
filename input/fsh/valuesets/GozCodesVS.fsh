@@ -7,4 +7,4 @@ Description: "Alle Leistungscodes aus der Gebührenordnung für Zahnärzte (GOZ 
 * ^experimental = false
 * ^publisher = "cognovis GmbH"
 
-* include codes from system GozCS
+* include codes from system http://fhir.de/CodeSystem/bzaek/goz
