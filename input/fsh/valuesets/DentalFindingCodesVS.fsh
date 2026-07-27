@@ -39,5 +39,8 @@ Terminologieversionen werden ausschließlich in der Build- und Laufzeitkonfigura
 * $sct#25780007
 * $sct#128139000
 * include codes from system DentalDepositTypeCS
+* PeriImplantFindingCS#assessment
+* AlignerProgressComponentCS#assessment
+* DentalTraumaFindingCS#injury-classification
 
 Alias: $sct = http://snomed.info/sct

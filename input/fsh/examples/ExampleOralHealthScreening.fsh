@@ -23,8 +23,10 @@ Description: "Ganzheitliches orales Screening: Bruxismus vorhanden, Mundatmung v
 * derivedFrom[0] = Reference(ExampleSmokingStatusForParGrading)
 
 // Bruxism: independent presence, circadian type, and diagnostic grade axes
-* component[bruxismPresence].valueBoolean = true
+* component[bruxism].valueBoolean = true
+* component[bruxismCircadianType].code.coding.system = $bruxismCircadianTypeCS
 * component[bruxismCircadianType].valueCodeableConcept = $bruxismCircadianTypeCS#sleep "Sleep bruxism"
+* component[bruxismDiagnosticGrade].code.coding.system = $bruxismDiagnosticGradeCS
 * component[bruxismDiagnosticGrade].valueCodeableConcept = $bruxismDiagnosticGradeCS#probable "Probable bruxism"
 
 // Tongue thrust: nicht vorhanden

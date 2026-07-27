@@ -8,11 +8,11 @@ Description: "Site-level probing depth, bleeding, suppuration, and boolean mobil
 * ^publisher = "cognovis GmbH"
 
 * code = PeriImplantFindingCS#assessment
-* bodySite 1..1 MS
+* bodySite 0..1 MS
 * focus 1..1 MS
 * focus only Reference(DentalImplantDE)
-* hasMember MS
-* hasMember only Reference(RadiographicBoneLossObservationDE)
+* derivedFrom MS
+* derivedFrom only Reference(RadiographicBoneLossObservationDE)
 
 * component ^slicing.discriminator.type = #pattern
 * component ^slicing.discriminator.path = "code"

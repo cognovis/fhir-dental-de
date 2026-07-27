@@ -10,7 +10,7 @@ Description: "Manufacturer-neutral identity for a dental implant at one FDI posi
 * identifier 1..* MS
 * status 1..1 MS
 * type 1..1 MS
-* patient 0..1 MS
+* patient 1..1 MS
 * patient only Reference(Patient)
 * extension contains FdiToothNumberExt named fdiPosition 1..1 MS
 * extension[fdiPosition] ^short = "FDI position occupied by the implant"

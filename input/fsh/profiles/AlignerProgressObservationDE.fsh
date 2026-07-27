@@ -17,9 +17,11 @@ Description: "Clinical tracking result at one assessed aligner stage."
     assessedStage 1..1 MS and
     trackingOutcome 1..1 MS
 * component[assessedStage].code = AlignerProgressComponentCS#stage
+* component[assessedStage].value[x] 1..1
 * component[assessedStage].value[x] only integer
 * component[assessedStage] obeys aligner-stage-positive
 * component[trackingOutcome].code = AlignerProgressComponentCS#tracking-outcome
+* component[trackingOutcome].value[x] 1..1
 * component[trackingOutcome].value[x] only CodeableConcept
 * component[trackingOutcome].valueCodeableConcept from AlignerTrackingOutcomeVS (required)
 

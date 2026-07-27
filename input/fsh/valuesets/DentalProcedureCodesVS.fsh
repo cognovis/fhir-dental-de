@@ -12,3 +12,4 @@ terminology client and previously NPEd/hung IG Publisher builds (fmgt-5vw)."""
 
 * include codes from system http://fhir.de/CodeSystem/kzbv/bema
 * include codes from system GozCS
+* include codes from system PeriodontalAdjunctiveProcedureTypeCS

@@ -53,7 +53,7 @@ Description: "Complete clinical graph linking indication, available sleep eviden
 * identifier[0].value = "SNORING-2026-01"
 * status = #active
 * intent = #plan
-* category[planType] = DentalCarePlanTypeCS#kgl
+* category[planType] = DentalCarePlanTypeCS#sleep-appliance
 * category[sleepPathway] = SleepAppliancePathwayCS#primary-snoring
 * subject = Reference(Patient/pat-pkv-01)
 * created = "2026-07-14"

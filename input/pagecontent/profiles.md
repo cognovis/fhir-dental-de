@@ -10,6 +10,7 @@ This implementation guide defines the following profiles for German dental pract
 - [DentalDepositObservationDE](StructureDefinition-dental-deposit-observation.html) — Klinischer Belagstyp und zweiachsige Lokalisation (Observation)
 - [RadiographicBoneLossObservationDE](StructureDefinition-radiographic-bone-loss-observation.html) — Röntgenologischer Knochenabbau mit Grading-Evidenz (Observation)
 - [OralHealthScreeningDE](StructureDefinition-oral-health-screening.html) — Oral Health Screening: parafunktionale Habits, orale Risikofaktoren, systemische Screening-Befunde (Observation)
+- [AlignerProgressObservationDE](StructureDefinition-aligner-progress-observation.html) — stage-specific clinical tracking outcome
 - [TraumaObservationDE](StructureDefinition-trauma-observation.html) — one published ICD-11 NA0D injury classification per tooth and event time
 - [DentalConditionDE](StructureDefinition-dental-condition.html) — Zahnärztliche Diagnose (Condition)
 - [DentalProcedureDE](StructureDefinition-dental-procedure.html) — Zahnärztliche Behandlung (Procedure)
@@ -29,7 +30,6 @@ Dental billing cases reuse [AccountPraxisSchein](https://fhir.cognovis.de/praxis
 - [DentalCarePlanDE](StructureDefinition-dental-care-plan.html) — Dental Behandlungsplan: HKP, PAR, KFO, ZE, KBR, KGL, PMB (CarePlan, via category[planType])
 - [PrimarySnoringCarePlanDE](StructureDefinition-primary-snoring-care-plan.html) — primary-snoring oral-appliance care with linked evidence and Device
 - [AlignerCarePlanDE](StructureDefinition-aligner-care-plan.html) — KFO plan with tooth-specific attachments and interproximal reduction
-- [AlignerProgressObservationDE](StructureDefinition-aligner-progress-observation.html) — stage-specific clinical tracking outcome
 
 The PAR and prophylaxis resource boundaries, measurement representation, workflow links, and delegation semantics are described in [PAR and Prophylaxis](par-prophylaxis.html).
 

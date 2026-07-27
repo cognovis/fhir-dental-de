@@ -10,8 +10,6 @@ Description: "Radiographic alveolar bone loss percentage at a reference tooth, w
 * code = http://snomed.info/sct#109706009
 * code ^short = "Observed alveolar bone loss; the measured percentage is carried in valueQuantity"
 * bodySite 1..1 MS
-* focus MS
-* focus only Reference(DentalImplantDE)
 * value[x] only Quantity
 * valueQuantity.system = "http://unitsofmeasure.org"
 * valueQuantity.code = #%

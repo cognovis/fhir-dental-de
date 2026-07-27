@@ -1,0 +1,62 @@
+### Validate oral-health screening with independent bruxism axes
+POST http://localhost:8080/fhir/Observation/$validate?profile=https://fhir.cognovis.de/dental/StructureDefinition/oral-health-screening
+Authorization: Basic basic:secret
+Content-Type: application/fhir+json
+
+< ../../fsh-generated/resources/Observation-ExampleOralHealthScreening.json
+
+### Reject an unsupported circadian bruxism type
+POST http://localhost:8080/fhir/Observation/$validate?profile=https://fhir.cognovis.de/dental/StructureDefinition/oral-health-screening
+Authorization: Basic basic:secret
+Content-Type: application/fhir+json
+
+{
+  "resourceType": "Observation",
+  "meta": {
+    "profile": [
+      "https://fhir.cognovis.de/dental/StructureDefinition/oral-health-screening"
+    ]
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "https://fhir.cognovis.de/dental/CodeSystem/dental-category",
+          "code": "dental"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "http://snomed.info/sct",
+        "code": "364126007"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/pat-gkv-dental-01"
+  },
+  "effectiveDateTime": "2026-07-27",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "https://fhir.cognovis.de/dental/CodeSystem/bruxism-circadian-type"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "https://fhir.cognovis.de/dental/CodeSystem/bruxism-circadian-type",
+            "code": "unsupported"
+          }
+        ]
+      }
+    }
+  ]
+}

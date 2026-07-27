@@ -7,7 +7,7 @@ Description: "One ICD-11 NA0D injury classification for one tooth and one injury
 * ^experimental = false
 * ^publisher = "cognovis GmbH"
 
-* code = http://loinc.org#8704-9
+* code = DentalTraumaFindingCS#injury-classification
 * bodySite 1..1 MS
 * effective[x] only dateTime
 * value[x] 1..1 MS

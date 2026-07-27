@@ -40,13 +40,15 @@ Description: "Generisches Profil fuer Dental-Behandlungsplaene. Unterscheidet Pl
 * intent ^short = "Request intent: 'option' for an unselected alternative, 'plan' for the selected plan"
 
 // --- Category: zwei Slices — dental (Pflicht) + planType (Pflicht) ---
-* category ^slicing.discriminator.type = #pattern
-* category ^slicing.discriminator.path = "$this"
+* category ^slicing.discriminator.type = #value
+* category ^slicing.discriminator.path = "coding.system"
 * category ^slicing.rules = #open
 * category contains dental 1..1 MS and planType 1..1 MS
 * category[dental] = DentalCategoryCS#dental "Dental"
+* category[dental].coding.system = "https://fhir.cognovis.de/dental/CodeSystem/dental-category"
 * category[dental] ^short = "Dental-Kategorie (immer 'dental')"
 * category[planType] from DentalCarePlanTypeVS (required)
+* category[planType].coding.system = "https://fhir.cognovis.de/dental/CodeSystem/dental-care-plan-type"
 * category[planType] ^short = "Plantyp: ze | hkp | par | kfo | kbr | kgl | pmb"
 
 // --- Erstelldatum ---

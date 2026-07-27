@@ -171,6 +171,16 @@ This enables a workflow where AI analyzes an OPG, produces preliminary findings,
 - **Referral to oral surgeon** with Zahnschema, relevant findings, and imaging
 - **Lab order** with tooth specifications, material requirements, and shade selection
 - **Treatment report** back to the referring dentist with procedure documentation
+
+### Bruxism screening
+
+`OralHealthScreeningDE` keeps bruxism presence, circadian type, and diagnostic
+grade as independent components. Presence is a screening result. Circadian type
+distinguishes sleep and awake bruxism, while the diagnostic grade expresses the
+strength of the supporting clinical evidence. Consequences such as tooth wear
+remain separate findings, and a confirmed bruxism disorder remains a separate
+diagnosis; neither is inferred from a screening component alone.
+
 ### Dental trauma
 
 `TraumaObservationDE` carries one published ICD-11 NA0D classification, one FDI

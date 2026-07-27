@@ -30,7 +30,9 @@ Title: "Confirmed Avulsion Diagnosis for Tooth 11"
 Description: "The diagnosis references the trauma observation as evidence."
 * clinicalStatus = http://terminology.hl7.org/CodeSystem/condition-clinical#active
 * verificationStatus = http://terminology.hl7.org/CodeSystem/condition-ver-status#confirmed
-* code = $icd11Mms#NA0D.15 "Avulsion of tooth"
+* code.coding[0] = $icd11Mms#NA0D.15 "Avulsion of tooth"
+* code.coding[1] = $icd10gm#S03.2 "Zahnluxation"
+* code.coding[1].version = "*"
 * subject = Reference(Patient/pat-gkv-dental-01)
 * bodySite = $fdiCS#11
 * recordedDate = "2026-07-18"

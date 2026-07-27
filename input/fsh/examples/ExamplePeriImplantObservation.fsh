@@ -12,7 +12,7 @@ Description: "Site-level probing, bleeding, suppuration, and stable implant mobi
 * effectiveDateTime = "2026-07-20"
 * focus = Reference(ExampleDentalImplant36)
 * bodySite = $fdiCS#36
-* hasMember = Reference(ExamplePeriImplantBoneLoss36)
+* derivedFrom = Reference(ExamplePeriImplantBoneLoss36)
 * component[probingDepth][0].extension[measurementSite].valueCodeableConcept = $periodontalSite#mesiobuccal
 * component[probingDepth][0].valueQuantity = 6 'mm'
 * component[probingDepth][1].extension[measurementSite].valueCodeableConcept = $periodontalSite#buccal
@@ -38,14 +38,17 @@ Description: "Radiographic evidence remains a separate Observation focused on th
 * component[patientAgeAtMeasurement].valueInteger = 67
 
 Instance: ExamplePeriImplantitisCondition36
-InstanceOf: Condition
+InstanceOf: DentalConditionDE
 Usage: #example
 Title: "Peri-Implantitis Diagnosis at Position 36"
 Description: "The diagnosis is separate from the site measurements and radiographic evidence."
 * clinicalStatus = http://terminology.hl7.org/CodeSystem/condition-clinical#active
 * verificationStatus = http://terminology.hl7.org/CodeSystem/condition-ver-status#confirmed
-* category[0] = DentalCategoryCS#dental
-* code = http://snomed.info/sct#699422003
+* code.coding[0] = $icd10gm#K05.5 "Sonstige Krankheiten des Parodonts"
+* code.coding[0].version = "2026"
+* code.coding[1] = http://snomed.info/sct#699422003 "Peri-implantitis"
+* code.coding[1].version = "http://snomed.info/sct/900000000000207008/version/20250201"
+* code.text = "Peri-implantitis"
 * subject = Reference(Patient/pat-beihilfe-01)
 * bodySite = $fdiCS#36
 * recordedDate = "2026-07-20"

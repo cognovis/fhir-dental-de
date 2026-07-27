@@ -16,3 +16,4 @@ Description: "Kategorisierung von Dental-Behandlungsplaenen nach Plantyp (ZE, HK
 * #kbr "Kieferbruch-Behandlung (KBR)" "Behandlungsplan fuer Kieferbruch-Behandlung (BEMA W-Serie)"
 * #kgl "Kiefergelenk-Behandlung (KGL)" "Behandlungsplan fuer Kiefergelenk-Erkrankungen (BEMA U-Serie)"
 * #pmb "Professionelle Mundgesundheitsberatung (PMB)" "Behandlungsplan fuer praeventive Massnahmen und professionelle Mundgesundheitsberatung"
+* #sleep-appliance "Sleep-related oral appliance" "Clinical oral-appliance plan without billing or reimbursement semantics."

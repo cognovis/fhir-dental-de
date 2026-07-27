@@ -39,15 +39,9 @@ dependencies:
   de.cognovis.terminology.dental.gingival-recession: 2.1.0
   de.cognovis.terminology.dental.routine-befund: 1.0.0
   de.cognovis.terminology.dental.par-richtlinie: 1.1.0
-  de.cognovis.terminology.dental.sws-zahnstatus:
-    version: 1.1.0
-    uri: http://fhir.org/packages/de.cognovis.terminology.dental.sws-zahnstatus/ImplementationGuide/de.cognovis.terminology.dental.sws-zahnstatus
-  de.cognovis.terminology.dental.bruxism:
-    version: 1.1.0
-    uri: http://fhir.org/packages/de.cognovis.terminology.dental.bruxism/ImplementationGuide/de.cognovis.terminology.dental.bruxism
-  de.cognovis.terminology.dental.icd11-na0d:
-    version: 1.0.0
-    uri: http://fhir.org/packages/de.cognovis.terminology.dental.icd11-na0d/ImplementationGuide/de.cognovis.terminology.dental.icd11-na0d
+  de.cognovis.terminology.dental.sws-zahnstatus: 1.1.0
+  de.cognovis.terminology.dental.bruxism: 1.1.0
+  de.cognovis.terminology.dental.icd11-na0d: 1.0.0
   # Gated SNOMED fragment for PractitionerRole.specialty runtime displays/validation (ADR-009).
   # Public IG artifacts stay display-neutral; pin 1.2.0 from the current dental adapter set.
   de.cognovis.terminology.dental.snomed: 1.2.0
@@ -109,7 +103,6 @@ parameters:
     - https://fhir.cognovis.de/dental/CodeSystem/kfo-angle-klasse
     - https://fhir.cognovis.de/dental/CodeSystem/ze-versorgungsart
     - https://fhir.cognovis.de/dental/CodeSystem/sws2-zahnstatus
-    - https://fhir.cognovis.de/dental/CodeSystem/bruxism-assessment-component
     - https://fhir.cognovis.de/dental/CodeSystem/bruxism-circadian-type
     - https://fhir.cognovis.de/dental/CodeSystem/bruxism-diagnostic-grade
     - https://fhir.cognovis.de/dental/CodeSystem/dental-implant-property
@@ -117,6 +110,7 @@ parameters:
     - https://fhir.cognovis.de/dental/CodeSystem/sleep-appliance-pathway
     - https://fhir.cognovis.de/dental/CodeSystem/aligner-progress-component
     - https://fhir.cognovis.de/dental/CodeSystem/aligner-tracking-outcome
+    - https://fhir.cognovis.de/dental/CodeSystem/dental-trauma-finding
     - https://fhir.cognovis.de/dental/CodeSystem/periodontal-adjunctive-procedure-type
     - https://fhir.cognovis.de/dental/CodeSystem/hkp-genehmigungsstatus
     - https://fhir.cognovis.de/dental/CodeSystem/ztl-material
