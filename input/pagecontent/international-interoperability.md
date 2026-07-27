@@ -2,20 +2,42 @@
 
 This page describes how the German Dental FHIR Profiles (fhir-dental-de) relate to international dental FHIR specifications and provides guidance for cross-border data exchange.
 
-## European Dental FHIR Landscape
+## Version Baseline
 
-As of 2026, only two published dental FHIR Implementation Guides exist in Europe:
+This crosswalk is version-bound. The following releases were checked for this
+IG version:
 
 | IG | Country | Status | Profiles | Focus |
 |---|---|---|---|---|
-| **fhir-dental-de** (this IG) | Germany | v0.12 Trial Use | 16 profiles, 22 extensions | Full dental workflow: clinical + billing + care plans + imaging + lab |
-| [**MedMij Dental Care**](https://simplifier.net/guide/medmij-r4-dentalcare-ig/) | Netherlands | v1.0.0-beta.2 | 6 profiles, 0 extensions | Clinical findings + procedures |
+| **fhir-dental-de** (this IG) | Germany | v0.40.1 Trial Use | 28 profiles, 43 extensions | Full dental workflow: clinical + billing + care plans + imaging + lab |
+| [**MedMij Dental Care**](https://simplifier.net/guide/medmij-r4-dentalcare-ig/Home?version=1.0.0-rc.1) | Netherlands | v1.0.0-rc.1 Release Candidate | 6 profiles, 0 extensions | Clinical findings + procedures |
+| [**HL7 Dental Data Exchange**](https://hl7.org/fhir/us/dental-data-exchange/) | United States | v1.0.0 STU 1, current published release | 7 profiles | Referral and consultation exchange |
+| [**HL7 Dental Data Exchange**](https://build.fhir.org/ig/HL7/dental-data-exchange/) | United States | v2.0.0-ballot CI build, mutable and not an authorized publication | 7 profiles | Crosswalk target used on this page |
+| [**Da Vinci PAS**](https://hl7.org/fhir/us/davinci-pas/) | United States | v2.2.1 STU 2, current published release | n/a | Prior authorization |
 
-No dedicated dental FHIR IGs have been published for Austria, Switzerland, the UK, Norway, or any other European country. The Nordic countries (Norway, Sweden, Denmark) have advanced general eHealth infrastructure but no dental-specific FHIR work. The [FDI World Dental Federation](https://www.fdiworlddental.org/) published a [consensus statement on integrated EHRs](https://www.fdiworlddental.org/sites/default/files/2025-03/FDI_EHR_Consensus%20Statement_Web.pdf) in March 2025 advocating FHIR-based interoperability but does not author FHIR IGs.
+DDEx 1.0.0 remains the stable package registry release. The crosswalk below
+uses DDEx 2.0.0-ballot as requested because it reflects the current ballot
+model, but implementations must not treat the CI output as stable. Producers
+and transformation specifications should record the exact DDEx version they
+target.
+
+The local build is pinned to `de.basisprofil.r4` 1.5.4, `kbv.basis` 1.9.0,
+and `de.cognovis.fhir.praxis` 0.85.0. These are the tested compatibility
+versions for fhir-dental-de 0.40.1; they are not claims about the newest release
+available in every upstream registry.
+
+The [FDI World Dental Federation](https://www.fdiworlddental.org/) published a
+[consensus statement on integrated EHRs](https://www.fdiworlddental.org/sites/default/files/2025-03/FDI_EHR_Consensus%20Statement_Web.pdf)
+in March 2025 advocating FHIR-based interoperability but does not author a FHIR
+IG.
 
 ## Comparison with MedMij Dental Care IG (Netherlands)
 
-The [MedMij R4 Dental Care IG](https://simplifier.net/guide/medmij-r4-dentalcare-ig/) is maintained by Stichting MedMij and Nictiz. It takes a fundamentally different architectural approach: minimal dental-specific profiles with heavy reliance on shared nl-core base profiles.
+The [MedMij R4 Dental Care IG v1.0.0-rc.1](https://simplifier.net/guide/medmij-r4-dentalcare-ig/Home?version=1.0.0-rc.1)
+is maintained by Stichting MedMij and Nictiz. It takes a fundamentally
+different architectural approach: minimal dental-specific profiles with heavy
+reliance on shared nl-core base profiles. The release is explicitly still in
+its release-candidate phase.
 
 ### Profile Correspondence
 
@@ -51,10 +73,10 @@ The [MedMij R4 Dental Care IG](https://simplifier.net/guide/medmij-r4-dentalcare
 |---|---|---|
 | **Philosophy** | Self-contained dental specification | Inherit common, define only dental-unique |
 | **Base profiles** | Extends FHIR R4 directly | Extends nl-core (Dutch national base) |
-| **Extensions** | 22 custom (billing, insurance, specialty-specific) | None (uses nl-core patterns) |
+| **Extensions** | 43 custom (billing, insurance, specialty-specific) | None (uses nl-core patterns) |
 | **Treatment types** | Category-based routing in unified CarePlan | Meta-tags + generic Goal |
 | **Billing integration** | Dedicated ChargeItem profiles | Embedded in procedure codes |
-| **Maturity** | v0.12.1 (stable, validated against PVS data) | v1.0.0-beta.2 (unstable) |
+| **Maturity** | v0.40.1 Trial Use | v1.0.0-rc.1 Release Candidate |
 
 ### Harmonization Opportunities
 
@@ -68,22 +90,25 @@ Despite their different architectures, the two IGs share a common clinical found
 
 4. **FDI tooth identification** — fhir-dental-de already uses FDI (ISO 3950) as the international standard. MedMij does not currently expose tooth-level data. Adopting FDI across both IGs would enable tooth-level data exchange without code system translation.
 
-## Profile Correspondence
+## DDEx 2.0.0-ballot Profile Correspondence
 
-The following table maps fhir-dental-de profiles to their closest equivalents in the HL7 Dental Data Exchange IG.
+The following table maps fhir-dental-de profiles to their closest equivalents
+in DDEx 2.0.0-ballot. The same seven profile families are present in the
+published DDEx 1.0.0 release, but implementers must validate differences
+against the release they actually exchange.
 
 | fhir-dental-de Profile | Base Resource | HL7 Dental Data Exchange Equivalent | Notes |
 |---|---|---|---|
-| DentalFindingDE | Observation | Dental Finding | Both Observation-based. DE uses FDI tooth numbering + SNOMED dual-coding in `bodySite`. |
-| DentalConditionDE | Condition | Dental Condition | Both Condition-based. DE binds `code` to ICD-10-GM; US binds to ICD-10-CM / SNOMED CT. |
-| DentalProcedureDE | Procedure | *(no direct equivalent)* | DE uses BEMA/GOZ procedure codes; US IG relies on CDT. No 1:1 mapping exists. |
+| DentalFindingDE | Observation | Dental Finding | Both are Observation-based, but terminology breadth and multi-site representation differ. See the transformation rules below. |
+| DentalConditionDE | Condition | Dental Condition | Both are Condition-based. DE binds `code` to ICD-10-GM; DDEx uses US-oriented diagnosis and finding terminologies. |
+| DentalProcedureDE | Procedure | US Core Procedure used by DDEx examples | DE uses BEMA/GOZ procedure codes; DDEx does not define a dental Procedure profile. No 1:1 billing-code mapping exists. |
 | DentalCommunicationDE | Communication | Dental Communication | Structurally aligned. Both carry dental-category payload. |
-| BemaChargeItemDE | ChargeItem | *(no US equivalent)* | GKV billing (BEMA). US uses Claim directly; ChargeItem is not profiled in the US IG. |
-| GozChargeItemDE | ChargeItem | *(no US equivalent)* | PKV billing (GOZ) with fee multiplier (`Steigerungsfaktor`). No US counterpart. |
-| DentalCarePlanDE (type: hkp) | CarePlan | *(no US equivalent)* | Treatment plan / prior authorization. US handles prior auth via [Da Vinci PAS](https://hl7.org/fhir/us/davinci-pas/). |
-| DentalCarePlanDE (type: kfo) | CarePlan | *(no US equivalent)* | Orthodontic treatment plan with KIG classification. |
-| DentalCarePlanDE (type: par) | CarePlan | *(no US equivalent)* | Periodontal treatment plan (PAR-Richtlinie). |
-| DentalCarePlanDE (type: ze) | CarePlan | *(no US equivalent)* | Dental prosthetics plan (Zahnersatz HKP). |
+| BemaChargeItemDE | ChargeItem | *(no DDEx equivalent)* | GKV billing (BEMA). US uses Claim directly; ChargeItem is not profiled in the US IG. |
+| GozChargeItemDE | ChargeItem | *(no DDEx equivalent)* | PKV billing (GOZ) with fee multiplier (`Steigerungsfaktor`). No US counterpart. |
+| DentalCarePlanDE (type: hkp) | CarePlan | *(no DDEx equivalent)* | Treatment plan / prior authorization. US authorization uses [Da Vinci PAS 2.2.1](https://hl7.org/fhir/us/davinci-pas/), not DDEx. |
+| DentalCarePlanDE (type: kfo) | CarePlan | *(no DDEx equivalent)* | Orthodontic treatment plan with KIG classification. |
+| DentalCarePlanDE (type: par) | CarePlan | *(no DDEx equivalent)* | Periodontal treatment plan (PAR-Richtlinie). |
+| DentalCarePlanDE (type: ze) | CarePlan | *(no DDEx equivalent)* | Dental prosthetics plan (Zahnersatz HKP). |
 
 ## Terminology Mapping
 
@@ -101,7 +126,9 @@ fhir-dental-de uses FDI as the primary coding in `bodySite` and adds SNOMED CT a
 
 ### Tooth Surfaces
 
-Dental surfaces use different code sets across jurisdictions. The concepts are clinically identical but the code systems differ.
+Dental surfaces use different code sets and representation models across
+jurisdictions. Some concepts align exactly; others require a context-sensitive,
+potentially lossy transformation.
 
 | Surface | FDI Abbreviation (DE) | ADA Tooth Surface Code (US) | SNOMED CT |
 |---|---|---|---|
@@ -111,9 +138,26 @@ Dental surfaces use different code sets across jurisdictions. The concepts are c
 | Incisal | I | I | `245652004` |
 | Buccal / Vestibular | B / V | B | `245649005` |
 | Lingual | L | L | `362103001` |
-| Palatal | P | *(not separate — mapped to L)* | `245651006` |
+| Palatal | P | *(not separate — often represented as L)* | `245651006` |
 
-fhir-dental-de defines a `tooth-surfaces` extension (`0..*`, repeating CodeableConcept) to represent multi-surface findings and procedures (e.g., an MOD restoration). The US IG models multi-surface via multiple SNOMED `targetSiteCode` values on `bodySite`.
+fhir-dental-de attaches a repeatable `tooth-surfaces` extension to the
+tooth-bearing `bodySite` CodeableConcept. DDEx does **not** represent multiple
+surfaces as repeated `targetSiteCode` values. DDEx 2.0.0-ballot keeps the FHIR
+R4 `Observation.bodySite` cardinality at `0..1` and instructs producers to use
+a single post-coordinated SNOMED CT expression when several teeth, surfaces, or
+oral areas apply.
+
+### Tooth Surface Transformation Matrix
+
+| Direction | Source representation | Target representation | Rule and loss handling |
+|---|---|---|---|
+| fhir-dental-de to DDEx | One FDI/SNOMED tooth in `bodySite`, plus repeated `tooth-surfaces` extensions | One post-coordinated SNOMED CT concept in `Observation.bodySite` | Compose the tooth and every surface into one expression. Preserve the original codings or source resource for audit. |
+| DDEx to fhir-dental-de | One post-coordinated SNOMED CT expression | Tooth coding in `bodySite`, one extension per surface | Parse only expressions supported by the receiving terminology service. If decomposition is not lossless, retain the original expression and emit a mapping warning. |
+| B/V or L/P exchange | Jurisdiction-specific surface distinction | Broader or differently partitioned target code | Never collapse silently. Mark the mapping as potentially lossy because vestibular versus buccal and palatal versus lingual may depend on tooth position and source convention. |
+
+This is a structural transformation, not a terminology-only ConceptMap. A
+StructureMap or adapter transformation may implement it, while a ConceptMap can
+only support the individual code correspondences.
 
 ### Procedure Codes
 
@@ -131,6 +175,81 @@ There is no 1:1 mapping between BEMA/GOZ and CDT. The procedure concepts overlap
 | ICD-10-GM (BfArM) | ICD-10-CM (CDC/CMS) | SNOMED CT |
 
 Both ICD-10 variants share a common stem (WHO ICD-10) but diverge at the extension level. SNOMED CT can serve as a bridge terminology for clinical concepts, though coverage of dental diagnoses varies.
+
+## Clinical Semantics Transformation
+
+### Periodontal and Prophylaxis Crosswalk
+
+The following correspondences are transformation guidance, not claims of
+profile equivalence. Direct terminology coding is used only where the
+international concept represents the same measurement or finding.
+
+| German model | International target | Relationship and transformation |
+|---|---|---|
+| Caries risk | MedMij `mz-CariesRisk`, SNOMED CT `74024006` | The high-level concept is shared. Risk levels are only partially equivalent and require a value-by-value mapping. |
+| Oral hygiene | MedMij `mz-OralHygiene`, SNOMED CT `364126007` | The concept is shared. Local values must be mapped to the applicable SNOMED CT qualifiers. |
+| PSI | MedMij `mz-PeriodicPeriodontalScreeningScore` (PPS) | Lossy screening crosswalk, not equivalence. PSI 0, 1, or 2 may map to PPS 1; PSI 3 to PPS 2; and PSI 4 to PPS 3. Bleeding, calculus, the star marker, excluded sextants, and sextant structure are not preserved by that reduction. |
+| Probing depth | LOINC `32910-2` "Probing depth {Tooth}.{probe site} Measured" | Direct international coding. Preserve the tooth, one of the six canonical probe sites, value, and UCUM unit. |
+| Radiographic alveolar bone loss | SNOMED CT `109706009` "Alveolar bone loss" | Direct international coding. Preserve the measured percentage and the reference tooth separately from the finding code. |
+| API, QHI, or PI | LOINC `32953-2` "Plaque index Dentition Calculated" | `related-to` unless the source and target methods, denominator, and scoring rules are demonstrably identical. Do not relabel a method-specific local index as an exact LOINC match. |
+| SBI, PBI, or BOP index | LOINC `32951-6` "Bleeding on probing index Gingiva Calculated" | `related-to` unless method and calculation are identical. A site-level BOP boolean is not the calculated whole-gingiva index. |
+| PAR or other dental finding | DDEx 2.0.0-ballot Dental Finding | Profile and element crosswalk only. Resource boundary, code breadth, and body-site representation require the rules in this page. |
+
+This IG deliberately does not add package dependencies on the MedMij release
+candidate or the mutable DDEx ballot build. Version-bound narrative mappings
+remain stable for publication; future executable transformations may add
+governed ConceptMaps for terminology and StructureMaps for resource shape.
+
+### Finding Codes
+
+`DentalFindingCodesVS` is a curated, extensible set of common dental findings.
+The DDEx `Dental Observation Codes` value set includes all concepts below
+Clinical Finding from SNOMED CT and SNODENT and is therefore much broader.
+Identical SCTIDs map directly and do not require a ConceptMap. A code accepted
+by DDEx but absent from the curated local list may still be valid under the
+local extensible binding, provided its terminology edition and meaning are
+validated.
+
+### Observation and Condition Boundary
+
+fhir-dental-de uses `DentalFindingDE` for raw measurements, odontogram states,
+plaque, risk observations, and other findings. `DentalConditionDE` is reserved
+for an asserted diagnosis and may reference supporting Observations through
+`evidence.detail`.
+
+DDEx 2.0.0-ballot describes the same general Observation/Condition distinction,
+but its examples include plaque and caries risk as Conditions. Importers must
+therefore classify the source meaning rather than copy the DDEx resource type:
+
+| Source meaning | fhir-dental-de target | Transform rule |
+|---|---|---|
+| Measurement, raw finding, risk score, plaque, or odontogram state without an asserted diagnosis | `DentalFindingDE` or a specialized Observation profile | Preserve the source coding and measurement; do not promote it to a diagnosis. |
+| Clinician-asserted diagnosis | `DentalConditionDE` | Preserve verification, clinical status, authorship, encounter, and supporting evidence when present. |
+| Ambiguous DDEx Condition example | No automatic profile assignment | Require a domain rule or human-reviewed mapping; record a warning if the source does not establish diagnosis semantics. |
+
+### Lifecycle and Authorship
+
+The lifecycle values and invariant `con-5` come from FHIR R4 Condition. This IG
+adds Must Support expectations but does not redefine the core semantics. The
+Praxis-DE
+[diagnosis certainty contract](https://fhir.cognovis.de/praxis/claim-diagnosis-contract.html)
+is the shared mapping for the German `G`, `V`, `Z`, and `A` certainty markers;
+this IG does not duplicate that table.
+
+`DentalConditionDE.asserter` is the dental professional responsible for the
+diagnosis, while `recorder` is the person or role that entered it. DDEx and KBV
+base profiles do not provide the same dental qualification restriction. For
+legacy AW-SST export, `KBV_PR_AW_Diagnose` requires `encounter` and prohibits
+both `asserter` and `recorder`. An exporter must therefore:
+
+1. omit authorship fields only in the archive projection and record that loss;
+2. populate the required encounter only from source-supported context; and
+3. retain the original `DentalConditionDE` or equivalent provenance for audit.
+
+The Praxis-DE
+[AW-SST and WeST crosswalk](https://fhir.cognovis.de/praxis/aw-sst-crosswalk.html)
+remains authoritative for the German practice export targets. This page only
+adds the dental-specific source-to-Praxis projection.
 
 ## Dual-Coding Strategy
 
@@ -188,15 +307,66 @@ fhir-dental-de uses a dual-coding approach to maintain compatibility with the HL
 }
 ```
 
-A system consuming data from fhir-dental-de can ignore the FDI coding and rely solely on the SNOMED CT coding to achieve compatibility with US IG expectations. Conversely, a German system can ignore the SNOMED coding and use FDI directly.
+A system consuming data from fhir-dental-de can use the SNOMED CT tooth coding
+instead of the FDI coding when it needs US-oriented tooth identification.
+However, dual-coding alone is not sufficient for DDEx conformance when several
+teeth or surfaces are present; the representation transformation described
+above is still required.
+
+## Authorization and Billing Crosswalk
+
+### Selected Plan to Da Vinci PAS
+
+`DentalCarePlanDE.intent = option` represents an unselected alternative. Only
+the selected `intent = plan` instance is eligible to become authorization
+input. Da Vinci PAS 2.2.1 uses a preauthorization `Claim` and
+`ClaimResponse`; DDEx does not define this workflow.
+
+FHIR R4 `Claim` has no `basedOn` element. Consequently, documentation or
+implementations must not claim a `DentalCarePlanDE` to `PASClaimDE.basedOn`
+mapping. A future dental authorization profile can add a required
+`Claim.supportingInfo.valueReference` slice for the selected CarePlan or use a
+separately governed linkage extension. Until that contract is profiled,
+exporters should preserve the selected plan as supporting information without
+stamping an unsupported `basedOn` path.
+
+### Festzuschuss Adjudication
+
+| Lifecycle stage | Source | Target | Meaning |
+|---|---|---|---|
+| Requested or calculated amount | `DentalClaimDE.item.extension[festzuschussAmount]` | Authorization or submitted Claim item | Finding, percentage, amount, effective period, and source edition asserted by the submitting system |
+| Payer decision | `ClaimResponse.item.adjudication` | Approved, reduced, or denied amount and reason | Payer-owned result; it must not overwrite the submitted extension |
+| Downstream explanation | `ExplanationOfBenefit.item.adjudication` | Patient-facing or persisted adjudication view | Copy the payer decision with traceable Claim/ClaimResponse references |
+
+These are structural mappings. `StructureDefinition.mapping`, a narrative
+mapping table, or an executable StructureMap is appropriate. ConceptMap is
+reserved for terminology correspondences.
+
+### DentalClaimDE to Praxis, AW-SST, and WeST
+
+`DentalClaimDE` is an operational, position-bearing mixed claim. The Praxis-DE
+package provides the shared Account, Coverage, preliminary/final Claim, and
+WeST/AW-SST export contracts. The dental projection is:
+
+| Dental source | Praxis projection | Export rule |
+|---|---|---|
+| `AccountPraxisSchein` | Reuse unchanged | Keep the billing-case anchor separate from clinical encounters. |
+| GKV plus supplementary/private Coverage | `FPDECoverageGKV` plus `FPDECoveragePrivat` | Preserve payer order through Claim insurance sequence and Account coverage priority. |
+| Position-bearing `DentalClaimDE` | `PraxisPreliminaryBillingClaimDE` | Preserve the itemized operational claim before payer-specific finalization. |
+| Final mixed-payer result | `PraxisGKVClaimDE` plus `PraxisPrivateClaimDE` or supplementary-payer Claim | Split by payer where the target contract requires it and link final Claims to the preliminary Claim. |
+| Legacy AW-SST archive | Matching preliminary/final AW Claim projections | Record loss for dental-only BEMA/GOZ mixture, Festzuschuss details, typed ChargeItem links, and multi-coverage adjudication that the target cannot carry. |
+| WeST | Use the Praxis-DE WeST Schein/Claim crosswalk | Do not duplicate the WeST model here. Per-service dental settlement remains outside the current WeST scope. |
+
+Export loss must be visible in adapter audit output or Provenance; an exporter
+must not silently discard dental-specific semantics.
 
 ## Interoperability Assessment
 
-### Compatible (convertible with dual-coding)
+### Closely aligned
 
-- **Clinical findings** (DentalFindingDE / Dental Finding) -- both are Observation-based with `bodySite` tooth identification. Dual-coded FDI+SNOMED ensures tooth references are interpretable in both directions.
-- **Clinical conditions** (DentalConditionDE / Dental Condition) -- both are Condition-based. ICD-10-GM and ICD-10-CM share a common WHO stem; SNOMED CT can bridge remaining gaps.
-- **Tooth identification** -- FDI and Universal Numbering both map to SNOMED CT anatomical concepts. The dual-coding strategy in `bodySite` makes this transparent.
+- **Clinical findings** (DentalFindingDE / Dental Finding) -- both are Observation-based, but terminology breadth and multi-site representation require the rules above.
+- **Clinical conditions** (DentalConditionDE / Dental Condition) -- both are Condition-based, but importers must preserve the local finding-versus-diagnosis boundary.
+- **Tooth identification** -- FDI and Universal Numbering can map to SNOMED CT anatomical concepts; compound site expressions still require transformation.
 - **Communications** (DentalCommunicationDE / Dental Communication) -- structurally aligned, both based on Communication with dental category.
 
 ### Partially compatible (same concepts, different code systems)
@@ -250,16 +420,17 @@ This IG (fhir-dental-de) could serve as the basis for `dach-dental-core` by extr
 
 ## Three-Way Comparison
 
-The following table summarizes how the three existing dental FHIR IGs cover key clinical domains:
+The following table summarizes how the three compared dental FHIR IGs cover key
+clinical domains at the version baseline above:
 
-| Domain | fhir-dental-de (Germany) | MedMij Dental Care (Netherlands) | HL7 Dental Data Exchange (US) |
+| Domain | fhir-dental-de 0.40.1 (Germany) | MedMij Dental Care 1.0.0-rc.1 (Netherlands) | DDEx 2.0.0-ballot (US) |
 |---|---|---|---|
 | **Tooth identification** | FDI (ISO 3950) + SNOMED dual coding | Not exposed | ADA Universal + SNOMED |
-| **Tooth surfaces** | FDI + SNOMED dual coding | Not profiled | ADA Surface Codes + SNOMED |
+| **Tooth surfaces** | Repeated local/SNOMED-coded extensions on the tooth `bodySite` | Not profiled | One post-coordinated SNOMED expression in `bodySite` |
 | **Dental findings** | DentalFindingDE (Observation) | 5 specialized Observations | Dental Finding (Observation) |
 | **Periodontal** | 6-point probing, BOP, recession, furcation | PSI/PSR aggregate score | General periodontal findings |
-| **Conditions** | ICD-10-GM (Condition) | SNOMED CT (nl-core-Condition) | ICD-10-CM + SNODENT (Condition) |
-| **Procedures** | BEMA/GOZ (Procedure) | Vektis Mondzorg (Procedure) | CDT (Procedure) |
+| **Conditions** | ICD-10-GM plus extensible coding (Condition) | SNOMED CT (nl-core-Condition) | US Core condition coding plus dental examples |
+| **Procedures** | BEMA/GOZ (Procedure) | Vektis Mondzorg (Procedure) | US Core Procedure examples; no DDEx dental Procedure profile |
 | **Care plans** | DentalCarePlanDE (7 types) | Generic Goal | US Core CarePlan/Goal |
 | **Billing** | ChargeItem (BEMA + GOZ) | Not profiled | Not profiled |
 | **Imaging** | ImagingStudy (DICOM) | Not profiled | Referenced narratively |
@@ -269,12 +440,15 @@ The following table summarizes how the three existing dental FHIR IGs cover key 
 
 ## References
 
-- [HL7 Dental Data Exchange IG v2.0.0 (Ballot)](https://build.fhir.org/ig/HL7/dental-data-exchange/) -- US Realm profiles for dental data exchange
-- [MedMij R4 Dental Care IG v1.0.0-beta.2](https://simplifier.net/guide/medmij-r4-dentalcare-ig/) -- Dutch dental FHIR profiles
+- [HL7 Dental Data Exchange IG v1.0.0 STU 1](https://hl7.org/fhir/us/dental-data-exchange/) -- current published US Realm release
+- [HL7 Dental Data Exchange IG v2.0.0-ballot CI build](https://build.fhir.org/ig/HL7/dental-data-exchange/) -- mutable ballot crosswalk target
+- [FHIR Package Registry: hl7.fhir.us.dental-data-exchange](https://packages.fhir.org/hl7.fhir.us.dental-data-exchange) -- published package versions
+- [MedMij R4 Dental Care IG v1.0.0-rc.1](https://simplifier.net/guide/medmij-r4-dentalcare-ig/Home?version=1.0.0-rc.1) -- Dutch dental FHIR release candidate
 - [ADA Tooth Surface Codes (HL7 THO)](https://terminology.hl7.org/CodeSystem-ADAToothSurfaceCodes.html) -- US tooth surface terminology
 - [FDI Two-Digit Notation (ISO 3950)](https://www.fdiworlddental.org/) -- international tooth numbering standard
 - [SNOMED CT Dental Concepts](http://snomed.info/sct) -- international clinical terminology with dental anatomy concepts
-- [Da Vinci Prior Authorization Support (PAS)](https://hl7.org/fhir/us/davinci-pas/) -- US prior authorization IG
-- [German Base Profiles (de.basisprofil.r4)](https://ig.fhir.de/basisprofile-de/1.0.0/) -- German FHIR foundation
+- [Da Vinci Prior Authorization Support (PAS) v2.2.1](https://hl7.org/fhir/us/davinci-pas/) -- current published US prior authorization IG
+- [German Base Profiles package registry (de.basisprofil.r4)](https://packages.fhir.org/de.basisprofil.r4) -- this IG is pinned to v1.5.4
+- [KBV Base Profiles v1.9.0](https://fhir.kbv.de/StructureDefinition/KBV_PR_Base_Condition_Diagnosis) -- pinned Condition base profile
 - [FDI EHR Consensus Statement (2025)](https://www.fdiworlddental.org/sites/default/files/2025-03/FDI_EHR_Consensus%20Statement_Web.pdf) -- FDI advocacy for integrated dental EHRs
 - [CH Core IG](https://fhir.ch/ig/ch-core) -- Swiss FHIR base profiles

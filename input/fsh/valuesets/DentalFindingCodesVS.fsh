@@ -35,6 +35,7 @@ Terminologieversionen werden ausschließlich in der Build- und Laufzeitkonfigura
 * $sct#113192009
 * $sct#89362005
 * $sct#427936003
+* $sct#109706009
 * $sct#25780007
 * $sct#128139000
 * include codes from system DentalDepositTypeCS

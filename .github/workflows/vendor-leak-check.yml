@@ -15,6 +15,10 @@ jobs:
       - uses: actions/checkout@v5
         with:
           fetch-depth: 0
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '20'
       - name: Install actionlint
         env:
           ACTIONLINT_VERSION: 1.7.7
@@ -44,3 +48,7 @@ jobs:
           PY
       - name: Run vendor-leak guard
         run: bash scripts/vendor-leak-guard.sh
+      - name: Run periodontal regression guards
+        run: |
+          node scripts/check-periodontal-terminology.mjs
+          node scripts/check-periodontal-evidence.mjs --source-only

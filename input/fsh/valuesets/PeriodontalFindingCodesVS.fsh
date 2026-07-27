@@ -13,7 +13,7 @@ Description: "LOINC- und SNOMED-CT-Codes fuer parodontale Befunde: Sondierungsti
 
 // LOINC codes for periodontal measurements
 * $loinc#8704-9 "Physical findings of Mouth and Throat and Teeth"
-* $loinc#32884-9 "Identification {Tooth}"
+* $loinc#32910-2 "Probing depth {Tooth}.{probe site} Measured"
 * $loinc#32881-5 "Periodontal attachment loss"
 
 // SNOMED-CT periodontal finding concepts
@@ -24,7 +24,7 @@ Description: "LOINC- und SNOMED-CT-Codes fuer parodontale Befunde: Sondierungsti
 * $sct#2556008 "Periodontal disease"
 
 // SNOMED-CT bone resorption concepts
-* $sct#95570007 "Alveolar bone loss"
+* $sct#109706009 "Alveolar bone loss"
 * $sct#427936003 "Localized alveolar bone loss"
 * $sct#428245007 "Generalized alveolar bone loss"
 

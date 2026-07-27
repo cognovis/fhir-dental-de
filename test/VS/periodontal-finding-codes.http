@@ -25,11 +25,11 @@ Authorization: Basic basic:secret
 GET http://localhost:8080/ValueSet/$validate-code?url=https://fhir.cognovis.de/dental/ValueSet/periodontal-finding-codes&system=http://loinc.org&code=32881-5
 Authorization: Basic basic:secret
 
-### ValueSet: PeriodontalFindingCodesVS - Validate Valid Code (32884-9)
+### ValueSet: PeriodontalFindingCodesVS - Validate Valid Code (32910-2)
 # System: http://loinc.org
 # Expected: result=true
 # Actual: result=True
-GET http://localhost:8080/ValueSet/$validate-code?url=https://fhir.cognovis.de/dental/ValueSet/periodontal-finding-codes&system=http://loinc.org&code=32884-9
+GET http://localhost:8080/ValueSet/$validate-code?url=https://fhir.cognovis.de/dental/ValueSet/periodontal-finding-codes&system=http://loinc.org&code=32910-2
 Authorization: Basic basic:secret
 
 ### ValueSet: PeriodontalFindingCodesVS - Validate Invalid Code

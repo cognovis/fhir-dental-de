@@ -21,7 +21,7 @@ Description: "Orthopantomogramm (OPG) zur Übersichtsaufnahme des gesamten Kiefe
 * numberOfInstances = 1
 
 // Indikation: Parodontitis
-* reasonCode[0] = http://fhir.de/CodeSystem/bfarm/icd-10-gm#K05.31 "Chronische Parodontitis, generalisiert"
+* reasonCode[0] = http://fhir.de/CodeSystem/bfarm/icd-10-gm#K05.3 "Chronische Parodontitis"
 
 // Series: OPG (DICOM Modality PX = Panoramic X-Ray)
 * series[0].uid = "1.2.276.0.7230010.3.1.4.2026020522200001"

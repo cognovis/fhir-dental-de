@@ -59,30 +59,26 @@ Description: "Parodontologischer Behandlungsplan (PAR-Richtlinie 07/2021) für g
 // Inline Parodontitis Condition (referenced by PAR CarePlan)
 // -----------------------------------------------------------------------
 Instance: ExampleParodontitisCondition
-InstanceOf: Condition
+InstanceOf: DentalConditionDE
 Usage: #example
 Title: "Beispiel Parodontitis-Diagnose Stadium II Grad B"
 Description: "Generalisierte Parodontitis, Stadium II, Grad B (BSP-Klassifikation 2018). PAR-Stadium-Extension auf Condition. Konform zu DentalConditionDE."
-
-* meta.profile[0] = "https://fhir.cognovis.de/dental/StructureDefinition/dental-condition"
 
 * extension[0].url = "https://fhir.cognovis.de/dental/StructureDefinition/par-stadium"
 * extension[0].valueCodeableConcept = $parStage#II
 * extension[1].url = "https://fhir.cognovis.de/dental/StructureDefinition/par-grade"
 * extension[1].valueCodeableConcept = $parGrade#B
-* extension[2].url = "https://fhir.cognovis.de/dental/StructureDefinition/par-grading-evidence"
-* extension[2].valueReference = Reference(ExampleRadiographicBoneLoss)
-* extension[3].url = "https://fhir.cognovis.de/dental/StructureDefinition/par-grading-evidence"
-* extension[3].valueReference = Reference(ExampleHbA1cForParGrading)
-* extension[4].url = "https://fhir.cognovis.de/dental/StructureDefinition/par-grading-evidence"
-* extension[4].valueReference = Reference(ExampleOralHealthScreening)
+
+* evidence[0].detail[0] = Reference(ExampleRadiographicBoneLoss)
+* evidence[0].detail[1] = Reference(ExampleHbA1cForParGrading)
+* evidence[0].detail[2] = Reference(ExampleSmokingStatusForParGrading)
 
 * clinicalStatus = http://terminology.hl7.org/CodeSystem/condition-clinical#active "Active"
 * verificationStatus = http://terminology.hl7.org/CodeSystem/condition-ver-status#confirmed "Confirmed"
 
-* category[0] = https://fhir.cognovis.de/dental/CodeSystem/dental-category#dental "Dental"
+* category[dental] = https://fhir.cognovis.de/dental/CodeSystem/dental-category#dental "Dental"
 
-* code = $icd10gm#K05.31 "Chronische Parodontitis, generalisiert"
+* code = $icd10gm#K05.3 "Chronische Parodontitis"
 * code.text = "Generalisierte chronische Parodontitis, Stadium II, Grad B"
 
 * subject = Reference(Patient/pat-beihilfe-01)

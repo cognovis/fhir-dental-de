@@ -7,7 +7,8 @@ Description: "Radiographic alveolar bone loss percentage at a reference tooth, w
 * ^experimental = false
 * ^publisher = "cognovis GmbH"
 
-* code = http://snomed.info/sct#95570007
+* code = http://snomed.info/sct#109706009
+* code ^short = "Observed alveolar bone loss; the measured percentage is carried in valueQuantity"
 * bodySite 1..1 MS
 * value[x] only Quantity
 * valueQuantity.system = "http://unitsofmeasure.org"

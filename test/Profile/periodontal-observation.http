@@ -66,7 +66,7 @@ Content-Type: application/fhir+json
         "coding": [
           {
             "system": "http://loinc.org",
-            "code": "32884-9"
+            "code": "32910-2"
           }
         ]
       },
