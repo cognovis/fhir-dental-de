@@ -1,11 +1,19 @@
 from __future__ import annotations
 
 import json
+import subprocess
+import tempfile
+import urllib.request
 from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
 GENERATED = ROOT / "fsh-generated" / "resources"
+VALIDATOR_JAR = Path(tempfile.gettempdir()) / "validator_cli.jar"
+VALIDATOR_URL = (
+    "https://github.com/hapifhir/org.hl7.fhir.core/releases/download/"
+    "6.9.7/validator_cli.jar"
+)
 
 
 def load(name: str) -> dict:
@@ -14,6 +22,40 @@ def load(name: str) -> dict:
 
 def money(component: dict) -> float:
     return float(component["amount"]["value"])
+
+
+def validate_negative_fixture(path: Path) -> None:
+    if not VALIDATOR_JAR.is_file() or VALIDATOR_JAR.stat().st_size < 10_000_000:
+        urllib.request.urlretrieve(VALIDATOR_URL, VALIDATOR_JAR)
+    command = [
+        "java",
+        "-jar",
+        str(VALIDATOR_JAR),
+        str(path),
+        "-version",
+        "4.0.1",
+        "-ig",
+        "de.gematik.dipag#1.0.8",
+        "-ig",
+        "de.cognovis.fhir.praxis#0.88.0",
+        "-ig",
+        str(GENERATED / "StructureDefinition-goz-charge-item.json"),
+        "-ig",
+        str(GENERATED / "StructureDefinition-goz-invoice-de.json"),
+        "-tx",
+        "n/a",
+    ]
+    result = subprocess.run(
+        command,
+        capture_output=True,
+        text=True,
+        timeout=180,
+        check=False,
+    )
+    output = result.stdout + result.stderr
+    assert result.returncode != 0, "Negative GOZ invoice unexpectedly validated"
+    assert "generic-charge" in output
+    assert "goz-charge-item" in output.lower()
 
 
 def main() -> int:
@@ -93,11 +135,38 @@ def main() -> int:
     )
     allowed_target = charge_item["type"][0]["targetProfile"][0]
     assert allowed_target.endswith("/goz-charge-item")
+    validate_negative_fixture(
+        ROOT / "test" / "fixtures" / "goz-invoice-invalid-generic-line.json"
+    )
 
     repository_text = "\n".join(
         path.read_text(encoding="utf-8")
-        for path in (ROOT / "input").rglob("*")
+        for path in ROOT.rglob("*")
         if path.is_file()
+        and path.suffix
+        in {
+            ".fsh",
+            ".http",
+            ".js",
+            ".json",
+            ".md",
+            ".mjs",
+            ".py",
+            ".sh",
+            ".yaml",
+            ".yml",
+        }
+        and not any(
+            part in {
+                ".git",
+                "dist",
+                "fsh-generated",
+                "input-cache",
+                "output",
+                "temp",
+            }
+            for part in path.parts
+        )
     )
     assert ("Praxis" + "InvoiceDE") not in repository_text
     print("GOZ DiPag invoice contract verified")
