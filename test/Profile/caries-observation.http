@@ -1,0 +1,42 @@
+### Validate an ICDAS caries observation
+POST http://localhost:8080/fhir/Observation/$validate?profile=https://fhir.cognovis.de/dental/StructureDefinition/caries-observation
+Authorization: Basic basic:secret
+Content-Type: application/fhir+json
+
+< ../../fsh-generated/resources/Observation-ExampleCariesObservation16Occlusal.json
+
+### Reject a value outside the ICDAS lesion score range
+POST http://localhost:8080/fhir/Observation/$validate?profile=https://fhir.cognovis.de/dental/StructureDefinition/caries-observation
+Authorization: Basic basic:secret
+Content-Type: application/fhir+json
+
+{
+  "resourceType": "Observation",
+  "status": "final",
+  "category": [{
+    "coding": [{
+      "system": "https://fhir.cognovis.de/dental/CodeSystem/dental-category",
+      "code": "dental"
+    }]
+  }],
+  "code": {
+    "coding": [{
+      "system": "https://fhir.cognovis.de/dental/CodeSystem/dental-assessment-type",
+      "code": "icdas-caries-assessment"
+    }]
+  },
+  "subject": {"reference": "Patient/pat-beihilfe-01"},
+  "effectiveDateTime": "2026-07-27",
+  "bodySite": {
+    "coding": [{
+      "system": "https://fhir.cognovis.de/dental/CodeSystem/tooth-identification-fdi",
+      "code": "16"
+    }]
+  },
+  "valueCodeableConcept": {
+    "coding": [{
+      "system": "https://fhir.cognovis.de/dental/CodeSystem/icdas-caries-score",
+      "code": "7"
+    }]
+  }
+}

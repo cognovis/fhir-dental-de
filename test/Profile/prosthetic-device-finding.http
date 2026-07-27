@@ -1,0 +1,20 @@
+### Validate a removable prosthesis Device
+POST http://localhost:8080/fhir/Device/$validate?profile=https://fhir.cognovis.de/dental/StructureDefinition/dental-prosthesis
+Authorization: Basic basic:secret
+Content-Type: application/fhir+json
+
+< ../../fsh-generated/resources/Device-ExampleRemovableProsthesis.json
+
+### Validate a removable prosthesis finding
+POST http://localhost:8080/fhir/Observation/$validate?profile=https://fhir.cognovis.de/dental/StructureDefinition/prosthesis-finding
+Authorization: Basic basic:secret
+Content-Type: application/fhir+json
+
+< ../../fsh-generated/resources/Observation-ExampleProsthesisBaseFracture.json
+
+### Validate an implant suprastructure finding
+POST http://localhost:8080/fhir/Observation/$validate?profile=https://fhir.cognovis.de/dental/StructureDefinition/suprastructure-finding
+Authorization: Basic basic:secret
+Content-Type: application/fhir+json
+
+< ../../fsh-generated/resources/Observation-ExampleSuprastructureScrewLoosening.json

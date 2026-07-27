@@ -4,6 +4,10 @@ This implementation guide defines the following profiles for German dental pract
 
 #### Clinical Profiles
 - [DentalFindingDE](StructureDefinition-dental-finding.html) — Zahnärztlicher Befund (Observation)
+- [CariesObservationDE](StructureDefinition-caries-observation.html) — surface-specific ICDAS II lesion score
+- [PulpSensibilityObservationDE](StructureDefinition-pulp-sensibility-observation.html) — thermal and electric pulp sensibility results
+- [ProsthesisFindingDE](StructureDefinition-prosthesis-finding.html) — technical finding focused on a removable prosthesis Device
+- [SuprastructureFindingDE](StructureDefinition-suprastructure-finding.html) — technical finding focused on an implant suprastructure Device
 - [PeriodontalObservationDE](StructureDefinition-periodontal-observation.html) — Parodontalbefund (Observation)
 - [PeriImplantObservationDE](StructureDefinition-peri-implant-observation.html) — site-level findings around one referenced implant
 - [ProphylaxisObservationDE](StructureDefinition-prophylaxis-observation.html) — Prophylaxe-Befund (Observation)
@@ -29,6 +33,7 @@ Dental billing cases reuse [AccountPraxisSchein](https://fhir.cognovis.de/praxis
 #### Treatment Plans
 - [DentalCarePlanDE](StructureDefinition-dental-care-plan.html) — Dental Behandlungsplan: HKP, PAR, KFO, ZE, KBR, KGL, PMB (CarePlan, via category[planType])
 - [PrimarySnoringCarePlanDE](StructureDefinition-primary-snoring-care-plan.html) — primary-snoring oral-appliance care with linked evidence and Device
+- [OsasOralApplianceCarePlanDE](StructureDefinition-osas-oral-appliance-care-plan.html) — medically ordered OSAS oral-appliance pathway
 - [AlignerCarePlanDE](StructureDefinition-aligner-care-plan.html) — KFO plan with tooth-specific attachments and interproximal reduction
 
 The PAR and prophylaxis resource boundaries, measurement representation, workflow links, and delegation semantics are described in [PAR and Prophylaxis](par-prophylaxis.html).
@@ -36,6 +41,9 @@ The PAR and prophylaxis resource boundaries, measurement representation, workflo
 #### Supporting Profiles
 - [DentalImplantDE](StructureDefinition-dental-implant.html) — reusable dental implant Device identity
 - [ImplantSuprastructureDE](StructureDefinition-implant-suprastructure.html) — implant-supported crown, bridge, or prosthesis identity
+- [DentalProsthesisDE](StructureDefinition-dental-prosthesis.html) — removable prosthesis Device identity
+- [OsasOralApplianceDeviceDE](StructureDefinition-osas-oral-appliance-device.html) — manufacturer-neutral OSAS oral appliance identity
+- [OsasOralApplianceServiceRequestDE](StructureDefinition-osas-oral-appliance-service-request.html) — medical order initiating the dental OSAS pathway
 - [DentalOrganizationDE](StructureDefinition-dental-organization.html) — Zahnarztpraxis (Organization)
 - [DentalPractitionerDE](StructureDefinition-dental-practitioner.html) — Zahnärztlicher Behandler (Practitioner, ZANR)
 - [DentalPractitionerRoleDE](StructureDefinition-dental-practitioner-role.html) — Zahnärztliche Rolle am Standort (`PractitionerRole.specialty` → SNOMED CT)

@@ -1,0 +1,34 @@
+### Validate the medical OSAS oral appliance order
+POST http://localhost:8080/fhir/ServiceRequest/$validate?profile=https://fhir.cognovis.de/dental/StructureDefinition/osas-oral-appliance-service-request
+Authorization: Basic basic:secret
+Content-Type: application/fhir+json
+
+< ../../fsh-generated/resources/ServiceRequest-ExampleOsasOralApplianceOrder.json
+
+### Validate the dental eligibility assessment
+POST http://localhost:8080/fhir/Observation/$validate?profile=https://fhir.cognovis.de/dental/StructureDefinition/osas-oral-appliance-eligibility-observation
+Authorization: Basic basic:secret
+Content-Type: application/fhir+json
+
+< ../../fsh-generated/resources/Observation-ExampleOsasOralApplianceEligibility.json
+
+### Validate the OSAS oral appliance Device
+POST http://localhost:8080/fhir/Device/$validate?profile=https://fhir.cognovis.de/dental/StructureDefinition/osas-oral-appliance-device
+Authorization: Basic basic:secret
+Content-Type: application/fhir+json
+
+< ../../fsh-generated/resources/Device-ExampleOsasOralAppliance.json
+
+### Validate the complete medically ordered care plan
+POST http://localhost:8080/fhir/CarePlan/$validate?profile=https://fhir.cognovis.de/dental/StructureDefinition/osas-oral-appliance-care-plan
+Authorization: Basic basic:secret
+Content-Type: application/fhir+json
+
+< ../../fsh-generated/resources/CarePlan-ExampleOsasOralApplianceCarePlan.json
+
+### Validate a complication focused on the identified appliance
+POST http://localhost:8080/fhir/Observation/$validate?profile=https://fhir.cognovis.de/dental/StructureDefinition/osas-oral-appliance-complication-observation
+Authorization: Basic basic:secret
+Content-Type: application/fhir+json
+
+< ../../fsh-generated/resources/Observation-ExampleOsasOralApplianceComplication.json

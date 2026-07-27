@@ -27,6 +27,14 @@ Runtime displays and validation for those SCTIDs come from the gated package `de
 - [Dental Deposit Vertical Location](CodeSystem-dental-deposit-vertical-location.html) — Supra-, gingival, and subgingival location
 - [Dental Deposit Surface](CodeSystem-dental-deposit-surface.html) — Tooth, root, implant, and pontic surfaces
 - [Caries Risk Level](CodeSystem-kariesrisiko-level.html) — IG-owned qualitative aggregate caries-risk levels
+- [Dental Assessment Type](CodeSystem-dental-assessment-type.html) — stable profile-level assessment identifiers
+- [ICDAS Caries Score](CodeSystem-icdas-caries-score.html) — visual coronal lesion scores 0 through 6
+- [Pulp Sensibility Component](CodeSystem-pulp-sensibility-component.html) — cold, heat, and electric test modalities
+- [Pulp Sensibility Response](CodeSystem-pulp-sensibility-response.html) — qualitative sensibility responses
+- [Prosthetic Device Finding](CodeSystem-prosthetic-device-finding.html) — technical findings concerning removable prostheses and implant suprastructures
+- [OSAS Oral Appliance Eligibility](CodeSystem-osas-oral-appliance-eligibility.html) — dental pathway dispositions without medical thresholds
+- [OSAS Oral Appliance Complication](CodeSystem-osas-oral-appliance-complication.html) — manufacturer-neutral complications
+- [Sleep Appliance Service](CodeSystem-sleep-appliance-service.html) — service stages for medically ordered oral-appliance care
 
 #### Administrative Code Systems
 - [KZV Regionen](CodeSystem-kzv-regionen.html) — 17 Kassenzahnärztliche Vereinigungen

@@ -59,6 +59,10 @@ pages:
     title: Use Cases
   periodontal-measurements.md:
     title: Periodontal Measurements
+  diagnostic-findings.md:
+    title: Caries and Pulp Sensibility
+  prosthetic-device-findings.md:
+    title: Prosthetic Device Findings
   par-prophylaxis.md:
     title: PAR and Prophylaxis Exchange
   billing-legal-sources.md:
@@ -130,6 +134,14 @@ parameters:
     - https://fhir.cognovis.de/dental/CodeSystem/preparation-type
     - https://fhir.cognovis.de/dental/CodeSystem/dental-lab-order-type
     - https://fhir.cognovis.de/dental/CodeSystem/occlusion-concept
+    - https://fhir.cognovis.de/dental/CodeSystem/dental-assessment-type
+    - https://fhir.cognovis.de/dental/CodeSystem/icdas-caries-score
+    - https://fhir.cognovis.de/dental/CodeSystem/pulp-sensibility-component
+    - https://fhir.cognovis.de/dental/CodeSystem/pulp-sensibility-response
+    - https://fhir.cognovis.de/dental/CodeSystem/prosthetic-device-finding
+    - https://fhir.cognovis.de/dental/CodeSystem/osas-oral-appliance-eligibility
+    - https://fhir.cognovis.de/dental/CodeSystem/osas-oral-appliance-complication
+    - https://fhir.cognovis.de/dental/CodeSystem/sleep-appliance-service
     # Terminology packages for bone implant planning, impaction classification, gingival recession, and PAR
     - https://fhir.cognovis.de/dental/CodeSystem/lekholm-zarb-jawbone-shape
     - https://fhir.cognovis.de/dental/CodeSystem/lekholm-zarb-jawbone-quality
@@ -176,6 +188,8 @@ menu:
     Value Sets: valuesets.html
   Use Cases: usecases.html
   Periodontal Measurements: periodontal-measurements.html
+  Caries and Pulp Sensibility: diagnostic-findings.html
+  Prosthetic Device Findings: prosthetic-device-findings.html
   PAR and Prophylaxis: par-prophylaxis.html
   Billing and Legal Sources: billing-legal-sources.html
   GOZ Fee Agreement: goz-honorarvereinbarung.html
