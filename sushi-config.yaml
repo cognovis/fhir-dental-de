@@ -28,7 +28,9 @@ dependencies:
   # ATF MessageHeader for KIM/TIM transport
   de.gematik.fhir.atf: 1.4.1
   # Praxis-DE Foundation — AccountPraxisSchein + EncounterPraxis
-  de.cognovis.fhir.praxis: 0.85.0
+  de.cognovis.fhir.praxis: 0.88.0
+  # Official gematik digital patient invoice contract
+  de.gematik.dipag: 1.0.8
   # CI Fallback (Option C): If Verdaccio uplink errors occur during CI build, pre-load the package
   # manually via the preload-private-fhir-packages composite action (see .github/actions/) which
   # fetches from npm.cognovis.de and places it in the FHIR package cache before sushi/IG-Publisher run.

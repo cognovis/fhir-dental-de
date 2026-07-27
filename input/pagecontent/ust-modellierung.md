@@ -1,7 +1,7 @@
 # USt-Modellierung in dental ChargeItems
 
 Dieser Abschnitt beschreibt, wie BEMA- und GOZ-Leistungen umsatzsteuerlich modelliert werden.
-Die strukturelle Basis liefert praxis@0.64.0 via `ChargeItemPraxisDe` mit den geerbten Extensions
+Die strukturelle Basis liefert praxis@0.88.0 via `ChargeItemPraxisDe` mit den geerbten Extensions
 `TaxCategoryExt` und `TaxExemptionReasonExt`. Dental-spezifisch sind die Pattern-Defaults,
 Invarianten und das Sub-Profil für Eigenlabor-Werkstücke.
 
@@ -78,7 +78,7 @@ Eigenlabor der Praxis (Krone, Brücke, Inlay, Onlay, Aufbissschiene etc.).
 Fremdlabor-durchgereichte Werkstücke (Regelsatz 19 %) werden NICHT durch dieses
 Sub-Profil abgedeckt — dort `GozChargeItemDE` direkt mit `TaxCategory=S` verwenden.
 
-## ZE Mischrechnung — Vorausschau
+## ZE Mischrechnung und DiPag-Rechnung
 
 Ein Heil- und Kostenplan (ZE) kombiniert regelmäßig:
 
@@ -87,9 +87,14 @@ Ein Heil- und Kostenplan (ZE) kombiniert regelmäßig:
 - Eigenlabor-Werkstück (`AA`)
 - ggf. Verlangens-Aufschlag (`S`)
 
-Jede Position trägt ihren eigenen Steuersatz; die Aggregation auf Rechnungsebene
-(Invoice mit lineItem.priceComponent type=tax) erfolgt im GozInvoiceDE-Profil
-(§ 10 GOZ) bzw. in der End-to-End-Mischrechnung.
+Jede Position trägt ihren eigenen Steuersatz. `GozInvoiceDE` leitet direkt von
+`DiPagRechnung` ab und übernimmt dessen Rechnungssemantik:
+
+- `lineItem.priceComponent` vom Typ `base` ist der Bruttobetrag;
+- ein `tax`-PriceComponent enthält die im Bruttobetrag enthaltene Steuer;
+- `totalNet` und `totalGross` sowie Teilsteuersummen verwenden die DiPag-Slices.
+
+Dental definiert dafür keine eigenen Netto-, Brutto- oder Steuerfooter-Extensions.
 
 ## Querverweise
 

@@ -42,7 +42,8 @@ This IG builds on:
 - [**kbv.basis**](https://simplifier.net/kbv-basis) (1.9.0) — KBV base profiles (Condition, Practitioner)
 - [**kbv.ita.for**](https://simplifier.net/kbv-ita-for) (1.3.1) — KBV form requirements (KBV_PR_FOR_Patient)
 - [**de.gematik.fhir.atf**](https://simplifier.net/atf) (1.4.1) — ATF MessageHeader for KIM/TIM transport
-- [**de.cognovis.fhir.praxis**](https://fhir.cognovis.de/praxis/) (0.81.0) — Shared extensions (Abrechnungsquartal, Scheintyp, Steigerungsfaktor)
+- [**de.cognovis.fhir.praxis**](https://fhir.cognovis.de/praxis/) (0.88.0) — Shared extensions (Abrechnungsquartal, Scheintyp, Steigerungsfaktor)
+- [**de.gematik.dipag**](https://simplifier.net/dipag) (1.0.8) — Official digital patient invoice contract
 
 ### Conformance Expectations
 

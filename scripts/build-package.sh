@@ -34,7 +34,7 @@ if [ "$SKIP_SUSHI" = false ]; then
   # Capture full SUSHI output so error context is visible in CI logs;
   # always print the tail summary, but on failure show the full log so we can diagnose.
   SUSHI_LOG=$(mktemp)
-  if npx sushi . > "$SUSHI_LOG" 2>&1; then
+  if npx --yes fsh-sushi . > "$SUSHI_LOG" 2>&1; then
     tail -15 "$SUSHI_LOG"
   else
     echo "SUSHI FAILED — full output below:"
@@ -54,7 +54,7 @@ rm -rf "$DIST"
 mkdir -p "$DIST"
 
 # 5. Create package.json (FHIR package format) — deps derived from sushi-config.yaml
-DEPS_JSON=$(python3 - "$ROOT" <<'PYEOF'
+DEPS_JSON=$(uv run python - "$ROOT" <<'PYEOF'
 import re, json, sys
 
 root = sys.argv[1]

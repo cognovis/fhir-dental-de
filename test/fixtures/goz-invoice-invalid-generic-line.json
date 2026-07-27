@@ -1,0 +1,39 @@
+{
+  "resourceType": "Invoice",
+  "id": "invalid-goz-invoice-generic-line",
+  "meta": {
+    "profile": [
+      "https://fhir.cognovis.de/dental/StructureDefinition/goz-invoice-de"
+    ]
+  },
+  "contained": [
+    {
+      "resourceType": "ChargeItem",
+      "id": "generic-charge",
+      "status": "billable",
+      "code": {
+        "text": "Generic charge without the GOZ profile"
+      },
+      "subject": {
+        "reference": "Patient/pat-pkv-01"
+      }
+    }
+  ],
+  "lineItem": [
+    {
+      "sequence": 1,
+      "chargeItemReference": {
+        "reference": "#generic-charge"
+      },
+      "priceComponent": [
+        {
+          "type": "base",
+          "amount": {
+            "value": 10.0,
+            "currency": "EUR"
+          }
+        }
+      ]
+    }
+  ]
+}

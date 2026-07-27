@@ -37,5 +37,11 @@ invoice details and a service-specific reason above factor 2.3. It does not
 establish a generic rule that the § 2 agreement must be attached to the
 invoice, so this IG adds no such invariant.
 
+`GozInvoiceDE` references `GozChargeItemDE` from each DiPag line item. A line
+under § 2(1)-(2) therefore reaches both the structured reimbursement notice and
+the agreement `DocumentReference` through `GozHonorarvereinbarungExt`. The
+`ExampleGozAgreementInvoice` example demonstrates this chain without
+duplicating the agreement on the invoice.
+
 See [Billing and Legal Sources](billing-legal-sources.html) for the complete
 source register and rejected assertions.

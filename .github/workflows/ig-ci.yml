@@ -125,6 +125,11 @@ jobs:
       - name: Generate KBV Basis snapshots (KBV publishes kbv.basis without snapshots)
         uses: ./.github/actions/generate-kbv-basis-snapshots
 
+      - name: Prepare DiPag snapshots
+        run: |
+          uv run python scripts/test_generate_fhir_package_snapshots.py
+          uv run python scripts/generate-fhir-package-snapshots.py --package de.gematik.dipag
+
       - name: Wait for Aidbox
         run: |
           echo "Waiting for Aidbox to be ready..."
@@ -167,6 +172,9 @@ jobs:
 
       - name: Verify generated periodontal evidence
         run: node scripts/check-periodontal-evidence.mjs
+
+      - name: Verify GOZ DiPag invoice contract
+        run: uv run python scripts/check-goz-invoice-dipag.py
 
       - name: Verify no "current" version strings in dist/package/package.json
         run: |
