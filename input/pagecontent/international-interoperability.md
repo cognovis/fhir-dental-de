@@ -9,7 +9,7 @@ IG version:
 
 | IG | Country | Status | Profiles | Focus |
 |---|---|---|---|---|
-| **fhir-dental-de** (this IG) | Germany | v0.40.1 Trial Use | 48 profiles, 46 extensions | Full dental workflow: clinical + billing + care plans + imaging + lab |
+| **fhir-dental-de** (this IG) | Germany | v0.41.0 Trial Use | 48 profiles, 46 extensions | Full dental workflow: clinical + billing + care plans + imaging + lab |
 | [**MedMij Dental Care**](https://simplifier.net/guide/medmij-r4-dentalcare-ig/Home?version=1.0.0-rc.1) | Netherlands | v1.0.0-rc.1 Release Candidate | 6 profiles, 0 extensions | Clinical findings + procedures |
 | [**HL7 Dental Data Exchange**](https://hl7.org/fhir/us/dental-data-exchange/) | United States | v1.0.0 STU 1, current published release | 7 profiles | Referral and consultation exchange |
 | [**HL7 Dental Data Exchange**](https://build.fhir.org/ig/HL7/dental-data-exchange/) | United States | v2.0.0-ballot CI build, mutable and not an authorized publication | 7 profiles | Crosswalk target used on this page |
@@ -23,7 +23,7 @@ target.
 
 The local build is pinned to `de.basisprofil.r4` 1.5.4, `kbv.basis` 1.9.0,
 and `de.cognovis.fhir.praxis` 0.88.0. These are the tested compatibility
-versions for fhir-dental-de 0.40.1; they are not claims about the newest release
+versions for fhir-dental-de 0.41.0; they are not claims about the newest release
 available in every upstream registry.
 
 The [FDI World Dental Federation](https://www.fdiworlddental.org/) published a
@@ -76,7 +76,7 @@ its release-candidate phase.
 | **Extensions** | 46 custom (billing, insurance, specialty-specific) | None (uses nl-core patterns) |
 | **Treatment types** | Category-based routing in unified CarePlan | Meta-tags + generic Goal |
 | **Billing integration** | Dedicated ChargeItem profiles | Embedded in procedure codes |
-| **Maturity** | v0.40.1 Trial Use | v1.0.0-rc.1 Release Candidate |
+| **Maturity** | v0.41.0 Trial Use | v1.0.0-rc.1 Release Candidate |
 
 ### Harmonization Opportunities
 
@@ -423,7 +423,7 @@ This IG (fhir-dental-de) could serve as the basis for `dach-dental-core` by extr
 The following table summarizes how the three compared dental FHIR IGs cover key
 clinical domains at the version baseline above:
 
-| Domain | fhir-dental-de 0.40.1 (Germany) | MedMij Dental Care 1.0.0-rc.1 (Netherlands) | DDEx 2.0.0-ballot (US) |
+| Domain | fhir-dental-de 0.41.0 (Germany) | MedMij Dental Care 1.0.0-rc.1 (Netherlands) | DDEx 2.0.0-ballot (US) |
 |---|---|---|---|
 | **Tooth identification** | FDI (ISO 3950) + SNOMED dual coding | Not exposed | ADA Universal + SNOMED |
 | **Tooth surfaces** | Repeated THO/SNOMED-coded extensions on the tooth `bodySite` | Not profiled | One post-coordinated SNOMED expression in `bodySite` |
