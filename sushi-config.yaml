@@ -7,7 +7,7 @@ description: >-
   conditions (ICD-10-GM), findings (Zahnschema/FDI), and communication.
   Built on German base profiles (de.basisprofil.r4, KBV).
 status: active
-version: 0.41.4
+version: 0.41.5
 fhirVersion: 4.0.1
 copyrightYear: 2026+
 copyright: Copyright 2026+ cognovis GmbH. Licensed under CC-BY-4.0.
@@ -39,7 +39,7 @@ dependencies:
   de.cognovis.terminology.dental.lekholm-zarb: 1.1.0
   de.cognovis.terminology.dental.impaction: 1.1.0
   de.cognovis.terminology.dental.gingival-recession: 2.1.0
-  de.cognovis.terminology.dental.routine-befund: 1.0.0
+  de.cognovis.terminology.dental.routine-befund: 1.0.1
   de.cognovis.terminology.dental.par-richtlinie: 1.1.0
   de.cognovis.terminology.dental.sws-zahnstatus: 1.1.0
   de.cognovis.terminology.dental.bruxism: 1.1.0
