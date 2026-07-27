@@ -42,5 +42,10 @@ Terminologieversionen werden ausschließlich in der Build- und Laufzeitkonfigura
 * PeriImplantFindingCS#assessment
 * AlignerProgressComponentCS#assessment
 * DentalTraumaFindingCS#injury-classification
+* DentalAssessmentTypeCS#icdas-caries-assessment
+* DentalAssessmentTypeCS#pulp-sensibility-assessment
+* DentalAssessmentTypeCS#prosthetic-device-finding
+* DentalAssessmentTypeCS#osas-oral-appliance-eligibility
+* DentalAssessmentTypeCS#osas-oral-appliance-complication
 
 Alias: $sct = http://snomed.info/sct

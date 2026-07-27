@@ -16,3 +16,11 @@ This implementation guide defines the following value sets:
 - [Dental Deposit Type](ValueSet-dental-deposit-type.html) — Clinical deposit types
 - [Dental Deposit Vertical Location](ValueSet-dental-deposit-vertical-location.html) — Vertical deposit locations
 - [Dental Deposit Surface](ValueSet-dental-deposit-surface.html) — Anatomical deposit surfaces
+- [ICDAS Caries Score](ValueSet-icdas-caries-score.html) — required ICDAS II lesion result values 0 through 6
+- [Pulp Sensibility Response](ValueSet-pulp-sensibility-response.html) — qualitative responses for cold, heat, and electric testing
+- [Removable Prosthesis Type](ValueSet-removable-prosthesis-type.html) — removable types selected from the restoration terminology
+- [Removable Prosthesis Finding](ValueSet-prosthesis-finding.html) — findings valid for `DentalProsthesisDE`
+- [Implant Suprastructure Finding](ValueSet-suprastructure-finding.html) — findings valid for `ImplantSuprastructureDE`
+- [OSAS Oral Appliance Eligibility](ValueSet-osas-oral-appliance-eligibility.html) — dental eligibility dispositions
+- [OSAS Oral Appliance Complication](ValueSet-osas-oral-appliance-complication.html) — therapy complications
+- [Sleep Appliance Service](ValueSet-sleep-appliance-service.html) — oral-appliance service stages

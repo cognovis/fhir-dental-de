@@ -14,6 +14,8 @@ Description: "Betroffene Zahnfläche. Diese Extension ist wiederholbar (0..*) um
 * ^context[+].type = #element
 * ^context[=].expression = "Observation"
 * ^context[+].type = #element
+* ^context[=].expression = "Observation.bodySite"
+* ^context[+].type = #element
 * ^context[=].expression = "Condition.bodySite"
 
 * extension 0..0

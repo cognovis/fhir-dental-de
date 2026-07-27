@@ -1,0 +1,49 @@
+### Validate qualitative pulp sensibility results
+POST http://localhost:8080/fhir/Observation/$validate?profile=https://fhir.cognovis.de/dental/StructureDefinition/pulp-sensibility-observation
+Authorization: Basic basic:secret
+Content-Type: application/fhir+json
+
+< ../../fsh-generated/resources/Observation-ExamplePulpSensibilityObservation36.json
+
+### Reject a quantitative electric result without a test device
+POST http://localhost:8080/fhir/Observation/$validate?profile=https://fhir.cognovis.de/dental/StructureDefinition/pulp-sensibility-observation
+Authorization: Basic basic:secret
+Content-Type: application/fhir+json
+
+{
+  "resourceType": "Observation",
+  "status": "final",
+  "category": [{
+    "coding": [{
+      "system": "https://fhir.cognovis.de/dental/CodeSystem/dental-category",
+      "code": "dental"
+    }]
+  }],
+  "code": {
+    "coding": [{
+      "system": "https://fhir.cognovis.de/dental/CodeSystem/dental-assessment-type",
+      "code": "pulp-sensibility-assessment"
+    }]
+  },
+  "subject": {"reference": "Patient/pat-beihilfe-01"},
+  "effectiveDateTime": "2026-07-27",
+  "bodySite": {
+    "coding": [{
+      "system": "https://fhir.cognovis.de/dental/CodeSystem/tooth-identification-fdi",
+      "code": "36"
+    }]
+  },
+  "component": [{
+    "code": {
+      "coding": [{
+        "system": "https://fhir.cognovis.de/dental/CodeSystem/pulp-sensibility-component",
+        "code": "electric-pulp-test"
+      }]
+    },
+    "valueQuantity": {
+      "value": 37,
+      "system": "http://unitsofmeasure.org",
+      "code": "1"
+    }
+  }]
+}

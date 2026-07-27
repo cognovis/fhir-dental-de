@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 ## [unreleased]
 
+### Added
+
+- Add `CariesObservationDE` with required ICDAS II lesion scores 0 through 6 and surface-level localization.
+- Add `PulpSensibilityObservationDE` for cold, heat, and electric pulp testing while keeping true vitality and periapical findings separate.
+- Add Device-focused removable-prosthesis and implant-suprastructure findings with non-authoritative billing suggestion ConceptMaps.
+- Add the medically ordered OSAS oral-appliance pathway with ServiceRequest, eligibility Observation, Device, CarePlan activities, complications, and BEMA UP1-UP6 suggestions.
+
 ### Fixed
 
 - Correct periodontal probing depth from LOINC `32884-9` to `32910-2` and radiographic alveolar bone loss from SNOMED CT `95570007` to `109706009` across profiles, value sets, examples, and fixtures.
