@@ -1,0 +1,76 @@
+### Validate inflamed peri-implant site measurements
+POST http://localhost:8080/fhir/Observation/$validate?profile=https://fhir.cognovis.de/dental/StructureDefinition/peri-implant-observation
+Authorization: Basic basic:secret
+Content-Type: application/fhir+json
+
+< ../../fsh-generated/resources/Observation-ExamplePeriImplantInflammation36.json
+
+### Validate healthy peri-implant site measurements
+POST http://localhost:8080/fhir/Observation/$validate?profile=https://fhir.cognovis.de/dental/StructureDefinition/peri-implant-observation
+Authorization: Basic basic:secret
+Content-Type: application/fhir+json
+
+< ../../fsh-generated/resources/Observation-ExampleHealthyPeriImplant36.json
+
+### Reject a graded tooth-mobility value for implant mobility
+POST http://localhost:8080/fhir/Observation/$validate?profile=https://fhir.cognovis.de/dental/StructureDefinition/peri-implant-observation
+Authorization: Basic basic:secret
+Content-Type: application/fhir+json
+
+{
+  "resourceType": "Observation",
+  "meta": {
+    "profile": [
+      "https://fhir.cognovis.de/dental/StructureDefinition/peri-implant-observation"
+    ]
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "https://fhir.cognovis.de/dental/CodeSystem/dental-category",
+          "code": "dental"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "https://fhir.cognovis.de/dental/CodeSystem/peri-implant-finding",
+        "code": "assessment"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/pat-beihilfe-01"
+  },
+  "effectiveDateTime": "2026-07-20",
+  "focus": [
+    {
+      "reference": "Device/ExampleDentalImplant36"
+    }
+  ],
+  "bodySite": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/ex-tooth",
+        "code": "36"
+      }
+    ]
+  },
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "https://fhir.cognovis.de/dental/CodeSystem/peri-implant-finding",
+            "code": "implant-mobility"
+          }
+        ]
+      },
+      "valueInteger": 2
+    }
+  ]
+}

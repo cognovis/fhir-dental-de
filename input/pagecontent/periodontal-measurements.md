@@ -28,3 +28,10 @@ Clinical attachment loss is exchanged as an explicit quantity at the same
 site. A producer may derive it from probing depth and recession only when the
 source sign convention and both inputs are known. Consumers must not infer it
 silently from incomplete data.
+
+`PeriImplantObservationDE` reuses the same six-site contract. Each observation
+focuses on one `DentalImplantDE` Device and also carries the corresponding FDI
+region. Probing depth, bleeding, and suppuration are site-specific. Implant
+mobility is boolean; tooth-mobility grades are not valid for an implant.
+Radiographic bone loss and a resulting diagnosis remain separate resources and
+link explicitly to the implant and peri-implant findings.

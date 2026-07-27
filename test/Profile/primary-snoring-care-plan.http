@@ -1,0 +1,6 @@
+### Validate the complete primary-snoring care plan
+POST http://localhost:8080/fhir/CarePlan/$validate?profile=https://fhir.cognovis.de/dental/StructureDefinition/primary-snoring-care-plan
+Authorization: Basic basic:secret
+Content-Type: application/fhir+json
+
+< ../../fsh-generated/resources/CarePlan-ExamplePrimarySnoringCarePlan.json

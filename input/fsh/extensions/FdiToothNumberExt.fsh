@@ -14,6 +14,8 @@ Description: "Zahnnummer nach dem FDI-Zahnschema (ISO 3950)."
 * ^context[=].expression = "Condition"
 * ^context[+].type = #element
 * ^context[=].expression = "Procedure"
+* ^context[+].type = #element
+* ^context[=].expression = "Device"
 
 * value[x] only code
 * value[x] from ToothIdentificationFDI_VS (preferred)

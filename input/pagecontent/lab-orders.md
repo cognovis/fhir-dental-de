@@ -56,6 +56,12 @@ Associated **ChargeItem** resources carry BEL II / beb'97 billing positions with
 | `note` | Free-text instructions to the lab technician |
 | `occurrencePeriod` | Requested delivery timeframe |
 
+For implant-supported work, `supportingInfo` should reference the reusable
+`DentalImplantDE` and `ImplantSuprastructureDE` Device identities when they are
+available. External systems that cannot supply those Device resources may retain
+implant and suprastructure details in the existing free-text or
+`ImplantAbutmentExt` fallback.
+
 ---
 
 #### Code Systems

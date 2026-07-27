@@ -23,7 +23,9 @@ Description: "Profil fuer ganzheitliche orale Gesundheitsbefunde: Parafunktional
 * component ^slicing.description = "Slicing for oral health screening components"
 
 * component contains
-    bruxism 0..1 MS and
+    bruxismPresence 0..1 MS and
+    bruxismCircadianType 0..1 MS and
+    bruxismDiagnosticGrade 0..1 MS and
     tongueThrust 0..1 MS and
     cheekBiting 0..1 MS and
     lipBiting 0..1 MS and
@@ -36,10 +38,21 @@ Description: "Profil fuer ganzheitliche orale Gesundheitsbefunde: Parafunktional
 
 // --- Parafunctional Habits ---
 
-// Bruxism: teeth grinding/clenching (present/absent + optional severity note)
-* component[bruxism].code = $sct#25780007 "Bruxism"
-* component[bruxism].value[x] only CodeableConcept or boolean
-* component[bruxism].value[x] ^short = "Present/absent or coded severity"
+// Bruxism is represented on three independent axes. Absence does not require
+// a circadian type or diagnostic grade.
+* component[bruxismPresence].code = BruxismAssessmentComponentCS#presence
+* component[bruxismPresence].value[x] only boolean
+* component[bruxismPresence].value[x] ^short = "Whether bruxism is present"
+
+* component[bruxismCircadianType].code = BruxismAssessmentComponentCS#circadian-type
+* component[bruxismCircadianType].value[x] only CodeableConcept
+* component[bruxismCircadianType].valueCodeableConcept from $bruxismCircadianTypeVS (required)
+* component[bruxismCircadianType].value[x] ^short = "Sleep, awake, both, none, or unknown"
+
+* component[bruxismDiagnosticGrade].code = BruxismAssessmentComponentCS#diagnostic-grade
+* component[bruxismDiagnosticGrade].value[x] only CodeableConcept
+* component[bruxismDiagnosticGrade].valueCodeableConcept from $bruxismDiagnosticGradeVS (required)
+* component[bruxismDiagnosticGrade].value[x] ^short = "Possible, probable, or definite bruxism"
 
 // Tongue thrust: habitual tongue pressing against teeth
 * component[tongueThrust].code = $sct#289147003 "Tongue thrust present"

@@ -171,3 +171,11 @@ This enables a workflow where AI analyzes an OPG, produces preliminary findings,
 - **Referral to oral surgeon** with Zahnschema, relevant findings, and imaging
 - **Lab order** with tooth specifications, material requirements, and shade selection
 - **Treatment report** back to the referring dentist with procedure documentation
+### Dental trauma
+
+`TraumaObservationDE` carries one published ICD-11 NA0D classification, one FDI
+tooth, and the injury occurrence time. Multiple injuries at the same tooth and
+time are separate observations. Replantation, splinting, storage medium, and
+other interventions are represented with Procedure or supporting resources.
+A confirmed diagnosis may reference the trauma observations through
+`Condition.evidence.detail`; the finding itself is not the treatment record.

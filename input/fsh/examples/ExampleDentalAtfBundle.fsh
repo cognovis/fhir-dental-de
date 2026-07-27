@@ -140,7 +140,6 @@ Title: "Kariesbefund K02.1 Zahn 46 (ATF-Payload)"
 * recordedDate = "2026-01-10"
 // Tooth: FDI 46 — cognovis CodeSystem
 * bodySite[0] = $fdiCS#46 "46"
-* stage[0].summary = https://fhir.cognovis.de/dental/CodeSystem/dental-befund-status#c "kariös"
 * evidence[0].detail = Reference(urn:uuid:f47ac10b-58cc-4372-a567-0e02b2c3d479)
 
 // ============================================================

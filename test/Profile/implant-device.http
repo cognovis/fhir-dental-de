@@ -1,0 +1,20 @@
+### Validate a dental implant Device identity
+POST http://localhost:8080/fhir/Device/$validate?profile=https://fhir.cognovis.de/dental/StructureDefinition/dental-implant
+Authorization: Basic basic:secret
+Content-Type: application/fhir+json
+
+< ../../fsh-generated/resources/Device-ExampleDentalImplant36.json
+
+### Validate a single-implant crown
+POST http://localhost:8080/fhir/Device/$validate?profile=https://fhir.cognovis.de/dental/StructureDefinition/implant-suprastructure
+Authorization: Basic basic:secret
+Content-Type: application/fhir+json
+
+< ../../fsh-generated/resources/Device-ExampleImplantCrown36.json
+
+### Validate a suprastructure with two supporting implants
+POST http://localhost:8080/fhir/Device/$validate?profile=https://fhir.cognovis.de/dental/StructureDefinition/implant-suprastructure
+Authorization: Basic basic:secret
+Content-Type: application/fhir+json
+
+< ../../fsh-generated/resources/Device-ExampleImplantBridge36To37.json

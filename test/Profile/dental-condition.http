@@ -72,19 +72,6 @@ Content-Type: application/fhir+json
       ]
     }
   ],
-  "stage": [
-    {
-      "summary": {
-        "coding": [
-          {
-            "code": "c",
-            "system": "https://fhir.cognovis.de/dental/CodeSystem/dental-befund-status",
-            "display": "kariös"
-          }
-        ]
-      }
-    }
-  ],
   "evidence": [
     {
       "detail": [
@@ -165,19 +152,6 @@ Content-Type: application/fhir+json
           "display": "46"
         }
       ]
-    }
-  ],
-  "stage": [
-    {
-      "summary": {
-        "coding": [
-          {
-            "code": "c",
-            "system": "https://fhir.cognovis.de/dental/CodeSystem/dental-befund-status",
-            "display": "kariös"
-          }
-        ]
-      }
     }
   ],
   "evidence": [

@@ -34,7 +34,7 @@ if [ "$SKIP_SUSHI" = false ]; then
   # Capture full SUSHI output so error context is visible in CI logs;
   # always print the tail summary, but on failure show the full log so we can diagnose.
   SUSHI_LOG=$(mktemp)
-  if npx sushi . > "$SUSHI_LOG" 2>&1; then
+  if sushi . > "$SUSHI_LOG" 2>&1; then
     tail -15 "$SUSHI_LOG"
   else
     echo "SUSHI FAILED — full output below:"
@@ -54,25 +54,47 @@ rm -rf "$DIST"
 mkdir -p "$DIST"
 
 # 5. Create package.json (FHIR package format) — deps derived from sushi-config.yaml
-DEPS_JSON=$(python3 - "$ROOT" <<'PYEOF'
-import re, json, sys
+DEPS_JSON=$(node - "$ROOT" <<'JSEOF'
+const fs = require("node:fs");
 
-root = sys.argv[1]
-with open(f"{root}/sushi-config.yaml") as f:
-    content = f.read()
+const root = process.argv[2];
+const dependencies = { "hl7.fhir.r4.core": "4.0.1" };
+let inDependencies = false;
+let currentDependency = null;
 
-match = re.search(r'^dependencies:\s*\n((?:  \S.*\n)*)', content, re.MULTILINE)
-deps = {"hl7.fhir.r4.core": "4.0.1"}
-if match:
-    for line in match.group(1).splitlines():
-        line = line.strip().split("#")[0].strip()
-        if ":" in line:
-            k, v = line.split(":", 1)
-            deps[k.strip()] = v.strip()
-if len(deps) <= 1:
-    print("WARNING: No dependencies extracted from sushi-config.yaml — check indentation", file=sys.stderr)
-print(json.dumps(deps, indent=4))
-PYEOF
+for (const rawLine of fs.readFileSync(`${root}/sushi-config.yaml`, "utf8").split("\n")) {
+  const line = rawLine.split("#", 1)[0].trimEnd();
+  if (!line) {
+    continue;
+  }
+  if (line === "dependencies:") {
+    inDependencies = true;
+    continue;
+  }
+  if (inDependencies && !line.startsWith(" ")) {
+    break;
+  }
+  if (!inDependencies) {
+    continue;
+  }
+  if (line.startsWith("  ") && !line.startsWith("    ")) {
+    const separator = line.indexOf(":");
+    currentDependency = line.slice(0, separator).trim();
+    const value = line.slice(separator + 1).trim();
+    if (value) {
+      dependencies[currentDependency] = value;
+      currentDependency = null;
+    }
+  } else if (currentDependency && line.startsWith("    version:")) {
+    dependencies[currentDependency] = line.slice(line.indexOf(":") + 1).trim();
+  }
+}
+
+if (Object.keys(dependencies).length <= 1) {
+  process.stderr.write("WARNING: No dependencies extracted from sushi-config.yaml — check indentation\n");
+}
+process.stdout.write(JSON.stringify(dependencies, null, 4));
+JSEOF
 )
 
 cat > "$DIST/package.json" <<EOF

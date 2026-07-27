@@ -99,7 +99,7 @@ Description: "Profil fuer zahntechnische Laborauftraege — verbindet administra
 
 // --- Digitale Unterlagen (Scans, Fotos, Bissregistrat) ---
 * supportingInfo MS
-* supportingInfo ^short = "Digitale Abformung, Fotos, Bissregistrat, Modellscans"
+* supportingInfo ^short = "Digital impressions, photos, registrations, scans, or referenced implant and suprastructure Devices"
 
 // --- Freitext-Anweisungen ans Labor ---
 * note MS

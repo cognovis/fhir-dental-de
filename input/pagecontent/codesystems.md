@@ -15,7 +15,7 @@ Runtime displays and validation for those SCTIDs come from the gated package `de
 - [beb'97](CodeSystem-beb97.html) — Private zahntechnische Leistungen
 
 #### Clinical Code Systems
-- [Dental Befundstatus](CodeSystem-dental-befund-status.html) — KZBV Zahnschema-Befundstatus
+- SWS 2.0 tooth status (`https://fhir.cognovis.de/dental/CodeSystem/sws2-zahnstatus`) — published external tooth-chart terminology from `de.cognovis.terminology.dental.sws-zahnstatus`
 - [Dental Category](CodeSystem-dental-category.html) — Dental resource category marker
 - [Tooth Surfaces](CodeSystem-tooth-surfaces.html) — Zahnflächen (M/D/O/I/B/V/L/P)
 - [BEMA Befundklasse](CodeSystem-bema-befundklasse.html) — Befundklassen (c/k/f/e/b)
@@ -45,3 +45,17 @@ Im Dental-IG kommen drei *unterschiedliche* KZBV-publizierte Code-Listen zum Tra
 Daneben existieren die cognovis-internen **`ze-befundkuerzel`** und **`ze-therapiekuerzel`** CSes — sie sind **ergänzend**, decken klinische Status-Codes ab die in KZBV-DPF nicht existieren (z.B. "Krone defekt", "Magnetanker", "KFO-Retainer", "Reparatur Brücke").
 
 > **Wichtig**: Lexikalisch überlappende Codes (`x`, `B`, `K`, `e`, `b`) haben **unterschiedliche Semantik** zwischen den Code-Systemen. Bei `Coding` immer die `system`-URL explizit setzen — sie ist der einzig verlässliche Diskriminator zwischen den parallelen Befund-Taxonomien.
+
+#### Tooth-status migration
+
+The draft canonical `https://fhir.cognovis.de/dental/CodeSystem/dental-befund-status`
+is retired. Producers use
+`https://fhir.cognovis.de/dental/CodeSystem/sws2-zahnstatus` for observed
+tooth-chart status and bind against
+`https://fhir.cognovis.de/dental/ValueSet/sws2-zahnstatus-complete`.
+Tooth status is carried by `DentalFindingDE.valueCodeableConcept`, never by
+`Condition.stage`.
+
+SWS tooth findings, KZBV DPF prosthetic abbreviations, and the local ZE
+planning extensions are separate namespaces. A matching lexical code does not
+permit conversion without an explicit mapping.
