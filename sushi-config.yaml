@@ -7,7 +7,7 @@ description: >-
   conditions (ICD-10-GM), findings (Zahnschema/FDI), and communication.
   Built on German base profiles (de.basisprofil.r4, KBV).
 status: active
-version: 0.41.2
+version: 0.41.3
 fhirVersion: 4.0.1
 copyrightYear: 2026+
 copyright: Copyright 2026+ cognovis GmbH. Licensed under CC-BY-4.0.
@@ -28,7 +28,7 @@ dependencies:
   # ATF MessageHeader for KIM/TIM transport
   de.gematik.fhir.atf: 1.4.1
   # Praxis-DE Foundation — AccountPraxisSchein + EncounterPraxis
-  de.cognovis.fhir.praxis: 0.88.0
+  de.cognovis.fhir.praxis: 0.89.0
   # Official gematik digital patient invoice contract
   de.gematik.dipag: 1.0.8
   # CI Fallback (Option C): If Verdaccio uplink errors occur during CI build, pre-load the package
