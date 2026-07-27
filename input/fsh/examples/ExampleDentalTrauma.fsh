@@ -24,7 +24,7 @@ Description: "Treatment is represented separately from the trauma classification
 * reasonReference = Reference(ExampleAvulsionObservation11)
 
 Instance: ExampleAvulsionDiagnosis11
-InstanceOf: Condition
+InstanceOf: DentalConditionDE
 Usage: #example
 Title: "Confirmed Avulsion Diagnosis for Tooth 11"
 Description: "The diagnosis references the trauma observation as evidence."
@@ -33,6 +33,8 @@ Description: "The diagnosis references the trauma observation as evidence."
 * code.coding[0] = $icd11Mms#NA0D.15 "Avulsion of tooth"
 * code.coding[1] = $icd10gm#S03.2 "Zahnluxation"
 * code.coding[1].version = "2026"
+* code.coding[2] = http://snomed.info/sct#109671008 "Complete avulsion of tooth (disorder)"
+* code.coding[2].version = "http://snomed.info/sct/11000274103/version/20260515"
 * subject = Reference(Patient/pat-gkv-dental-01)
 * bodySite = $fdiCS#11
 * recordedDate = "2026-07-18"
