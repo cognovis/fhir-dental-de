@@ -44,10 +44,8 @@ Title: "Peri-Implantitis Diagnosis at Position 36"
 Description: "The diagnosis is separate from the site measurements and radiographic evidence."
 * clinicalStatus = http://terminology.hl7.org/CodeSystem/condition-clinical#active
 * verificationStatus = http://terminology.hl7.org/CodeSystem/condition-ver-status#confirmed
-* code.coding[0] = $icd10gm#K05.5 "Sonstige Krankheiten des Parodonts"
-* code.coding[0].version = "2026"
-* code.coding[1] = http://snomed.info/sct#699422003 "Peri-implantitis"
-* code.coding[1].version = "http://snomed.info/sct/900000000000207008/version/20250201"
+* code.coding[0] = http://snomed.info/sct#699422003 "Dentale Periimplantitis"
+* code.coding[0].version = "http://snomed.info/sct/11000274103/version/20260515"
 * code.text = "Peri-implantitis"
 * subject = Reference(Patient/pat-beihilfe-01)
 * bodySite = $fdiCS#36

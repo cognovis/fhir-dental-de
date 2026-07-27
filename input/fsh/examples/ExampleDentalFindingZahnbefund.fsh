@@ -1,5 +1,4 @@
-// Example: Zahnbefund — Karies an Zahn 26
-// Typischer Einzelbefund aus dem Zahnschema (Befundaufnahme)
+// Example: SWS tooth-chart status with observed surface details at tooth 26
 
 Alias: $loinc   = http://loinc.org
 Alias: $sct     = http://snomed.info/sct
@@ -10,7 +9,7 @@ Instance: ExampleDentalFindingKaries26
 InstanceOf: DentalFindingDE
 Usage: #example
 Title: "Beispiel SWS-Zahnstatus — Karies Zahn 26"
-Description: "SWS-2.0-Zahnstatus c (kariös) an Zahn 26. Die klinische Diagnose und Flächendetails bleiben getrennte Befunde."
+Description: "SWS-2.0-Zahnstatus c (kariös) an Zahn 26 mit beobachteten Flächendetails. Eine bestätigte klinische Diagnose bleibt eine separate Condition."
 
 * extension[0].url = "https://fhir.cognovis.de/dental/StructureDefinition/fdi-tooth-number"
 * extension[0].valueCode = #26
@@ -28,7 +27,7 @@ Description: "SWS-2.0-Zahnstatus c (kariös) an Zahn 26. Die klinische Diagnose 
 * effectiveDateTime = "2026-01-15T10:00:00+01:00"
 
 * valueCodeableConcept = $swsToothStatusCS#c "kariös"
-* valueCodeableConcept.text = "SWS 2.0 tooth-chart status: carious"
+* valueCodeableConcept.text = "SWS-2.0-Zahnstatus: kariös"
 
 // Tooth: FDI 26 — cognovis CodeSystem
 * bodySite = $fdiCS#26 "26"

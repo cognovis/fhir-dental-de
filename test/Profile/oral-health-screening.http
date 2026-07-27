@@ -45,7 +45,8 @@ Content-Type: application/fhir+json
       "code": {
         "coding": [
           {
-            "system": "https://fhir.cognovis.de/dental/CodeSystem/bruxism-circadian-type"
+            "system": "https://fhir.cognovis.de/dental/CodeSystem/oral-health-screening-component",
+            "code": "bruxism-circadian-type"
           }
         ]
       },

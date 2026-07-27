@@ -16,6 +16,7 @@ Runtime displays and validation for those SCTIDs come from the gated package `de
 
 #### Clinical Code Systems
 - SWS 2.0 tooth status (`https://fhir.cognovis.de/dental/CodeSystem/sws2-zahnstatus`) — published external tooth-chart terminology from `de.cognovis.terminology.dental.sws-zahnstatus`
+- [Oral Health Screening Component](CodeSystem-oral-health-screening-component.html) — structural component identifiers only; bruxism type and grade values remain in the published upstream terminology
 - [Dental Category](CodeSystem-dental-category.html) — Dental resource category marker
 - [Tooth Surfaces](CodeSystem-tooth-surfaces.html) — Zahnflächen (M/D/O/I/B/V/L/P)
 - [BEMA Befundklasse](CodeSystem-bema-befundklasse.html) — Befundklassen (c/k/f/e/b)

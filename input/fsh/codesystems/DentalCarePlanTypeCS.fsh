@@ -1,7 +1,7 @@
 CodeSystem: DentalCarePlanTypeCS
 Id: dental-care-plan-type
 Title: "Dental Behandlungsplan Typ"
-Description: "Kategorisierung von Dental-Behandlungsplaenen nach Plantyp (ZE, HKP, PAR, KFO, KBR, KGL, PMB)."
+Description: "Kategorisierung von Dental-Behandlungsplaenen nach Plantyp (ZE, HKP, PAR, KFO, KBR, KGL, PMB und klinische Schlafschienen)."
 * ^url = "https://fhir.cognovis.de/dental/CodeSystem/dental-care-plan-type"
 * ^status = #active
 * ^experimental = false

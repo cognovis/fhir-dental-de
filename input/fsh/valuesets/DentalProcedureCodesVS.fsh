@@ -1,7 +1,9 @@
 ValueSet: DentalProcedureCodesVS
 Id: dental-procedure-codes
 Title: "Zahnärztliche Leistungscodes"
-Description: """Vereinigtes ValueSet für zahnärztliche Leistungen: BEMA (GKV) und GOZ (PKV).
+Description: """Vereinigtes ValueSet für zahnärztliche Prozeduren: BEMA (GKV), GOZ (PKV)
+und klinische Mechanismuskategorien für fokussierte parodontale Zusatzverfahren.
+Die klinischen Kategorien enthalten keine Abrechnungs- oder Erstattungssemantik.
 OPS surgical codes (5-23/5-24 descendants) remain usable via the extensible binding;
 they are not composed with descendent-of filters here because those require a
 terminology client and previously NPEd/hung IG Publisher builds (fmgt-5vw)."""

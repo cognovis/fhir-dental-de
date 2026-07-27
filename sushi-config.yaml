@@ -105,6 +105,7 @@ parameters:
     - https://fhir.cognovis.de/dental/CodeSystem/sws2-zahnstatus
     - https://fhir.cognovis.de/dental/CodeSystem/bruxism-circadian-type
     - https://fhir.cognovis.de/dental/CodeSystem/bruxism-diagnostic-grade
+    - https://fhir.cognovis.de/dental/CodeSystem/oral-health-screening-component
     - https://fhir.cognovis.de/dental/CodeSystem/dental-implant-property
     - https://fhir.cognovis.de/dental/CodeSystem/peri-implant-finding
     - https://fhir.cognovis.de/dental/CodeSystem/sleep-appliance-pathway

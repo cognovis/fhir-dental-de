@@ -44,12 +44,12 @@ Description: "Profil fuer ganzheitliche orale Gesundheitsbefunde: Parafunktional
 * component[bruxism].value[x] only CodeableConcept or boolean
 * component[bruxism].value[x] ^short = "Present/absent or coded severity"
 
-* component[bruxismCircadianType].code ^patternCodeableConcept.coding[0].system = "https://fhir.cognovis.de/dental/CodeSystem/bruxism-circadian-type"
+* component[bruxismCircadianType].code = OralHealthScreeningComponentCS#bruxism-circadian-type
 * component[bruxismCircadianType].value[x] only CodeableConcept
 * component[bruxismCircadianType].valueCodeableConcept from $bruxismCircadianTypeVS (required)
 * component[bruxismCircadianType].value[x] ^short = "Sleep, awake, both, none, or unknown"
 
-* component[bruxismDiagnosticGrade].code ^patternCodeableConcept.coding[0].system = "https://fhir.cognovis.de/dental/CodeSystem/bruxism-diagnostic-grade"
+* component[bruxismDiagnosticGrade].code = OralHealthScreeningComponentCS#bruxism-diagnostic-grade
 * component[bruxismDiagnosticGrade].value[x] only CodeableConcept
 * component[bruxismDiagnosticGrade].valueCodeableConcept from $bruxismDiagnosticGradeVS (required)
 * component[bruxismDiagnosticGrade].value[x] ^short = "Possible, probable, or definite bruxism"

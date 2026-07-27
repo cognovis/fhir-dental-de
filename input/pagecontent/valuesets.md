@@ -5,7 +5,7 @@ This implementation guide defines the following value sets:
 - [Tooth Identification FDI](ValueSet-tooth-identification-fdi.html) — FDI/ISO 3950 tooth numbering
 - [Dental Finding Codes](ValueSet-dental-finding-codes.html) — Curated SNOMED CT pick list with SCTIDs only; broader validation uses the gated General Dentistry reference set
 - [Dental Practitioner Specialty](ValueSet-dental-practitioner-specialty.html) — SNOMED CT dental specialties for `PractitionerRole.specialty` (SCTID references only)
-- [Dental Procedure Codes](ValueSet-dental-procedure-codes.html) — BEMA + GOZ + OPS procedure codes
+- [Dental Procedure Codes](ValueSet-dental-procedure-codes.html) — BEMA, GOZ, and clinical procedure categories; OPS remains available through the extensible binding
 - SWS 2.0 complete tooth status (`https://fhir.cognovis.de/dental/ValueSet/sws2-zahnstatus-complete`) — published external tooth-chart status value set
 - [BEMA Codes](ValueSet-bema-codes.html) — All BEMA billing codes
 - [GOZ Codes](ValueSet-goz-codes.html) — All GOZ billing codes
