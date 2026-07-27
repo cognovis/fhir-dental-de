@@ -1,26 +1,26 @@
 ### ValueSet: ToothSurfacesVS - Expand
 # VS URL: https://fhir.cognovis.de/dental/ValueSet/tooth-surfaces
-# Expected: expansion.contains has 8 entries
+# Expected: expansion.contains includes the HL7 THO FDI-surface codes
 GET http://localhost:8080/ValueSet/tooth-surfaces/$expand
 Authorization: Basic basic:secret
 
 ### ValueSet: ToothSurfacesVS - Validate Valid Code (M)
-# System: https://fhir.cognovis.de/dental/CodeSystem/tooth-surfaces
+# System: http://terminology.hl7.org/CodeSystem/FDI-surface
 # Expected: result=true
 # Actual: result=True
-GET http://localhost:8080/ValueSet/$validate-code?url=https://fhir.cognovis.de/dental/ValueSet/tooth-surfaces&system=https://fhir.cognovis.de/dental/CodeSystem/tooth-surfaces&code=M
+GET http://localhost:8080/ValueSet/$validate-code?url=https://fhir.cognovis.de/dental/ValueSet/tooth-surfaces&system=http://terminology.hl7.org/CodeSystem/FDI-surface&code=M
 Authorization: Basic basic:secret
 
 ### ValueSet: ToothSurfacesVS - Validate Valid Code (D)
-# System: https://fhir.cognovis.de/dental/CodeSystem/tooth-surfaces
+# System: http://terminology.hl7.org/CodeSystem/FDI-surface
 # Expected: result=true
 # Actual: result=True
-GET http://localhost:8080/ValueSet/$validate-code?url=https://fhir.cognovis.de/dental/ValueSet/tooth-surfaces&system=https://fhir.cognovis.de/dental/CodeSystem/tooth-surfaces&code=D
+GET http://localhost:8080/ValueSet/$validate-code?url=https://fhir.cognovis.de/dental/ValueSet/tooth-surfaces&system=http://terminology.hl7.org/CodeSystem/FDI-surface&code=D
 Authorization: Basic basic:secret
 
 ### ValueSet: ToothSurfacesVS - Validate Invalid Code
-# System: https://fhir.cognovis.de/dental/CodeSystem/tooth-surfaces
+# System: http://terminology.hl7.org/CodeSystem/FDI-surface
 # Expected: result=false
 # Actual: result=False
-GET http://localhost:8080/ValueSet/$validate-code?url=https://fhir.cognovis.de/dental/ValueSet/tooth-surfaces&system=https://fhir.cognovis.de/dental/CodeSystem/tooth-surfaces&code=INVALID_XYZ
+GET http://localhost:8080/ValueSet/$validate-code?url=https://fhir.cognovis.de/dental/ValueSet/tooth-surfaces&system=http://terminology.hl7.org/CodeSystem/FDI-surface&code=INVALID_XYZ
 Authorization: Basic basic:secret

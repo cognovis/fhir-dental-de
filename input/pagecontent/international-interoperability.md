@@ -9,7 +9,7 @@ IG version:
 
 | IG | Country | Status | Profiles | Focus |
 |---|---|---|---|---|
-| **fhir-dental-de** (this IG) | Germany | v0.40.1 Trial Use | 28 profiles, 43 extensions | Full dental workflow: clinical + billing + care plans + imaging + lab |
+| **fhir-dental-de** (this IG) | Germany | v0.40.1 Trial Use | 48 profiles, 46 extensions | Full dental workflow: clinical + billing + care plans + imaging + lab |
 | [**MedMij Dental Care**](https://simplifier.net/guide/medmij-r4-dentalcare-ig/Home?version=1.0.0-rc.1) | Netherlands | v1.0.0-rc.1 Release Candidate | 6 profiles, 0 extensions | Clinical findings + procedures |
 | [**HL7 Dental Data Exchange**](https://hl7.org/fhir/us/dental-data-exchange/) | United States | v1.0.0 STU 1, current published release | 7 profiles | Referral and consultation exchange |
 | [**HL7 Dental Data Exchange**](https://build.fhir.org/ig/HL7/dental-data-exchange/) | United States | v2.0.0-ballot CI build, mutable and not an authorized publication | 7 profiles | Crosswalk target used on this page |
@@ -51,7 +51,7 @@ its release-candidate phase.
 | **Dental fitness** | *(not profiled)* | mz-DentalFitness (Observation) | NL-specific (military screening) |
 | **Procedures** | DentalProcedureDE (Procedure, BEMA/GOZ) | mz-Procedure (Procedure, Vektis Mondzorg 010) | Both use single unified profile; different national code systems |
 | **Conditions** | DentalConditionDE (Condition, ICD-10-GM) | *(uses nl-core-Condition)* | DE has dedicated dental profile; NL uses generic |
-| **Care plans** | DentalCarePlanDE (CarePlan, 7 category types) | *(uses nl-core-TreatmentObjective/Goal)* | DE significantly richer; NL defers to generic Goal |
+| **Care plans** | DentalCarePlanDE (CarePlan, 7 category types) | *(uses generic Goal; RC1 has no `mz-TreatmentObjective` profile)* | DE significantly richer; NL defers to generic Goal |
 | **Imaging** | DentalImagingStudyDE (ImagingStudy, DICOM) | *(not profiled)* | Only in DE |
 | **Lab orders** | DentalLabServiceRequestDE (ServiceRequest) | *(not profiled)* | Only in DE |
 | **Billing** | BemaChargeItemDE + GozChargeItemDE | *(not profiled; billing via procedure codes)* | Only in DE |
@@ -65,7 +65,7 @@ its release-candidate phase.
 | Diagnosis codes | ICD-10-GM (required) | SNOMED CT (via nl-core-Condition) |
 | Observation codes | Curated SNOMED CT pick list (extensible; additional codes such as LOINC remain permitted) | SNOMED CT (fixed per profile) |
 | Tooth numbering | FDI (ISO 3950) with dual SNOMED coding | Not explicitly exposed in IG |
-| Tooth surfaces | Custom + SNOMED CT dual coding | Not profiled |
+| Tooth surfaces | HL7 THO FDI-surface + SNOMED CT dual coding | Not profiled |
 
 ### Architectural Comparison
 
@@ -73,7 +73,7 @@ its release-candidate phase.
 |---|---|---|
 | **Philosophy** | Self-contained dental specification | Inherit common, define only dental-unique |
 | **Base profiles** | Extends FHIR R4 directly | Extends nl-core (Dutch national base) |
-| **Extensions** | 43 custom (billing, insurance, specialty-specific) | None (uses nl-core patterns) |
+| **Extensions** | 46 custom (billing, insurance, specialty-specific) | None (uses nl-core patterns) |
 | **Treatment types** | Category-based routing in unified CarePlan | Meta-tags + generic Goal |
 | **Billing integration** | Dedicated ChargeItem profiles | Embedded in procedure codes |
 | **Maturity** | v0.40.1 Trial Use | v1.0.0-rc.1 Release Candidate |
@@ -291,7 +291,7 @@ fhir-dental-de uses a dual-coding approach to maintain compatibility with the HL
       "valueCodeableConcept": {
         "coding": [
           {
-            "system": "https://fhir.cognovis.de/dental/CodeSystem/tooth-surfaces",
+            "system": "http://terminology.hl7.org/CodeSystem/FDI-surface",
             "code": "M",
             "display": "Mesial"
           },
@@ -426,7 +426,7 @@ clinical domains at the version baseline above:
 | Domain | fhir-dental-de 0.40.1 (Germany) | MedMij Dental Care 1.0.0-rc.1 (Netherlands) | DDEx 2.0.0-ballot (US) |
 |---|---|---|---|
 | **Tooth identification** | FDI (ISO 3950) + SNOMED dual coding | Not exposed | ADA Universal + SNOMED |
-| **Tooth surfaces** | Repeated local/SNOMED-coded extensions on the tooth `bodySite` | Not profiled | One post-coordinated SNOMED expression in `bodySite` |
+| **Tooth surfaces** | Repeated THO/SNOMED-coded extensions on the tooth `bodySite` | Not profiled | One post-coordinated SNOMED expression in `bodySite` |
 | **Dental findings** | DentalFindingDE (Observation) | 5 specialized Observations | Dental Finding (Observation) |
 | **Periodontal** | 6-point probing, BOP, recession, furcation | PSI/PSR aggregate score | General periodontal findings |
 | **Conditions** | ICD-10-GM plus extensible coding (Condition) | SNOMED CT (nl-core-Condition) | US Core condition coding plus dental examples |

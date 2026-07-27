@@ -23,10 +23,10 @@ Description: "Beispiel fuer einen kombinierten Laborauftrag: Teleskopprothese im
 * performer[0].display = "Zahntechnik Mueller GmbH"
 
 // --- Betroffene Zaehne / Implantate ---
-* bodySite[0] = $fdiCS#33 "Zahn 33"
-* bodySite[1] = $fdiCS#35 "Zahn 35"
-* bodySite[2] = $fdiCS#43 "Zahn 43"
-* bodySite[3] = $fdiCS#45 "Zahn 45"
+* bodySite[0] = $fdiCS#33 "33"
+* bodySite[1] = $fdiCS#35 "35"
+* bodySite[2] = $fdiCS#43 "43"
+* bodySite[3] = $fdiCS#45 "45"
 
 // --- Restaurationstypen (mehrfach bei kombinierter Versorgung) ---
 * extension[restorationType][0].valueCodeableConcept = RestorationTypeCS#teleskop "Teleskopprothese"

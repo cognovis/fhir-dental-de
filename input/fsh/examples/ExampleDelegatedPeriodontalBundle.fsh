@@ -1,6 +1,6 @@
 Alias: $loinc = http://loinc.org
 Alias: $icd10gm = http://fhir.de/CodeSystem/bfarm/icd-10-gm
-Alias: $fdiCS = https://fhir.cognovis.de/dental/CodeSystem/tooth-identification-fdi
+Alias: $fdiCS = http://terminology.hl7.org/CodeSystem/ex-tooth
 Alias: $periodontalSite = https://fhir.cognovis.de/dental/CodeSystem/periodontal-measurement-site
 
 Instance: ExampleDelegatedPeriodontalAssistant

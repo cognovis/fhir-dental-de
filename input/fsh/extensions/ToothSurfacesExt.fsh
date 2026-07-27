@@ -1,7 +1,7 @@
 Extension: ToothSurfacesExt
 Id: tooth-surfaces
 Title: "Zahnflächen"
-Description: "Betroffene Zahnfläche. Diese Extension ist wiederholbar (0..*) um mehrere betroffene Flächen pro Zahn anzugeben (z.B. mesial + okklusal bei einer zweiflächigen Füllung). Kodierung: M=Mesial, D=Distal, O=Okklusal, I=Inzisal, B=Bukkal, V=Vestibulär, L=Lingual, P=Palatinal."
+Description: "Betroffene Zahnfläche. Diese Extension ist wiederholbar (0..*) um mehrere betroffene Flächen pro Zahn anzugeben (z.B. mesial + okklusal bei einer zweiflächigen Füllung). Die Kodierung verwendet das HL7 Terminology CodeSystem FDI-surface."
 * ^url = "https://fhir.cognovis.de/dental/StructureDefinition/tooth-surfaces"
 * ^status = #active
 * ^experimental = false
@@ -21,4 +21,4 @@ Description: "Betroffene Zahnfläche. Diese Extension ist wiederholbar (0..*) um
 * extension 0..0
 * value[x] only CodeableConcept
 * value[x] from ToothSurfacesVS (required)
-* value[x] ^short = "Zahnfläche (M, D, O, I, B, V, L, P)"
+* value[x] ^short = "Zahnfläche nach HL7 Terminology FDI-surface"

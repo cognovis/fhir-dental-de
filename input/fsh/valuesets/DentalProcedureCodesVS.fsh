@@ -13,5 +13,5 @@ terminology client and previously NPEd/hung IG Publisher builds (fmgt-5vw)."""
 * ^publisher = "cognovis GmbH"
 
 * include codes from system http://fhir.de/CodeSystem/kzbv/bema
-* include codes from system GozCS
+* include codes from system http://fhir.de/CodeSystem/bzaek/goz
 * include codes from system PeriodontalAdjunctiveProcedureTypeCS

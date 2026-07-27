@@ -1,7 +1,7 @@
 // Example: Impacted tooth assessment — Winter and Pell-Gregory classification
 
 Alias: $sct   = http://snomed.info/sct
-Alias: $fdiCS = https://fhir.cognovis.de/dental/CodeSystem/tooth-identification-fdi
+Alias: $fdiCS = http://terminology.hl7.org/CodeSystem/ex-tooth
 Alias: $winter = https://fhir.cognovis.de/dental/CodeSystem/winter-impaction-angulation
 Alias: $pellspace = https://fhir.cognovis.de/dental/CodeSystem/pell-gregory-space
 Alias: $pelldepth = https://fhir.cognovis.de/dental/CodeSystem/pell-gregory-depth

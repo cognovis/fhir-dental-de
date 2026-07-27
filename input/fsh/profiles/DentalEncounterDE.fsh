@@ -1,8 +1,8 @@
 Profile: DentalEncounterDE
-Parent: Encounter
+Parent: EncounterPraxis
 Id: dental-encounter
 Title: "Zahnärztlicher Behandlungskontakt (DE)"
-Description: "Billing-agnostic clinical contact in dental practice (consultation, treatment visit). One contact = one Encounter. Encounter.class = AMB (ambulatory) or HH (home visit). Encounter.account references the billing case (AccountPraxisSchein). ScheinNummer, Scheinart, coverage, and billing quarter live on the Account, not the Encounter."
+Description: "Billing-agnostic clinical contact in dental practice (consultation, treatment visit), derived from the shared Praxis-DE encounter contract. One contact = one Encounter. Encounter.class = AMB (ambulatory) or HH (home visit). Encounter.account references the billing case (AccountPraxisSchein). ScheinNummer, Scheinart, coverage, and billing quarter live on the Account, not the Encounter."
 * ^status = #active
 * ^experimental = false
 * ^publisher = "cognovis GmbH"

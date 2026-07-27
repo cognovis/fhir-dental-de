@@ -1,9 +1,9 @@
 // Example: BEMA 13c Leistungsposition, Zahn 36, 25 Punkte
 // SWS 2.0 Satzart 6 — BEMA-Leistungsabrechnung
 
-Alias: $fdiCS    = https://fhir.cognovis.de/dental/CodeSystem/tooth-identification-fdi
+Alias: $fdiCS    = http://terminology.hl7.org/CodeSystem/ex-tooth
 Alias: $bemaCS   = http://fhir.de/CodeSystem/kzbv/bema
-Alias: $surfaceCS = https://fhir.cognovis.de/dental/CodeSystem/tooth-surfaces
+Alias: $surfaceCS = http://terminology.hl7.org/CodeSystem/FDI-surface
 
 Instance: ExampleBemaChargeItem
 InstanceOf: BemaChargeItemDE
@@ -14,7 +14,7 @@ Description: "BEMA-Leistungsposition 13c (Kompositfüllung dreiflächig) für Za
 * extension[fdiToothNumber].valueCode = #36
 
 * extension[toothSurfaces][0].valueCodeableConcept = $surfaceCS#M "Mesial"
-* extension[toothSurfaces][1].valueCodeableConcept = $surfaceCS#O "Okklusal"
+* extension[toothSurfaces][1].valueCodeableConcept = $surfaceCS#O "Occlusal"
 * extension[toothSurfaces][2].valueCodeableConcept = $surfaceCS#D "Distal"
 
 * extension[bemaBefundklasse].valueCode = https://fhir.cognovis.de/dental/CodeSystem/bema-befundklasse#c "Erhaltungswürdig (konservierende Behandlung)"

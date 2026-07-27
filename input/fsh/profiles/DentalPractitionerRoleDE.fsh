@@ -1,10 +1,10 @@
 // Dental PractitionerRole — specialty via SNOMED CT (no KZBV BAR2 equivalent for dental).
 // Analogous to human/practice KBV BAR2-WBO on PractitionerRole.specialty.
 Profile: DentalPractitionerRoleDE
-Parent: KBV_PR_Base_PractitionerRole
+Parent: PraxisPractitionerRoleDE
 Id: dental-practitioner-role
 Title: "Dental PractitionerRole (DE)"
-Description: """PractitionerRole for dental practitioners at a practice site.
+Description: """PractitionerRole for dental practitioners at a practice site, derived from the shared Praxis-DE role contract.
 Binds specialty to DentalPractitionerSpecialtyVS (SNOMED CT). Dental has no KZBV equivalent to KBV BAR2-WBO; do not introduce a local dental specialty CodeSystem while SNOMED CT covers the concepts."""
 * ^status = #active
 * ^experimental = false

@@ -2,8 +2,8 @@
 
 Alias: $loinc   = http://loinc.org
 Alias: $sct     = http://snomed.info/sct
-Alias: $fdiCS   = https://fhir.cognovis.de/dental/CodeSystem/tooth-identification-fdi
-Alias: $surfCS  = https://fhir.cognovis.de/dental/CodeSystem/tooth-surfaces
+Alias: $fdiCS   = http://terminology.hl7.org/CodeSystem/ex-tooth
+Alias: $surfCS  = http://terminology.hl7.org/CodeSystem/FDI-surface
 
 Instance: ExampleDentalFindingKaries26
 InstanceOf: DentalFindingDE
@@ -41,4 +41,4 @@ Description: "SWS-2.0-Zahnstatus c (kariös) an Zahn 26 mit beobachteten Fläche
 
 * component[1].code = $sct#245647007 "Entire vestibular surface of tooth"
 * component[1].code.text = "Betroffene Zahnfläche"
-* component[1].valueCodeableConcept = $surfCS#O "Okklusal"
+* component[1].valueCodeableConcept = $surfCS#O "Occlusal"

@@ -1,7 +1,7 @@
 // Example: Bone site assessment — Lekholm-Zarb classification for implant planning
 
 Alias: $sct   = http://snomed.info/sct
-Alias: $fdiCS = https://fhir.cognovis.de/dental/CodeSystem/tooth-identification-fdi
+Alias: $fdiCS = http://terminology.hl7.org/CodeSystem/ex-tooth
 Alias: $boneshape = https://fhir.cognovis.de/dental/CodeSystem/lekholm-zarb-jawbone-shape
 Alias: $bonequality = https://fhir.cognovis.de/dental/CodeSystem/lekholm-zarb-jawbone-quality
 
