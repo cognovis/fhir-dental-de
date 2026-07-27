@@ -13,8 +13,8 @@ worktree:
    suprastructure technical findings, with billing suggestions kept separate;
 5. add the medically ordered OSAS oral-appliance pathway on the existing sleep
    appliance foundation; and
-6. integrate a GOZ invoice profile after the DiPag-aligned `PraxisInvoiceDE`
-   is available from its separate upstream branch.
+6. integrate a GOZ invoice profile directly on the official gematik
+   `DiPagRechnung` contract after the required Praxis release is available.
 
 The adapter implementation is outside this repository. The Charly schema
 inventory is read-only evidence for which source fields a later mapper can
@@ -26,7 +26,7 @@ reasonably populate.
 
 - Pros: closest to the old descriptions.
 - Cons: duplicates the existing SWS, implant Device, sleep pathway, and
-  `PraxisInvoiceDE` foundations; mixes clinical findings with billing triggers;
+  invoice foundations; mixes clinical findings with billing triggers;
   retains incorrect ICDAS and GOZ assumptions.
 
 ### Approach B: Consolidate around reusable FHIR R4 boundaries
@@ -63,8 +63,8 @@ charges.
 
 ### Assumptions
 
-- `de.cognovis.fhir.praxis#0.85.0` provides `PraxisInvoiceDE` and its tax
-  extensions.
+- `de.cognovis.fhir.praxis#0.88.0` provides the shared Account and ChargeItem
+  foundations, while `de.gematik.dipag#1.0.8` provides the invoice contract.
 - The future adapter can map invoice headers from its invoice table and line
   details from its performed-charge table.
 - The current US Dental Data Exchange ballot is an alignment target, not a
@@ -81,8 +81,8 @@ charges.
 
 1. Work is performed in one worktree and one feature branch.
 2. The public IG must contain no PVS vendor or internal product references.
-3. The invoice profile will derive from the DiPag-aligned `PraxisInvoiceDE`;
-   invoice implementation is excluded until that upstream branch is complete.
+3. The invoice profile derives directly from `DiPagRechnung`; Dental adds only
+   GOZ-specific line and Account constraints.
 4. GOZ section 2 agreements may be linked as supporting documents but are not
    required attachments to every invoice.
 5. Billing mappings are suggestions in `ConceptMap`, never properties that
@@ -188,19 +188,17 @@ and avoid manufacturer-specific systems or hard clinical thresholds.
 
 ### Task 6: Add the GOZ invoice contract
 
-**State:** Deferred. DiPag is being integrated into `fhir-praxis-de` in a
-separate branch. Do not implement or validate the dental invoice profile until
-that upstream profile is released and pinned here.
+**State:** Implemented after publication of Praxis 0.88.0 and direct pinning of
+DiPag 1.0.8.
 
 **Files:** new invoice supporting-document extension, `GozInvoiceDE.fsh`,
 invoice examples, tests, billing narrative, profiles list, and interoperability
 guidance.
 
-**Change:** Derive from `PraxisInvoiceDE`; require business identifier, subject,
-recipient, issuer, date, account, at least one GOZ ChargeItem reference, totals,
-and structured line price components. Support optional agreement, laboratory
-invoice, and expense evidence documents without asserting a universal
-attachment duty.
+**Change:** Derive directly from `DiPagRechnung`; require an Account and at
+least one `GozChargeItemDE` reference. Reuse all DiPag totals, tax, payment,
+correction, laboratory, deduction, and attachment semantics without asserting a
+universal agreement attachment duty.
 
 **Red test:** Add negative validation requests for an invoice without line
 items and for an inline billing code instead of a ChargeItem reference.
@@ -256,8 +254,8 @@ build.
    shared device-focused model with separate billing suggestions.
 5. Medically ordered OSAS appliance care requires an external medical order and
    contains no manufacturer-specific terminology.
-6. The GOZ invoice task remains explicitly deferred pending the DiPag-aligned
-   `PraxisInvoiceDE`.
+6. The GOZ invoice derives directly from `DiPagRechnung` and adds no duplicate
+   local invoice financial contract.
 7. Documentation, SUSHI, Publisher, and repository guards for tasks 1 through 5
    are green.
 

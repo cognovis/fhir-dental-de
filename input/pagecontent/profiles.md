@@ -25,10 +25,17 @@ This implementation guide defines the following profiles for German dental pract
 #### Billing Profiles
 - [BemaChargeItemDE](StructureDefinition-bema-charge-item.html) — BEMA Leistungsposition (ChargeItem)
 - [GozChargeItemDE](StructureDefinition-goz-charge-item.html) — GOZ Leistungsposition (ChargeItem)
+- [GozInvoiceDE](StructureDefinition-goz-invoice-de.html) — GOZ private invoice, derived directly from gematik DiPagRechnung
 - [DentalEncounterDE](StructureDefinition-dental-encounter.html) — Behandlungskontakt (Encounter, billing-agnostic)
 - [DentalClaimDE](StructureDefinition-dental-claim-de.html) — Abrechnungsanspruch (Claim, billing-case boundary)
 
 Dental billing cases reuse [AccountPraxisSchein](https://fhir.cognovis.de/praxis/StructureDefinition-account-praxis-schein) from the Praxis-DE IG. ScheinNummer, Scheinart, servicePeriod, and coverage live on Account; `Encounter.account` and `ChargeItem.account` reference it.
+
+`GozInvoiceDE` uses the official gematik
+[`DiPagRechnung`](https://gematik.de/fhir/dipag/StructureDefinition/dipag-rechnung)
+contract. Dental adds only the GOZ charge-item and account references; gross
+amounts, included tax, deductions, laboratory services, payment details, and
+correction invoices retain their DiPag meaning.
 
 #### Treatment Plans
 - [DentalCarePlanDE](StructureDefinition-dental-care-plan.html) — Dental Behandlungsplan: HKP, PAR, KFO, ZE, KBR, KGL, PMB (CarePlan, via category[planType])

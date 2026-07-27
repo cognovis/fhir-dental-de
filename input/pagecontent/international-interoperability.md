@@ -22,7 +22,7 @@ and transformation specifications should record the exact DDEx version they
 target.
 
 The local build is pinned to `de.basisprofil.r4` 1.5.4, `kbv.basis` 1.9.0,
-and `de.cognovis.fhir.praxis` 0.85.0. These are the tested compatibility
+and `de.cognovis.fhir.praxis` 0.88.0. These are the tested compatibility
 versions for fhir-dental-de 0.40.1; they are not claims about the newest release
 available in every upstream registry.
 

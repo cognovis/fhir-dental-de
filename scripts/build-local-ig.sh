@@ -27,4 +27,5 @@ EOF
 fi
 
 "$ROOT/scripts/prefetch-praxis.sh"
+uv run python "$ROOT/scripts/generate-fhir-package-snapshots.py"
 "$ROOT/_genonce.sh" "$@"
