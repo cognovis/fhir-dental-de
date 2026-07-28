@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+root="$(git rev-parse --show-toplevel)"
+management="${FHIR_MANAGEMENT_ROOT:-$root/../fhir-management}"
+if [[ ! -f "$management/pyproject.toml" ]]; then
+  echo "[pre-push] WARNING: fhir-management unavailable; newest-parent check deferred to CI." >&2
+  exit 0
+fi
+
+while read -r _local_ref local_sha _remote_ref _remote_sha; do
+  [[ -n "${local_sha:-}" ]] || continue
+  [[ "$local_sha" == "0000000000000000000000000000000000000000" ]] && continue
+  uv run --project "$management" fhir-graph \
+    --repos "$management/configs/repos.yaml" \
+    check-published-parents \
+    --repo fhir-dental-de \
+    --repo-path "$root" \
+    --base "${local_sha}^" \
+    --mode local \
+    --timeout 8
+done

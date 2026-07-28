@@ -28,6 +28,8 @@ on:
       - 'AGENTS.md'
       - 'LICENSE'
       - 'docs/**'
+  pull_request:
+    branches: [main]
 
 permissions:
   contents: write
@@ -39,7 +41,22 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  parent-pins:
+    if: github.event_name != 'workflow_dispatch'
+    name: Newest published parent pins
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - uses: cognovis/fhir-management/.github/actions/check-published-parents@8128215f7129c56b6c3c792a559f01dd5b164565
+        with:
+          repository-key: fhir-dental-de
+          base: ${{ github.event_name == 'pull_request' && github.event.pull_request.base.sha || github.event.before }}
+          registry-token: ${{ secrets.VERDACCIO_TOKEN }}
+
   validate:
+    if: github.event_name != 'pull_request'
     # Self-hosted runner (cognovis org: atlas / kaji). Match architecture only,
     # not a specific machine — same convention as fhir-terminology-de's CI.
     # The aidbox service is published on host port 8082 (not 8080) so it never

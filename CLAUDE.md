@@ -26,6 +26,14 @@ sushi .                    # Compile FSH → FHIR JSON
 # IG Publisher runs in CI (GitHub Actions), not locally
 ```
 
+### Managed parent pin guard
+
+ADR-004 in `fhir-management` lets published artifacts treat declared managed
+dependency pins as lower bounds. Changed package content must still record the
+newest published managed parent. Run `scripts/install-hooks.sh` after cloning;
+the committed hook and CI both invoke the shared
+`fhir-graph check-published-parents` command.
+
 ## Branch Protection & Merge Workflow
 
 `main` is protected. **Direct push is blocked.** All changes flow through pull requests.
