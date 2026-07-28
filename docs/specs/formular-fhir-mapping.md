@@ -8,8 +8,8 @@ resources. It also records which components already exist in FHIR Dental DE.
 
 It is not an EBZ wire-format specification. The KZBV EBZ contract remains the
 authoritative operational exchange format. A FHIR representation can support
-the clinical record, Polaris/MIRA processing, validation, and future standards
-discussion without claiming wire compatibility with EBZ.
+the clinical record, downstream application processing, validation, and future
+standards discussion without claiming wire compatibility with EBZ.
 
 ## Executive result
 
