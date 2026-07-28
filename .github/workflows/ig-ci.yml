@@ -42,18 +42,44 @@ concurrency:
 
 jobs:
   parent-pins:
-    if: github.event_name != 'workflow_dispatch'
+    if: github.event_name != 'workflow_dispatch' && (github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository)
     name: Newest published parent pins
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
         with:
           fetch-depth: 0
-      - uses: cognovis/fhir-management/.github/actions/check-published-parents@9f1d6f21f903858ae95873108cf35965e8856d22
+      - name: Checkout fhir-management
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
         with:
-          repository-key: fhir-dental-de
-          base: ${{ github.event_name == 'pull_request' && github.event.pull_request.base.sha || github.event.before }}
-          registry-token: ${{ secrets.VERDACCIO_TOKEN }}
+          repository: cognovis/fhir-management
+          ref: 9f1d6f21f903858ae95873108cf35965e8856d22
+          token: ${{ secrets.RELEASE_PAT }}
+          path: .fhir-management
+          persist-credentials: false
+      - uses: astral-sh/setup-uv@d4b2f3b6ecc6e67c4457f6d3e41ec42d3d0fcb86
+      - name: Check newest published managed parents
+        env:
+          BASE: ${{ github.event_name == 'pull_request' && github.event.pull_request.base.sha || github.event.before }}
+          REGISTRY_TOKEN: ${{ secrets.VERDACCIO_TOKEN }}
+        run: |
+          umask 077
+          printf '%s\n' "//npm.cognovis.de/:_authToken=$REGISTRY_TOKEN" > "$HOME/.npmrc"
+          printf '%s\n' "//npm.cognovis.de/:always-auth=true" >> "$HOME/.npmrc"
+          base="$BASE"
+          if [[ "$base" =~ ^0+$ ]]; then
+            base="origin/${{ github.event.repository.default_branch }}"
+          fi
+          uv run --project .fhir-management pytest -q .fhir-management/tests/test_parent_guard.py
+          uv run --project .fhir-management fhir-graph \
+            --repos .fhir-management/configs/repos.yaml \
+            check-published-parents \
+            --repo fhir-dental-de \
+            --repo-path "$GITHUB_WORKSPACE" \
+            --base "$base" \
+            --head HEAD \
+            --mode ci \
+            --timeout 8
 
   validate:
     if: github.event_name != 'pull_request'
