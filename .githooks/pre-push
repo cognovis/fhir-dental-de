@@ -26,6 +26,7 @@ while read -r _local_ref local_sha _remote_ref remote_sha; do
     --repo fhir-dental-de \
     --repo-path "$root" \
     --base "$base" \
+    --head "$local_sha" \
     --mode local \
     --timeout 8
 done
