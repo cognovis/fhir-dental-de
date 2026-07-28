@@ -49,7 +49,7 @@ jobs:
       - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
         with:
           fetch-depth: 0
-      - uses: cognovis/fhir-management/.github/actions/check-published-parents@2d2baeb87f9a5c3f25db7e7d0ff0a05ae80dae66
+      - uses: cognovis/fhir-management/.github/actions/check-published-parents@9f1d6f21f903858ae95873108cf35965e8856d22
         with:
           repository-key: fhir-dental-de
           base: ${{ github.event_name == 'pull_request' && github.event.pull_request.base.sha || github.event.before }}
