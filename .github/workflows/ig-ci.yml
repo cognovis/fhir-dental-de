@@ -69,7 +69,7 @@ jobs:
             --volume "$npmrc:/root/.npmrc:ro" \
             --workdir /workspace \
             --entrypoint sh \
-            ghcr.io/cognovis/fhir-management-aidbox-seed-runner@sha256:7fcda9c5eab1e95f559c7e56b13dbb52fc54b4e73bf149d09ed3e819b9eeb51c \
+            ghcr.io/cognovis/fhir-management-aidbox-seed-runner@sha256:c7e58abf6d8616752f34cac2596ca7add8b9ae729bf74933cf9dcdcd34e08a11 \
             -c 'git config --global --add safe.directory /workspace && exec fhir-graph "$@"' sh \
             --repos /app/configs/repos.yaml \
             check-published-parents \
