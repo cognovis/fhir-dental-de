@@ -12,6 +12,10 @@ fi
 while read -r _local_ref local_sha _remote_ref remote_sha; do
   [[ -n "${local_sha:-}" ]] || continue
   [[ "$local_sha" == "$zero_sha" ]] && continue
+  if [[ "$local_sha" != "$(git rev-parse HEAD)" ]]; then
+    echo "[pre-push] WARNING: pushed ref is not checked out; newest-parent check deferred to CI." >&2
+    continue
+  fi
   base="$remote_sha"
   if [[ "$base" == "$zero_sha" ]]; then
     base="$(git merge-base "$local_sha" origin/main 2>/dev/null || true)"

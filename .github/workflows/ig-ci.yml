@@ -46,10 +46,10 @@ jobs:
     name: Newest published parent pins
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
         with:
           fetch-depth: 0
-      - uses: cognovis/fhir-management/.github/actions/check-published-parents@6d606989cca342d653ee9daff22d3ab358aebfb2
+      - uses: cognovis/fhir-management/.github/actions/check-published-parents@e6ad6ee250b5f037fa8cf1fa6743ba35f2a2aaad
         with:
           repository-key: fhir-dental-de
           base: ${{ github.event_name == 'pull_request' && github.event.pull_request.base.sha || github.event.before }}
