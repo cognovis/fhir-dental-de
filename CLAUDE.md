@@ -1,5 +1,7 @@
 # fhir-dental-de — German Dental FHIR Profiles (R4)
 
+@AGENTS.md
+
 ## Session Start
 
 Always load these skills at the beginning of every session:
