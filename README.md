@@ -32,10 +32,11 @@ this repo runs an automated copyright check on every push and PR.
 
 ### Local Setup
 
-After cloning, install the pre-push hook so the copyright check runs locally before every push:
+After cloning, enable the tracked pre-push hook so the vendor-leak, Beads, SUSHI,
+and copyright checks run locally before every push:
 
 ```bash
-bd hooks install
+git config core.hooksPath .githooks
 ```
 
 ### How it works

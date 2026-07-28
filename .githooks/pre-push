@@ -1,0 +1,74 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+REPO_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+VENDOR_GUARD="$REPO_ROOT/scripts/vendor-leak-guard.sh"
+COPYRIGHT_GUARD="$REPO_ROOT/scripts/check-copyright.sh"
+HOOK_INPUT="$(mktemp)"
+trap 'rm -f "$HOOK_INPUT"' EXIT
+cat >"$HOOK_INPUT"
+
+if [ "${SKIP_VENDOR_LEAK_CHECK:-}" = "1" ]; then
+  echo "pre-push: vendor-leak check skipped by SKIP_VENDOR_LEAK_CHECK" >&2
+else
+  if [ ! -x "$VENDOR_GUARD" ]; then
+    echo "pre-push: required vendor-leak guard is missing or not executable: $VENDOR_GUARD" >&2
+    exit 2
+  fi
+
+  echo "pre-push: checking public content for vendor leaks"
+  if ! "$VENDOR_GUARD"; then
+    echo "pre-push: vendor-leak check failed; push blocked" >&2
+    exit 2
+  fi
+fi
+
+if command -v bd >/dev/null 2>&1; then
+  export BD_GIT_HOOK=1
+  bd_timeout="${BEADS_HOOK_TIMEOUT:-300}"
+  if command -v timeout >/dev/null 2>&1; then
+    if timeout "$bd_timeout" bd hooks run pre-push "$@" <"$HOOK_INPUT"; then
+      bd_exit=0
+    else
+      bd_exit=$?
+    fi
+    if [ "$bd_exit" -eq 124 ]; then
+      echo "beads: hook 'pre-push' timed out after ${bd_timeout}s; continuing without beads" >&2
+      bd_exit=0
+    fi
+  else
+    if bd hooks run pre-push "$@" <"$HOOK_INPUT"; then
+      bd_exit=0
+    else
+      bd_exit=$?
+    fi
+  fi
+  if [ "$bd_exit" -eq 3 ]; then
+    echo "beads: database not initialized; skipping hook 'pre-push'" >&2
+    bd_exit=0
+  fi
+  if [ "$bd_exit" -ne 0 ]; then
+    exit "$bd_exit"
+  fi
+fi
+
+if [ -z "${SKIP_SUSHI_CHECK:-}" ] && [ -x "$REPO_ROOT/scripts/check-sushi.sh" ]; then
+  "$REPO_ROOT/scripts/check-sushi.sh" <"$HOOK_INPUT"
+fi
+
+if [ "${SKIP_COPYRIGHT_CHECK:-}" = "1" ]; then
+  echo "pre-push: copyright check skipped by SKIP_COPYRIGHT_CHECK" >&2
+else
+  if [ ! -x "$COPYRIGHT_GUARD" ]; then
+    echo "pre-push: required copyright guard is missing or not executable: $COPYRIGHT_GUARD" >&2
+    exit 2
+  fi
+
+  if ! "$COPYRIGHT_GUARD"; then
+    echo "pre-push: copyright check failed; push blocked" >&2
+    exit 2
+  fi
+fi
+
+exit 0

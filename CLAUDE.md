@@ -49,6 +49,17 @@ The `vendor-leak-check / check` workflow runs `scripts/vendor-leak-guard.sh`. Th
 - Admin bypass is disabled (`enforce_admins: true`).
 - The branch protection rule cannot be temporarily relaxed without going through the documented rewrite-window procedure, which is reserved for coordinated history rewrites (see `fhir-term-ikl` in fhir-terminology-de), not for routine merges.
 
+For local feedback before the push reaches GitHub, enable the tracked hook once
+per clone:
+
+```bash
+git config core.hooksPath .githooks
+```
+
+The local hook runs the same repository-owned vendor-leak script, preserves the
+Beads and SUSHI checks, and runs the existing copyright check. The required
+GitHub checks remain the server-side backstop for bypassed hooks and web edits.
+
 If the check fails on your PR:
 
 1. Read the failure output and identify the leaked term and file.
@@ -146,7 +157,8 @@ Auto-loaded via standards triggers (`ICD-10`, `ICD-11`, `BfArM`,
 
 The pre-push hook blocks accidental commits of copyrighted KZBV/BEB catalog texts (BEMA, BEL II, beb'97).
 
-**Fresh clone setup:** run `bd hooks install` to install the pre-push hook locally.
+**Fresh clone setup:** run `git config core.hooksPath .githooks` to enable the
+tracked pre-push hook locally.
 
 **Bypass (emergency only):** `SKIP_COPYRIGHT_CHECK=1 git push`
 
