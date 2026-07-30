@@ -44,3 +44,4 @@ docker-compose.yaml
 
 # Cursor harness bridges (mirror .claude/skills) — never tracked
 .cursor/
+.library.lock
