@@ -41,3 +41,6 @@ docs/adr/ADR-004-companion-handover.md
 .agents/
 cliff.toml
 docker-compose.yaml
+
+# Cursor harness bridges (mirror .claude/skills) — never tracked
+.cursor/
