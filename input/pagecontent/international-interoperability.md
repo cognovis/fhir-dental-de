@@ -22,9 +22,9 @@ and transformation specifications should record the exact DDEx version they
 target.
 
 The local build is pinned to `de.basisprofil.r4` 1.5.4, `kbv.basis` 1.9.0,
-and `de.cognovis.fhir.praxis` 0.88.0. These are the tested compatibility
-versions for fhir-dental-de 0.41.0; they are not claims about the newest release
-available in every upstream registry.
+and `de.cognovis.fhir.praxis` 0.91.0. These are the current tested compatibility
+versions; they are not claims about the newest release available in every
+upstream registry.
 
 The [FDI World Dental Federation](https://www.fdiworlddental.org/) published a
 [consensus statement on integrated EHRs](https://www.fdiworlddental.org/sites/default/files/2025-03/FDI_EHR_Consensus%20Statement_Web.pdf)
@@ -118,7 +118,7 @@ Germany and most countries use the FDI two-digit notation (ISO 3950). The US use
 
 | System | Example (lower left first molar) | CodeSystem URI |
 |---|---|---|
-| FDI (ISO 3950) | `36` | `http://terminology.hl7.org/CodeSystem/ex-tooth` |
+| FDI (ISO 3950) | `36` | `https://fhir.cognovis.de/dental/CodeSystem/tooth-identification-fdi` |
 | ADA Universal Numbering | `19` | Used in US IG via SNOMED mapping |
 | SNOMED CT | `38671000` "Permanent lower left first molar" | `http://snomed.info/sct` |
 
@@ -266,7 +266,7 @@ fhir-dental-de uses a dual-coding approach to maintain compatibility with the HL
     {
       "coding": [
         {
-          "system": "http://terminology.hl7.org/CodeSystem/ex-tooth",
+          "system": "https://fhir.cognovis.de/dental/CodeSystem/tooth-identification-fdi",
           "code": "36",
           "display": "Lower left first molar (FDI 36)"
         },

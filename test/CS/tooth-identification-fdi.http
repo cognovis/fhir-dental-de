@@ -1,0 +1,39 @@
+### Cognovis FDI CodeSystem - Permanent Tooth 36
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/tooth-identification-fdi&code=36
+Authorization: Basic basic:secret
+
+> {%
+  client.test("Permanent tooth 36 is supported", function () {
+    client.assert(response.body.total === 1, "Expected exactly one concept for tooth 36");
+  });
+%}
+
+### Cognovis FDI CodeSystem - Deciduous Tooth 75
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/tooth-identification-fdi&code=75
+Authorization: Basic basic:secret
+
+> {%
+  client.test("Deciduous tooth 75 is supported", function () {
+    client.assert(response.body.total === 1, "Expected exactly one concept for tooth 75");
+  });
+%}
+
+### Cognovis FDI CodeSystem - Quadrant Is Not a Tooth
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/tooth-identification-fdi&code=5
+Authorization: Basic basic:secret
+
+> {%
+  client.test("Quadrant 5 is not a tooth position", function () {
+    client.assert(response.body.total === 0, "Expected no concept for quadrant 5");
+  });
+%}
+
+### Cognovis FDI CodeSystem - Invalid Code
+GET http://localhost:8080/Concept?system=https://fhir.cognovis.de/dental/CodeSystem/tooth-identification-fdi&code=INVALID_CODE_XYZ
+Authorization: Basic basic:secret
+
+> {%
+  client.test("Unknown tooth code is rejected", function () {
+    client.assert(response.body.total === 0, "Expected no concept for an unknown code");
+  });
+%}

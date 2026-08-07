@@ -2,7 +2,7 @@
 
 Alias: $loinc   = http://loinc.org
 Alias: $sct     = http://snomed.info/sct
-Alias: $fdiCS   = http://terminology.hl7.org/CodeSystem/ex-tooth
+Alias: $fdiCS   = https://fhir.cognovis.de/dental/CodeSystem/tooth-identification-fdi
 Alias: $surfCS  = http://terminology.hl7.org/CodeSystem/FDI-surface
 
 Instance: ExampleDentalFindingKaries26

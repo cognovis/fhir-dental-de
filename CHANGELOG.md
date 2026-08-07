@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.42.0] - 2026-08-07
+
+### Added
+
+- Add the complete Cognovis FDI tooth-position CodeSystem with all 32 permanent and 20 deciduous positions and a deciduous tooth 75 example.
+
+### Changed
+
+- Bind dental tooth-position usage to the Cognovis FDI canonical and update `de.cognovis.fhir.praxis` to `0.91.0`.
+
+### Removed
+
+- Remove the conflicting HL7 `ex-tooth` source and its quadrant and region pseudo-tooth semantics.
+
 ## [0.41.0] - 2026-07-27
 
 ### Added

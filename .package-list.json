@@ -11,6 +11,14 @@
       "path": "https://cognovis.github.io/fhir-dental-de/",
       "status": "ci-build",
       "current": true
+    },
+    {
+      "version": "0.42.0",
+      "date": "2026-08-07",
+      "desc": "Complete Cognovis FDI tooth-position terminology with permanent and deciduous examples",
+      "path": "https://fhir.cognovis.de/dental/0.42.0",
+      "status": "trial-use",
+      "sequence": "Trial Use"
     }
   ]
 }

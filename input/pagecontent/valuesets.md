@@ -2,7 +2,7 @@
 
 This implementation guide defines the following value sets:
 
-- [Tooth Identification FDI](ValueSet-tooth-identification-fdi.html) — FDI/ISO 3950 tooth numbering
+- [Tooth Identification FDI](ValueSet-tooth-identification-fdi.html) — all 32 permanent and 20 deciduous FDI/ISO 3950 tooth positions, without quadrant or region pseudo-teeth
 - [Dental Finding Codes](ValueSet-dental-finding-codes.html) — Curated SNOMED CT pick list with SCTIDs only; broader validation uses the gated General Dentistry reference set
 - [Dental Practitioner Specialty](ValueSet-dental-practitioner-specialty.html) — SNOMED CT dental specialties for `PractitionerRole.specialty` (SCTID references only)
 - [Dental Procedure Codes](ValueSet-dental-procedure-codes.html) — BEMA, GOZ, and clinical procedure categories; OPS remains available through the extensible binding

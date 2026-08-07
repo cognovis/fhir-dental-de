@@ -7,7 +7,7 @@ description: >-
   conditions (ICD-10-GM), findings (Zahnschema/FDI), and communication.
   Built on German base profiles (de.basisprofil.r4, KBV).
 status: active
-version: 0.41.6
+version: 0.42.0
 fhirVersion: 4.0.1
 copyrightYear: 2026+
 copyright: Copyright 2026+ cognovis GmbH. Licensed under CC-BY-4.0.
@@ -28,7 +28,7 @@ dependencies:
   # ATF MessageHeader for KIM/TIM transport
   de.gematik.fhir.atf: 1.4.1
   # Praxis-DE Foundation — AccountPraxisSchein + EncounterPraxis
-  de.cognovis.fhir.praxis: 0.90.0
+  de.cognovis.fhir.praxis: 0.91.0
   # Official gematik digital patient invoice contract
   de.gematik.dipag: 1.0.8
   # CI Fallback (Option C): If Verdaccio uplink errors occur during CI build, pre-load the package
@@ -94,10 +94,10 @@ parameters:
     - http://fhir.de/CodeSystem/kzbv/bema
     - http://fhir.de/CodeSystem/bzaek/goz
     - https://fhir.cognovis.de/dental/CodeSystem/bel-ii
-    - http://terminology.hl7.org/CodeSystem/ex-tooth
     - http://fhir.de/CodeSystem/bfarm/icd-10-gm
     - http://fhir.de/CodeSystem/bfarm/ops
     # Own CodeSystems defined in this IG (under https://fhir.cognovis.de/dental/CodeSystem/)
+    - https://fhir.cognovis.de/dental/CodeSystem/tooth-identification-fdi
     - https://fhir.cognovis.de/dental/CodeSystem/ze-befundkuerzel
     - https://fhir.cognovis.de/dental/CodeSystem/kfo-behandlungsphase
     - https://fhir.cognovis.de/dental/CodeSystem/bema-befundklasse

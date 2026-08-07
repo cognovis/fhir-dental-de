@@ -1,7 +1,7 @@
 // Example: Laborauftrag an Dentallabor für Keramik-Inlay Zahn 15
 // SWS 2.0 Satzart 13 — Zahntechnischer Laborauftrag
 
-Alias: $fdiCS = http://terminology.hl7.org/CodeSystem/ex-tooth
+Alias: $fdiCS = https://fhir.cognovis.de/dental/CodeSystem/tooth-identification-fdi
 
 Instance: ExampleDentalLabServiceRequest
 InstanceOf: DentalLabServiceRequestDE

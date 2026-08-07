@@ -14,7 +14,7 @@ Description: "Profile for assessing impacted/unerupted teeth using Winter's angu
 
 // FDI Tooth Reference (required extension)
 * extension contains https://fhir.cognovis.de/dental/StructureDefinition/fdi-tooth-number named fdiToothNumber 1..1 MS
-* extension[fdiToothNumber] ^short = "FDI tooth number (1-8, 11-18, 21-28, 31-38, 41-48)"
+* extension[fdiToothNumber] ^short = "One of 32 permanent or 20 deciduous FDI tooth positions"
 
 // bodySite is optional (redundant with extension, but permitted)
 * bodySite 0..1

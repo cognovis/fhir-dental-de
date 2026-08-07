@@ -1,6 +1,6 @@
 Alias: $sct = http://snomed.info/sct
 Alias: $loinc = http://loinc.org
-Alias: $fdiCS = http://terminology.hl7.org/CodeSystem/ex-tooth
+Alias: $fdiCS = https://fhir.cognovis.de/dental/CodeSystem/tooth-identification-fdi
 Alias: $pabefund = https://fhir.cognovis.de/dental/CodeSystem/pa-befund-type
 
 Instance: ExampleRadiographicBoneLoss

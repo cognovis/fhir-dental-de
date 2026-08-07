@@ -40,7 +40,7 @@ Content-Type: application/fhir+json
       "coding": [
         {
           "code": "36",
-          "system": "http://terminology.hl7.org/CodeSystem/ex-tooth",
+          "system": "https://fhir.cognovis.de/dental/CodeSystem/tooth-identification-fdi",
           "display": "36"
         }
       ],
@@ -95,7 +95,7 @@ Content-Type: application/fhir+json
       "coding": [
         {
           "code": "36",
-          "system": "http://terminology.hl7.org/CodeSystem/ex-tooth",
+          "system": "https://fhir.cognovis.de/dental/CodeSystem/tooth-identification-fdi",
           "display": "36"
         }
       ],

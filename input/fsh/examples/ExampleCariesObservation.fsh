@@ -11,3 +11,17 @@ Description: "A distinct visual enamel change on the occlusal surface of tooth 1
 * bodySite = $fdiCS#16
 * bodySite.extension[surface].valueCodeableConcept = $fdi-surface#O
 * valueCodeableConcept = ICDASCariesScoreCS#2
+
+Instance: ExampleDeciduousCariesObservation75Occlusal
+InstanceOf: CariesObservationDE
+Usage: #example
+Title: "ICDAS Caries Observation at Retained Deciduous Tooth 75"
+Description: "A distinct visual enamel change on the occlusal surface of retained deciduous tooth 75."
+* status = #final
+* code = DentalAssessmentTypeCS#icdas-caries-assessment
+* subject = Reference(Patient/pat-beihilfe-01)
+* performer = Reference(Organization/org-dental-mvz)
+* effectiveDateTime = "2026-08-07"
+* bodySite = $fdiCS#75
+* bodySite.extension[surface].valueCodeableConcept = $fdi-surface#O
+* valueCodeableConcept = ICDASCariesScoreCS#2

@@ -1,7 +1,7 @@
 // Example: GOZ 2150 Aufbaufüllung, Faktor 2.3, Zahn 15
 // SWS 2.0 Satzart 7 — GOZ-Leistungsabrechnung (Privatpatient)
 
-Alias: $fdiCS     = http://terminology.hl7.org/CodeSystem/ex-tooth
+Alias: $fdiCS     = https://fhir.cognovis.de/dental/CodeSystem/tooth-identification-fdi
 Alias: $gozCS     = http://fhir.de/CodeSystem/bzaek/goz
 Alias: $surfaceCS = http://terminology.hl7.org/CodeSystem/FDI-surface
 

@@ -170,6 +170,9 @@ jobs:
       - name: Build FHIR package
         run: bash scripts/build-package.sh
 
+      - name: Verify generated FDI tooth terminology
+        run: node scripts/check-fdi-tooth-terminology.mjs dist/package
+
       - name: Verify generated periodontal evidence
         run: node scripts/check-periodontal-evidence.mjs
 
