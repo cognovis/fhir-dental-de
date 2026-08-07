@@ -157,10 +157,9 @@ Structured diagnoses with ICD-10-GM coding. Dentally relevant for PAR (periodont
 
 FDI dental chart with finding classes per tooth and surface. The dental IG
 supports all 32 permanent teeth (11–18, 21–28, 31–38, 41–48) and all 20
-deciduous teeth (51–55, 61–65, 71–75, 81–85). Supernumerary source values need
-a separately approved canonical contract and are not part of the tooth-position
-terminology. Periodontal measurements are transmitted as 32-character strings
-without separators.
+deciduous teeth (51–55, 61–65, 71–75, 81–85). Only these 52 positions belong
+to the tooth-position terminology. Periodontal measurements are transmitted as
+32-character strings without separators.
 
 | SWS Field | SWS Name (DE) | FHIR Resource | FHIR Path | Notes |
 |-----------|---------------|---------------|-----------|-------|
