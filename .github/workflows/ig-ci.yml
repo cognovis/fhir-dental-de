@@ -125,6 +125,9 @@ jobs:
       - name: Generate KBV Basis snapshots (KBV publishes kbv.basis without snapshots)
         uses: ./.github/actions/generate-kbv-basis-snapshots
 
+      - name: Setup uv
+        uses: astral-sh/setup-uv@v6
+
       - name: Prepare DiPag snapshots
         run: |
           uv run python scripts/test_generate_fhir_package_snapshots.py
