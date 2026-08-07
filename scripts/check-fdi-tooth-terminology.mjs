@@ -17,7 +17,11 @@ function assert(condition, message) {
 }
 
 function readGeneratedResource(fileName, description) {
-  const path = join(resourceDirectory, fileName);
+  return readResource(resourceDirectory, fileName, description);
+}
+
+function readResource(directory, fileName, description) {
+  const path = join(directory, fileName);
   assert(
     existsSync(path),
     `Generated FHIR package is missing ${description}: ${fileName}`,
@@ -127,6 +131,21 @@ assert(
   extensionValue?.type?.length === 1 &&
     extensionValue.type[0].code === "code",
   "FdiToothNumberExt must remain a valueCode extension",
+);
+
+const deciduousExample = readResource(
+  join(repositoryRoot, "fsh-generated", "resources"),
+  "Observation-ExampleDeciduousCariesObservation75Occlusal.json",
+  "the deciduous tooth 75 example",
+);
+assert(
+  deciduousExample.meta?.profile?.includes(
+    "https://fhir.cognovis.de/dental/StructureDefinition/caries-observation",
+  ) &&
+    (deciduousExample.bodySite?.coding ?? []).some(
+      (coding) => coding.system === canonical && coding.code === "75",
+    ),
+  "The deciduous caries example must exercise tooth 75 through CariesObservationDE.bodySite",
 );
 
 console.log("FDI tooth terminology package checks passed");
