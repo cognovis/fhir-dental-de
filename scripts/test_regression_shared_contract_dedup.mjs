@@ -30,7 +30,6 @@ function sourceFiles(relativePath) {
 // Guards against reintroducing IG-local definitions for shared terminology.
 const retiredDefinitions = [
   "input/fsh/codesystems/GozCS.fsh",
-  "input/fsh/codesystems/ToothIdentificationFDICS.fsh",
   "input/fsh/codesystems/ToothSurfacesCS.fsh",
 ];
 for (const relativePath of retiredDefinitions) {
@@ -46,10 +45,9 @@ const activeText = activeSources
   .map((file) => readFileSync(file, "utf8"))
   .join("\n");
 const retiredDentalCanonical =
-  "https://fhir.cognovis.de/dental/CodeSystem/" +
-  "(?:tooth-identification-fdi|tooth-surfaces)";
+  "https://fhir.cognovis.de/dental/CodeSystem/tooth-surfaces";
 assert.doesNotMatch(activeText, new RegExp(retiredDentalCanonical));
-assert.doesNotMatch(activeText, /\b(?:GozCS|ToothIdentificationFDICS|ToothSurfacesCS)\b/);
+assert.doesNotMatch(activeText, /\b(?:GozCS|ToothSurfacesCS)\b/);
 assert.doesNotMatch(activeText, /\$fdi(?:CS|-tooth)#[0-9]+\s+"Zahn [0-9]+"/);
 
 const expectedParents = new Map([

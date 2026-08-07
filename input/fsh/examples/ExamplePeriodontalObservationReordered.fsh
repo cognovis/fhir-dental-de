@@ -1,5 +1,5 @@
 Alias: $loinc = http://loinc.org
-Alias: $fdiCS = http://terminology.hl7.org/CodeSystem/ex-tooth
+Alias: $fdiCS = https://fhir.cognovis.de/dental/CodeSystem/tooth-identification-fdi
 Alias: $periodontalSite = https://fhir.cognovis.de/dental/CodeSystem/periodontal-measurement-site
 
 Instance: ExamplePeriodontalObservationReordered

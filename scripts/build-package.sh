@@ -112,7 +112,7 @@ done
 
 # 6b. Copy pre-built JSON resources from input/resources/ (e.g., external CodeSystems)
 # Note: Aidbox $fhir-package-install skips resources with external canonical URLs.
-# External CodeSystems (e.g., ex-tooth) must be PUT directly after package install.
+# External CodeSystems must be PUT directly after package install.
 if [ -d "$ROOT/input/resources" ]; then
   for f in "$ROOT/input/resources/"*.json; do
     [ -f "$f" ] || continue

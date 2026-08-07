@@ -4,7 +4,7 @@
 Alias: $loinc   = http://loinc.org
 Alias: $sct     = http://snomed.info/sct
 Alias: $icd10gm = http://fhir.de/CodeSystem/bfarm/icd-10-gm
-Alias: $fdiCS   = http://terminology.hl7.org/CodeSystem/ex-tooth
+Alias: $fdiCS   = https://fhir.cognovis.de/dental/CodeSystem/tooth-identification-fdi
 
 Instance: ExampleDentalFinding
 InstanceOf: DentalFindingDE

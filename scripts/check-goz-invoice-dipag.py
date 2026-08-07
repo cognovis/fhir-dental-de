@@ -37,7 +37,7 @@ def validate_negative_fixture(path: Path) -> None:
         "-ig",
         "de.gematik.dipag#1.0.8",
         "-ig",
-        "de.cognovis.fhir.praxis#0.88.0",
+        "de.cognovis.fhir.praxis#0.91.0",
         "-ig",
         str(GENERATED / "StructureDefinition-goz-charge-item.json"),
         "-ig",
@@ -60,7 +60,7 @@ def validate_negative_fixture(path: Path) -> None:
 
 def main() -> int:
     config = (ROOT / "sushi-config.yaml").read_text(encoding="utf-8")
-    assert "de.cognovis.fhir.praxis: 0.88.0" in config
+    assert "de.cognovis.fhir.praxis: 0.91.0" in config
     assert "de.gematik.dipag: 1.0.8" in config
 
     profile = load("StructureDefinition-goz-invoice-de.json")

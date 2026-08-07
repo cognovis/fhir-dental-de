@@ -155,7 +155,12 @@ Structured diagnoses with ICD-10-GM coding. Dentally relevant for PAR (periodont
 
 ### Satzart 5: Zahnschema / Odontogramm
 
-FDI dental chart with finding classes per tooth and surface. Covers all 32 permanent teeth (11–18, 21–28, 31–38, 41–48), deciduous teeth (51–55, 61–65, 71–75, 81–85), and supernumerary teeth (19, 29, 39, 49). Periodontal measurements are transmitted as 32-character strings without separators.
+FDI dental chart with finding classes per tooth and surface. The dental IG
+supports all 32 permanent teeth (11–18, 21–28, 31–38, 41–48) and all 20
+deciduous teeth (51–55, 61–65, 71–75, 81–85). Supernumerary source values need
+a separately approved canonical contract and are not part of the tooth-position
+terminology. Periodontal measurements are transmitted as 32-character strings
+without separators.
 
 | SWS Field | SWS Name (DE) | FHIR Resource | FHIR Path | Notes |
 |-----------|---------------|---------------|-----------|-------|
@@ -427,12 +432,11 @@ In `Observation.bodySite` and `Procedure.bodySite`, only SNOMED CT body sites ar
 **Solution:** Custom CodeSystem + Extension with dual-coding:
 
 ```
-CodeSystem URL: https://fhir.cognovis.de/dental/CodeSystem/fdi-tooth-number
+CodeSystem URL: https://fhir.cognovis.de/dental/CodeSystem/tooth-identification-fdi
 Extension URL:  https://fhir.cognovis.de/dental/StructureDefinition/fdi-tooth-number
 ValueType: code
 Codes: 11-18, 21-28, 31-38, 41-48 (permanent),
-       51-55, 61-65, 71-75, 81-85 (deciduous),
-       19, 29, 39, 49 (supernumerary)
+       51-55, 61-65, 71-75, 81-85 (deciduous)
 ```
 
 Dual-coding strategy: FDI as primary coding, SNOMED CT tooth code as additional coding where available. This maintains compatibility with the HL7 Dental Data Exchange IG:
@@ -440,7 +444,7 @@ Dual-coding strategy: FDI as primary coding, SNOMED CT tooth code as additional 
 ```json
 "bodySite": {
   "coding": [
-    { "system": "https://fhir.cognovis.de/dental/CodeSystem/fdi-tooth-number", "code": "36" },
+    { "system": "https://fhir.cognovis.de/dental/CodeSystem/tooth-identification-fdi", "code": "36" },
     { "system": "http://snomed.info/sct", "code": "38671000",
       "display": "Permanent lower left first molar" }
   ]
@@ -557,7 +561,7 @@ The `Claim` (use=prior-authorization) + `ClaimResponse` + `Task` trio maps clean
 FDI tooth numbers are the de facto standard in Germany (and internationally outside the US). However, the HL7 Dental Data Exchange IG uses SNOMED CT tooth codes. By storing both — FDI as primary, SNOMED as additional coding — this IG:
 - Correctly represents the German practice context (FDI-first)
 - Maintains compatibility with the HL7 Dental Data Exchange IG for cross-border data exchange
-- Covers all FDI tooth numbers, including those SNOMED CT does not have concepts for (FDI is complete; SNOMED CT coverage is partial)
+- Covers every permanent and deciduous FDI tooth position in this IG, including positions for which SNOMED CT coverage is incomplete
 
 ### Observation for Dental Chart (Odontogram)
 
@@ -606,7 +610,7 @@ All custom extensions for this IG use the canonical namespace `https://fhir.cogn
 
 | Extension (suffix) | ValueType | Purpose | Extends |
 |--------------------|-----------|---------|---------|
-| `fdi-tooth-number` | `code` | FDI tooth number (11–85, supernumerary) | `ChargeItem`, `Observation`, `Condition`, `Procedure` |
+| `fdi-tooth-number` | `code` | One of 32 permanent or 20 deciduous FDI tooth positions | `ChargeItem`, `Observation`, `Condition`, `Procedure` |
 | `tooth-surfaces` | `CodeableConcept` (0..*) | Tooth surfaces (M/D/O/I/B/V/L/P) | `ChargeItem`, `Observation` |
 | `bema-befundklasse` | `code` (c\|k\|f\|e\|b) | BEMA finding class for billing context | `ChargeItem`, `Observation` |
 | `hkp-genehmigungsstatus` | complex | HKP approval workflow status | `CarePlan` |

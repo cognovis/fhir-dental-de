@@ -1,7 +1,7 @@
 // Example: Kompositfüllung BEMA 13b, Zahn 46, MO (mesial-okklusal)
 // SWS 2.0 Satzart 5 — Zahnärztliche Behandlung
 
-Alias: $fdiCS   = http://terminology.hl7.org/CodeSystem/ex-tooth
+Alias: $fdiCS   = https://fhir.cognovis.de/dental/CodeSystem/tooth-identification-fdi
 Alias: $bemaCS  = http://fhir.de/CodeSystem/kzbv/bema
 
 Instance: ExampleDentalProcedure

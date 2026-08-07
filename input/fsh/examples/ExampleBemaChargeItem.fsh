@@ -1,7 +1,7 @@
 // Example: BEMA 13c Leistungsposition, Zahn 36, 25 Punkte
 // SWS 2.0 Satzart 6 — BEMA-Leistungsabrechnung
 
-Alias: $fdiCS    = http://terminology.hl7.org/CodeSystem/ex-tooth
+Alias: $fdiCS    = https://fhir.cognovis.de/dental/CodeSystem/tooth-identification-fdi
 Alias: $bemaCS   = http://fhir.de/CodeSystem/kzbv/bema
 Alias: $surfaceCS = http://terminology.hl7.org/CodeSystem/FDI-surface
 

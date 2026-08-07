@@ -1,8 +1,8 @@
 ### Code Systems
 
 This implementation guide defines the following code systems for German dental terminology.
-External catalog and standard systems such as BEMA, GOZ, FDI teeth, and FDI
-surfaces are referenced by canonical URL rather than redefined by this IG.
+External catalog and standard systems such as BEMA, GOZ, and FDI surfaces are
+referenced by canonical URL rather than redefined by this IG.
 
 #### No local dental specialty CodeSystem
 
@@ -16,6 +16,7 @@ Runtime displays and validation for those SCTIDs come from the gated package `de
 - [beb'97](CodeSystem-beb97.html) — Private zahntechnische Leistungen
 
 #### Clinical Code Systems
+- [FDI Tooth Position](CodeSystem-tooth-identification-fdi.html) — all 32 permanent and 20 deciduous tooth positions, excluding quadrant and region pseudo-teeth
 - SWS 2.0 tooth status (`https://fhir.cognovis.de/dental/CodeSystem/sws2-zahnstatus`) — published external tooth-chart terminology from `de.cognovis.terminology.dental.sws-zahnstatus`
 - [Oral Health Screening Component](CodeSystem-oral-health-screening-component.html) — structural component identifiers only; bruxism type and grade values remain in the published upstream terminology
 - [Dental Category](CodeSystem-dental-category.html) — Dental resource category marker
